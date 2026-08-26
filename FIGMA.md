@@ -54,6 +54,7 @@ and its shortcut text is fixed at the component default.
 | Data Input | Field, TextInput, TextArea, NumberInput, CheckboxInput, Switch, RadioList, Slider, DateInput, FileInput, Selector, MultiSelector, Typeahead |
 | Feedback & Status | StatusDot, Spinner, Skeleton, Badge, Banner, Toast, ProgressBar, EmptyState |
 | Navigation | TopNav, SideNav, TabList, Breadcrumbs, Pagination, Stepper, Outline |
+| Overlay | Tooltip, Popover, HoverCard, Dialog, AlertDialog, CommandPalette, Lightbox |
 
 Variables: `primitives` (31, hidden from pickers) and `semantic` (49, aliased to
 primitives, WEB code syntax on every one).
@@ -168,6 +169,24 @@ moving the child out to the page as a top-level `COMPONENT` and letting Figma
 auto-delete the now-empty set — the correct construction is to know before
 building whether a component has an axis, and skip `combineAsVariants`
 entirely when it doesn't.
+
+### Overlay — variant counts
+
+| Component | Variants | Axes |
+| --- | --- | --- |
+| Tooltip | 2 | Placement (Top, Bottom) |
+| Popover | — | plain `COMPONENT` |
+| HoverCard | — | plain `COMPONENT` |
+| Dialog | 3 | Size (Sm, Md, Lg) |
+| AlertDialog | 2 | Tone (Default, Danger) |
+| CommandPalette | — | plain `COMPONENT` |
+| Lightbox | — | plain `COMPONENT` |
+
+Four of seven are plain `COMPONENT`s — applied the Navigation lesson from the
+start this time, so none of them round-tripped through a one-child
+`COMPONENT_SET` first. No new sizing traps this category; every bug (once
+Popover's leftover single-variant wrap was caught early and fixed the same
+way as `TopNav`/`Outline`) was content, not layout.
 
 ## Traps worth knowing before building the next category
 
