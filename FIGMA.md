@@ -51,6 +51,7 @@ and its shortcut text is fixed at the component default.
 | Icon | 32 Lucide components at 24×24, stroke 1.5 |
 | Action | Button, IconButton, ButtonGroup, ToggleButton, ToggleButtonGroup, SegmentedControl, Link, MenuItem, DropdownMenu, MoreMenu, Toolbar |
 | Content | Heading, Text, Divider, Token, Kbd, Code, Timestamp, Avatar, AvatarGroup, Thumbnail, Blockquote, CodeBlock, Markdown, Card |
+| Data Input | Field, TextInput, TextArea, NumberInput, CheckboxInput, Switch, RadioList, Slider, DateInput, FileInput, Selector, MultiSelector, Typeahead |
 
 Variables: `primitives` (31, hidden from pickers) and `semantic` (49, aliased to
 primitives, WEB code syntax on every one).
@@ -92,7 +93,36 @@ property named for the node it drives (`label`, `quote`, `value`).
 | Markdown | 2 | Size | — |
 | Card | 3 | Edge | title, subtitle, Show header/action/footer |
 
-## Three traps worth knowing before building the next category
+### Data Input — variant counts
+
+| Component | Variants | Axes | Extra properties |
+| --- | --- | --- | --- |
+| Field | 4 | State | label, hint, error, Required |
+| TextInput | 8 | Face × State | — |
+| TextArea | 3 | State | value |
+| NumberInput | 4 | State | — |
+| CheckboxInput | 6 | State | label |
+| Switch | 4 | State | label, hint |
+| RadioList | 2 | Appearance | — |
+| Slider | 3 | State | — |
+| DateInput | 2 | Mode | — |
+| FileInput | 2 | State | — |
+| Selector | 4 | State | — |
+| MultiSelector | 2 | State | — |
+| Typeahead | 2 | State | — |
+
+Every padding and gap here is bound to `space/*` as it's built — Data Input is
+the first category with no separate rebind pass, and one new token
+(`space/24`, FileInput's drop-zone padding) joined the scale along the way.
+
+Several of these components — TextInput's Face, NumberInput's AtMinimum,
+Selector's per-state sample text — carry **no** shared text property even
+though the trap below would allow one, because each variant's content is
+supposed to differ (a data-face sample vs a UI-face one, a "0" at the floor
+vs a "10" elsewhere). Static per-variant text, no property, matches the same
+rule as Thumbnail's fix.
+
+## Traps worth knowing before building the next category
 
 **A hidden auto-layout child still costs you its gap.** Hiding a node removes it
 from layout, but the spacing between its two neighbours remains. An unlabelled
@@ -113,6 +143,27 @@ cannot also carry its 1px line border through the stroke, because setting
 per-side weights applies one paint to all of them. The edge is drawn as an
 absolutely-positioned 3px rectangle with `constraints.vertical = STRETCH`,
 clipped by the card's corner radius, leaving the border free to stay `line`.
+
+**`resize()` silently resets sizing back to FIXED — even on a node you already
+built with auto-layout.** `FileInput`'s drop zone and `MultiSelector`'s open
+dropdown were both created as auto-layout frames, then `resize(w, 10)` was
+called to lock in a placeholder width — which also flips *both* axes to
+`FIXED`. Nothing errors; the frame just quietly stops hugging its content, so
+padding appears to do nothing and multi-line content gets clipped to whatever
+height the placeholder happened to be. The fix is always the same:
+`layoutSizingVertical = 'HUG'` after the `resize()` call, not instead of it.
+Screenshot every component that calls `resize()` on anything but a leaf node.
+
+**A top-level component's own width is `counterAxisSizingMode`, not
+`layoutSizingHorizontal`.** `layoutSizingHorizontal` (`'FIXED'|'HUG'|'FILL'`)
+describes a node *as a child of an auto-layout parent* — it does nothing
+useful on the component itself, which is never anyone's child. `Typeahead`'s
+Open variant stayed stuck at Figma's default 100×100 frame size because
+setting `layoutMode` alone doesn't touch the axis sizing modes left over from
+that default; the fix is `counterAxisSizingMode = 'AUTO'` (and
+`primaryAxisSizingMode = 'AUTO'` for the other axis) on the component itself.
+Same two-enum confusion the `figma-use` skill already warns about (Rule 12b),
+just showing up one level higher — on the root, not a child.
 
 ## Spacing scale
 
