@@ -1,0 +1,130 @@
+{
+ "alert-triangle": {
+  "lucide": "triangle-alert",
+  "body": "<path d=\"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3\" /> <path d=\"M12 9v4\" /> <path d=\"M12 17h.01\" />"
+ },
+ "arrow-down-right": {
+  "lucide": "arrow-down-right",
+  "body": "<path d=\"m7 7 10 10\" /> <path d=\"M17 7v10H7\" />"
+ },
+ "arrow-up-right": {
+  "lucide": "arrow-up-right",
+  "body": "<path d=\"M7 7h10v10\" /> <path d=\"M7 17 17 7\" />"
+ },
+ "bar-chart": {
+  "lucide": "chart-column",
+  "body": "<path d=\"M3 3v16a2 2 0 0 0 2 2h16\" /> <path d=\"M18 17V9\" /> <path d=\"M13 17V5\" /> <path d=\"M8 17v-3\" />"
+ },
+ "book-open": {
+  "lucide": "book-open",
+  "body": "<path d=\"M12 5v16\" /> <path d=\"M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z\" />"
+ },
+ "calendar": {
+  "lucide": "calendar",
+  "body": "<path d=\"M8 2v3\" /> <path d=\"M16 2v3\" /> <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" /> <path d=\"M3 9h18\" />"
+ },
+ "check": {
+  "lucide": "check",
+  "body": "<path d=\"M20 6 9 17l-5-5\" />"
+ },
+ "check-circle": {
+  "lucide": "circle-check",
+  "body": "<circle cx=\"12\" cy=\"12\" r=\"10\" /> <path d=\"m9 12 2 2 4-4\" />"
+ },
+ "chevron-down": {
+  "lucide": "chevron-down",
+  "body": "<path d=\"m6 9 6 6 6-6\" />"
+ },
+ "chevron-left": {
+  "lucide": "chevron-left",
+  "body": "<path d=\"m15 18-6-6 6-6\" />"
+ },
+ "chevron-right": {
+  "lucide": "chevron-right",
+  "body": "<path d=\"m9 18 6-6-6-6\" />"
+ },
+ "chevron-up": {
+  "lucide": "chevron-up",
+  "body": "<path d=\"m18 15-6-6-6 6\" />"
+ },
+ "clipboard-check": {
+  "lucide": "clipboard-check",
+  "body": "<rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\" ry=\"1\" /> <path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\" /> <path d=\"m9 14 2 2 4-4\" />"
+ },
+ "close": {
+  "lucide": "x",
+  "body": "<path d=\"M18 6 6 18\" /> <path d=\"m6 6 12 12\" />"
+ },
+ "database": {
+  "lucide": "database",
+  "body": "<ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\" /> <path d=\"M3 5V19A9 3 0 0 0 21 19V5\" /> <path d=\"M3 12A9 3 0 0 0 21 12\" />"
+ },
+ "dollar-sign": {
+  "lucide": "dollar-sign",
+  "body": "<line x1=\"12\" x2=\"12\" y1=\"2\" y2=\"22\" /> <path d=\"M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\" />"
+ },
+ "download": {
+  "lucide": "download",
+  "body": "<path d=\"M12 15V3\" /> <path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\" /> <path d=\"m7 10 5 5 5-5\" />"
+ },
+ "external-link": {
+  "lucide": "external-link",
+  "body": "<path d=\"M15 3h6v6\" /> <path d=\"M10 14 21 3\" /> <path d=\"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6\" />"
+ },
+ "file-text": {
+  "lucide": "file-text",
+  "body": "<path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" /> <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" /> <path d=\"M10 9H8\" /> <path d=\"M16 13H8\" /> <path d=\"M16 17H8\" />"
+ },
+ "gauge": {
+  "lucide": "gauge",
+  "body": "<path d=\"m12 14 4-4\" /> <path d=\"M3.34 19a10 10 0 1 1 17.32 0\" />"
+ },
+ "history": {
+  "lucide": "history",
+  "body": "<path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\" /> <path d=\"M3 3v5h5\" /> <path d=\"M12 7v5l4 2\" />"
+ },
+ "layout-grid": {
+  "lucide": "layout-grid",
+  "body": "<rect width=\"7\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\" /> <rect width=\"7\" height=\"7\" x=\"14\" y=\"3\" rx=\"1\" /> <rect width=\"7\" height=\"7\" x=\"14\" y=\"14\" rx=\"1\" /> <rect width=\"7\" height=\"7\" x=\"3\" y=\"14\" rx=\"1\" />"
+ },
+ "minus": {
+  "lucide": "minus",
+  "body": "<path d=\"M5 12h14\" />"
+ },
+ "more-horizontal": {
+  "lucide": "ellipsis",
+  "body": "<circle cx=\"12\" cy=\"12\" r=\"1\" /> <circle cx=\"19\" cy=\"12\" r=\"1\" /> <circle cx=\"5\" cy=\"12\" r=\"1\" />"
+ },
+ "package-search": {
+  "lucide": "package-search",
+  "body": "<path d=\"M12 22V12\" /> <path d=\"M20.27 18.27 22 20\" /> <path d=\"M21 10.498V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l.98-.559\" /> <path d=\"M3.29 7 12 12l8.71-5\" /> <path d=\"m7.5 4.27 8.997 5.148\" /> <circle cx=\"18.5\" cy=\"16.5\" r=\"2.5\" />"
+ },
+ "plus": {
+  "lucide": "plus",
+  "body": "<path d=\"M5 12h14\" /> <path d=\"M12 5v14\" />"
+ },
+ "printer": {
+  "lucide": "printer",
+  "body": "<path d=\"M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2\" /> <path d=\"M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6\" /> <rect x=\"6\" y=\"14\" width=\"12\" height=\"8\" rx=\"1\" />"
+ },
+ "search": {
+  "lucide": "search",
+  "body": "<path d=\"m21 21-4.34-4.34\" /> <circle cx=\"11\" cy=\"11\" r=\"8\" />"
+ },
+ "settings": {
+  "lucide": "settings",
+  "body": "<path d=\"M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915\" /> <circle cx=\"12\" cy=\"12\" r=\"3\" />"
+ },
+ "sparkles": {
+  "lucide": "sparkles",
+  "body": "<path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\" /> <path d=\"M20 2v4\" /> <path d=\"M22 4h-4\" /> <circle cx=\"4\" cy=\"20\" r=\"2\" />"
+ },
+ "trending-up": {
+  "lucide": "trending-up",
+  "body": "<path d=\"M16 7h6v6\" /> <path d=\"m22 7-8.5 8.5-5-5L2 17\" />"
+ },
+ "upload": {
+  "lucide": "upload",
+  "body": "<path d=\"M12 3v12\" /> <path d=\"m17 8-5-5-5 5\" /> <path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\" />"
+ }
+}
