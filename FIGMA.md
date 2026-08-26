@@ -7,12 +7,14 @@ component behaviour from `storybook/src/components`.
 
 ## ⚠️ One thing to change back before shipping
 
-**The four `data/*` text styles point at Geist Light. They must be General Sans
+**Every `data/*` text style points at Geist Light. They must be General Sans
 Light.**
 
-Repoint `data/13`, `data/12.5`, `data/12` and `data/11.5` in Figma's local text
-styles. Every number, ID and tool name in the file becomes correct at once —
-nothing else needs touching, and no component has to be rebuilt.
+Repoint all of them in Figma's local text styles — there are five today
+(`data/14`, `data/13`, `data/12.5`, `data/12`, `data/11.5`) and the set grows as
+components need new sizes, so select the whole `data/` group rather than working
+from a list. Every number, ID and tool name in the file becomes correct at once;
+nothing else needs touching and no component has to be rebuilt.
 
 ### Why they are wrong on purpose
 
