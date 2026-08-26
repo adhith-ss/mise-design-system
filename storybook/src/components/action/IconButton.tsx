@@ -23,7 +23,7 @@ const VARIANT: Record<IconButtonVariant, string> = {
   ghost: 'bg-transparent text-ink-700 hover:bg-canvas',
   outline: 'border border-line bg-surface text-ink-700 hover:bg-canvas',
   solid: 'bg-brand-600 text-white hover:bg-brand-800',
-  danger: 'bg-transparent text-danger hover:bg-danger-bg',
+  danger: 'bg-transparent text-danger hover:bg-tone-danger-bg',
 };
 
 export function IconButton({

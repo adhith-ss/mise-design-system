@@ -21,7 +21,7 @@ export function AgentError({
   return (
     <div
       role="alert"
-      className="flex max-w-[620px] flex-col gap-2 rounded-lg border border-danger-line border-l-[3px] border-l-danger bg-danger-bg px-4 py-[14px]"
+      className="flex max-w-[620px] flex-col gap-2 rounded-lg border border-danger-line border-l-[3px] border-l-danger bg-tone-danger-bg px-4 py-[14px]"
     >
       <h3 className="m-0 text-[13.5px] font-bold">{title}</h3>
       <p className="m-0 text-[12.5px] leading-[1.65] text-ink-700">{body}</p>

@@ -29,7 +29,7 @@ const VARIANT: Record<ButtonVariant, string> = {
   primary: 'bg-brand-600 text-white hover:bg-brand-800 active:bg-brand-900',
   secondary: 'border border-brand-200 bg-surface text-brand-600 hover:bg-brand-50',
   neutral: 'border border-line bg-surface text-ink-700 hover:bg-canvas',
-  danger: 'border border-danger-border bg-surface text-danger hover:bg-danger-bg',
+  danger: 'border border-danger-border bg-surface text-danger hover:bg-tone-danger-bg',
   ghost: 'bg-transparent text-ink-700 hover:bg-canvas',
 };
 

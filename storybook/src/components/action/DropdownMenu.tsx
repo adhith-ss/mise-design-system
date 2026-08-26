@@ -93,7 +93,7 @@ export function DropdownMenu({
                   onClick={() => { item.onSelect?.(); if (closeOnSelect) set(false); }}
                   className={cx(
                     'flex h-8 w-full items-center gap-[10px] rounded-md px-[10px] text-left text-[13.5px] transition-colors duration-fast ease-mise',
-                    item.destructive ? 'text-danger hover:bg-danger-bg' : 'text-ink-900 hover:bg-canvas',
+                    item.destructive ? 'text-danger hover:bg-tone-danger-bg' : 'text-ink-900 hover:bg-canvas',
                     item.disabled && 'cursor-not-allowed text-ink-300 hover:bg-transparent',
                   )}
                 >

@@ -23,7 +23,7 @@ export interface ToolCallCardProps {
 const STATUS: Record<ToolCallStatus, { label: string; className: string }> = {
   running: { label: 'Running', className: 'bg-surface-sunken text-ink-700' },
   done: { label: 'Done', className: 'bg-brand-50 text-brand-600' },
-  error: { label: 'Failed', className: 'bg-danger-bg text-danger' },
+  error: { label: 'Failed', className: 'bg-tone-danger-bg text-danger' },
   denied: { label: 'Declined', className: 'bg-warn-bg text-warn-ink' },
 };
 

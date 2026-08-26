@@ -62,8 +62,10 @@ const primitives = {
   },
   red: {
     600: color(take('danger')),
-    50: color(take('danger-bg')),
-    100: color(take('tone-danger-bg')),
+    // One danger tint, doing both jobs: the fill behind a danger Badge or
+    // Banner, and the hover wash on a danger Button. There was a second,
+    // paler #FDF8F7 for the wash; the two were indistinguishable in Figma.
+    50: color(take('tone-danger-bg')),
     200: color(take('danger-line')),
     300: color(take('danger-border')),
   },
@@ -132,7 +134,6 @@ const semantic = {
 
   danger: {
     DEFAULT: ref('red.600'),
-    bg: ref('red.50'),
     line: ref('red.200'),
     border: ref('red.300'),
   },
@@ -150,7 +151,7 @@ const semantic = {
     'success-fg': alias('tone-success-fg', 'brand.600'),
     'warning-bg': ref('orange.50'),
     'warning-fg': alias('tone-warning-fg', 'orange.600'),
-    'danger-bg': ref('red.100'),
+    'danger-bg': ref('red.50'),
     'danger-fg': alias('tone-danger-fg', 'red.600'),
     'info-bg': ref('blue.50'),
     'info-fg': ref('blue.600'),

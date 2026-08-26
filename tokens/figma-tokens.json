@@ -90,10 +90,6 @@
     },
     "red": {
       "50": {
-        "value": "#FDF8F7",
-        "type": "color"
-      },
-      "100": {
         "value": "#FBF0EF",
         "type": "color"
       },
@@ -241,10 +237,6 @@
         "value": "{primitives.red.600}",
         "type": "color"
       },
-      "bg": {
-        "value": "{primitives.red.50}",
-        "type": "color"
-      },
       "line": {
         "value": "{primitives.red.200}",
         "type": "color"
@@ -290,7 +282,7 @@
         "type": "color"
       },
       "danger-bg": {
-        "value": "{primitives.red.100}",
+        "value": "{primitives.red.50}",
         "type": "color"
       },
       "danger-fg": {

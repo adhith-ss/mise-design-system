@@ -65,7 +65,7 @@ export function FileInput({
               key={file.name}
               className={cx(
                 'flex items-center gap-[10px] rounded-md border px-3 py-[9px]',
-                file.status === 'error' ? 'border-danger-line bg-danger-bg' : 'border-line bg-surface',
+                file.status === 'error' ? 'border-danger-line bg-tone-danger-bg' : 'border-line bg-surface',
               )}
             >
               <span aria-hidden="true" className="h-[18px] w-[14px] shrink-0 rounded-[2px] border border-line bg-canvas" />

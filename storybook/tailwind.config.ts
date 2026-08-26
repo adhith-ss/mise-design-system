@@ -20,7 +20,7 @@ export default {
         surface: { DEFAULT: t('surface'), raised: t('surface-raised'), sunken: t('sunken') },
         line: { DEFAULT: t('line'), soft: t('line-soft') },
         neutral: { 200: t('neutral-200') },
-        danger: { DEFAULT: t('danger'), bg: t('danger-bg'), line: t('danger-line'), border: t('danger-border') },
+        danger: { DEFAULT: t('danger'), line: t('danger-line'), border: t('danger-border') },
         warn: { DEFAULT: t('warn'), ink: t('warn-ink'), bg: t('warn-bg') },
         alert: t('alert'),
         tone: {

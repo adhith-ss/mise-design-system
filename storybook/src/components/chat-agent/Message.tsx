@@ -58,7 +58,7 @@ export function Message({
           className={cx(
             'text-[14px] leading-[1.68]',
             isUser && 'rounded-[16px_16px_6px_16px] border border-brand-100 bg-brand-50 px-[14px] py-3',
-            error && 'rounded-lg border-l-[3px] border-danger bg-danger-bg px-4 py-3',
+            error && 'rounded-lg border-l-[3px] border-danger bg-tone-danger-bg px-4 py-3',
           )}
         >
           {children}
