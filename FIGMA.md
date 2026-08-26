@@ -114,6 +114,24 @@ per-side weights applies one paint to all of them. The edge is drawn as an
 absolutely-positioned 3px rectangle with `constraints.vertical = STRETCH`,
 clipped by the card's corner radius, leaving the border free to stay `line`.
 
+## Spacing scale
+
+Padding and gap were raw numbers everywhere through Action and the first pass of
+Content — a documented convention on the Spacing & Radius page, but nothing
+bound to it. Fixed: 14 `space/*` variables (0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 12,
+16, 18, 20 — every discrete value actually found inside the Content components,
+not the doc scaffolding around them) plus `overlap/sm|md|lg` for AvatarGroup's
+negative stacking margin. Live on the Spacing & Radius page under **Spacing
+(variables)**, in the `semantic` collection, scope `GAP`.
+
+Rebound so far: `Divider`, `Token`, `Kbd`, `Code`, `Thumbnail`, `Blockquote`,
+`CodeBlock`, `Markdown`, `Card`, `AvatarGroup` — every component-internal
+padding/gap in Content whose value matched the scale. **Not** rebound: the
+`doc — header` / `in use` / `doc — notes` scaffolding on every page (matches the
+pre-existing `Text`/`Heading` convention of raw numbers for documentation
+frames, and `Action`/`Icon`, built before this pass. Same generic walk-and-bind
+script works there — it's a category-sized job, not a hard one.
+
 ## Known gaps
 
 - `SegmentedControl` sm is 26px — the scale has 32 / 40 / 44 and nothing at 26,
@@ -122,17 +140,22 @@ clipped by the card's corner radius, leaving the border free to stay `line`.
   text. Figma cannot colour an underline separately.
 - The MVP's sidebar is a dark surface with an amber logo mark. Neither exists in
   the token set; resolve before building an app shell.
-- **No spacing scale exists as variables.** Padding and gap are raw numbers in
-  every component on both sides of the line. The values are consistent and
-  documented on the Spacing & Radius page, but nothing enforces them, so a
-  spacing change is a manual sweep rather than a token edit.
+- **Action and Icon still have zero spacing bindings.** The `space/*` scale only
+  reaches the 10 Content components listed above. Everything built before this
+  pass — Button, IconButton, ButtonGroup, ToggleButton, ToggleButtonGroup,
+  SegmentedControl, Link, DropdownMenu, MoreMenu, Toolbar — still carries raw
+  padding and gap. Same fix, not yet run.
 - **`Avatar` initials have no text style.** The scale needs 10 / 11 / 13px bold
   and the `ui/*` ramp has nothing below 11.5, so the three sizes set Manrope Bold
   directly. Either add three styles or accept the exception.
-- **`AvatarGroup` clips initials at Sm and Md.** The −8px overlap comes straight
-  from the code, and at 24px and 30px it covers the second initial of the avatar
-  beneath. Correct against the implementation, wrong-looking in a library that
-  shows initials rather than photographs. Decide which one moves.
 - **`Markdown` exposes no properties.** It is a type frame demonstrating the
   rhythm of a rendered document, so its content is fixed. Treat it as a specimen
   rather than something to instantiate.
+
+## Fixed this pass
+
+- **`AvatarGroup` clipped initials at Sm and Md.** A flat `-ml-[8px]` overlap —
+  in the code (`AvatarGroup.tsx`) as well as the Figma port — covered a third of
+  a 24px circle, cutting the second letter of the next avatar's initials. Fixed
+  in both: overlap now scales with the circle (`sm -4 · md -6 · lg -8`, bound to
+  `overlap/sm|md|lg`), verified at 8× zoom with no clipped strokes.
