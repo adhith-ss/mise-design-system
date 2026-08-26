@@ -52,6 +52,7 @@ and its shortcut text is fixed at the component default.
 | Action | Button, IconButton, ButtonGroup, ToggleButton, ToggleButtonGroup, SegmentedControl, Link, MenuItem, DropdownMenu, MoreMenu, Toolbar |
 | Content | Heading, Text, Divider, Token, Kbd, Code, Timestamp, Avatar, AvatarGroup, Thumbnail, Blockquote, CodeBlock, Markdown, Card |
 | Data Input | Field, TextInput, TextArea, NumberInput, CheckboxInput, Switch, RadioList, Slider, DateInput, FileInput, Selector, MultiSelector, Typeahead |
+| Feedback & Status | StatusDot, Spinner, Skeleton, Badge, Banner, Toast, ProgressBar, EmptyState |
 
 Variables: `primitives` (31, hidden from pickers) and `semantic` (49, aliased to
 primitives, WEB code syntax on every one).
@@ -122,6 +123,26 @@ supposed to differ (a data-face sample vs a UI-face one, a "0" at the floor
 vs a "10" elsewhere). Static per-variant text, no property, matches the same
 rule as Thumbnail's fix.
 
+### Feedback & Status — variant counts
+
+| Component | Variants | Axes | Extra properties |
+| --- | --- | --- | --- |
+| StatusDot | 5 | Tone | — |
+| Spinner | 4 | Variant | — |
+| Skeleton | 3 | Shape | — |
+| Badge | 15 | Tone × Appearance | — |
+| Banner | 4 | Tone | — |
+| Toast | 3 | Tone | — |
+| ProgressBar | 3 | Variant | — |
+| EmptyState | 4 | Kind | — |
+
+Zero shared text properties in this category — every variant's label, title,
+or body is distinct by design (StatusDot's five different status sentences,
+Badge's five different state words), so wiring a property would have
+overwritten every one of them with a single default. Caught this on
+StatusDot's first build (all five tones briefly read "Connected") and skipped
+the property from the start on everything after.
+
 ## Traps worth knowing before building the next category
 
 **A hidden auto-layout child still costs you its gap.** Hiding a node removes it
@@ -164,6 +185,28 @@ that default; the fix is `counterAxisSizingMode = 'AUTO'` (and
 `primaryAxisSizingMode = 'AUTO'` for the other axis) on the component itself.
 Same two-enum confusion the `figma-use` skill already warns about (Rule 12b),
 just showing up one level higher — on the root, not a child.
+
+**Which axis is "primary" flips with `layoutMode`, and mixing them up produces
+exactly the same symptom as forgetting sizing entirely.** For a `HORIZONTAL`
+frame, `primaryAxisSizingMode` is width and `counterAxisSizingMode` is height.
+For `VERTICAL`, it's the other way round — primary is height, counter is
+width. `EmptyState`'s cards were built as `VERTICAL` frames; setting
+`counterAxisSizingMode = 'AUTO'` on them made the *width* hug (each card a
+different width, matching whichever line of text happened to be longest) while
+height stayed frozen at the `resize()` placeholder — every card 10px tall,
+title and body spilling out underneath into the next row. The fix isn't a new
+rule, it's reading the one that exists correctly: check `layoutMode` before
+choosing which axis to touch, every time — the direction items stack in is
+always the primary axis, regardless of which one intuition calls "the height."
+
+**A shared component property silently overrides an `INSTANCE`'s override too
+if you forget to set it.** `EmptyState`'s Button instances all read "Send
+order" — Button's own default — because creating an instance from a variant
+doesn't inherit any *other* instance's override; each one starts at the
+component's stored default until told otherwise with `instance.setProperties()`.
+Reusing another category's component (`Button`, `Avatar`, anything with its
+own TEXT property) means explicitly overriding that property on every
+instance, not just trusting the variant you picked in.
 
 ## Spacing scale
 
