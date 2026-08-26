@@ -118,19 +118,35 @@ clipped by the card's corner radius, leaving the border free to stay `line`.
 
 Padding and gap were raw numbers everywhere through Action and the first pass of
 Content — a documented convention on the Spacing & Radius page, but nothing
-bound to it. Fixed: 14 `space/*` variables (0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 12,
-16, 18, 20 — every discrete value actually found inside the Content components,
-not the doc scaffolding around them) plus `overlap/sm|md|lg` for AvatarGroup's
-negative stacking margin. Live on the Spacing & Radius page under **Spacing
-(variables)**, in the `semantic` collection, scope `GAP`.
+bound to it. Fixed: 16 `space/*` variables (0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 12,
+14, 16, 18, 20 — every discrete value actually found inside a component, not
+the doc scaffolding around it) plus `overlap/sm|md|lg` for AvatarGroup's
+negative stacking margin and `overlap/border` for ButtonGroup's −1px attached-
+border collapse. Live on the Spacing & Radius page under **Spacing
+(variables)**, in the `semantic` collection, scope `GAP`. `space/14` and
+`overlap/border` were added in a second pass once Action's Button and
+ButtonGroup turned up values the Content-only scale didn't cover — the scale
+grows from what's actually used, not from guessing ahead.
 
-Rebound so far: `Divider`, `Token`, `Kbd`, `Code`, `Thumbnail`, `Blockquote`,
-`CodeBlock`, `Markdown`, `Card`, `AvatarGroup` — every component-internal
-padding/gap in Content whose value matched the scale. **Not** rebound: the
-`doc — header` / `in use` / `doc — notes` scaffolding on every page (matches the
-pre-existing `Text`/`Heading` convention of raw numbers for documentation
-frames, and `Action`/`Icon`, built before this pass. Same generic walk-and-bind
-script works there — it's a category-sized job, not a hard one.
+Rebound, category-complete: every Content component (`Divider`, `Token`, `Kbd`,
+`Code`, `Thumbnail`, `Blockquote`, `CodeBlock`, `Markdown`, `Card`,
+`AvatarGroup`) and every Action component (`Button`, `IconButton`,
+`ButtonGroup`, `ToggleButton`, `ToggleButtonGroup`, `SegmentedControl`, `Link`,
+`MenuItem`, `DropdownMenu`, `MoreMenu`, `Toolbar`) — every component-internal
+padding and gap whose value matched the scale, with nothing left unmatched.
+`Icon` was checked and needs nothing: the 32 icon components have no
+auto-layout, so there's no padding or gap to bind — confirmed, not skipped.
+
+**Not** rebound, by design: the `doc — header` / `in use` / `doc — notes`
+scaffolding on every page. That matches the pre-existing `Text`/`Heading`
+convention of raw numbers for documentation frames — the scale covers what
+ships, not the pages that describe it.
+
+The rebind script discovers its target generically — it walks every
+`COMPONENT`/`COMPONENT_SET` that's a direct child of the page, so it doesn't
+need a hardcoded node ID and works unchanged on a page with one component
+(`Toolbar`) or three (`DropdownMenu`'s `MenuItem` + `DropdownMenu` +
+`MoreMenu`). Same script reaches Data Input and every category after it.
 
 ## Known gaps
 
@@ -140,11 +156,6 @@ script works there — it's a category-sized job, not a hard one.
   text. Figma cannot colour an underline separately.
 - The MVP's sidebar is a dark surface with an amber logo mark. Neither exists in
   the token set; resolve before building an app shell.
-- **Action and Icon still have zero spacing bindings.** The `space/*` scale only
-  reaches the 10 Content components listed above. Everything built before this
-  pass — Button, IconButton, ButtonGroup, ToggleButton, ToggleButtonGroup,
-  SegmentedControl, Link, DropdownMenu, MoreMenu, Toolbar — still carries raw
-  padding and gap. Same fix, not yet run.
 - **`Avatar` initials have no text style.** The scale needs 10 / 11 / 13px bold
   and the `ui/*` ramp has nothing below 11.5, so the three sizes set Manrope Bold
   directly. Either add three styles or accept the exception.
@@ -159,3 +170,10 @@ script works there — it's a category-sized job, not a hard one.
   a 24px circle, cutting the second letter of the next avatar's initials. Fixed
   in both: overlap now scales with the circle (`sm -4 · md -6 · lg -8`, bound to
   `overlap/sm|md|lg`), verified at 8× zoom with no clipped strokes.
+- **Action and Icon had zero spacing bindings.** Ran the same rebind across all
+  10 Action components plus Icon. Found two values the Content-only scale
+  hadn't needed yet (`14`, `-1`), added `space/14` and `overlap/border` to
+  cover them, then closed the loop — every page now reports zero unmatched
+  values. Screenshotted `Button` (150 bindings, the largest single page) and
+  `DropdownMenu` (three separate component sets on one page) after the rebind;
+  both pixel-identical to before.
