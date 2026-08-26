@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { cx } from '../../lib/cx';
 import { useField } from './Field';
+import { X } from 'lucide-react';
 
 export interface UploadedFile {
   name: string;
@@ -85,7 +86,7 @@ export function FileInput({
                 aria-label={`Remove ${file.name}`}
                 className="ml-auto text-[14px] text-ink-500"
               >
-                ×
+                <X size={14} strokeWidth={1.5} />
               </button>
             </li>
           ))}

@@ -1,4 +1,5 @@
 import { cx } from '../../lib/cx';
+import { Check } from 'lucide-react';
 
 export interface Step {
   label: string;
@@ -41,7 +42,7 @@ export function Stepper({ steps, orientation = 'horizontal', onStepClick }: Step
                 s.status === 'error' && 'border-danger bg-danger text-white',
               )}
             >
-              {s.status === 'done' ? '✓' : s.status === 'error' ? '!' : i + 1}
+              {s.status === 'done' ? <Check size={12} strokeWidth={2.5} /> : s.status === 'error' ? '!' : i + 1}
             </span>
             <span className="flex flex-col gap-[2px]">
               <span

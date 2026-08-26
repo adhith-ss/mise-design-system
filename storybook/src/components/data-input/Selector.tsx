@@ -1,5 +1,6 @@
 import { useField, controlClass } from './Field';
 import { cx } from '../../lib/cx';
+import { ChevronDown } from 'lucide-react';
 
 export interface SelectOption {
   value: string;
@@ -50,7 +51,7 @@ export function Selector({
               </optgroup>
             ))}
       </select>
-      <span aria-hidden="true" className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[12px] text-ink-500">▾</span>
+      <ChevronDown size={16} strokeWidth={1.5} aria-hidden="true" className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-ink-500" />
     </div>
   );
 }

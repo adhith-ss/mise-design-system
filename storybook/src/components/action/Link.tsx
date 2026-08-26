@@ -1,5 +1,6 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react';
 import { cx } from '../../lib/cx';
+import { ArrowUpRight } from 'lucide-react';
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
@@ -35,7 +36,7 @@ export function Link({
       {children}
       {external && (
         <>
-          <span aria-hidden="true" className="ml-1 text-[0.85em]">↗</span>
+          <ArrowUpRight size={14} strokeWidth={1.5} aria-hidden="true" className="ml-[2px] inline-block align-[-2px]" />
           <span className="sr-only"> (opens in a new tab)</span>
         </>
       )}

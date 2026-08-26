@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { cx } from '../../lib/cx';
 import { type Tone } from './tone';
+import { X } from 'lucide-react';
 
 export interface BannerProps {
   /** One sentence stating the condition. */
@@ -45,7 +46,7 @@ export function Banner({ title, children, tone = 'info', action, onDismiss }: Ba
       </div>
       {action}
       {onDismiss && (
-        <button type="button" onClick={onDismiss} aria-label="Dismiss" className="text-[14px] text-ink-500">×</button>
+        <button type="button" onClick={onDismiss} aria-label="Dismiss" className="text-ink-500"><X size={16} strokeWidth={1.5} /></button>
       )}
     </div>
   );

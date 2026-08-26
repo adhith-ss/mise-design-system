@@ -1,5 +1,6 @@
 import { useField } from './Field';
 import { cx } from '../../lib/cx';
+import { Minus, Plus } from 'lucide-react';
 
 export interface NumberInputProps {
   value: number;
@@ -41,7 +42,7 @@ export function NumberInput({
           onClick={() => onChange(clamp(value - step))}
           className="h-full w-8 border-r border-line bg-canvas text-[15px] text-ink-700 disabled:text-ink-300"
         >
-          −
+          <Minus size={14} strokeWidth={1.5} />
         </button>
       )}
       <input
@@ -67,7 +68,7 @@ export function NumberInput({
           onClick={() => onChange(clamp(value + step))}
           className="h-full w-8 border-l border-line bg-canvas text-[15px] text-ink-700 disabled:text-ink-300"
         >
-          +
+          <Plus size={14} strokeWidth={1.5} />
         </button>
       )}
     </div>

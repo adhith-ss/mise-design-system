@@ -1,5 +1,6 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { cx } from '../../lib/cx';
+import { X } from 'lucide-react';
 
 export interface DialogProps {
   open: boolean;
@@ -69,7 +70,7 @@ export function Dialog({
               onClick={() => onOpenChange(false)}
               className="h-[26px] w-[26px] shrink-0 rounded-md bg-surface-sunken text-[14px] text-ink-700"
             >
-              ×
+              <X size={16} strokeWidth={1.5} />
             </button>
           )}
         </div>

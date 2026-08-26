@@ -1,4 +1,5 @@
 import { cx } from '../../lib/cx';
+import { X } from 'lucide-react';
 
 export interface LightboxItem {
   /** Image or PDF preview source. */
@@ -46,7 +47,7 @@ export function Lightbox({
           )}
           <button type="button" aria-label="Close" onClick={() => onOpenChange(false)}
             className="h-[30px] w-[30px] rounded-[9px] border border-ink-700/60 text-[14px] text-ink-300">
-            ×
+            <X size={16} strokeWidth={1.5} />
           </button>
         </div>
       </div>

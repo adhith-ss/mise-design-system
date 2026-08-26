@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { cx } from '../../lib/cx';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 
 export interface TreeNode {
   id: string;
@@ -39,7 +40,9 @@ export function TreeList({ nodes, label, defaultExpanded = [], onSelect, selecte
           )}
         >
           {branch ? (
-            <span aria-hidden="true" className="w-3 text-[11px] text-ink-500">{expanded ? '▾' : '▸'}</span>
+            expanded
+              ? <ChevronDown size={14} strokeWidth={1.5} aria-hidden="true" className="w-3 shrink-0 text-ink-500" />
+              : <ChevronRight size={14} strokeWidth={1.5} aria-hidden="true" className="w-3 shrink-0 text-ink-500" />
           ) : (
             <span aria-hidden="true" className="w-3" />
           )}

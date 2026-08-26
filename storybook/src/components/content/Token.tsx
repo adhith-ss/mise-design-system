@@ -1,4 +1,5 @@
 import { cx } from '../../lib/cx';
+import { X } from 'lucide-react';
 
 export interface TokenProps {
   /** The record's identifier or short value. */
@@ -30,7 +31,7 @@ export function Token({ children, prefix, tone = 'neutral', onRemove, size = 'md
       {children}
       {onRemove && (
         <button type="button" onClick={onRemove} aria-label={`Remove ${children}`} className="text-[12px] leading-none">
-          ×
+          <X size={12} strokeWidth={1.5} />
         </button>
       )}
     </span>

@@ -1,5 +1,6 @@
 import { useId } from 'react';
 import { cx } from '../../lib/cx';
+import { Check } from 'lucide-react';
 
 export interface CheckboxInputProps {
   checked: boolean;
@@ -40,7 +41,7 @@ export function CheckboxInput({
         {indeterminate ? (
           <span aria-hidden="true" className="h-[2px] w-[9px] bg-current" />
         ) : (
-          checked && <span aria-hidden="true" className="text-[11px] leading-none">✓</span>
+          checked && <Check size={12} strokeWidth={2.5} aria-hidden="true" />
         )}
       </button>
       <label htmlFor={id} className={cx('flex flex-col gap-[2px]', disabled && 'text-ink-400')}>

@@ -1,5 +1,6 @@
 import { DropdownMenu, type MenuItem, type MenuPlacement } from './DropdownMenu';
 import { IconButton } from './IconButton';
+import { Ellipsis } from 'lucide-react';
 
 export interface MoreMenuProps {
   items: MenuItem[];
@@ -27,7 +28,7 @@ export function MoreMenu({
           size={size}
           aria-label={`More actions for ${subject}`}
           tooltip="More actions"
-          icon={<span aria-hidden="true" className="text-[15px] leading-none">···</span>}
+          icon={<Ellipsis size={16} strokeWidth={1.5} aria-hidden="true" />}
         />
       }
     />

@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { cx } from '../../lib/cx';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 export type ToolCallStatus = 'running' | 'done' | 'error' | 'denied';
 
@@ -58,7 +59,9 @@ export function ToolCallCard({
           <span className={cx('rounded-pill px-2 py-[3px] text-[11px] font-semibold', s.className)}>
             {s.label}
           </span>
-          <span aria-hidden="true" className="text-[12px] text-ink-500">{open ? '▴' : '▾'}</span>
+          {open
+            ? <ChevronUp size={14} strokeWidth={1.5} aria-hidden="true" className="text-ink-500" />
+            : <ChevronDown size={14} strokeWidth={1.5} aria-hidden="true" className="text-ink-500" />}
         </span>
       </button>
 

@@ -1,31 +1,29 @@
+import type { LucideIcon } from 'lucide-react';
 import { cx } from '../../lib/cx';
 
 export interface IconProps {
-  /** 14 / 16 / 20px. Icons are 1.5px stroke on a 24px grid. */
+  /** A Lucide icon component — the whole set is at lucide.dev. */
+  icon: LucideIcon;
+  /** 14 / 16 / 20px. Stroke scales with the box, as it does in the SVG. */
   size?: 'sm' | 'md' | 'lg';
-  /** Decorative icons are hidden; meaningful ones need a label. */
+  /** Decorative icons stay hidden; a label makes it role="img". */
   label?: string;
   tone?: 'current' | 'quiet' | 'brand' | 'danger';
-  children: React.ReactNode;
+  className?: string;
 }
 
 const DIM = { sm: 14, md: 16, lg: 20 } as const;
 
 /**
- * Wrapper that fixes size, stroke, and accessibility for any 24-grid SVG path.
- * An icon is never the only carrier of meaning.
+ * Fixes size, stroke and accessibility for any Lucide icon. Lucide ships at
+ * stroke-width 2; this system uses 1.5, which is the only place that decision
+ * lives. An icon is never the only carrier of meaning.
  */
-export function Icon({ size = 'md', label, tone = 'current', children }: IconProps) {
+export function Icon({ icon: Glyph, size = 'md', label, tone = 'current', className }: IconProps) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      width={DIM[size]}
-      height={DIM[size]}
-      fill="none"
-      stroke="currentColor"
+    <Glyph
+      size={DIM[size]}
       strokeWidth={1.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
       role={label ? 'img' : undefined}
       aria-label={label}
       aria-hidden={label ? undefined : true}
@@ -34,9 +32,8 @@ export function Icon({ size = 'md', label, tone = 'current', children }: IconPro
         tone === 'quiet' && 'text-ink-400',
         tone === 'brand' && 'text-brand-600',
         tone === 'danger' && 'text-danger',
+        className,
       )}
-    >
-      {children}
-    </svg>
+    />
   );
 }

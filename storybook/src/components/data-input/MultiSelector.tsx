@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { cx } from '../../lib/cx';
 import { useField } from './Field';
+import { ChevronDown, X } from 'lucide-react';
 
 export interface MultiOption {
   value: string;
@@ -56,12 +57,12 @@ export function MultiSelector({
               onClick={(e) => { e.stopPropagation(); onChange(value.filter((v) => v !== o.value)); }}
               className="text-[13px] leading-none"
             >
-              ×
+              <X size={13} strokeWidth={1.5} />
             </span>
           </span>
         ))}
         {rest > 0 && <span className="font-data text-[12px] text-ink-500">+{rest} more</span>}
-        <span aria-hidden="true" className="ml-auto text-[12px] text-ink-500">▾</span>
+        <ChevronDown size={16} strokeWidth={1.5} aria-hidden="true" className="ml-auto text-ink-500" />
       </button>
 
       {open && !off && (
