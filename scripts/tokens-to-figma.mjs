@@ -42,7 +42,13 @@ const take = (name) => {
 
 const color = (v) => ({ value: v, type: 'color' });
 
-const primitives = {
+// Namespaced under `palette` for two reasons, both learned the hard way:
+// Tokens Studio merges every enabled set into ONE tree and resolves references
+// against a token's own path — the set name is not part of it. So a reference
+// must read {palette.brand.600}, never {primitives.brand.600}. And because the
+// semantic set deliberately re-exposes brand/* and ink/* to match Tailwind, the
+// two sets would collide at identical paths without this prefix.
+const palette = {
   brand: Object.fromEntries(
     ['50', '100', '200', '500', '600', '700', '800', '900'].map((s) => [s, color(take(`brand-${s}`))]),
   ),
@@ -84,14 +90,17 @@ const primitives = {
   },
 };
 
+// The set as Tokens Studio sees it.
+const primitives = { palette };
+
 /* ---------- semantic ------------------------------------------------ */
 // Shape follows tailwind.config.ts. `ref` aliases a primitive; anything not
 // aliased below had no primitive to point at.
 
-const ref = (path) => ({ value: `{primitives.${path}}`, type: 'color' });
+const ref = (path) => ({ value: `{palette.${path}}`, type: 'color' });
 
 const resolve = (path) =>
-  path.split('.').reduce((o, k) => o[k], primitives).value;
+  path.split('.').reduce((o, k) => o[k], palette).value;
 
 /**
  * Alias a tokens.css variable onto a primitive, asserting they hold the same
@@ -104,7 +113,7 @@ const alias = (cssName, path) => {
   const expected = resolve(path);
   if (actual.toUpperCase() !== expected.toUpperCase()) {
     throw new Error(
-      `--mise-${cssName} is ${actual}, but primitives.${path} is ${expected}. ` +
+      `--mise-${cssName} is ${actual}, but palette.${path} is ${expected}. ` +
         `They were the same value when this mapping was written. Decide which is ` +
         `right, fix tokens.css, then update this alias.`,
     );
@@ -114,10 +123,10 @@ const alias = (cssName, path) => {
 
 const semantic = {
   brand: Object.fromEntries(
-    Object.keys(primitives.brand).map((s) => [s, ref(`brand.${s}`)]),
+    Object.keys(palette.brand).map((s) => [s, ref(`brand.${s}`)]),
   ),
   ink: Object.fromEntries(
-    Object.keys(primitives.ink).map((s) => [s, ref(`ink.${s}`)]),
+    Object.keys(palette.ink).map((s) => [s, ref(`ink.${s}`)]),
   ),
 
   canvas: ref('surface.canvas'),
@@ -222,6 +231,35 @@ take('font-data');
 const missed = Object.keys(css).filter((k) => !used.has(k));
 if (missed.length) {
   throw new Error(`unmapped in tokens.css: ${missed.join(', ')}`);
+}
+
+// Both of the following shipped broken once: every semantic colour imported as
+// #FFFFFF because the references named the token SET rather than the token.
+// Tokens Studio merges enabled sets into one tree, so a reference must resolve
+// against that merged tree, and two sets must never claim the same path.
+const paths = (o, p = '') =>
+  Object.entries(o).flatMap(([k, v]) => {
+    const n = p ? `${p}.${k}` : k;
+    return 'value' in v && 'type' in v ? [[n, v]] : paths(v, n);
+  });
+
+const primPaths = Object.fromEntries(paths(primitives));
+const semPaths = Object.fromEntries(paths(semantic));
+
+const collisions = Object.keys(primPaths).filter((k) => k in semPaths);
+if (collisions.length) {
+  throw new Error(
+    `the two sets claim the same path, so the merged tree is ambiguous: ${collisions.join(', ')}`,
+  );
+}
+
+const merged = { ...primPaths, ...semPaths };
+const dangling = Object.entries(semPaths)
+  .filter(([, v]) => typeof v.value === 'string' && v.value.startsWith('{'))
+  .filter(([, v]) => !(v.value.slice(1, -1) in merged))
+  .map(([n, v]) => `${n} -> ${v.value}`);
+if (dangling.length) {
+  throw new Error(`references nothing in the merged tree: ${dangling.join(', ')}`);
 }
 
 /* ---------- write --------------------------------------------------- */
