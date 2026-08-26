@@ -35,6 +35,11 @@
   --mise-danger-border: #E4C9C7;
   --mise-warn: #C98A16;
   --mise-warn-ink: #8A5D0A;
+  /* Deliberately not the same amber as tone-warning-bg, and deliberately
+     warmer. This one belongs to a person having to decide: the "Needs your
+     approval" pill on Inline Approval, and the denied state on a tool call.
+     tone-warning-bg is the routine warning behind any Badge or Banner.
+     They sit four hexes apart on purpose — do not merge them. */
   --mise-warn-bg: #FBF1DC;
   --mise-alert: #B4531B;
 
