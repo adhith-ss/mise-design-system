@@ -53,6 +53,7 @@ and its shortcut text is fixed at the component default.
 | Content | Heading, Text, Divider, Token, Kbd, Code, Timestamp, Avatar, AvatarGroup, Thumbnail, Blockquote, CodeBlock, Markdown, Card |
 | Data Input | Field, TextInput, TextArea, NumberInput, CheckboxInput, Switch, RadioList, Slider, DateInput, FileInput, Selector, MultiSelector, Typeahead |
 | Feedback & Status | StatusDot, Spinner, Skeleton, Badge, Banner, Toast, ProgressBar, EmptyState |
+| Navigation | TopNav, SideNav, TabList, Breadcrumbs, Pagination, Stepper, Outline |
 
 Variables: `primitives` (31, hidden from pickers) and `semantic` (49, aliased to
 primitives, WEB code syntax on every one).
@@ -143,6 +144,31 @@ overwritten every one of them with a single default. Caught this on
 StatusDot's first build (all five tones briefly read "Connected") and skipped
 the property from the start on everything after.
 
+### Navigation — variant counts
+
+| Component | Variants | Axes |
+| --- | --- | --- |
+| TopNav | — | plain `COMPONENT`, no axis |
+| SideNav | 2 | State (Expanded, Collapsed) |
+| TabList | 2 | Appearance (Underline, Enclosed) |
+| Breadcrumbs | 2 | State (Default, Collapsed) |
+| Pagination | 2 | Variant (WithPageSize, WithoutPageSize) |
+| Stepper | 2 | Orientation |
+| Outline | — | plain `COMPONENT`, no axis |
+
+TopNav and Outline don't vary — a nav bar and an in-page contents list don't
+have a meaningful second state worth documenting side by side, so each is a
+plain `COMPONENT`, not a `COMPONENT_SET`, matching `DropdownMenu`'s own
+precedent (its main panel is a bare `COMPONENT`; `MenuItem` and `MoreMenu`,
+which do vary, are sets). Both were built as one-child `COMPONENT_SET`s first;
+Figma flagged that as **"component set has existing errors"** the moment
+`variantGroupProperties` was read on it — a single-variant set with no
+differentiating property is invalid state, not just an unusual one. Fixed by
+moving the child out to the page as a top-level `COMPONENT` and letting Figma
+auto-delete the now-empty set — the correct construction is to know before
+building whether a component has an axis, and skip `combineAsVariants`
+entirely when it doesn't.
+
 ## Traps worth knowing before building the next category
 
 **A hidden auto-layout child still costs you its gap.** Hiding a node removes it
@@ -207,6 +233,27 @@ component's stored default until told otherwise with `instance.setProperties()`.
 Reusing another category's component (`Button`, `Avatar`, anything with its
 own TEXT property) means explicitly overriding that property on every
 instance, not just trusting the variant you picked in.
+
+**`FILL` divides space evenly across every `FILL` sibling — it does not give
+each one "at least its content width."** `Stepper`'s horizontal variant put
+all three steps at `layoutSizingHorizontal = 'FILL'` inside a 600px frame;
+Figma split that three ways (~184px each) regardless of whether "Delivery
+windows" plus its icon actually fit in 184px, and the steps overlapped.
+`FILL` is for children that should share leftover space after fixed-size
+siblings are accounted for (`Pagination`'s spacer, pushing Previous/Next to
+the far edge) — not for children whose natural size varies and must stay
+intact. When siblings need to keep their own width, use `HUG` and let the
+parent's `itemSpacing` do the separating.
+
+**A token named after a design-system "step" is not the same as its pixel
+value, and code comments using the design system's own shorthand will fool
+you.** `space/1` in this file's scale is literally 1px. Tailwind's `gap-1`
+(what the original `TopNav.tsx` uses) is 4px — Tailwind's spacing scale
+multiplies its step number by 4px, it isn't a raw pixel count. Binding
+`itemSpacing` to `space/1` while reading `gap-1` in the source produced a
+1px gap where 4px was meant, and the four nav items ran together with no
+visible space at all. When porting a Tailwind arbitrary class, convert the
+*value*, never the number in the class name.
 
 ## Spacing scale
 
