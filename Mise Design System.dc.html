@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet" />
+<style>
+  body { margin:0; background:#F7F6F2; color:#16211C; font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1E6B4B; text-decoration:none; }
+  a:hover { color:#144A34; text-decoration:underline; }
+  @keyframes miseBlink { 0%,100%{opacity:.25} 50%{opacity:1} }
+  @keyframes miseBar { 0%{transform:translateX(-100%)} 100%{transform:translateX(220%)} }
+</style>
+</helmet>
+
+<div style="max-width:1180px; margin:0 auto; padding:56px 40px 120px; display:flex; flex-direction:column; gap:72px">
+
+  <header style="display:flex; flex-direction:column; gap:20px; border-bottom:1px solid #E1DED4; padding-bottom:40px">
+    <div style="display:flex; align-items:center; gap:12px">
+      <div style="width:28px; height:28px; border-radius:8px; background:#1E6B4B"></div>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#6B7A72">Mise — design system v0.1</div>
+    </div>
+    <h1 style="margin:0; font-size:52px; line-height:1.05; letter-spacing:-.03em; font-weight:800; max-width:20ch">A system for restaurant operations run by people and agents.</h1>
+    <p style="margin:0; max-width:62ch; font-size:17px; line-height:1.6; color:#43524B">Foundations, core components, and agent patterns for a B2B restaurant management product. Balanced density, light mode, plain and efficient copy. Every token below is used verbatim in the three example screens at the end.</p>
+  </header>
+
+  <section style="display:flex; flex-direction:column; gap:24px">
+    <div style="display:flex; flex-direction:column; gap:6px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#6B7A72">01 — Color</div>
+      <h2 style="margin:0; font-size:28px; font-weight:700; letter-spacing:-.02em">Palette</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px">
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <div style="height:88px; background:#1E6B4B"></div>
+        <div style="padding:12px 14px; display:flex; flex-direction:column; gap:2px">
+          <div style="font-size:14px; font-weight:600">Herb 600</div>
+          <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">#1E6B4B · primary</div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <div style="height:88px; background:#144A34"></div>
+        <div style="padding:12px 14px; display:flex; flex-direction:column; gap:2px">
+          <div style="font-size:14px; font-weight:600">Herb 800</div>
+          <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">#144A34 · hover</div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <div style="height:88px; background:#E8F2EC"></div>
+        <div style="padding:12px 14px; display:flex; flex-direction:column; gap:2px">
+          <div style="font-size:14px; font-weight:600">Herb 50</div>
+          <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">#E8F2EC · surface</div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <div style="height:88px; background:#B4531B"></div>
+        <div style="padding:12px 14px; display:flex; flex-direction:column; gap:2px">
+          <div style="font-size:14px; font-weight:600">Ember 600</div>
+          <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">#B4531B · accent</div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <div style="height:88px; background:#F7F6F2"></div>
+        <div style="padding:12px 14px; display:flex; flex-direction:column; gap:2px">
+          <div style="font-size:14px; font-weight:600">Canvas</div>
+          <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">#F7F6F2 · app bg</div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <div style="height:88px; background:#E1DED4"></div>
+        <div style="padding:12px 14px; display:flex; flex-direction:column; gap:2px">
+          <div style="font-size:14px; font-weight:600">Line</div>
+          <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">#E1DED4 · borders</div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <div style="height:88px; background:#43524B"></div>
+        <div style="padding:12px 14px; display:flex; flex-direction:column; gap:2px">
+          <div style="font-size:14px; font-weight:600">Ink 600</div>
+          <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">#43524B · body</div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <div style="height:88px; background:#16211C"></div>
+        <div style="padding:12px 14px; display:flex; flex-direction:column; gap:2px">
+          <div style="font-size:14px; font-weight:600">Ink 900</div>
+          <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">#16211C · headings</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; gap:12px; flex-wrap:wrap">
+      <div style="display:flex; align-items:center; gap:8px; background:#fff; border:1px solid #E1DED4; border-radius:999px; padding:8px 14px; font-size:13px; color:#43524B"><span style="width:10px; height:10px; border-radius:999px; background:#1E6B4B"></span>Success #1E6B4B</div>
+      <div style="display:flex; align-items:center; gap:8px; background:#fff; border:1px solid #E1DED4; border-radius:999px; padding:8px 14px; font-size:13px; color:#43524B"><span style="width:10px; height:10px; border-radius:999px; background:#B4531B"></span>Warning #B4531B</div>
+      <div style="display:flex; align-items:center; gap:8px; background:#fff; border:1px solid #E1DED4; border-radius:999px; padding:8px 14px; font-size:13px; color:#43524B"><span style="width:10px; height:10px; border-radius:999px; background:#A32A22"></span>Danger #A32A22</div>
+      <div style="display:flex; align-items:center; gap:8px; background:#fff; border:1px solid #E1DED4; border-radius:999px; padding:8px 14px; font-size:13px; color:#43524B"><span style="width:10px; height:10px; border-radius:999px; background:#2F5E8C"></span>Info #2F5E8C</div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px">
+    <div style="display:flex; flex-direction:column; gap:6px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#6B7A72">02 — Type</div>
+      <h2 style="margin:0; font-size:28px; font-weight:700; letter-spacing:-.02em">Manrope + General Sans</h2>
+    </div>
+    <div style="background:#fff; border:1px solid #E1DED4; border-radius:16px; padding:32px; display:flex; flex-direction:column; gap:24px">
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:20px; align-items:baseline; border-bottom:1px solid #EFEDE6; padding-bottom:20px">
+        <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">Display / 52 / 800 / -3%</div>
+        <div style="font-size:52px; font-weight:800; letter-spacing:-.03em; line-height:1.05">Prep list is ready</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:20px; align-items:baseline; border-bottom:1px solid #EFEDE6; padding-bottom:20px">
+        <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">H2 / 28 / 700</div>
+        <div style="font-size:28px; font-weight:700; letter-spacing:-.02em">Weekly food cost</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:20px; align-items:baseline; border-bottom:1px solid #EFEDE6; padding-bottom:20px">
+        <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">H3 / 18 / 600</div>
+        <div style="font-size:18px; font-weight:600">Vendor invoices awaiting review</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:20px; align-items:baseline; border-bottom:1px solid #EFEDE6; padding-bottom:20px">
+        <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">Body / 15 / 400 / 1.6</div>
+        <div style="font-size:15px; line-height:1.6; color:#43524B; max-width:56ch">Body copy stays plain. State what happened, what changed, and what the operator should do next. No exclamation marks, no hedging.</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:20px; align-items:baseline">
+        <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">Numeric / 13 / 300</div>
+        <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#16211C">$14,208.50 · 32.4% · INV-20841</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px">
+    <div style="display:flex; flex-direction:column; gap:6px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#6B7A72">03 — Space, radius, elevation</div>
+      <h2 style="margin:0; font-size:28px; font-weight:700; letter-spacing:-.02em">Structure</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px">
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:14px">
+        <div style="font-size:14px; font-weight:600">Spacing — 4px base</div>
+        <div style="display:flex; flex-direction:column; gap:8px">
+          <div style="display:flex; align-items:center; gap:10px"><div style="height:10px; width:4px; background:#1E6B4B"></div><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">4 · inline</span></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="height:10px; width:8px; background:#1E6B4B"></div><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">8 · label→field</span></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="height:10px; width:12px; background:#1E6B4B"></div><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">12 · row gap</span></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="height:10px; width:16px; background:#1E6B4B"></div><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">16 · card gap</span></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="height:10px; width:24px; background:#1E6B4B"></div><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">24 · card pad</span></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="height:10px; width:40px; background:#1E6B4B"></div><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">40 · section</span></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:14px">
+        <div style="font-size:14px; font-weight:600">Radius</div>
+        <div style="display:flex; gap:12px; align-items:flex-end">
+          <div style="display:flex; flex-direction:column; gap:6px; align-items:center"><div style="width:48px; height:48px; background:#E8F2EC; border:1px solid #C9DED3; border-radius:8px"></div><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">8</span></div>
+          <div style="display:flex; flex-direction:column; gap:6px; align-items:center"><div style="width:48px; height:48px; background:#E8F2EC; border:1px solid #C9DED3; border-radius:12px"></div><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">12</span></div>
+          <div style="display:flex; flex-direction:column; gap:6px; align-items:center"><div style="width:48px; height:48px; background:#E8F2EC; border:1px solid #C9DED3; border-radius:16px"></div><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">16</span></div>
+          <div style="display:flex; flex-direction:column; gap:6px; align-items:center"><div style="width:48px; height:48px; background:#E8F2EC; border:1px solid #C9DED3; border-radius:999px"></div><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">pill</span></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:14px">
+        <div style="font-size:14px; font-weight:600">Elevation</div>
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:12px; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">flat — border only</div>
+          <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:12px; box-shadow:0 1px 2px rgba(22,33,28,.06); font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">raised — 0 1 2 / 6%</div>
+          <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:12px; box-shadow:0 12px 32px rgba(22,33,28,.12); font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">overlay — 0 12 32 / 12%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px">
+    <div style="display:flex; flex-direction:column; gap:6px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#6B7A72">04 — Components</div>
+      <h2 style="margin:0; font-size:28px; font-weight:700; letter-spacing:-.02em">Core kit</h2>
+    </div>
+
+    <div style="background:#fff; border:1px solid #E1DED4; border-radius:16px; padding:28px; display:flex; flex-direction:column; gap:20px">
+      <div style="font-size:14px; font-weight:600; color:#6B7A72; font-family:'General Sans',sans-serif; font-weight:300; letter-spacing:.08em; text-transform:uppercase">Buttons — 40px height, 12px radius</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center">
+        <button style="height:40px; padding:0 18px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; cursor:pointer" style-hover="background:#144A34">Approve order</button>
+        <button style="height:40px; padding:0 18px; border:1px solid #C9DED3; border-radius:12px; background:#fff; color:#1E6B4B; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; cursor:pointer" style-hover="background:#E8F2EC">Edit items</button>
+        <button style="height:40px; padding:0 18px; border:1px solid #E1DED4; border-radius:12px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; cursor:pointer" style-hover="background:#F7F6F2">Cancel</button>
+        <button style="height:40px; padding:0 18px; border:1px solid #E4C9C7; border-radius:12px; background:#fff; color:#A32A22; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; cursor:pointer" style-hover="background:#FBF0EF">Reject</button>
+        <button style="height:32px; padding:0 12px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer" style-hover="background:#F7F6F2">Small</button>
+        <button style="height:40px; padding:0 18px; border:none; border-radius:12px; background:#DDE2DF; color:#8D9994; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600">Disabled</button>
+      </div>
+
+      <div style="height:1px; background:#EFEDE6"></div>
+
+      <div style="font-size:14px; font-weight:600; color:#6B7A72; font-family:'General Sans',sans-serif; font-weight:300; letter-spacing:.08em; text-transform:uppercase">Fields</div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px">
+        <label style="display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:600">Vendor</span>
+          <input value="Harbor Produce Co." style="height:40px; padding:0 12px; border:1px solid #E1DED4; border-radius:12px; background:#fff; font-family:'Manrope',sans-serif; font-size:14px; color:#16211C; outline:none" style-focus="border-color:#1E6B4B; box-shadow:0 0 0 3px #E8F2EC" />
+        </label>
+        <label style="display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:600">Delivery window</span>
+          <select style="height:40px; padding:0 12px; border:1px solid #E1DED4; border-radius:12px; background:#fff; font-family:'Manrope',sans-serif; font-size:14px; color:#16211C; outline:none">
+            <option>Tue 6:00–8:00 AM</option>
+            <option>Thu 6:00–8:00 AM</option>
+          </select>
+        </label>
+        <label style="display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:600">PO limit</span>
+          <input value="4,000.00" style="height:40px; padding:0 12px; border:1px solid #A32A22; border-radius:12px; background:#fff; font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; color:#16211C; outline:none" />
+          <span style="font-size:12px; color:#A32A22">Above your approval ceiling of $3,500.</span>
+        </label>
+      </div>
+
+      <div style="height:1px; background:#EFEDE6"></div>
+
+      <div style="font-size:14px; font-weight:600; color:#6B7A72; font-family:'General Sans',sans-serif; font-weight:300; letter-spacing:.08em; text-transform:uppercase">Badges, chips, tabs</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center">
+        <span style="background:#E8F2EC; color:#1E6B4B; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Approved</span>
+        <span style="background:#FBEFE6; color:#B4531B; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Needs review</span>
+        <span style="background:#FBF0EF; color:#A32A22; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Over budget</span>
+        <span style="background:#ECF1F6; color:#2F5E8C; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Draft</span>
+        <span style="border:1px solid #E1DED4; border-radius:999px; padding:6px 12px; font-size:13px; color:#43524B; cursor:pointer" style-hover="background:#F7F6F2">Produce</span>
+        <span style="border:1px solid #1E6B4B; background:#E8F2EC; border-radius:999px; padding:6px 12px; font-size:13px; color:#1E6B4B; font-weight:600; cursor:pointer">Dairy · 4</span>
+      </div>
+      <div style="display:flex; gap:4px; border-bottom:1px solid #E1DED4">
+        <div style="padding:10px 14px; font-size:14px; font-weight:600; color:#16211C; box-shadow:inset 0 -2px 0 #1E6B4B">Overview</div>
+        <div style="padding:10px 14px; font-size:14px; font-weight:500; color:#6B7A72; cursor:pointer" style-hover="color:#16211C">Invoices</div>
+        <div style="padding:10px 14px; font-size:14px; font-weight:500; color:#6B7A72; cursor:pointer" style-hover="color:#16211C">Inventory</div>
+        <div style="padding:10px 14px; font-size:14px; font-weight:500; color:#6B7A72; cursor:pointer" style-hover="color:#16211C">Labor</div>
+      </div>
+
+      <div style="height:1px; background:#EFEDE6"></div>
+
+      <div style="font-size:14px; font-weight:600; color:#6B7A72; font-family:'General Sans',sans-serif; font-weight:300; letter-spacing:.08em; text-transform:uppercase">Table — 44px rows, mono numerics</div>
+      <div style="border:1px solid #E1DED4; border-radius:12px; overflow:hidden">
+        <div style="display:grid; grid-template-columns:1.6fr 1fr .8fr .8fr; background:#F7F6F2; border-bottom:1px solid #E1DED4; padding:0 16px">
+          <div style="height:40px; display:flex; align-items:center; font-size:12px; font-weight:600; color:#6B7A72; letter-spacing:.04em; text-transform:uppercase">Item</div>
+          <div style="height:40px; display:flex; align-items:center; font-size:12px; font-weight:600; color:#6B7A72; letter-spacing:.04em; text-transform:uppercase">Vendor</div>
+          <div style="height:40px; display:flex; align-items:center; justify-content:flex-end; font-size:12px; font-weight:600; color:#6B7A72; letter-spacing:.04em; text-transform:uppercase">On hand</div>
+          <div style="height:40px; display:flex; align-items:center; justify-content:flex-end; font-size:12px; font-weight:600; color:#6B7A72; letter-spacing:.04em; text-transform:uppercase">Cost</div>
+        </div>
+        <sc-for list="{{ tableRows }}" as="row" hint-placeholder-count="4">
+          <div style="display:grid; grid-template-columns:1.6fr 1fr .8fr .8fr; padding:0 16px; border-bottom:1px solid #EFEDE6; background:#fff" style-hover="background:#FBFAF7">
+            <div style="height:44px; display:flex; align-items:center; font-size:14px; font-weight:500">{{ row.item }}</div>
+            <div style="height:44px; display:flex; align-items:center; font-size:14px; color:#43524B">{{ row.vendor }}</div>
+            <div style="height:44px; display:flex; align-items:center; justify-content:flex-end; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">{{ row.qty }}</div>
+            <div style="height:44px; display:flex; align-items:center; justify-content:flex-end; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">{{ row.cost }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="height:1px; background:#EFEDE6"></div>
+
+      <div style="font-size:14px; font-weight:600; color:#6B7A72; font-family:'General Sans',sans-serif; font-weight:300; letter-spacing:.08em; text-transform:uppercase">Feedback</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px">
+        <div style="display:flex; gap:12px; background:#E8F2EC; border:1px solid #C9DED3; border-radius:12px; padding:14px 16px">
+          <div style="width:8px; height:8px; border-radius:999px; background:#1E6B4B; margin-top:6px"></div>
+          <div style="display:flex; flex-direction:column; gap:4px">
+            <div style="font-size:14px; font-weight:600">Order sent to Harbor Produce</div>
+            <div style="font-size:13px; color:#43524B">Confirmation expected within 2 hours.</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; background:#FBEFE6; border:1px solid #EDD3BE; border-radius:12px; padding:14px 16px">
+          <div style="width:8px; height:8px; border-radius:999px; background:#B4531B; margin-top:6px"></div>
+          <div style="display:flex; flex-direction:column; gap:4px">
+            <div style="font-size:14px; font-weight:600">Two invoices exceed last week's price</div>
+            <div style="font-size:13px; color:#43524B">Review before the Friday close.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px">
+    <div style="display:flex; flex-direction:column; gap:6px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#6B7A72">05 — Agent patterns</div>
+      <h2 style="margin:0; font-size:28px; font-weight:700; letter-spacing:-.02em">How the agent shows its work</h2>
+      <p style="margin:6px 0 0; max-width:64ch; font-size:15px; line-height:1.6; color:#43524B">One rule underneath all of it: the agent never changes money, inventory, or staffing without a visible, reversible confirmation step.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px">
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:16px">
+        <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6B7A72">Streaming message</div>
+        <div style="display:flex; gap:12px">
+          <div style="width:28px; height:28px; border-radius:9px; background:#1E6B4B; flex:0 0 auto"></div>
+          <div style="background:#F7F6F2; border-radius:14px; border-top-left-radius:4px; padding:14px 16px; font-size:14px; line-height:1.6; color:#16211C">Produce order for Tuesday is short on romaine — usage is up 18% week over week.<span style="display:inline-block; width:8px; height:15px; background:#1E6B4B; margin-left:3px; vertical-align:-2px; animation:miseBlink 1s infinite"></span></div>
+        </div>
+        <div style="display:flex; justify-content:flex-end">
+          <div style="background:#16211C; color:#fff; border-radius:14px; border-top-right-radius:4px; padding:12px 16px; font-size:14px; max-width:70%">Add 4 more cases and keep the rest.</div>
+        </div>
+      </div>
+
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:16px">
+        <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6B7A72">Status &amp; progress</div>
+        <div style="display:flex; align-items:center; gap:10px; font-size:14px; color:#43524B"><span style="width:8px; height:8px; border-radius:999px; background:#1E6B4B; animation:miseBlink 1.2s infinite"></span>Reading 14 invoices from Harbor Produce</div>
+        <div style="height:4px; border-radius:999px; background:#EFEDE6; overflow:hidden"><div style="width:40%; height:100%; background:#1E6B4B; animation:miseBar 1.6s ease-in-out infinite"></div></div>
+        <div style="display:flex; flex-direction:column; gap:10px; padding-top:4px">
+          <div style="display:flex; align-items:center; gap:10px; font-size:13px; color:#43524B"><span style="width:16px; height:16px; border-radius:999px; background:#E8F2EC; border:1px solid #1E6B4B"></span>Matched 12 line items to POs</div>
+          <div style="display:flex; align-items:center; gap:10px; font-size:13px; color:#43524B"><span style="width:16px; height:16px; border-radius:999px; background:#E8F2EC; border:1px solid #1E6B4B"></span>Flagged 2 price variances</div>
+          <div style="display:flex; align-items:center; gap:10px; font-size:13px; color:#8D9994"><span style="width:16px; height:16px; border-radius:999px; border:1px dashed #C4CCC7"></span>Draft credit request</div>
+        </div>
+      </div>
+
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:14px">
+        <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6B7A72">Tool-call / action card</div>
+        <div style="border:1px solid #E1DED4; border-radius:12px; overflow:hidden">
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:#F7F6F2; border-bottom:1px solid #E1DED4">
+            <div style="display:flex; align-items:center; gap:10px"><span style="width:20px; height:20px; border-radius:6px; background:#1E6B4B"></span><span style="font-size:13px; font-weight:600">Updated purchase order PO-4471</span></div>
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">0.8s</span>
+          </div>
+          <div style="display:flex; flex-direction:column">
+            <div style="display:flex; justify-content:space-between; padding:10px 14px; border-bottom:1px solid #EFEDE6; font-size:13px"><span style="color:#1E6B4B">+ Romaine, 4 cs</span><span style="font-family:'General Sans',sans-serif; font-weight:300">+$92.00</span></div>
+            <div style="display:flex; justify-content:space-between; padding:10px 14px; border-bottom:1px solid #EFEDE6; font-size:13px"><span style="color:#A32A22">− Iceberg, 2 cs</span><span style="font-family:'General Sans',sans-serif; font-weight:300">−$38.40</span></div>
+            <div style="display:flex; justify-content:space-between; padding:10px 14px; font-size:13px; font-weight:600"><span>New order total</span><span style="font-family:'General Sans',sans-serif; font-weight:300">$1,486.10</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:14px">
+        <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6B7A72">Inline approval</div>
+        <div style="border:1px solid #C9DED3; background:#E8F2EC; border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:14px">
+          <div style="display:flex; flex-direction:column; gap:4px">
+            <div style="font-size:15px; font-weight:700">Send PO-4471 to Harbor Produce?</div>
+            <div style="font-size:13px; line-height:1.6; color:#43524B">$1,486.10 · delivery Tue 6:00 AM · within your $3,500 ceiling. You can undo for 10 minutes after sending.</div>
+          </div>
+          <div style="display:flex; gap:10px">
+            <button style="height:36px; padding:0 16px; border:none; border-radius:10px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer" style-hover="background:#144A34">Send order</button>
+            <button style="height:36px; padding:0 16px; border:1px solid #C9DED3; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer" style-hover="background:#F7F6F2">Review lines</button>
+            <button style="height:36px; padding:0 16px; border:none; border-radius:10px; background:transparent; color:#6B7A72; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer" style-hover="color:#16211C">Not now</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:14px">
+        <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6B7A72">Citations &amp; suggestions</div>
+        <div style="font-size:14px; line-height:1.6; color:#16211C">Romaine ran 18% above forecast last week, and Harbor raised the case price twice this month.</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap">
+          <span style="display:flex; align-items:center; gap:6px; border:1px solid #E1DED4; border-radius:8px; padding:5px 10px; font-size:12px; color:#43524B; cursor:pointer" style-hover="background:#F7F6F2"><span style="width:14px; height:14px; border-radius:4px; background:#E8F2EC; border:1px solid #C9DED3"></span>Invoice INV-20841</span>
+          <span style="display:flex; align-items:center; gap:6px; border:1px solid #E1DED4; border-radius:8px; padding:5px 10px; font-size:12px; color:#43524B; cursor:pointer" style-hover="background:#F7F6F2"><span style="width:14px; height:14px; border-radius:4px; background:#E8F2EC; border:1px solid #C9DED3"></span>POS sales · Wk 34</span>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; padding-top:4px">
+          <span style="border:1px solid #C9DED3; border-radius:999px; padding:7px 13px; font-size:13px; color:#1E6B4B; font-weight:600; cursor:pointer" style-hover="background:#E8F2EC">Compare vendors</span>
+          <span style="border:1px solid #C9DED3; border-radius:999px; padding:7px 13px; font-size:13px; color:#1E6B4B; font-weight:600; cursor:pointer" style-hover="background:#E8F2EC">Draft credit request</span>
+        </div>
+      </div>
+
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:14px">
+        <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6B7A72">Error &amp; handoff</div>
+        <div style="border:1px solid #E4C9C7; background:#FBF0EF; border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; flex-direction:column; gap:4px">
+            <div style="font-size:15px; font-weight:700; color:#A32A22">Couldn't reach Harbor's ordering system</div>
+            <div style="font-size:13px; line-height:1.6; color:#43524B">Three attempts over 6 minutes. Nothing was sent and the draft is saved.</div>
+          </div>
+          <div style="display:flex; gap:10px">
+            <button style="height:36px; padding:0 16px; border:1px solid #E4C9C7; border-radius:10px; background:#fff; color:#A32A22; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer" style-hover="background:#F7EFEE">Retry now</button>
+            <button style="height:36px; padding:0 16px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer" style-hover="background:#F7F6F2">Email the rep instead</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px">
+    <div style="display:flex; flex-direction:column; gap:6px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#6B7A72">06 — Screens</div>
+      <h2 style="margin:0; font-size:28px; font-weight:700; letter-spacing:-.02em">The system in place</h2>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="font-size:14px; font-weight:600; color:#43524B">Ops dashboard with agent panel</div>
+      <div style="border:1px solid #E1DED4; border-radius:16px; overflow:hidden; background:#F7F6F2; box-shadow:0 12px 32px rgba(22,33,28,.08)">
+        <div style="display:flex; align-items:center; gap:10px; height:44px; padding:0 16px; background:#fff; border-bottom:1px solid #E1DED4">
+          <div style="width:20px; height:20px; border-radius:6px; background:#1E6B4B"></div>
+          <div style="font-size:14px; font-weight:700">Mise</div>
+          <div style="display:flex; gap:2px; margin-left:12px">
+            <div style="padding:6px 10px; font-size:13px; font-weight:600; background:#E8F2EC; color:#1E6B4B; border-radius:8px">Today</div>
+            <div style="padding:6px 10px; font-size:13px; color:#6B7A72">Orders</div>
+            <div style="padding:6px 10px; font-size:13px; color:#6B7A72">Invoices</div>
+            <div style="padding:6px 10px; font-size:13px; color:#6B7A72">Labor</div>
+          </div>
+          <div style="margin-left:auto; display:flex; align-items:center; gap:10px"><span style="font-size:13px; color:#6B7A72">Fig &amp; Oak · Downtown</span><span style="width:26px; height:26px; border-radius:999px; background:#DDE2DF"></span></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 340px">
+          <div style="padding:24px; display:flex; flex-direction:column; gap:16px">
+            <div style="display:flex; align-items:baseline; justify-content:space-between">
+              <h3 style="margin:0; font-size:22px; font-weight:700; letter-spacing:-.02em">Monday, August 24</h3>
+              <span style="font-size:13px; color:#6B7A72">Covers forecast 214</span>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px">
+              <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:6px">
+                <span style="font-size:12px; color:#6B7A72; font-weight:600; text-transform:uppercase; letter-spacing:.04em">Food cost</span>
+                <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:24px">31.8%</span>
+                <span style="font-size:12px; color:#1E6B4B">−0.6 pts vs last week</span>
+              </div>
+              <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:6px">
+                <span style="font-size:12px; color:#6B7A72; font-weight:600; text-transform:uppercase; letter-spacing:.04em">Labor</span>
+                <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:24px">28.4%</span>
+                <span style="font-size:12px; color:#B4531B">+1.2 pts vs plan</span>
+              </div>
+              <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:6px">
+                <span style="font-size:12px; color:#6B7A72; font-weight:600; text-transform:uppercase; letter-spacing:.04em">Open POs</span>
+                <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:24px">6</span>
+                <span style="font-size:12px; color:#6B7A72">2 awaiting approval</span>
+              </div>
+            </div>
+            <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; overflow:hidden">
+              <div style="display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid #EFEDE6">
+                <span style="font-size:14px; font-weight:600">Needs your decision</span>
+                <span style="background:#FBEFE6; color:#B4531B; border-radius:8px; padding:3px 8px; font-size:12px; font-weight:600">3</span>
+              </div>
+              <sc-for list="{{ decisions }}" as="d" hint-placeholder-count="3">
+                <div style="display:flex; align-items:center; gap:12px; padding:12px 16px; border-bottom:1px solid #EFEDE6">
+                  <div style="display:flex; flex-direction:column; gap:2px; flex:1">
+                    <span style="font-size:14px; font-weight:500">{{ d.title }}</span>
+                    <span style="font-size:12px; color:#6B7A72">{{ d.meta }}</span>
+                  </div>
+                  <button style="height:32px; padding:0 12px; border:none; border-radius:10px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Review</button>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="border-left:1px solid #E1DED4; background:#fff; padding:20px; display:flex; flex-direction:column; gap:14px">
+            <div style="display:flex; align-items:center; gap:8px"><span style="width:8px; height:8px; border-radius:999px; background:#1E6B4B"></span><span style="font-size:13px; font-weight:700">Agent</span><span style="margin-left:auto; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">watching 4 feeds</span></div>
+            <div style="background:#F7F6F2; border-radius:14px; border-top-left-radius:4px; padding:12px 14px; font-size:13px; line-height:1.6">Tuesday produce order is ready. I raised romaine by 4 cases and dropped iceberg by 2.</div>
+            <div style="border:1px solid #E1DED4; border-radius:12px; padding:12px; display:flex; flex-direction:column; gap:8px">
+              <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#1E6B4B">+ Romaine, 4 cs</span><span style="font-family:'General Sans',sans-serif; font-weight:300">+$92.00</span></div>
+              <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#A32A22">− Iceberg, 2 cs</span><span style="font-family:'General Sans',sans-serif; font-weight:300">−$38.40</span></div>
+              <div style="height:1px; background:#EFEDE6"></div>
+              <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:600"><span>Total</span><span style="font-family:'General Sans',sans-serif; font-weight:300">$1,486.10</span></div>
+            </div>
+            <div style="display:flex; gap:8px">
+              <button style="flex:1; height:36px; border:none; border-radius:10px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Send order</button>
+              <button style="height:36px; padding:0 12px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Edit</button>
+            </div>
+            <div style="margin-top:auto; display:flex; gap:6px; flex-wrap:wrap">
+              <span style="border:1px solid #C9DED3; border-radius:999px; padding:6px 11px; font-size:12px; color:#1E6B4B; font-weight:600">Why the change?</span>
+              <span style="border:1px solid #C9DED3; border-radius:999px; padding:6px 11px; font-size:12px; color:#1E6B4B; font-weight:600">Compare vendors</span>
+            </div>
+            <div style="border:1px solid #E1DED4; border-radius:12px; height:40px; display:flex; align-items:center; padding:0 12px; font-size:13px; color:#8D9994">Ask about orders, invoices, labor…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="font-size:14px; font-weight:600; color:#43524B">Invoice review — variance detail</div>
+      <div style="border:1px solid #E1DED4; border-radius:16px; background:#fff; padding:24px; display:flex; flex-direction:column; gap:16px; box-shadow:0 12px 32px rgba(22,33,28,.08)">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px">
+          <div style="display:flex; flex-direction:column; gap:6px">
+            <div style="display:flex; align-items:center; gap:10px"><h3 style="margin:0; font-size:20px; font-weight:700">INV-20841 · Harbor Produce Co.</h3><span style="background:#FBEFE6; color:#B4531B; border-radius:8px; padding:3px 9px; font-size:12px; font-weight:600">2 variances</span></div>
+            <div style="font-size:13px; color:#6B7A72">Received Aug 22 · matched to PO-4462 · $1,912.44</div>
+          </div>
+          <div style="display:flex; gap:10px">
+            <button style="height:36px; padding:0 14px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Dispute</button>
+            <button style="height:36px; padding:0 14px; border:none; border-radius:10px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Approve for payment</button>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; background:#E8F2EC; border:1px solid #C9DED3; border-radius:12px; padding:14px 16px">
+          <div style="width:8px; height:8px; border-radius:999px; background:#1E6B4B; margin-top:6px"></div>
+          <div style="font-size:13px; line-height:1.6; color:#16211C">Agent matched 12 of 14 lines. Romaine came in $6.10 over the quoted case price and one crate of tomatoes was short. Suggested credit: $71.30.</div>
+        </div>
+        <div style="border:1px solid #E1DED4; border-radius:12px; overflow:hidden">
+          <div style="display:grid; grid-template-columns:1.6fr .8fr .8fr .8fr; background:#F7F6F2; border-bottom:1px solid #E1DED4; padding:0 16px">
+            <div style="height:38px; display:flex; align-items:center; font-size:12px; font-weight:600; color:#6B7A72; text-transform:uppercase; letter-spacing:.04em">Line</div>
+            <div style="height:38px; display:flex; align-items:center; justify-content:flex-end; font-size:12px; font-weight:600; color:#6B7A72; text-transform:uppercase; letter-spacing:.04em">Quoted</div>
+            <div style="height:38px; display:flex; align-items:center; justify-content:flex-end; font-size:12px; font-weight:600; color:#6B7A72; text-transform:uppercase; letter-spacing:.04em">Billed</div>
+            <div style="height:38px; display:flex; align-items:center; justify-content:flex-end; font-size:12px; font-weight:600; color:#6B7A72; text-transform:uppercase; letter-spacing:.04em">Delta</div>
+          </div>
+          <sc-for list="{{ variances }}" as="v" hint-placeholder-count="4">
+            <div style="display:grid; grid-template-columns:1.6fr .8fr .8fr .8fr; padding:0 16px; border-bottom:1px solid #EFEDE6">
+              <div style="height:44px; display:flex; align-items:center; font-size:14px">{{ v.line }}</div>
+              <div style="height:44px; display:flex; align-items:center; justify-content:flex-end; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#43524B">{{ v.quoted }}</div>
+              <div style="height:44px; display:flex; align-items:center; justify-content:flex-end; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">{{ v.billed }}</div>
+              <div style="height:44px; display:flex; align-items:center; justify-content:flex-end; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:{{ v.tone }}">{{ v.delta }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="font-size:14px; font-weight:600; color:#43524B">Marketing page — hero</div>
+      <div style="border:1px solid #E1DED4; border-radius:16px; overflow:hidden; background:#fff; box-shadow:0 12px 32px rgba(22,33,28,.08)">
+        <div style="display:flex; align-items:center; height:56px; padding:0 28px; border-bottom:1px solid #EFEDE6; gap:24px">
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:22px; height:22px; border-radius:7px; background:#1E6B4B"></div><span style="font-size:15px; font-weight:800">Mise</span></div>
+          <div style="display:flex; gap:20px; font-size:14px; color:#43524B"><span>Product</span><span>Agents</span><span>Pricing</span><span>Customers</span></div>
+          <div style="margin-left:auto; display:flex; gap:10px; align-items:center">
+            <span style="font-size:14px; font-weight:600; color:#43524B">Sign in</span>
+            <button style="height:36px; padding:0 14px; border:none; border-radius:10px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Book a walkthrough</button>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:1.05fr .95fr; gap:40px; padding:56px 28px 56px 28px; align-items:center">
+          <div style="display:flex; flex-direction:column; gap:20px; padding-left:12px">
+            <span style="align-self:flex-start; background:#E8F2EC; color:#1E6B4B; border-radius:999px; padding:6px 12px; font-size:12px; font-weight:600">For multi-unit operators</span>
+            <h2 style="margin:0; font-size:44px; line-height:1.06; letter-spacing:-.03em; font-weight:800">Your back office, staffed by agents you approve.</h2>
+            <p style="margin:0; font-size:16px; line-height:1.6; color:#43524B; max-width:46ch">Ordering, invoice matching, and labor plans run continuously. Every change that touches money waits for your yes.</p>
+            <div style="display:flex; gap:12px">
+              <button style="height:44px; padding:0 20px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:15px; font-weight:600; cursor:pointer">Book a walkthrough</button>
+              <button style="height:44px; padding:0 20px; border:1px solid #E1DED4; border-radius:12px; background:#fff; color:#16211C; font-family:'Manrope',sans-serif; font-size:15px; font-weight:600; cursor:pointer">See how matching works</button>
+            </div>
+            <div style="display:flex; gap:24px; padding-top:8px">
+              <div style="display:flex; flex-direction:column; gap:2px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:20px">1.4 pts</span><span style="font-size:12px; color:#6B7A72">avg food cost saved</span></div>
+              <div style="display:flex; flex-direction:column; gap:2px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:20px">9 hrs</span><span style="font-size:12px; color:#6B7A72">weekly admin returned</span></div>
+            </div>
+          </div>
+          <div style="background:#F7F6F2; border:1px solid #E1DED4; border-radius:14px; height:320px; display:flex; align-items:center; justify-content:center; background-image:repeating-linear-gradient(135deg,#F7F6F2 0 8px,#F1EFE9 8px 16px)">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#8D9994; background:#fff; border:1px solid #E1DED4; border-radius:8px; padding:8px 12px">product screenshot</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      tableRows: [
+        { item: "Romaine, 24 ct case", vendor: "Harbor Produce", qty: "6", cost: "$23.00" },
+        { item: "Whole milk, 4×1 gal", vendor: "Cedar Dairy", qty: "3", cost: "$18.40" },
+        { item: "Chicken thigh, 40 lb", vendor: "Northline Meats", qty: "2", cost: "$96.20" },
+        { item: "Olive oil, 3 L", vendor: "Sorrento Imports", qty: "9", cost: "$41.75" }
+      ],
+      decisions: [
+        { title: "PO-4471 · Harbor Produce", meta: "$1,486.10 · agent adjusted 2 lines" },
+        { title: "INV-20841 price variance", meta: "Romaine $6.10 over quote" },
+        { title: "Saturday dinner shift short one line cook", meta: "Agent drafted two swap options" }
+      ],
+      variances: [
+        { line: "Romaine, 24 ct case × 6", quoted: "$23.00", billed: "$29.10", delta: "+$36.60", tone: "#A32A22" },
+        { line: "Tomato, 25 lb × 4", quoted: "$31.20", billed: "$31.20", delta: "1 short", tone: "#B4531B" },
+        { line: "Cucumber, 24 ct × 3", quoted: "$18.90", billed: "$18.90", delta: "—", tone: "#6B7A72" },
+        { line: "Lemon, 40 lb × 2", quoted: "$44.00", billed: "$44.00", delta: "—", tone: "#6B7A72" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

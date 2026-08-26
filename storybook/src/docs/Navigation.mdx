@@ -1,0 +1,71 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import * as SideNavStories from '../components/navigation/SideNav.stories';
+import * as TopNavStories from '../components/navigation/TopNav.stories';
+import * as TabStories from '../components/navigation/TabList.stories';
+import * as CrumbStories from '../components/navigation/Breadcrumbs.stories';
+import * as PagerStories from '../components/navigation/Pagination.stories';
+import * as StepperStories from '../components/navigation/Stepper.stories';
+
+<Meta title="Navigation/Category" />
+
+# Navigation
+
+Seven components that answer three questions: where am I, where else can I go,
+and how do I get through this list. Mise is a desktop app used all day by the
+same few people, so the shell is stable and predictable rather than clever.
+
+## The shell
+
+<Canvas of={TopNavStories.Default} />
+
+<Canvas of={SideNavStories.Default} />
+
+Top Nav carries the product's top-level places, never more than seven — an eighth
+means the information architecture needs a level, not another tab. Side Nav is the
+persistent rail, with groups labelled only once it holds more than about seven items.
+
+Counts appear only where something needs attention. "34 invoices" is quiet ink;
+"2 unmatched" is amber. A count that is always there stops being read.
+
+<Controls of={SideNavStories.Default} />
+
+## Between records vs. within one
+
+<Canvas of={TabStories.Underline} />
+
+Tabs are views of **one** record. Navigating between records is Side Nav's job.
+A tab never loses the operator's place when they come back to it — someone
+matching invoice lines will leave and return a dozen times in an hour.
+
+<Canvas of={CrumbStories.Collapsed} />
+
+The last crumb is the current record and never a link. Long trails collapse in
+the middle, keeping the root and the two nearest ancestors.
+
+## Through a list
+
+<Canvas of={PagerStories.Default} />
+
+Note what is missing: numbered page buttons. Nobody navigates invoices by page
+number. The record count and Previous/Next are what get used, so they are what
+the component offers.
+
+## Through a task
+
+<Canvas of={StepperStories.Vertical} />
+
+A fixed order — onboarding a vendor, closing a period. Completed steps stay
+clickable so the operator can check their work; upcoming steps do not, because
+the order is the whole point of using a Stepper instead of tabs.
+
+## Accessibility
+
+- One `<nav>` per region, each with its own `aria-label`: Main, Sections,
+  Breadcrumb, Pagination, On this page.
+- `aria-current="page"` on the active nav item, `aria-current="step"` on the
+  current step — state is never carried by colour alone.
+- Tab List follows the tabs pattern: arrows move between tabs, Tab moves into the
+  panel, and the selected tab is the only one in the tab order.
+- Breadcrumbs are an ordered list, so the depth is spoken as a sequence.
+- Disabled nav items use `aria-disabled` and stay announced, rather than
+  vanishing and leaving a hole in the structure.

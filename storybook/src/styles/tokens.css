@@ -1,0 +1,85 @@
+/* Mise DLS primitives. Single source of truth — Tailwind reads these,
+   and the Figma library binds the same names as Variables. */
+:root {
+  /* Brand — restaurant green */
+  --mise-brand-50: #E8F2EC;
+  --mise-brand-100: #D3E6DC;
+  --mise-brand-200: #C9DED3;
+  --mise-brand-500: #2A8A61;
+  --mise-brand-600: #1E6B4B;
+  --mise-brand-700: #144A34;
+  --mise-brand-800: #123F2C;
+  --mise-brand-900: #103827;
+
+  /* Ink */
+  --mise-ink-900: #16211C;
+  --mise-ink-700: #43524B;
+  --mise-ink-500: #6B7A72;
+  --mise-ink-400: #8D9994;
+  --mise-ink-300: #A9B6B0;
+
+  /* Surfaces */
+  --mise-canvas: #F7F6F2;
+  --mise-surface: #FFFFFF;
+  --mise-surface-raised: #FCFBF8;
+  --mise-sunken: #F1EFE9;
+
+  /* Lines */
+  --mise-line: #E1DED4;
+  --mise-line-soft: #EFEDE6;
+  --mise-neutral-200: #DDE2DF;
+
+  /* Status */
+  --mise-danger: #A32A22;
+  --mise-danger-bg: #FDF8F7;
+  --mise-danger-line: #EAD0CB;
+  --mise-danger-border: #E4C9C7;
+  --mise-warn: #C98A16;
+  --mise-warn-ink: #8A5D0A;
+  --mise-warn-bg: #FBF1DC;
+  --mise-alert: #B4531B;
+
+  /* Tone pairs — badge, banner, toast */
+  --mise-tone-success-bg: #E8F2EC;
+  --mise-tone-success-fg: #1E6B4B;
+  --mise-tone-warning-bg: #FBEFE6;
+  --mise-tone-warning-fg: #B4531B;
+  --mise-tone-danger-bg: #FBF0EF;
+  --mise-tone-danger-fg: #A32A22;
+  --mise-tone-info-bg: #ECF1F6;
+  --mise-tone-info-fg: #2F5E8C;
+  --mise-tone-neutral-bg: #F1EFE9;
+  --mise-tone-neutral-fg: #43524B;
+
+  /* Radius */
+  --mise-radius-sm: 6px;
+  --mise-radius-md: 10px;
+  --mise-radius-lg: 14px;
+  --mise-radius-xl: 16px;
+  --mise-radius-pill: 999px;
+  --mise-radius-control: 12px;
+
+  /* Control heights */
+  --mise-control-sm: 32px;
+  --mise-control-md: 40px;
+  --mise-control-lg: 44px;
+
+  /* Elevation */
+  --mise-shadow-popover: 0 12px 32px rgba(22, 33, 28, 0.14);
+  --mise-shadow-overlay: 0 24px 56px rgba(22, 33, 28, 0.22);
+  --mise-shadow-raised: 0 6px 20px rgba(22, 33, 28, 0.06);
+  --mise-scrim: rgba(22, 33, 28, 0.38);
+
+  /* Type */
+  --mise-font-sans: 'Manrope', system-ui, sans-serif;
+  --mise-font-data: 'General Sans', ui-monospace, monospace;
+
+  /* Motion */
+  --mise-duration-fast: 120ms;
+  --mise-duration-base: 180ms;
+  --mise-ease: cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --mise-duration-fast: 1ms; --mise-duration-base: 1ms; }
+}

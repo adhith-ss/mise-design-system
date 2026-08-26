@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet" />
+<style>
+  body { margin:0; background:#F7F6F2; color:#16211C; font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1E6B4B; text-decoration:none; }
+  a:hover { color:#144A34; }
+</style>
+</helmet>
+
+<div style="display:grid; grid-template-columns:264px 1fr; min-height:100vh">
+
+  <aside style="border-right:1px solid #E1DED4; background:#fff; padding:24px 20px; display:flex; flex-direction:column; gap:24px; position:sticky; top:0; height:100vh; overflow:auto">
+    <div style="display:flex; align-items:center; gap:10px">
+      <div style="width:24px; height:24px; border-radius:7px; background:#1E6B4B"></div>
+      <div style="display:flex; flex-direction:column">
+        <span style="font-size:15px; font-weight:800; letter-spacing:-.01em">Mise DLS</span>
+        <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">Table &amp; List</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:6px 8px">Library</div>
+      <a href="Mise-DLS-Index.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overview</a>
+      <a href="Mise Design System.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Foundations</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">On this page</div>
+      <a href="#Table" style="padding:7px 8px; border-radius:8px; font-size:13px; background:#E8F2EC; color:#1E6B4B; font-weight:600">Table</a>
+      <a href="#List" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">List</a>
+      <a href="#MetadataList" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Metadata List</a>
+      <a href="#TreeList" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Tree List</a>
+      <a href="#OverflowList" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overflow List</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">Categories</div>
+      <a href="Mise-DLS-Action.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Action</a>
+      <a href="Mise-DLS-ChatAgent.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Chat &amp; Agent</a>
+      <a href="Mise-DLS-Content.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Content</a>
+      <a href="Mise-DLS-DataInput.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Data Input</a>
+      <a href="Mise-DLS-Feedback.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Feedback &amp; Status</a>
+      <a href="Mise-DLS-Navigation.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Navigation</a>
+      <a href="Mise-DLS-Overlay.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overlay</a>
+    </div>
+  </aside>
+
+  <main style="padding:48px 56px 140px; max-width:1000px; display:flex; flex-direction:column; gap:60px">
+
+    <header style="display:flex; flex-direction:column; gap:14px">
+      <span style="align-self:flex-start; background:#E8F2EC; color:#1E6B4B; border-radius:999px; padding:5px 11px; font-size:12px; font-weight:600">Table &amp; List · 5 components</span>
+      <h1 style="margin:0; font-size:40px; line-height:1.08; letter-spacing:-.03em; font-weight:800">Table &amp; List</h1>
+      <p style="margin:0; max-width:62ch; font-size:16px; line-height:1.65; color:#43524B">Most of the working day happens in a table. Rows are 44px, numbers are right-aligned and tabular, and the header stays put while the body scrolls.</p>
+    </header>
+
+    <!-- TABLE -->
+    <section id="Table" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Table</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Records with several comparable fields. If the operator will compare values down a column, it is a table; if they read one record at a time, it is a List.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Anatomy</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:16px">
+          <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; border:1px solid #E1DED4; border-radius:11px; background:#FCFBF8">
+            <span style="display:inline-flex; align-items:center; height:30px; padding:0 11px; border:1px solid #1E6B4B; border-radius:9px; background:#E8F2EC; color:#1E6B4B; font-size:12.5px; font-weight:600">Variances only</span>
+            <span style="display:inline-flex; align-items:center; height:30px; padding:0 11px; border:1px solid #E1DED4; border-radius:9px; background:#fff; color:#43524B; font-size:12.5px; font-weight:600">Vendor: Harbor</span>
+            <span style="font-size:12.5px; color:#6B7A72; margin-left:4px">14 rows</span>
+            <div style="margin-left:auto; display:flex; gap:6px"><button style="height:30px; padding:0 11px; border:1px solid #E1DED4; border-radius:9px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">Columns</button><button style="height:30px; padding:0 11px; border:1px solid #E1DED4; border-radius:9px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">Export</button></div>
+          </div>
+          <div style="border:1px solid #E1DED4; border-radius:12px; overflow:hidden">
+            <div style="display:grid; grid-template-columns:36px 1.5fr 1fr .7fr .7fr .8fr 44px; background:#F7F6F2; border-bottom:1px solid #E1DED4; padding:0 14px">
+              <div style="height:40px; display:flex; align-items:center"><span style="width:16px; height:16px; border:1px solid #1E6B4B; border-radius:5px; background:#1E6B4B; display:flex; align-items:center; justify-content:center"><span style="width:8px; height:2px; background:#fff"></span></span></div>
+              <div style="height:40px; display:flex; align-items:center; gap:6px; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#16211C">Item<span style="width:0; height:0; border-left:3px solid transparent; border-right:3px solid transparent; border-bottom:4px solid #1E6B4B"></span></div>
+              <div style="height:40px; display:flex; align-items:center; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Vendor</div>
+              <div style="height:40px; display:flex; align-items:center; justify-content:flex-end; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Quoted</div>
+              <div style="height:40px; display:flex; align-items:center; justify-content:flex-end; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Billed</div>
+              <div style="height:40px; display:flex; align-items:center; justify-content:flex-end; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Delta</div>
+              <div></div>
+            </div>
+            <sc-for list="{{ rows }}" as="r" hint-placeholder-count="5">
+              <div style="display:grid; grid-template-columns:36px 1.5fr 1fr .7fr .7fr .8fr 44px; padding:0 14px; border-bottom:1px solid #EFEDE6" style-hover="background:#FBFAF7">
+                <div style="height:44px; display:flex; align-items:center"><span style="width:16px; height:16px; border:1px solid #C4CCC7; border-radius:5px; background:#fff"></span></div>
+                <div style="height:44px; display:flex; align-items:center; gap:9px; font-size:14px; font-weight:500">{{ r.item }}</div>
+                <div style="height:44px; display:flex; align-items:center; font-size:14px; color:#43524B">{{ r.vendor }}</div>
+                <div style="height:44px; display:flex; align-items:center; justify-content:flex-end; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#43524B">{{ r.quoted }}</div>
+                <div style="height:44px; display:flex; align-items:center; justify-content:flex-end; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">{{ r.billed }}</div>
+                <div style="height:44px; display:flex; align-items:center; justify-content:flex-end; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">{{ r.delta }}</div>
+                <div style="height:44px; display:flex; align-items:center; justify-content:flex-end"><button style="width:26px; height:26px; border:none; border-radius:7px; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:2px" style-hover="background:#F1EFE9"><span style="width:3px; height:3px; border-radius:999px; background:#8D9994"></span><span style="width:3px; height:3px; border-radius:999px; background:#8D9994"></span><span style="width:3px; height:3px; border-radius:999px; background:#8D9994"></span></button></div>
+              </div>
+            </sc-for>
+            <div style="display:grid; grid-template-columns:36px 1.5fr 1fr .7fr .7fr .8fr 44px; padding:0 14px; background:#F7F6F2; border-top:1px solid #E1DED4">
+              <div></div>
+              <div style="height:42px; display:flex; align-items:center; font-size:13px; font-weight:700">Total</div>
+              <div></div><div></div>
+              <div style="height:42px; display:flex; align-items:center; justify-content:flex-end; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">$1,912.44</div>
+              <div style="height:42px; display:flex; align-items:center; justify-content:flex-end; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#A32A22">+$36.60</div>
+              <div></div>
+            </div>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center; background:#16211C; border-radius:11px; padding:9px 12px; align-self:flex-start">
+            <span style="font-size:12.5px; color:#DCE5E0; font-weight:600">2 selected</span>
+            <div style="width:1px; height:16px; background:#3A4A43"></div>
+            <button style="height:28px; padding:0 10px; border:none; border-radius:8px; background:transparent; color:#DCE5E0; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">Dispute</button>
+            <button style="height:28px; padding:0 10px; border:none; border-radius:8px; background:transparent; color:#DCE5E0; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">Approve</button>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px">
+            <sc-for list="{{ tableAnatomy }}" as="a" hint-placeholder-count="6">
+              <div style="display:flex; gap:10px; align-items:baseline">
+                <span style="width:18px; height:18px; border-radius:999px; border:1px solid #C9DED3; color:#1E6B4B; font-size:11px; display:flex; align-items:center; justify-content:center; flex:0 0 auto">{{ a.n }}</span>
+                <span style="font-size:13px; color:#43524B"><b style="color:#16211C">{{ a.part }}</b> — {{ a.note }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">States</h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+          <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:10px">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">loading — skeleton rows, header intact</span>
+            <div style="display:flex; flex-direction:column; gap:9px"><div style="height:9px; width:70%; border-radius:999px; background:#EFEDE6"></div><div style="height:9px; width:54%; border-radius:999px; background:#EFEDE6"></div><div style="height:9px; width:62%; border-radius:999px; background:#EFEDE6"></div></div>
+          </div>
+          <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:8px">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">empty — filters named in the copy</span>
+            <span style="font-size:13.5px; font-weight:600">No rows match these filters</span>
+            <span style="font-size:12.5px; color:#43524B">Variances only + Cedar Dairy returns nothing.</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Do / Don't</h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+          <div style="background:#fff; border:1px solid #C9DED3; border-radius:14px; overflow:hidden">
+            <div style="padding:20px; background:#FBFCFB; display:flex; flex-direction:column; gap:6px">
+              <div style="display:flex; justify-content:space-between"><span style="font-size:13px">Romaine, 24 ct</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">$23.00</span></div>
+              <div style="display:flex; justify-content:space-between"><span style="font-size:13px">Tomato, 25 lb</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">$31.20</span></div>
+              <div style="display:flex; justify-content:space-between"><span style="font-size:13px">Lemon, 40 lb</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">$144.00</span></div>
+            </div>
+            <div style="padding:14px 18px; border-top:1px solid #EFEDE6; display:flex; gap:8px; align-items:baseline"><span style="color:#1E6B4B; font-size:13px; font-weight:700">Do</span><span style="font-size:13px; line-height:1.6; color:#43524B">Right-align money with tabular figures so digits stack.</span></div>
+          </div>
+          <div style="background:#fff; border:1px solid #E4C9C7; border-radius:14px; overflow:hidden">
+            <div style="padding:20px; background:#FDFAF9; display:flex; flex-direction:column; gap:6px">
+              <div style="display:flex; gap:20px"><span style="font-size:13px; width:120px">Romaine, 24 ct</span><span style="font-size:13px">$23.00</span></div>
+              <div style="display:flex; gap:20px"><span style="font-size:13px; width:120px">Tomato, 25 lb</span><span style="font-size:13px">$31.20</span></div>
+              <div style="display:flex; gap:20px"><span style="font-size:13px; width:120px">Lemon, 40 lb</span><span style="font-size:13px">$144.00</span></div>
+            </div>
+            <div style="padding:14px 18px; border-top:1px solid #EFEDE6; display:flex; gap:8px; align-items:baseline"><span style="color:#A32A22; font-size:13px; font-weight:700">Don't</span><span style="font-size:13px; line-height:1.6; color:#43524B">Left-aligned proportional numbers cannot be scanned.</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Props</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+          <div style="display:grid; grid-template-columns:150px 1.3fr 100px 1.4fr; gap:14px; padding:11px 18px; background:#F7F6F2; border-bottom:1px solid #E1DED4">
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Prop</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Type</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Default</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Description</span>
+          </div>
+          <sc-for list="{{ tableProps }}" as="p" hint-placeholder-count="14">
+            <div style="display:grid; grid-template-columns:150px 1.3fr 100px 1.4fr; gap:14px; padding:11px 18px; border-bottom:1px solid #EFEDE6; align-items:baseline">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#16211C">{{ p.name }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#2F5E8C">{{ p.type }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#6B7A72">{{ p.def }}</span>
+              <span style="font-size:12.5px; line-height:1.55; color:#43524B">{{ p.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Tokens</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Header <b>40</b> tall on <b>canvas #F7F6F2</b>, label <b>11/600 uppercase</b> · row <b>44</b>, compact <b>36</b> · row border <b>#EFEDE6</b>, outer <b>#E1DED4</b> · hover <b>#FBFAF7</b>, selected <b>herb.50</b> · numeric cells General Sans 300, tabular, right-aligned.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Accessibility</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">A real <b>&lt;table&gt;</b> with <b>&lt;th scope&gt;</b>; sortable headers are buttons carrying <b>aria-sort</b>. Selection checkboxes name their row, select-all announces the count, and arrow-key cell navigation comes from <b>useGridFocus</b>. Sort and filter changes announce the new row count politely.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIST -->
+    <section id="List" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">List</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Records read one at a time, where each row carries a primary line, supporting detail, and at most one action. The decisions queue on the dashboard is a List, not a table.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <sc-for list="{{ listItems }}" as="i" hint-placeholder-count="4">
+          <div style="display:flex; align-items:center; gap:14px; padding:14px 18px; border-bottom:1px solid #EFEDE6" style-hover="background:#FBFAF7">
+            <span style="width:30px; height:30px; border-radius:9px; background:#F1EFE9; flex:0 0 auto"></span>
+            <div style="display:flex; flex-direction:column; gap:3px; flex:1">
+              <span style="font-size:14px; font-weight:600">{{ i.title }}</span>
+              <span style="font-size:12.5px; color:#6B7A72">{{ i.meta }}</span>
+            </div>
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#43524B">{{ i.value }}</span>
+            <button style="height:30px; padding:0 12px; border:1px solid #E1DED4; border-radius:9px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">Review</button>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>items</b> · <b>renderItem</b> · <b>density</b> 'default' 58 | 'compact' 44 · <b>divided</b> boolean, true · <b>interactive</b> boolean — whole-row click via <b>useClickableContainer</b> · <b>selectable</b> · <b>emptyState</b> ReactNode · <b>loading</b>. Renders <b>ul</b> / <b>li</b>; when the row is clickable the row action is a real link or button and inner controls stay independently focusable. Roving tabindex comes from <b>useListFocus</b>.</span>
+      </div>
+    </section>
+
+    <!-- METADATA LIST -->
+    <section id="MetadataList" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Metadata List</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Label-and-value pairs describing one record. This is where dates, references, and counts belong — not in Badges.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:grid; grid-template-columns:1fr 1fr; gap:28px">
+        <div style="display:flex; flex-direction:column; gap:11px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">stacked</span>
+          <sc-for list="{{ meta }}" as="m" hint-placeholder-count="5">
+            <div style="display:flex; flex-direction:column; gap:2px">
+              <span style="font-size:12px; color:#6B7A72">{{ m.label }}</span>
+              <span style="font-size:13.5px; font-weight:500">{{ m.value }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:11px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">inline · aligned columns</span>
+          <sc-for list="{{ meta }}" as="m" hint-placeholder-count="5">
+            <div style="display:grid; grid-template-columns:110px 1fr; gap:12px; align-items:baseline">
+              <span style="font-size:12.5px; color:#6B7A72">{{ m.label }}</span>
+              <span style="font-size:13.5px">{{ m.value }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>items</b> with label, value, copyable · <b>layout</b> 'stacked' | 'inline' · <b>columns</b> 1 | 2 · <b>labelWidth</b> number · <b>dense</b> boolean. Renders a description list (<b>dl</b> / <b>dt</b> / <b>dd</b>) so each value is announced with its label. Empty values render an em dash rather than collapsing the row.</span>
+      </div>
+    </section>
+
+    <!-- TREE LIST -->
+    <section id="TreeList" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Tree List</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Nested records — a recipe's sub-recipes, a category hierarchy, a chart of accounts. Two or three levels; deeper than that is a search problem, not a tree.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:20px 24px; display:flex; flex-direction:column; gap:2px">
+        <sc-for list="{{ tree }}" as="t" hint-placeholder-count="7">
+          <div style="display:flex; align-items:center; gap:9px; height:34px; padding-left:{{ t.indent }}">
+            <span style="width:14px; height:14px; display:flex; align-items:center; justify-content:center; color:#8D9994; font-size:9px">{{ t.caret }}</span>
+            <span style="font-size:13.5px; font-weight:{{ t.weight }}">{{ t.label }}</span>
+            <span style="margin-left:auto; font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#43524B">{{ t.value }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>nodes</b> with id, label, children, value · <b>expandedIds</b> · <b>onExpandedChange</b> · <b>selectedId</b> · <b>indent</b> number, 20 · <b>defaultExpandedLevel</b> number, 1. Role <b>tree</b> with <b>treeitem</b> children, <b>aria-expanded</b> and <b>aria-level</b>; right and left arrows expand and collapse, up and down move, and <b>useTreeFocus</b> keeps one tab stop.</span>
+      </div>
+    </section>
+
+    <!-- OVERFLOW LIST -->
+    <section id="OverflowList" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Overflow List</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A horizontal set that measures itself and moves what does not fit into a "+n" menu. Used for filter chips, vendor tags, and toolbars in narrow panels.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:16px">
+        <div style="display:flex; gap:8px; align-items:center; border:1px dashed #DDD9CE; border-radius:11px; padding:10px; overflow:hidden">
+          <span style="border:1px solid #E1DED4; border-radius:999px; padding:5px 11px; font-size:12.5px; color:#43524B; white-space:nowrap">Produce</span>
+          <span style="border:1px solid #E1DED4; border-radius:999px; padding:5px 11px; font-size:12.5px; color:#43524B; white-space:nowrap">Dairy</span>
+          <span style="border:1px solid #E1DED4; border-radius:999px; padding:5px 11px; font-size:12.5px; color:#43524B; white-space:nowrap">Protein</span>
+          <button style="border:1px solid #C9DED3; background:#E8F2EC; border-radius:999px; padding:5px 11px; font-size:12.5px; color:#1E6B4B; font-weight:600; white-space:nowrap; cursor:pointer">+3</button>
+        </div>
+        <span style="font-size:12.5px; color:#6B7A72; line-height:1.7">Measurement runs through <b>useOverflow</b> on a resize observer, so the visible count is a result of the real container width rather than a breakpoint guess.</span>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>items</b> · <b>renderItem</b> · <b>minVisible</b> number, 1 · <b>overflowLabel</b> (count) =&gt; string · <b>placement</b> 'end' | 'start' · <b>gap</b> number, 8. Hidden items stay in the accessibility tree through the overflow menu, which names the count ("Show 3 more filters"); nothing is removed from the DOM without a route to it.</span>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      rows: [
+        { item: "Romaine, 24 ct case × 6", vendor: "Harbor Produce", quoted: "$23.00", billed: "$29.10", delta: "+$36.60" },
+        { item: "Tomato, 25 lb × 4", vendor: "Harbor Produce", quoted: "$31.20", billed: "$31.20", delta: "1 short" },
+        { item: "Cucumber, 24 ct × 3", vendor: "Harbor Produce", quoted: "$18.90", billed: "$18.90", delta: "—" },
+        { item: "Lemon, 40 lb × 2", vendor: "Harbor Produce", quoted: "$44.00", billed: "$44.00", delta: "—" },
+        { item: "Parsley, 12 ct × 2", vendor: "Harbor Produce", quoted: "$9.40", billed: "$9.40", delta: "—" }
+      ],
+      tableAnatomy: [
+        { n: "1", part: "Toolbar", note: "Active filters, row count, column and export controls" },
+        { n: "2", part: "Header", note: "40px, sticky, sortable columns are buttons with a direction caret" },
+        { n: "3", part: "Row", note: "44px; numeric cells right-aligned and tabular" },
+        { n: "4", part: "Row actions", note: "More Menu, revealed on hover but always keyboard reachable" },
+        { n: "5", part: "Footer", note: "Totals on the canvas fill; sums only what is filtered in" },
+        { n: "6", part: "Selection bar", note: "Appears on selection with the actions that apply to the set" }
+      ],
+      tableProps: [
+        { name: "columns", type: "Column[]", def: "—", desc: "id, header, accessor, align, width, sortable, sticky, hidden." },
+        { name: "rows", type: "Row[]", def: "—", desc: "Data. Each row needs a stable id for selection and expansion." },
+        { name: "density", type: "'default' | 'compact'", def: "'default'", desc: "44 or 36px rows." },
+        { name: "sort", type: "{ id, direction }", def: "—", desc: "Controlled sort state; pairs with useTableSortable." },
+        { name: "selection", type: "string[]", def: "[]", desc: "Selected row ids. Shift-click extends the range." },
+        { name: "onSelectionChange", type: "(ids: string[]) => void", def: "—", desc: "Fires on row, range, and select-all changes." },
+        { name: "expandable", type: "boolean", def: "false", desc: "Row detail panels via useTableRowExpansion." },
+        { name: "grouping", type: "{ id, collapsed }[]", def: "—", desc: "Grouped rows with a subtotal per group." },
+        { name: "stickyHeader", type: "boolean", def: "true", desc: "Header stays while the body scrolls." },
+        { name: "stickyColumns", type: "number", def: "0", desc: "Freezes the first n columns for wide tables." },
+        { name: "resizableColumns", type: "boolean", def: "false", desc: "Drag-to-resize, persisted per user." },
+        { name: "footer", type: "ReactNode | 'totals'", def: "—", desc: "Totals row; sums the filtered set, not the page." },
+        { name: "loading", type: "boolean", def: "false", desc: "Skeleton rows with the header intact." },
+        { name: "emptyState", type: "ReactNode", def: "—", desc: "Distinguishes no data from no matches." },
+        { name: "onRowClick", type: "(row) => void", def: "—", desc: "Opens the record. Never mutates on click." }
+      ],
+      listItems: [
+        { title: "PO-4471 · Harbor Produce", meta: "Agent adjusted 2 lines · sends Tue 6:00 AM", value: "$1,486.10" },
+        { title: "INV-20841 price variance", meta: "Romaine $6.10 over quote", value: "+$36.60" },
+        { title: "Saturday dinner short one line cook", meta: "Two swap options drafted", value: "7 hrs" },
+        { title: "Cedar Dairy price list expired", meta: "Last confirmed Jul 30", value: "—" }
+      ],
+      meta: [
+        { label: "Invoice", value: "INV-20841" },
+        { label: "Vendor", value: "Harbor Produce Co." },
+        { label: "Received", value: "Aug 22, 2026" },
+        { label: "Matched to", value: "PO-4462" },
+        { label: "Lines", value: "14 · 12 matched" }
+      ],
+      tree: [
+        { label: "Food", value: "$14,208.50", indent: "0px", caret: "▾", weight: "700" },
+        { label: "Produce", value: "$4,912.10", indent: "20px", caret: "▾", weight: "600" },
+        { label: "Harbor Produce Co.", value: "$3,806.44", indent: "40px", caret: "", weight: "400" },
+        { label: "Sorrento Imports", value: "$1,105.66", indent: "40px", caret: "", weight: "400" },
+        { label: "Dairy", value: "$2,204.80", indent: "20px", caret: "▸", weight: "600" },
+        { label: "Protein", value: "$5,388.20", indent: "20px", caret: "▸", weight: "600" },
+        { label: "Dry goods", value: "$1,703.40", indent: "20px", caret: "▸", weight: "600" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

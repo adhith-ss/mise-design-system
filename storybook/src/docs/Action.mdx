@@ -1,0 +1,77 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import * as ButtonStories from '../components/action/Button.stories';
+import * as IconButtonStories from '../components/action/IconButton.stories';
+import * as SegmentedStories from '../components/action/SegmentedControl.stories';
+import * as MenuStories from '../components/action/DropdownMenu.stories';
+import * as ToolbarStories from '../components/action/Toolbar.stories';
+
+<Meta title="Action/Category" />
+
+# Action
+
+Everything that starts work. Ten components, ordered by how much weight they
+carry: a Button commits, a Toggle persists, a Segmented Control only changes
+what you are looking at.
+
+## The label is the design
+
+The label names the action in the operator's words — "Send order", not "Submit";
+"Cancel order", not "OK". Verb first, sentence case, no full stop. A button whose
+label needs a tooltip to be understood is mislabelled.
+
+## Weight
+
+<Canvas of={ButtonStories.AllVariants} />
+
+One primary per view. Secondary carries the alternative to the primary; neutral
+carries everything else; danger is text-and-border, never a filled red slab, so
+it cannot be hit by muscle memory. Ghost is for toolbars and rows where a border
+would add noise.
+
+<Controls of={ButtonStories.Primary} />
+
+## Size
+
+<Canvas of={ButtonStories.Sizes} />
+
+32 / 40 / 44px. `sm` inside table rows and toolbars, `md` everywhere else,
+`lg` on marketing pages only — an operator screen never needs it.
+
+## Icon-only
+
+<Canvas of={IconButtonStories.Outline} />
+
+Every icon button carries an accessible label and a tooltip that say the same
+thing. Ghost inside toolbars and rows; outline when it stands alone.
+
+## State that persists vs. state that switches
+
+<Canvas of={SegmentedStories.Default} />
+
+A Segmented Control changes the view. A Toggle Button changes the data on screen.
+Getting this wrong is the most common mistake in the category: if the operator
+expects the count to change, it is a filter, not a view.
+
+## Actions behind a trigger
+
+<Canvas of={MenuStories.Open} />
+
+Items act immediately — a menu item is not a navigation link. Destructive items
+sit last, below a divider. A More Menu is the same component behind an icon, and
+never the only place an action exists.
+
+## Bands of controls
+
+<Canvas of={ToolbarStories.Default} />
+
+One tab stop: arrows move between controls inside the toolbar, Tab leaves it.
+Dividers are decorative and hidden from the accessibility tree.
+
+## Accessibility
+
+- Native `<button>` throughout, so Enter and Space come free.
+- `loading` sets `aria-busy` and keeps the label, so the accessible name never
+  changes under a screen reader mid-action.
+- A disabled button stays in the tab order only when it carries an explanatory
+  tooltip; otherwise use `aria-disabled`.
+- Contrast: primary fill against white text is 5.2:1; danger text on white is 6.1:1.

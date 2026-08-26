@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Spacing & radius" />
+
+# Spacing & radius
+
+## Spacing
+
+A 4px base. In practice the system uses 4, 8, 10, 12, 14, 18, 22, 28, 32, 48, 60.
+Layout gaps prefer flex and grid `gap` over margins, so rows survive reordering.
+
+| Gap | Where |
+| --- | --- |
+| 8–10 | Inside a control: icon to label |
+| 12–14 | Between fields, between cards in a row |
+| 18–22 | Between conversation turns |
+| 28–32 | Card padding, section top padding |
+| 60 | Between documentation sections |
+
+## Radius
+
+| Token | Value | Use |
+| --- | --- | --- |
+| sm | 6 | Chips, badges, small markers |
+| md | 10 | Buttons, inputs |
+| lg | 14 | Cards, tool calls, approvals |
+| xl | 16 | Dialogs, composer, message bubbles |
+| pill | 999 | Status pills, suggestion chips |
+
+The operator's message bubble is the one asymmetric shape in the system:
+`16 16 6 16`, tail toward the author.

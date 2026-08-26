@@ -1,0 +1,80 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import * as FieldStories from '../components/data-input/Field.stories';
+import * as NumberStories from '../components/data-input/NumberInput.stories';
+import * as TypeaheadStories from '../components/data-input/Typeahead.stories';
+import * as RadioStories from '../components/data-input/RadioList.stories';
+import * as SwitchStories from '../components/data-input/Switch.stories';
+import * as FileStories from '../components/data-input/FileInput.stories';
+
+<Meta title="Data Input/Category" />
+
+# Data Input
+
+Thirteen controls in eight families. Operators enter numbers far more than prose
+here — cases, counts, prices, dates — so the category is built around getting a
+number right the first time.
+
+## Every control sits in a Field
+
+<Canvas of={FieldStories.WithError} />
+
+The Field owns the label, hint, error, required marker, and all the ids. A control
+inside it wires nothing itself. Two rules the whole category depends on:
+
+- **A placeholder is not a label.** The label stays visible while the field is filled.
+- **An error replaces the hint** rather than stacking below it, and says how to fix
+  the problem — "Enter a whole number of cases", not "Invalid input".
+
+<Controls of={FieldStories.Default} />
+
+## Numbers are data, not prose
+
+<Canvas of={NumberStories.Default} />
+
+Numeric values render in General Sans Light throughout the category, so a column
+of counts reads as figures rather than sentences. Number Input over Text Input
+wherever the operator adjusts more often than they type.
+
+## Choosing from a list
+
+| Options | Component |
+| --- | --- |
+| 2–5, consequences matter | Radio List |
+| 2–15, one choice | Selector |
+| Several from one list | Multi Selector |
+| More than can be shown | Typeahead |
+
+<Canvas of={TypeaheadStories.Default} />
+
+A Typeahead result carries the detail that tells two similar records apart —
+vendor and unit price, not just an item name. "Romaine, 24 ct" appears twice in
+this catalogue; the meta line is what makes the choice possible.
+
+<Canvas of={RadioStories.Cards} />
+
+Card appearance for consequential choices: the whole row is the hit target, which
+matters for a tablet on a prep counter.
+
+## Immediate vs. saved
+
+<Canvas of={SwitchStories.On} />
+
+A Switch applies the moment it moves. If the change needs a Save button, it is a
+Checkbox. Getting this wrong is the most common bug report in settings screens.
+
+## Files
+
+<Canvas of={FileStories.UploadFailed} />
+
+Every file stays listed with its state. A failed upload is visible and named, so
+the operator does not discover it missing three screens later.
+
+## Accessibility
+
+- Labels are real `<label for>` elements; hints and errors are wired through
+  `aria-describedby` by the Field.
+- `aria-invalid` on the control, never colour alone — an error always has text.
+- Checkbox supports `aria-checked="mixed"` for partially-selected parent rows.
+- Switch uses `role="switch"` so its state is spoken, not inferred from the knob.
+- Native `<select>`, `<input type="date">` and `<input type="range">` where a
+  native control exists, so platform pickers and keyboard behaviour come free.

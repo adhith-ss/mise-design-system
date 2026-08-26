@@ -1,0 +1,94 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import * as HeadingStories from '../components/content/Heading.stories';
+import * as TextStories from '../components/content/Text.stories';
+import * as CardStories from '../components/content/Card.stories';
+import * as AvatarStories from '../components/content/Avatar.stories';
+import * as TimestampStories from '../components/content/Timestamp.stories';
+import * as TokenStories from '../components/content/Token.stories';
+import * as MarkdownStories from '../components/content/Markdown.stories';
+import * as DividerStories from '../components/content/Divider.stories';
+
+<Meta title="Content/Category" />
+
+# Content
+
+Fifteen components for displaying things rather than doing them. The category is
+where the type system becomes real: the split between Manrope for interface text
+and General Sans Light for data runs through almost every component here.
+
+## Type
+
+<Canvas of={HeadingStories.Scale} />
+
+Four heading levels, 40 / 30 / 24 / 17px. The semantic level is never skipped —
+if a heading must look smaller than its place in the outline, set `size`
+separately rather than demoting the tag.
+
+<Canvas of={TextStories.Measured} />
+
+Body copy caps at 64 characters with `text-wrap: pretty`. Three sizes, five
+tones, and the `data` flag — the most-used option in the system.
+
+<Controls of={TextStories.Body} />
+
+## Values are set differently from words
+
+<Canvas of={TokenStories.InFilterRow} />
+
+Token, Timestamp, Code, Kbd, and every `data` text render in General Sans Light.
+The rule is simple: if the operator reads it as a value rather than a sentence, it
+is data type.
+
+<Canvas of={TimestampStories.Both} />
+
+Relative for recent activity, absolute for records. An invoice date is never
+"3 days ago" on a document someone will file. Always a real `<time>` element
+carrying the ISO value.
+
+## Identity
+
+<Canvas of={AvatarStories.Sizes} />
+
+Round for people, square for organisations — the shape carries the type, so a
+vendor logo is never mistaken for a colleague.
+
+## Containers
+
+<Canvas of={CardStories.NeedsAttention} />
+
+14px radius, 1px line, and **no shadow at rest**: shadow means elevation, and a
+card sitting on the page is not elevated. The left edge turns amber or red only
+when the card needs attention — the same signal Inline Approval and writing tool
+calls use.
+
+<Canvas of={DividerStories.WithLabel} />
+
+A Divider is decorative and hidden from assistive tech, unless it carries a
+label — in which case the label does the dividing and the lines are decoration.
+
+## Rendered documents
+
+<Canvas of={MarkdownStories.AgentAnswer} />
+
+The Markdown component owns the vertical rhythm and element styles for parsed
+content, so an agent answer or a vendor note matches the system without the
+parser knowing anything about the design. This is where most long agent turns
+land.
+
+## Citation lives with the agent
+
+Citation is documented under **Chat & Agent** rather than here, because its rules
+are agent rules: every money claim carries one, and `confidence: 'inferred'`
+renders differently from an exact match. Import it from
+`components/chat-agent/Citation`.
+
+## Accessibility
+
+- Heading levels follow the document outline; visual size is a separate prop.
+- Avatars carry the name as their accessible label; an Avatar Group carries one
+  label listing everyone, rather than reading six images.
+- Icons are `aria-hidden` by default and only become `role="img"` when given a
+  label. An icon is never the only carrier of meaning.
+- Real elements throughout: `<time>`, `<kbd>`, `<code>`, `<figure>`/
+  `<blockquote>`/`<cite>`, `<dl>`, `<hr>`.
+- Thumbnail alt text comes from the upload record, never generated.

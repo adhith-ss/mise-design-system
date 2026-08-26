@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet" />
+<style>
+  body { margin:0; background:#F7F6F2; color:#16211C; font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1E6B4B; text-decoration:none; }
+  a:hover { color:#144A34; }
+  pre { margin:0; font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; line-height:1.7; white-space:pre-wrap; }
+</style>
+</helmet>
+
+<div style="display:grid; grid-template-columns:264px 1fr; min-height:100vh">
+
+  <aside style="border-right:1px solid #E1DED4; background:#fff; padding:24px 20px; display:flex; flex-direction:column; gap:24px; position:sticky; top:0; height:100vh; overflow:auto">
+    <div style="display:flex; align-items:center; gap:10px">
+      <div style="width:24px; height:24px; border-radius:7px; background:#1E6B4B"></div>
+      <div style="display:flex; flex-direction:column">
+        <span style="font-size:15px; font-weight:800; letter-spacing:-.01em">Mise DLS</span>
+        <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">Data Input</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:6px 8px">Library</div>
+      <a href="Mise-DLS-Index.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overview</a>
+      <a href="Mise Design System.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Foundations</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">On this page</div>
+      <a href="#Field" style="padding:7px 8px; border-radius:8px; font-size:13px; background:#E8F2EC; color:#1E6B4B; font-weight:600">Field</a>
+      <a href="#TextInput" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Text Input</a>
+      <a href="#TextArea" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Text Area</a>
+      <a href="#NumberInput" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Number Input</a>
+      <a href="#Selector" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Selector</a>
+      <a href="#MultiSelector" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Multi Selector</a>
+      <a href="#Typeahead" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Typeahead</a>
+      <a href="#CheckboxInput" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Checkbox Input</a>
+      <a href="#RadioList" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Radio List</a>
+      <a href="#Switch" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Switch</a>
+      <a href="#Slider" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Slider</a>
+      <a href="#DateInput" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Date Input</a>
+      <a href="#FileInput" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">File Input</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">Categories</div>
+      <a href="Mise-DLS-Action.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Action</a>
+      <a href="Mise-DLS-ChatAgent.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Chat &amp; Agent</a>
+      <a href="Mise-DLS-Content.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Content</a>
+      <a href="Mise-DLS-Feedback.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Feedback &amp; Status</a>
+      <a href="Mise-DLS-Navigation.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Navigation</a>
+      <a href="Mise-DLS-Overlay.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overlay</a>
+      <a href="Mise-DLS-TableList.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Table &amp; List</a>
+    </div>
+  </aside>
+
+  <main style="padding:48px 56px 140px; max-width:1000px; display:flex; flex-direction:column; gap:60px">
+
+    <header style="display:flex; flex-direction:column; gap:14px">
+      <span style="align-self:flex-start; background:#E8F2EC; color:#1E6B4B; border-radius:999px; padding:5px 11px; font-size:12px; font-weight:600">Data Input · 13 components</span>
+      <h1 style="margin:0; font-size:40px; line-height:1.08; letter-spacing:-.03em; font-weight:800">Data Input</h1>
+      <p style="margin:0; max-width:62ch; font-size:16px; line-height:1.65; color:#43524B">All inputs are 40px tall with a 12px radius and share one focus treatment. Validation happens on blur, never on keystroke — an operator typing a case count should not be interrupted at the second digit.</p>
+    </header>
+
+    <!-- FIELD -->
+    <section id="Field" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Field</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">The wrapper every input sits in. It owns the label, the hint, the error, and the wiring between them — no input is placed on a page bare.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Anatomy</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:32px; display:flex; gap:48px; align-items:flex-start">
+          <div style="position:relative; width:280px; display:flex; flex-direction:column; gap:8px">
+            <span style="font-size:13px; font-weight:600">PO limit<span style="color:#A32A22"> *</span></span>
+            <input value="4,000.00" style="height:40px; padding:0 12px; border:1px solid #A32A22; border-radius:12px; background:#fff; font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; color:#16211C; outline:none" />
+            <span style="font-size:12px; color:#A32A22">Above your approval ceiling of $3,500.</span>
+            <span style="position:absolute; left:-26px; top:-2px; width:19px; height:19px; border-radius:999px; background:#16211C; color:#fff; font-size:10px; display:flex; align-items:center; justify-content:center">1</span>
+            <span style="position:absolute; left:-26px; top:30px; width:19px; height:19px; border-radius:999px; background:#16211C; color:#fff; font-size:10px; display:flex; align-items:center; justify-content:center">2</span>
+            <span style="position:absolute; left:-26px; bottom:0; width:19px; height:19px; border-radius:999px; background:#16211C; color:#fff; font-size:10px; display:flex; align-items:center; justify-content:center">3</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px; padding-top:2px">
+            <sc-for list="{{ fieldAnatomy }}" as="a" hint-placeholder-count="4">
+              <div style="display:flex; gap:10px; align-items:baseline">
+                <span style="width:18px; height:18px; border-radius:999px; border:1px solid #C9DED3; color:#1E6B4B; font-size:11px; display:flex; align-items:center; justify-content:center; flex:0 0 auto">{{ a.n }}</span>
+                <span style="font-size:13px; color:#43524B"><b style="color:#16211C">{{ a.part }}</b> — {{ a.note }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">States</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px">
+          <label style="display:flex; flex-direction:column; gap:7px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">default</span><input placeholder="Harbor Produce Co." style="height:40px; padding:0 12px; border:1px solid #E1DED4; border-radius:12px; font-family:'Manrope',sans-serif; font-size:14px; outline:none" /></label>
+          <label style="display:flex; flex-direction:column; gap:7px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">hover</span><input value="Harbor Produce Co." style="height:40px; padding:0 12px; border:1px solid #C4CCC7; border-radius:12px; font-family:'Manrope',sans-serif; font-size:14px; outline:none" /></label>
+          <label style="display:flex; flex-direction:column; gap:7px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">focus</span><input value="Harbor Produce Co." style="height:40px; padding:0 12px; border:1px solid #1E6B4B; border-radius:12px; font-family:'Manrope',sans-serif; font-size:14px; outline:none; box-shadow:0 0 0 3px #E8F2EC" /></label>
+          <label style="display:flex; flex-direction:column; gap:7px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">error</span><input value="4,000.00" style="height:40px; padding:0 12px; border:1px solid #A32A22; border-radius:12px; font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; outline:none" /></label>
+          <label style="display:flex; flex-direction:column; gap:7px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">disabled</span><input value="Locked by finance" style="height:40px; padding:0 12px; border:1px solid #EFEDE6; border-radius:12px; background:#F7F6F2; color:#8D9994; font-family:'Manrope',sans-serif; font-size:14px; outline:none" /></label>
+          <label style="display:flex; flex-direction:column; gap:7px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">read only</span><input value="INV-20841" style="height:40px; padding:0 12px; border:1px solid transparent; border-radius:12px; background:#F1EFE9; font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; outline:none" /></label>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Do / Don't</h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+          <div style="background:#fff; border:1px solid #C9DED3; border-radius:14px; overflow:hidden">
+            <div style="padding:24px; background:#FBFCFB; display:flex; flex-direction:column; gap:7px"><span style="font-size:13px; font-weight:600">Case count</span><input value="12" style="height:40px; padding:0 12px; border:1px solid #E1DED4; border-radius:12px; font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; outline:none" /><span style="font-size:12px; color:#6B7A72">Cases of 24, as Harbor counts them.</span></div>
+            <div style="padding:14px 18px; border-top:1px solid #EFEDE6; display:flex; gap:8px; align-items:baseline"><span style="color:#1E6B4B; font-size:13px; font-weight:700">Do</span><span style="font-size:13px; line-height:1.6; color:#43524B">Label above, unit explained in the hint.</span></div>
+          </div>
+          <div style="background:#fff; border:1px solid #E4C9C7; border-radius:14px; overflow:hidden">
+            <div style="padding:24px; background:#FDFAF9; display:flex; flex-direction:column; gap:7px; justify-content:center; min-height:105px"><input placeholder="Case count (cases of 24)" style="height:40px; padding:0 12px; border:1px solid #E1DED4; border-radius:12px; font-family:'Manrope',sans-serif; font-size:14px; outline:none" /></div>
+            <div style="padding:14px 18px; border-top:1px solid #EFEDE6; display:flex; gap:8px; align-items:baseline"><span style="color:#A32A22; font-size:13px; font-weight:700">Don't</span><span style="font-size:13px; line-height:1.6; color:#43524B">A placeholder as the label disappears the moment typing starts.</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Props</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+          <div style="display:grid; grid-template-columns:140px 1.3fr 100px 1.4fr; gap:14px; padding:11px 18px; background:#F7F6F2; border-bottom:1px solid #E1DED4">
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Prop</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Type</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Default</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Description</span>
+          </div>
+          <sc-for list="{{ fieldProps }}" as="p" hint-placeholder-count="10">
+            <div style="display:grid; grid-template-columns:140px 1.3fr 100px 1.4fr; gap:14px; padding:11px 18px; border-bottom:1px solid #EFEDE6; align-items:baseline">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#16211C">{{ p.name }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#2F5E8C">{{ p.type }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#6B7A72">{{ p.def }}</span>
+              <span style="font-size:12.5px; line-height:1.55; color:#43524B">{{ p.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Tokens</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Control height <b>40</b> · radius <b>12</b> · border <b>line #E1DED4</b>, hover <b>#C4CCC7</b>, focus <b>herb.600</b> + ring <b>herb.50</b> 3px · error border <b>danger.600</b> · disabled fill <b>canvas #F7F6F2</b> · label <b>13/600</b>, hint <b>12 muted</b>, error <b>12 danger.600</b> · label-to-field gap <b>8</b>.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Accessibility</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">The label is a real <b>&lt;label&gt;</b> tied by id. Hint and error are joined into <b>aria-describedby</b>; error also sets <b>aria-invalid</b>. Required is marked in text, not by colour alone. Errors are announced politely on blur, and the first invalid field takes focus on submit.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEXT INPUT / TEXT AREA / NUMBER -->
+    <section id="TextInput" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Text Input</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A single line of free text. Prefixes and suffixes carry units and currency so the value itself stays clean.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:grid; grid-template-columns:1fr 1fr; gap:20px">
+        <label style="display:flex; flex-direction:column; gap:7px"><span style="font-size:13px; font-weight:600">Vendor</span><input value="Harbor Produce Co." style="height:40px; padding:0 12px; border:1px solid #E1DED4; border-radius:12px; font-family:'Manrope',sans-serif; font-size:14px; outline:none" style-focus="border-color:#1E6B4B; box-shadow:0 0 0 3px #E8F2EC" /></label>
+        <label style="display:flex; flex-direction:column; gap:7px"><span style="font-size:13px; font-weight:600">Search</span><div style="display:flex; align-items:center; gap:9px; height:40px; padding:0 12px; border:1px solid #E1DED4; border-radius:12px"><span style="width:14px; height:14px; border-radius:999px; border:1.5px solid #8D9994"></span><span style="font-size:14px; color:#B3BBB6">Find an invoice or PO…</span></div></label>
+        <label style="display:flex; flex-direction:column; gap:7px"><span style="font-size:13px; font-weight:600">Credit amount</span><div style="display:flex; height:40px; border:1px solid #E1DED4; border-radius:12px; overflow:hidden"><span style="display:flex; align-items:center; padding:0 11px; background:#F7F6F2; border-right:1px solid #E1DED4; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#6B7A72">$</span><input value="71.30" style="flex:1; border:none; padding:0 12px; font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; outline:none" /></div></label>
+        <label style="display:flex; flex-direction:column; gap:7px"><span style="font-size:13px; font-weight:600">Yield</span><div style="display:flex; height:40px; border:1px solid #E1DED4; border-radius:12px; overflow:hidden"><input value="91" style="flex:1; border:none; padding:0 12px; font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; outline:none" /><span style="display:flex; align-items:center; padding:0 11px; background:#F7F6F2; border-left:1px solid #E1DED4; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#6B7A72">%</span></div></label>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> · <b>onChange</b> · <b>placeholder</b> — an example, never the label · <b>prefix</b> / <b>suffix</b> ReactNode · <b>clearable</b> boolean · <b>maxLength</b> number, with a counter past 80% · <b>autoComplete</b> · <b>inputMode</b> · <b>invalid</b> boolean · <b>disabled</b> · <b>readOnly</b> · <b>size</b> 'sm' 32 | 'md' 40.</span>
+      </div>
+    </section>
+
+    <section id="TextArea" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Text Area</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Several lines — a dispute note, a prep instruction. Grows with content to a cap, then scrolls.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:grid; grid-template-columns:1fr 1fr; gap:20px">
+        <label style="display:flex; flex-direction:column; gap:7px"><span style="font-size:13px; font-weight:600">Dispute note</span><div style="min-height:88px; padding:11px 12px; border:1px solid #E1DED4; border-radius:12px; font-size:14px; line-height:1.6; color:#16211C">One crate of tomatoes short on the Aug 22 delivery. Requesting a credit of $71.30.</div><span style="font-size:12px; color:#6B7A72; align-self:flex-end">128 / 500</span></label>
+        <label style="display:flex; flex-direction:column; gap:7px"><span style="font-size:13px; font-weight:600">Prep instruction</span><div style="min-height:88px; padding:11px 12px; border:1px solid #E1DED4; border-radius:12px; font-size:14px; color:#B3BBB6">Add a note for the kitchen…</div></label>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>rows</b> number, 3 · <b>autoResize</b> boolean, true · <b>maxRows</b> number, 10 · <b>maxLength</b> · <b>showCount</b> boolean · <b>resize</b> 'none' | 'vertical'. Enter inserts a newline and never submits the form; the character counter is polite, announced only when the remaining count crosses 10%.</span>
+      </div>
+    </section>
+
+    <section id="NumberInput" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Number Input</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Counts and quantities with steppers. This is the most-used input in Mise — case counts on an order line — so the stepper targets are 32px and the value is tabular.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; gap:28px; flex-wrap:wrap; align-items:flex-end">
+        <label style="display:flex; flex-direction:column; gap:7px"><span style="font-size:13px; font-weight:600">Cases</span>
+          <div style="display:flex; align-items:center; height:40px; border:1px solid #E1DED4; border-radius:12px; overflow:hidden; width:132px">
+            <button style="width:32px; height:100%; border:none; border-right:1px solid #E1DED4; background:#F7F6F2; color:#43524B; font-size:15px; cursor:pointer">−</button>
+            <input value="6" style="flex:1; border:none; text-align:center; font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; outline:none" />
+            <button style="width:32px; height:100%; border:none; border-left:1px solid #E1DED4; background:#F7F6F2; color:#43524B; font-size:15px; cursor:pointer">+</button>
+          </div>
+        </label>
+        <label style="display:flex; flex-direction:column; gap:7px"><span style="font-size:13px; font-weight:600">Par level</span>
+          <div style="display:flex; align-items:center; height:32px; border:1px solid #E1DED4; border-radius:10px; overflow:hidden; width:110px">
+            <button style="width:26px; height:100%; border:none; border-right:1px solid #E1DED4; background:#F7F6F2; color:#43524B; font-size:14px; cursor:pointer">−</button>
+            <input value="24" style="flex:1; border:none; text-align:center; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; outline:none" />
+            <button style="width:26px; height:100%; border:none; border-left:1px solid #E1DED4; background:#F7F6F2; color:#43524B; font-size:14px; cursor:pointer">+</button>
+          </div>
+        </label>
+        <label style="display:flex; flex-direction:column; gap:7px"><span style="font-size:13px; font-weight:600">At minimum</span>
+          <div style="display:flex; align-items:center; height:40px; border:1px solid #E1DED4; border-radius:12px; overflow:hidden; width:132px">
+            <button style="width:32px; height:100%; border:none; border-right:1px solid #E1DED4; background:#F7F6F2; color:#C4CCC7; font-size:15px">−</button>
+            <input value="0" style="flex:1; border:none; text-align:center; font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; outline:none" />
+            <button style="width:32px; height:100%; border:none; border-left:1px solid #E1DED4; background:#F7F6F2; color:#43524B; font-size:15px; cursor:pointer">+</button>
+          </div>
+        </label>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> number · <b>min</b> / <b>max</b> / <b>step</b> · <b>precision</b> number · <b>format</b> 'integer' | 'currency' | 'percent' · <b>unit</b> string · <b>allowMouseWheel</b> boolean, false — wheel scrolling over a case count has changed real orders. Role <b>spinbutton</b> with valuenow, valuemin, valuemax; Arrow keys step, Shift+Arrow steps by ten, and steppers disable at the bounds rather than clamping silently.</span>
+      </div>
+    </section>
+
+    <!-- SELECTOR / MULTI / TYPEAHEAD -->
+    <section id="Selector" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Selector</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">One value from a known list. Five options or more get a search field inside the menu; under five, the list is enough.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:28px; display:flex; gap:36px; align-items:flex-start">
+        <label style="display:flex; flex-direction:column; gap:7px; width:260px"><span style="font-size:13px; font-weight:600">Delivery window</span><div style="display:flex; align-items:center; height:40px; padding:0 12px; border:1px solid #E1DED4; border-radius:12px"><span style="font-size:14px; flex:1">Tue 6:00–8:00 AM</span><span style="width:7px; height:7px; border-right:1.5px solid #6B7A72; border-bottom:1.5px solid #6B7A72; transform:rotate(45deg); margin-top:-3px"></span></div></label>
+        <div style="display:flex; flex-direction:column; gap:7px; width:280px">
+          <span style="font-size:13px; font-weight:600">Open · with search</span>
+          <div style="border:1px solid #1E6B4B; border-radius:12px; height:40px; display:flex; align-items:center; padding:0 12px; box-shadow:0 0 0 3px #E8F2EC"><span style="font-size:14px; flex:1">Vendor</span><span style="width:7px; height:7px; border-right:1.5px solid #1E6B4B; border-bottom:1.5px solid #1E6B4B; transform:rotate(-135deg); margin-top:3px"></span></div>
+          <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; box-shadow:0 12px 32px rgba(22,33,28,.12); padding:6px">
+            <div style="height:32px; border:1px solid #E1DED4; border-radius:9px; display:flex; align-items:center; padding:0 10px; margin-bottom:5px; font-size:13px; color:#B3BBB6">Search vendors…</div>
+            <sc-for list="{{ vendors }}" as="v" hint-placeholder-count="4">
+              <div style="display:flex; align-items:center; gap:9px; padding:8px 10px; border-radius:8px; font-size:13px; color:#16211C" style-hover="background:#F7F6F2">{{ v.name }}<span style="margin-left:auto; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">{{ v.meta }}</span></div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> · <b>onValueChange</b> · <b>options</b> Option[] with label, value, meta, group, disabled · <b>searchable</b> boolean, auto past 5 options · <b>placeholder</b> · <b>clearable</b> · <b>loading</b> · <b>emptyMessage</b> · <b>matchTriggerWidth</b> boolean, true. Follows the listbox pattern: <b>aria-expanded</b> on the trigger, <b>aria-activedescendant</b> for the highlighted option, typing jumps, Escape closes without changing the value.</span>
+      </div>
+    </section>
+
+    <section id="MultiSelector" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Multi Selector</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Several values, shown as removable Tokens in the control. Past four selections the control summarises rather than growing without limit.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:28px; display:flex; gap:32px; flex-wrap:wrap">
+        <label style="display:flex; flex-direction:column; gap:7px; width:320px"><span style="font-size:13px; font-weight:600">Vendors</span>
+          <div style="display:flex; gap:7px; flex-wrap:wrap; align-items:center; min-height:40px; border:1px solid #E1DED4; border-radius:12px; padding:6px 10px">
+            <span style="display:inline-flex; align-items:center; gap:6px; background:#F1EFE9; border-radius:7px; padding:3px 5px 3px 9px; font-size:13px">Harbor Produce<button style="width:15px; height:15px; border:none; border-radius:5px; background:#DDE2DF; color:#43524B; font-size:10px; cursor:pointer">×</button></span>
+            <span style="display:inline-flex; align-items:center; gap:6px; background:#F1EFE9; border-radius:7px; padding:3px 5px 3px 9px; font-size:13px">Cedar Dairy<button style="width:15px; height:15px; border:none; border-radius:5px; background:#DDE2DF; color:#43524B; font-size:10px; cursor:pointer">×</button></span>
+            <span style="font-size:13px; color:#B3BBB6">Add…</span>
+          </div>
+        </label>
+        <label style="display:flex; flex-direction:column; gap:7px; width:240px"><span style="font-size:13px; font-weight:600">Categories · summarised</span>
+          <div style="display:flex; align-items:center; height:40px; padding:0 12px; border:1px solid #E1DED4; border-radius:12px"><span style="font-size:14px; flex:1">5 categories</span><span style="width:7px; height:7px; border-right:1.5px solid #6B7A72; border-bottom:1.5px solid #6B7A72; transform:rotate(45deg); margin-top:-3px"></span></div>
+        </label>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> string[] · <b>maxVisibleTokens</b> number, 4 · <b>summaryLabel</b> (count) =&gt; string · <b>selectAll</b> boolean · <b>closeOnSelect</b> boolean, false · <b>creatable</b> boolean. Listbox with <b>aria-multiselectable</b>; Backspace removes the last token, each remove button names its own token, and the live count is announced after each change.</span>
+      </div>
+    </section>
+
+    <section id="Typeahead" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Typeahead</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Search against a set too large to list — the item catalogue. Results are grouped, matches are marked, and a free-text value is allowed only where the schema permits it.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:28px; display:flex; gap:36px; align-items:flex-start">
+        <div style="width:340px; display:flex; flex-direction:column; gap:7px">
+          <span style="font-size:13px; font-weight:600">Add an item</span>
+          <div style="height:40px; border:1px solid #1E6B4B; border-radius:12px; display:flex; align-items:center; padding:0 12px; box-shadow:0 0 0 3px #E8F2EC; font-size:14px">roma</div>
+          <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; box-shadow:0 12px 32px rgba(22,33,28,.12); padding:6px">
+            <div style="padding:6px 10px; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#8D9994">Produce</div>
+            <div style="display:flex; align-items:center; gap:9px; padding:8px 10px; border-radius:8px; background:#F7F6F2; font-size:13px"><b>Roma</b>ine, 24 ct case<span style="margin-left:auto; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">$23.00</span></div>
+            <div style="display:flex; align-items:center; gap:9px; padding:8px 10px; border-radius:8px; font-size:13px"><b>Roma</b> tomato, 25 lb<span style="margin-left:auto; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">$31.20</span></div>
+            <div style="height:1px; background:#EFEDE6; margin:5px 0"></div>
+            <div style="padding:7px 10px; font-size:12.5px; color:#6B7A72">No match? <span style="color:#1E6B4B; font-weight:600">Create "roma"</span></div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; width:280px">
+          <span style="font-size:13px; font-weight:600">States</span>
+          <div style="border:1px solid #E1DED4; border-radius:12px; padding:12px; font-size:13px; color:#6B7A72">Loading — spinner in the field, previous results dimmed, never cleared</div>
+          <div style="border:1px solid #E1DED4; border-radius:12px; padding:12px; font-size:13px; color:#6B7A72">Empty — "No items match roma" with a create action when allowed</div>
+          <div style="border:1px solid #E1DED4; border-radius:12px; padding:12px; font-size:13px; color:#6B7A72">Error — "Catalogue unavailable. Retry" inline, input stays editable</div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>onSearch</b> (query) =&gt; Promise · <b>debounce</b> ms, 200 · <b>minChars</b> number, 2 · <b>groupBy</b> · <b>renderItem</b> · <b>creatable</b> boolean · <b>highlightMatch</b> boolean, true · <b>loading</b> · <b>errorMessage</b>. Combobox pattern: <b>aria-autocomplete="list"</b>, result count announced politely, arrows move the active option without moving the text cursor, Enter commits, Escape restores what was typed.</span>
+      </div>
+    </section>
+
+    <!-- CHECKBOX / RADIO / SWITCH -->
+    <section id="CheckboxInput" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Checkbox Input</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Independent yes-or-no choices, and the row-selection control in tables. Indeterminate marks a partial group selection.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; gap:40px; flex-wrap:wrap">
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <label style="display:flex; align-items:center; gap:10px; font-size:14px"><span style="width:18px; height:18px; border:1px solid #C4CCC7; border-radius:5px; background:#fff"></span>Unchecked</label>
+          <label style="display:flex; align-items:center; gap:10px; font-size:14px"><span style="width:18px; height:18px; border:1px solid #1E6B4B; border-radius:5px; background:#1E6B4B; display:flex; align-items:center; justify-content:center"><span style="width:8px; height:4px; border-left:2px solid #fff; border-bottom:2px solid #fff; transform:rotate(-45deg); margin-top:-2px"></span></span>Checked</label>
+          <label style="display:flex; align-items:center; gap:10px; font-size:14px"><span style="width:18px; height:18px; border:1px solid #1E6B4B; border-radius:5px; background:#1E6B4B; display:flex; align-items:center; justify-content:center"><span style="width:9px; height:2px; background:#fff"></span></span>Indeterminate</label>
+          <label style="display:flex; align-items:center; gap:10px; font-size:14px; color:#8D9994"><span style="width:18px; height:18px; border:1px solid #EFEDE6; border-radius:5px; background:#F7F6F2"></span>Disabled</label>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; max-width:320px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">with description</span>
+          <label style="display:flex; gap:10px; align-items:flex-start"><span style="width:18px; height:18px; border:1px solid #1E6B4B; border-radius:5px; background:#1E6B4B; margin-top:2px; flex:0 0 auto; display:flex; align-items:center; justify-content:center"><span style="width:8px; height:4px; border-left:2px solid #fff; border-bottom:2px solid #fff; transform:rotate(-45deg); margin-top:-2px"></span></span><span style="display:flex; flex-direction:column; gap:2px"><span style="font-size:14px; font-weight:500">Let the agent send orders under $500</span><span style="font-size:12.5px; color:#6B7A72; line-height:1.55">Larger orders still wait for your approval.</span></span></label>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>checked</b> boolean · <b>indeterminate</b> boolean · <b>onCheckedChange</b> · <b>label</b> · <b>description</b> · <b>disabled</b> · <b>invalid</b> · <b>size</b> 16 | 18. Native input with the label clickable across its whole width; indeterminate sets <b>aria-checked="mixed"</b>. A checkbox never triggers navigation or a save on toggle.</span>
+      </div>
+    </section>
+
+    <section id="RadioList" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Radio List</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">One choice from two to five, all visible at once, where the difference between options matters enough to read.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:grid; grid-template-columns:1fr 1fr; gap:24px">
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <span style="font-size:13px; font-weight:600">How should the agent handle short deliveries?</span>
+          <label style="display:flex; gap:10px; align-items:flex-start"><span style="width:18px; height:18px; border-radius:999px; border:5px solid #1E6B4B; background:#fff; margin-top:2px; flex:0 0 auto"></span><span style="display:flex; flex-direction:column; gap:2px"><span style="font-size:14px; font-weight:500">Draft a credit request</span><span style="font-size:12.5px; color:#6B7A72; line-height:1.55">You approve before it is sent.</span></span></label>
+          <label style="display:flex; gap:10px; align-items:flex-start"><span style="width:18px; height:18px; border-radius:999px; border:1px solid #C4CCC7; background:#fff; margin-top:2px; flex:0 0 auto"></span><span style="display:flex; flex-direction:column; gap:2px"><span style="font-size:14px; font-weight:500">Flag only</span><span style="font-size:12.5px; color:#6B7A72; line-height:1.55">Appears in the variance list with no message drafted.</span></span></label>
+          <label style="display:flex; gap:10px; align-items:flex-start"><span style="width:18px; height:18px; border-radius:999px; border:1px solid #C4CCC7; background:#fff; margin-top:2px; flex:0 0 auto"></span><span style="font-size:14px; font-weight:500">Do nothing</span></label>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span style="font-size:13px; font-weight:600">Card variant</span>
+          <div style="border:1px solid #1E6B4B; background:#E8F2EC; border-radius:12px; padding:14px; display:flex; gap:10px; align-items:flex-start"><span style="width:16px; height:16px; border-radius:999px; border:5px solid #1E6B4B; background:#fff; margin-top:1px; flex:0 0 auto"></span><span style="display:flex; flex-direction:column; gap:2px"><span style="font-size:14px; font-weight:600">Weekly close</span><span style="font-size:12.5px; color:#43524B">Friday 6:00 PM cutoff</span></span></div>
+          <div style="border:1px solid #E1DED4; border-radius:12px; padding:14px; display:flex; gap:10px; align-items:flex-start"><span style="width:16px; height:16px; border-radius:999px; border:1px solid #C4CCC7; background:#fff; margin-top:1px; flex:0 0 auto"></span><span style="display:flex; flex-direction:column; gap:2px"><span style="font-size:14px; font-weight:600">Period close</span><span style="font-size:12.5px; color:#43524B">Every four weeks</span></span></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> · <b>onValueChange</b> · <b>options</b> with label, description, disabled · <b>variant</b> 'list' | 'card' · <b>orientation</b> · <b>name</b> string. Wrapped in a <b>radiogroup</b> with a group label; arrows move and select, Tab enters the group once. There is no unset state after a choice is made, so a "none" option is spelled out when it is legitimate.</span>
+      </div>
+    </section>
+
+    <section id="Switch" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Switch</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">An immediate on-or-off setting that takes effect on toggle. If the change needs a Save button, it is a Checkbox.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:16px; max-width:520px">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:20px"><span style="display:flex; flex-direction:column; gap:2px"><span style="font-size:14px; font-weight:500">Agent monitors invoices</span><span style="font-size:12.5px; color:#6B7A72">Matches lines as invoices arrive.</span></span><span style="width:40px; height:23px; border-radius:999px; background:#1E6B4B; display:flex; align-items:center; padding:2px; justify-content:flex-end; flex:0 0 auto"><span style="width:19px; height:19px; border-radius:999px; background:#fff"></span></span></div>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:20px"><span style="font-size:14px; font-weight:500">Email me the Friday close</span><span style="width:40px; height:23px; border-radius:999px; background:#DDE2DF; display:flex; align-items:center; padding:2px; flex:0 0 auto"><span style="width:19px; height:19px; border-radius:999px; background:#fff"></span></span></div>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:20px"><span style="font-size:14px; font-weight:500; color:#8D9994">Auto-send orders over $3,500</span><span style="width:40px; height:23px; border-radius:999px; background:#EFEDE6; display:flex; align-items:center; padding:2px; flex:0 0 auto"><span style="width:19px; height:19px; border-radius:999px; background:#F7F6F2; border:1px solid #E1DED4"></span></span></div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>checked</b> · <b>onCheckedChange</b> · <b>label</b> · <b>description</b> · <b>disabled</b> · <b>loading</b> — shows the pending state while the change is saved · <b>size</b> 'sm' 20 | 'md' 23. Role <b>switch</b> with <b>aria-checked</b>; the label never changes with state. A failed save reverts the thumb and raises a Toast rather than leaving the UI ahead of the server.</span>
+      </div>
+    </section>
+
+    <!-- SLIDER -->
+    <section id="Slider" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Slider</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">An approximate value on a range, always paired with a numeric readout. Never the only way to set a precise figure.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:28px; display:flex; flex-direction:column; gap:26px; max-width:520px">
+        <div style="display:flex, flex-direction:column; gap:10px">
+          <div style="display:flex; justify-content:space-between; margin-bottom:10px"><span style="font-size:13px; font-weight:600">Agent order ceiling</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">$500</span></div>
+          <div style="position:relative; height:20px; display:flex; align-items:center"><div style="height:4px; width:100%; border-radius:999px; background:#EFEDE6"></div><div style="position:absolute; left:0; height:4px; width:28%; border-radius:999px; background:#1E6B4B"></div><div style="position:absolute; left:28%; width:18px; height:18px; border-radius:999px; background:#fff; border:1px solid #C9DED3; box-shadow:0 1px 3px rgba(22,33,28,.14); margin-left:-9px"></div></div>
+        </div>
+        <div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:10px"><span style="font-size:13px; font-weight:600">Variance tolerance</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">2% – 8%</span></div>
+          <div style="position:relative; height:20px; display:flex; align-items:center"><div style="height:4px; width:100%; border-radius:999px; background:#EFEDE6"></div><div style="position:absolute; left:18%; height:4px; width:44%; border-radius:999px; background:#1E6B4B"></div><div style="position:absolute; left:18%; width:18px; height:18px; border-radius:999px; background:#fff; border:1px solid #C9DED3; box-shadow:0 1px 3px rgba(22,33,28,.14); margin-left:-9px"></div><div style="position:absolute; left:62%; width:18px; height:18px; border-radius:999px; background:#fff; border:1px solid #1E6B4B; box-shadow:0 0 0 3px #E8F2EC; margin-left:-9px"></div></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> number | [number, number] · <b>min</b> / <b>max</b> / <b>step</b> · <b>marks</b> · <b>formatValue</b> · <b>showInput</b> boolean — pairs a Number Input for exact entry · <b>disabled</b>. Each thumb is a <b>slider</b> role with valuenow and valuetext ("$500"); arrows step, Page keys jump, Home and End reach the bounds. Range thumbs cannot cross.</span>
+      </div>
+    </section>
+
+    <!-- DATE INPUT -->
+    <section id="DateInput" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Date Input</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A date, a range, or a date and time, typed or picked. Typing is always available — an operator entering last week's invoice should not have to navigate a calendar.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:28px; display:flex; gap:32px; flex-wrap:wrap; align-items:flex-start">
+        <label style="display:flex; flex-direction:column; gap:7px; width:200px"><span style="font-size:13px; font-weight:600">Invoice date</span><div style="height:40px; border:1px solid #E1DED4; border-radius:12px; display:flex; align-items:center; padding:0 12px; gap:8px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; flex:1">Aug 22, 2026</span><span style="width:14px; height:14px; border:1.5px solid #6B7A72; border-radius:4px"></span></div></label>
+        <label style="display:flex; flex-direction:column; gap:7px; width:260px"><span style="font-size:13px; font-weight:600">Period</span><div style="height:40px; border:1px solid #E1DED4; border-radius:12px; display:flex; align-items:center; padding:0 12px; gap:8px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; flex:1">Aug 17 – Aug 23, 2026</span><span style="width:14px; height:14px; border:1.5px solid #6B7A72; border-radius:4px"></span></div></label>
+        <label style="display:flex; flex-direction:column; gap:7px; width:230px"><span style="font-size:13px; font-weight:600">Delivery</span><div style="height:40px; border:1px solid #A32A22; border-radius:12px; display:flex; align-items:center; padding:0 12px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; flex:1">Aug 31, 2026 · 6:00 AM</span></div><span style="font-size:12px; color:#A32A22">Harbor does not deliver on Sundays.</span></label>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> Date | [Date, Date] · <b>mode</b> 'date' | 'range' | 'datetime' · <b>min</b> / <b>max</b> · <b>disabledDates</b> predicate — vendor delivery days · <b>timezone</b> · <b>presets</b> — this week, last week, period to date · <b>format</b>. Segmented text entry with arrow-key increments per segment; the calendar is a grid with arrow navigation, and a disabled date explains itself in text rather than only greying out.</span>
+      </div>
+    </section>
+
+    <!-- FILE INPUT -->
+    <section id="FileInput" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">File Input</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Uploading invoice PDFs and photos of paper tickets. Drag-and-drop is an accelerator; the button is the primary route.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start">
+        <div style="border:1px dashed #C4CCC7; border-radius:12px; padding:28px; display:flex; flex-direction:column; align-items:center; gap:9px; text-align:center">
+          <div style="width:32px; height:32px; border-radius:10px; background:#E8F2EC; border:1px solid #C9DED3"></div>
+          <span style="font-size:14px; font-weight:600">Drop invoice PDFs here</span>
+          <span style="font-size:12.5px; color:#6B7A72">PDF, JPG, or PNG · up to 20 MB each</span>
+          <button style="height:34px; padding:0 14px; border:1px solid #C9DED3; border-radius:10px; background:#fff; color:#1E6B4B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer; margin-top:4px">Choose files</button>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <div style="border:1px solid #E1DED4; border-radius:12px; padding:12px 14px; display:flex; align-items:center; gap:12px"><div style="width:28px; height:34px; border-radius:6px; background:#fff; border:1px solid #E1DED4"></div><div style="display:flex; flex-direction:column; gap:4px; flex:1"><span style="font-size:13px; font-weight:600">harbor-aug22.pdf</span><div style="height:4px; border-radius:999px; background:#EFEDE6; overflow:hidden"><div style="width:100%; height:100%; background:#1E6B4B"></div></div></div><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">1.2 MB</span></div>
+          <div style="border:1px solid #E1DED4; border-radius:12px; padding:12px 14px; display:flex; align-items:center; gap:12px"><div style="width:28px; height:34px; border-radius:6px; background:#fff; border:1px solid #E1DED4"></div><div style="display:flex; flex-direction:column; gap:4px; flex:1"><span style="font-size:13px; font-weight:600">cedar-aug22.pdf</span><div style="height:4px; border-radius:999px; background:#EFEDE6; overflow:hidden"><div style="width:54%; height:100%; background:#1E6B4B"></div></div></div><button style="width:22px; height:22px; border:none; border-radius:6px; background:#F1EFE9; color:#43524B; font-size:12px; cursor:pointer">×</button></div>
+          <div style="border:1px solid #E4C9C7; background:#FBF0EF; border-radius:12px; padding:12px 14px; display:flex; flex-direction:column; gap:3px"><span style="font-size:13px; font-weight:600; color:#A32A22">ticket-scan.tiff was not added</span><span style="font-size:12.5px; color:#43524B">TIFF is not supported. Convert to PDF or JPG.</span></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>accept</b> string · <b>multiple</b> boolean · <b>maxSize</b> bytes · <b>maxFiles</b> number · <b>onFiles</b> · <b>onRemove</b> · <b>uploads</b> — per-file progress and error state. The drop zone wraps a real file input, so keyboard and screen-reader users get the same control; rejected files state the reason in text, and progress is announced at start and completion only.</span>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      fieldAnatomy: [
+        { n: "1", part: "Label", note: "13/600 above the control; required marked with an asterisk and in the accessible name" },
+        { n: "2", part: "Control", note: "40px tall, 12px radius; error state shifts the border, never the fill" },
+        { n: "3", part: "Status", note: "Hint or error, 12px; error replaces the hint rather than stacking" },
+        { n: "4", part: "Wiring", note: "Field owns the ids linking label, control, hint, and error" }
+      ],
+      fieldProps: [
+        { name: "label", type: "string", def: "—", desc: "Required. Rendered as a real label element." },
+        { name: "hint", type: "ReactNode", def: "—", desc: "Persistent help. Explains units and vendor conventions." },
+        { name: "error", type: "string", def: "—", desc: "Replaces the hint and sets aria-invalid on the control." },
+        { name: "required", type: "boolean", def: "false", desc: "Marks the label and the accessible name." },
+        { name: "optionalLabel", type: "string", def: "'Optional'", desc: "Used when most fields in a form are required." },
+        { name: "labelPosition", type: "'top' | 'inline'", def: "'top'", desc: "Inline only in dense settings tables." },
+        { name: "size", type: "'sm' | 'md'", def: "'md'", desc: "Passed to the control." },
+        { name: "disabled", type: "boolean", def: "false", desc: "Disables the control and dims the label." },
+        { name: "children", type: "ReactNode", def: "—", desc: "The control. Exactly one." },
+        { name: "id", type: "string", def: "auto", desc: "Overrides the generated id when a form needs stable anchors." }
+      ],
+      vendors: [
+        { name: "Harbor Produce Co.", meta: "produce" },
+        { name: "Cedar Dairy", meta: "dairy" },
+        { name: "Northline Meats", meta: "protein" },
+        { name: "Sorrento Imports", meta: "dry goods" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

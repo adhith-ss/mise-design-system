@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet" />
+<style>
+  body { margin:0; background:#F7F6F2; color:#16211C; font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1E6B4B; text-decoration:none; }
+  a:hover { color:#144A34; }
+  @keyframes miseCaret { 0%,100%{opacity:1} 50%{opacity:.15} }
+</style>
+</helmet>
+
+<div style="display:grid; grid-template-columns:264px 1fr; min-height:100vh">
+
+  <aside style="border-right:1px solid #E1DED4; background:#fff; padding:24px 20px; display:flex; flex-direction:column; gap:24px; position:sticky; top:0; height:100vh; overflow:auto">
+    <div style="display:flex; align-items:center; gap:10px">
+      <div style="width:24px; height:24px; border-radius:7px; background:#1E6B4B"></div>
+      <div style="display:flex; flex-direction:column">
+        <span style="font-size:15px; font-weight:800; letter-spacing:-.01em">Mise DLS</span>
+        <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">Chat &amp; Agent</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:6px 8px">Library</div>
+      <a href="Mise-DLS-Index.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overview</a>
+      <a href="Mise Design System.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Foundations</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">On this page</div>
+      <a href="#Principles" style="padding:7px 8px; border-radius:8px; font-size:13px; background:#E8F2EC; color:#1E6B4B; font-weight:600">Agent principles</a>
+      <a href="#Message" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Message Bubble</a>
+      <a href="#ToolCall" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Tool-call Card</a>
+      <a href="#Approval" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Inline Approval</a>
+      <a href="#Status" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Agent Status</a>
+      <a href="#Citation" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Citation</a>
+      <a href="#Suggestion" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Suggestion Chip</a>
+      <a href="#Composer" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Composer</a>
+      <a href="#AgentError" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Agent Error</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">Categories</div>
+      <a href="Mise-DLS-Action.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Action</a>
+      <a href="Mise-DLS-Content.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Content</a>
+      <a href="Mise-DLS-DataInput.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Data Input</a>
+      <a href="Mise-DLS-Feedback.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Feedback &amp; Status</a>
+      <a href="Mise-DLS-Navigation.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Navigation</a>
+      <a href="Mise-DLS-Overlay.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overlay</a>
+      <a href="Mise-DLS-TableList.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Table &amp; List</a>
+    </div>
+  </aside>
+
+  <main style="padding:48px 56px 140px; max-width:1000px; display:flex; flex-direction:column; gap:60px">
+
+    <header style="display:flex; flex-direction:column; gap:14px">
+      <span style="align-self:flex-start; background:#E8F2EC; color:#1E6B4B; border-radius:999px; padding:5px 11px; font-size:12px; font-weight:600">Chat &amp; Agent · 8 components</span>
+      <h1 style="margin:0; font-size:40px; line-height:1.08; letter-spacing:-.03em; font-weight:800">Chat &amp; Agent</h1>
+      <p style="margin:0; max-width:62ch; font-size:16px; line-height:1.65; color:#43524B">The surface where Mise's agent works alongside an operator: ordering, reconciling invoices, chasing credits. The agent may read anything and draft anything, but money leaves the restaurant only after a person approves it. These components exist to make what the agent did, and what it is about to do, legible at a glance.</p>
+    </header>
+
+    <section id="Principles" style="display:flex; flex-direction:column; gap:16px; border-top:1px solid #E1DED4; padding-top:32px">
+      <h2 style="margin:0; font-size:24px; font-weight:700; letter-spacing:-.02em">Agent principles</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <sc-for list="{{ principles }}" as="p" hint-placeholder-count="4">
+          <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:7px">
+            <span style="font-size:13.5px; font-weight:700">{{ p.title }}</span>
+            <span style="font-size:12.5px; line-height:1.7; color:#43524B">{{ p.body }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- MESSAGE BUBBLE -->
+    <section id="Message" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Message Bubble</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">One turn in the conversation. Operator turns are tinted and right-aligned; agent turns sit flush left on the page surface with no bubble, so long answers read as documents rather than chat.</p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Variants</h3>
+        <div style="border:1px solid #E1DED4; border-radius:14px; padding:28px; background:#fff; display:flex; flex-direction:column; gap:22px">
+          <div style="display:flex; justify-content:flex-end">
+            <div style="max-width:70%; background:#E8F2EC; border:1px solid #D3E6DC; border-radius:16px 16px 6px 16px; padding:12px 14px; font-size:14px; line-height:1.6">Did Harbor short us on romaine again this week?</div>
+          </div>
+          <div style="display:flex; gap:12px; align-items:flex-start">
+            <span style="width:26px; height:26px; border-radius:8px; background:#1E6B4B; flex:0 0 auto"></span>
+            <div style="display:flex; flex-direction:column; gap:8px; max-width:78%">
+              <span style="font-size:14px; line-height:1.68; color:#16211C">Yes — twice. Tuesday's delivery was 4 cases short against PO-4471, and Thursday's was 2 short. Both were invoiced in full, so you are owed $138.00.</span>
+              <span style="font-size:12px; color:#8D9994">Checked 2 invoices · 1.4s</span>
+            </div>
+          </div>
+          <div style="display:flex; gap:12px; align-items:flex-start">
+            <span style="width:26px; height:26px; border-radius:8px; background:#1E6B4B; flex:0 0 auto"></span>
+            <span style="font-size:14px; line-height:1.68">Drafting the credit request now<span style="display:inline-block; width:8px; height:15px; margin-left:3px; vertical-align:-2px; background:#1E6B4B; animation:miseCaret 1s steps(1,end) infinite"></span></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Anatomy</h3>
+        <div style="border:1px solid #E1DED4; border-radius:14px; padding:24px 28px; background:#F1EFE9; display:flex; flex-direction:column; gap:8px">
+          <sc-for list="{{ messageAnatomy }}" as="a" hint-placeholder-count="5">
+            <div style="display:flex; gap:10px; align-items:baseline">
+              <span style="width:18px; height:18px; border-radius:999px; border:1px solid #C9DED3; background:#fff; color:#1E6B4B; font-size:11px; display:flex; align-items:center; justify-content:center; flex:0 0 auto">{{ a.n }}</span>
+              <span style="font-size:13px; color:#43524B"><b style="color:#16211C">{{ a.part }}</b> — {{ a.note }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #C9DED3; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:12px; font-weight:700; color:#1E6B4B; text-transform:uppercase; letter-spacing:.06em">Do</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Stream tokens into their final layout, so nothing reflows when the turn completes. Keep the footer line — sources touched and elapsed time — on every agent turn that read data.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #EAD0CB; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:12px; font-weight:700; color:#A32A22; text-transform:uppercase; letter-spacing:.06em">Don't</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Don't animate a typing indicator in place of first tokens, and don't bubble agent turns — a bubble caps line length and makes tables and tool cards unreadable.</span>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Props</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+          <div style="display:grid; grid-template-columns:150px 1.3fr 100px 1.4fr; gap:14px; padding:11px 18px; background:#F7F6F2; border-bottom:1px solid #E1DED4">
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Prop</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Type</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Default</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Description</span>
+          </div>
+          <sc-for list="{{ messageProps }}" as="p" hint-placeholder-count="10">
+            <div style="display:grid; grid-template-columns:150px 1.3fr 100px 1.4fr; gap:14px; padding:11px 18px; border-bottom:1px solid #EFEDE6; align-items:baseline">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#16211C">{{ p.name }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#2F5E8C">{{ p.type }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#6B7A72">{{ p.def }}</span>
+              <span style="font-size:12.5px; line-height:1.55; color:#43524B">{{ p.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Tokens</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Operator bubble <b>brand.50 / brand.100</b> border, radius <b>16 16 6 16</b>, max width <b>70%</b> · agent turn no fill, max width <b>78%</b> (≈70ch) · body <b>14/1.68</b> · footer <b>12</b> in <b>ink.400</b> · turn gap <b>22</b> · avatar <b>26</b>, radius <b>8</b>.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Accessibility</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">The transcript is a <b>log</b> with <b>aria-live="polite"</b>; a streaming turn is announced once on completion, not per token. Each turn names its author in text, not by colour alone. The caret is decorative and hidden under <b>prefers-reduced-motion</b>.</span>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Code</h3>
+        <pre style="margin:0; background:#16211C; color:#DCE5E0; border-radius:14px; padding:18px 20px; overflow:auto; font-family:'General Sans',ui-monospace,monospace; font-weight:300; font-size:12.5px; line-height:1.75">{{ messageCode }}</pre>
+      </div>
+    </section>
+
+    <!-- TOOL CALL -->
+    <section id="ToolCall" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Tool-call Card</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A record of one thing the agent did to the system: a query, a lookup, a draft. Collapsed it states the action and its result in one line; expanded it shows the arguments and the returned rows.</p>
+      </div>
+      <div style="border:1px solid #E1DED4; border-radius:14px; padding:28px; background:#fff; display:flex; flex-direction:column; gap:14px">
+        <div style="border:1px solid #E1DED4; border-radius:12px; overflow:hidden">
+          <div style="display:flex; align-items:center; gap:11px; padding:11px 14px; background:#FCFBF8">
+            <span style="width:18px; height:18px; border-radius:6px; background:#E8F2EC; border:1px solid #C9DED3"></span>
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">invoices.search</span>
+            <span style="font-size:12.5px; color:#6B7A72">2 invoices · Harbor Produce · Aug 18–24</span>
+            <span style="margin-left:auto; display:flex; align-items:center; gap:10px"><span style="font-size:11.5px; color:#8D9994">1.1s</span><span style="background:#E8F2EC; color:#1E6B4B; border-radius:999px; padding:3px 8px; font-size:11px; font-weight:600">Done</span><span style="font-size:12px; color:#6B7A72">▾</span></span>
+          </div>
+          <div style="padding:13px 14px; border-top:1px solid #EFEDE6; display:flex; flex-direction:column; gap:10px">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#43524B">{ vendor: "harbor-produce", from: "2026-08-18", to: "2026-08-24", flags: ["variance"] }</span>
+            <div style="border:1px solid #EFEDE6; border-radius:10px; overflow:hidden">
+              <sc-for list="{{ toolRows }}" as="r" hint-placeholder-count="2">
+                <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:12px; padding:9px 12px; border-bottom:1px solid #F3F1EA; font-size:12.5px">
+                  <span>{{ r.id }}</span>
+                  <span style="font-family:'General Sans',sans-serif; font-weight:300; color:#43524B">{{ r.amount }}</span>
+                  <span style="color:#B4531B">{{ r.flag }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap">
+          <sc-for list="{{ toolStates }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex; align-items:center; gap:10px; border:1px solid #E1DED4; border-radius:12px; padding:10px 13px; background:#FCFBF8">
+              <span style="width:16px; height:16px; border-radius:5px; background:{{ s.dot }}"></span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px">{{ s.label }}</span>
+              <span style="font-size:11.5px; color:#6B7A72">{{ s.note }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Props</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>tool</b> string · <b>summary</b> — the human sentence, required · <b>args</b> object · <b>result</b> ReactNode | rows · <b>status</b> 'running' | 'done' | 'error' | 'denied' · <b>duration</b> ms · <b>defaultExpanded</b> boolean, false · <b>onRetry</b> · <b>writesData</b> boolean — a write shows the amber dot and links its approval.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Rules &amp; accessibility</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Collapsed by default, and the summary alone must be enough to trust or challenge the turn. Never hide a write behind a collapsed card. The header is a <b>button</b> with <b>aria-expanded</b>; running state uses <b>aria-busy</b>, not a spinner announcement.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INLINE APPROVAL -->
+    <section id="Approval" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Inline Approval</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">The gate between a draft and a commitment. It states exactly what will happen, to whom, and for how much, and it is the only component in the system that turns agent intent into an action against a vendor.</p>
+      </div>
+      <div style="border:1px solid #E1DED4; border-radius:14px; padding:28px; background:#F1EFE9; display:flex; flex-direction:column; gap:16px">
+        <div style="max-width:560px; background:#fff; border:1px solid #E1DED4; border-left:3px solid #C98A16; border-radius:14px; overflow:hidden">
+          <div style="padding:15px 17px; display:flex; flex-direction:column; gap:12px">
+            <div style="display:flex; align-items:center; gap:9px">
+              <span style="background:#FBF1DC; color:#8A5D0A; border-radius:999px; padding:3px 9px; font-size:11px; font-weight:700; letter-spacing:.03em">Needs your approval</span>
+              <span style="font-size:11.5px; color:#6B7A72">expires in 12 min</span>
+            </div>
+            <span style="font-size:15px; font-weight:700; line-height:1.4">Send credit request for $138.00 to Harbor Produce</span>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px 20px">
+              <sc-for list="{{ approvalFacts }}" as="f" hint-placeholder-count="4">
+                <div style="display:flex; flex-direction:column; gap:2px">
+                  <span style="font-size:11.5px; color:#6B7A72">{{ f.label }}</span>
+                  <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">{{ f.value }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <span style="font-size:12.5px; line-height:1.6; color:#43524B">Drafted from 2 short deliveries against PO-4471. The message quotes both invoice numbers and the received counts.</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; padding:12px 17px; border-top:1px solid #EFEDE6; background:#FCFBF8">
+            <button style="height:36px; padding:0 15px; border:none; border-radius:10px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Approve &amp; send</button>
+            <button style="height:36px; padding:0 14px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Edit draft</button>
+            <button style="height:36px; padding:0 14px; border:none; border-radius:10px; background:transparent; color:#6B7A72; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Decline</button>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap">
+          <div style="display:flex; align-items:center; gap:9px; background:#fff; border:1px solid #E1DED4; border-radius:11px; padding:10px 13px"><span style="width:14px; height:14px; border-radius:999px; background:#1E6B4B"></span><span style="font-size:12.5px">Approved by Dana R. · 8:14 AM · undo for 10 min</span></div>
+          <div style="display:flex; align-items:center; gap:9px; background:#fff; border:1px solid #E1DED4; border-radius:11px; padding:10px 13px"><span style="width:14px; height:14px; border-radius:999px; background:#8D9994"></span><span style="font-size:12.5px">Declined · agent will not retry without being asked</span></div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #C9DED3; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:12px; font-weight:700; color:#1E6B4B; text-transform:uppercase; letter-spacing:.06em">Do</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Put the amount, the counterparty, and the irreversibility in the title. Offer Edit draft next to Approve so the operator can correct rather than abandon.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #EAD0CB; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:12px; font-weight:700; color:#A32A22; text-transform:uppercase; letter-spacing:.06em">Don't</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Don't label the primary "Confirm", don't pre-select it for keyboard Enter, and never let an approval scroll out of the transcript unanswered — pin it until it is resolved.</span>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>title</b> · <b>facts</b> label/value pairs, 2–6 · <b>rationale</b> · <b>impact</b> 'reversible' | 'undoable' | 'permanent' · <b>expiresAt</b> · <b>onApprove</b> / <b>onEdit</b> / <b>onDecline</b> · <b>approver</b> — resolved state stamp · <b>requiresRole</b> string. Rendered as a <b>region</b> labelled by its title, announced assertively when it appears; focus is not stolen, but the composer shows a pending-approval affordance. Approve is never the default focus.</span>
+      </div>
+    </section>
+
+    <!-- AGENT STATUS -->
+    <section id="Status" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Agent Status</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">What the agent is doing right now, in the operator's words. Named steps replace indeterminate spinners for any task over two seconds, and every step can be interrupted.</p>
+      </div>
+      <div style="border:1px solid #E1DED4; border-radius:14px; padding:28px; background:#fff; display:flex; gap:36px; flex-wrap:wrap">
+        <div style="display:flex; flex-direction:column; gap:11px; min-width:300px">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex; align-items:center; gap:10px">
+              <span style="width:15px; height:15px; border-radius:999px; border:1.5px solid {{ s.ring }}; background:{{ s.fill }}; flex:0 0 auto"></span>
+              <span style="font-size:13.5px; color:{{ s.text }}; font-weight:{{ s.weight }}">{{ s.label }}</span>
+              <span style="margin-left:auto; font-size:11.5px; color:#8D9994">{{ s.meta }}</span>
+            </div>
+          </sc-for>
+          <button style="align-self:flex-start; margin-top:4px; height:32px; padding:0 12px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">Stop</button>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px; flex:1; min-width:260px">
+          <div style="display:flex; align-items:center; gap:9px; border:1px solid #E1DED4; border-radius:11px; padding:9px 12px; background:#FCFBF8"><span style="width:8px; height:8px; border-radius:999px; background:#1E6B4B"></span><span style="font-size:12.5px">Reading invoices · 3 of 8</span></div>
+          <div style="display:flex; align-items:center; gap:9px; border:1px solid #E1DED4; border-radius:11px; padding:9px 12px; background:#FCFBF8"><span style="width:8px; height:8px; border-radius:999px; background:#C98A16"></span><span style="font-size:12.5px">Waiting on your approval</span></div>
+          <div style="display:flex; align-items:center; gap:9px; border:1px solid #E1DED4; border-radius:11px; padding:9px 12px; background:#FCFBF8"><span style="width:8px; height:8px; border-radius:999px; background:#8D9994"></span><span style="font-size:12.5px">Idle · last run 8:14 AM</span></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>state</b> 'idle' | 'working' | 'waiting' | 'stopped' · <b>steps</b> with label, status, meta · <b>current</b> index · <b>onStop</b> — always present while working · <b>compact</b> boolean for the header pill. Announced politely on step change, at most once every two seconds; the pill's meaning is carried in text as well as its dot colour.</span>
+      </div>
+    </section>
+
+    <!-- CITATION -->
+    <section id="Citation" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Citation</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A pointer from a claim to the record it came from — an invoice line, a PO, a vendor agreement. Every number the agent states about money carries one.</p>
+      </div>
+      <div style="border:1px solid #E1DED4; border-radius:14px; padding:28px; background:#fff; display:flex; flex-direction:column; gap:18px">
+        <span style="font-size:14px; line-height:1.75; max-width:64ch">Harbor invoiced 24 cases but the kitchen received 20 <a href="#Citation" style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11.5px; border:1px solid #C9DED3; background:#E8F2EC; border-radius:6px; padding:1px 5px; vertical-align:2px">INV-20841 · line 3</a>, and the same gap appears on Thursday <a href="#Citation" style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11.5px; border:1px solid #C9DED3; background:#E8F2EC; border-radius:6px; padding:1px 5px; vertical-align:2px">INV-20902 · line 1</a>.</span>
+        <div style="max-width:420px; background:#fff; border:1px solid #E1DED4; border-radius:12px; box-shadow:0 12px 32px rgba(22,33,28,.14); padding:14px; display:flex; flex-direction:column; gap:9px">
+          <div style="display:flex; align-items:center; justify-content:space-between"><span style="font-size:13px; font-weight:700">INV-20841 · line 3</span><span style="font-size:11.5px; color:#6B7A72">Aug 22, 2026</span></div>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px">
+            <div style="display:flex; flex-direction:column"><span style="font-size:11.5px; color:#6B7A72">Item</span><span style="font-size:12.5px">Romaine, 24 ct</span></div>
+            <div style="display:flex; flex-direction:column"><span style="font-size:11.5px; color:#6B7A72">Invoiced</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px">24 cs</span></div>
+            <div style="display:flex; flex-direction:column"><span style="font-size:11.5px; color:#6B7A72">Received</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#B4531B">20 cs</span></div>
+          </div>
+          <a href="#Citation" style="font-size:12.5px; font-weight:600">Open invoice</a>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>label</b> — the record's real identifier, never a bare number · <b>recordType</b> 'invoice' | 'order' | 'item' | 'vendor' | 'policy' · <b>href</b> · <b>preview</b> fields shown in the hover card · <b>confidence</b> 'exact' | 'inferred' — inferred renders in ink outline, not brand green. A link, focusable in reading order, with an accessible name that includes the record type. The preview is never the only path to the record.</span>
+      </div>
+    </section>
+
+    <!-- SUGGESTION CHIP -->
+    <section id="Suggestion" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Suggestion Chip</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Two to four next moves offered after a turn. Each is a real action the agent can take, phrased as the operator would say it.</p>
+      </div>
+      <div style="border:1px solid #E1DED4; border-radius:14px; padding:28px; background:#fff; display:flex; flex-direction:column; gap:16px">
+        <div style="display:flex; gap:9px; flex-wrap:wrap">
+          <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="3">
+            <button style="height:34px; padding:0 13px; border:1px solid #E1DED4; border-radius:999px; background:#fff; color:#16211C; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer" style-hover="background:#E8F2EC; border-color:#C9DED3; color:#1E6B4B">{{ s }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex; gap:9px; flex-wrap:wrap; align-items:center">
+          <span style="font-size:12px; color:#6B7A72">States:</span>
+          <button style="height:34px; padding:0 13px; border:1px solid #C9DED3; border-radius:999px; background:#E8F2EC; color:#1E6B4B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Hover</button>
+          <button style="height:34px; padding:0 13px; border:1px solid #1E6B4B; border-radius:999px; background:#fff; color:#1E6B4B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; box-shadow:0 0 0 3px rgba(30,107,75,.18); cursor:pointer">Focus</button>
+          <button style="height:34px; padding:0 13px; border:1px solid #EFEDE6; border-radius:999px; background:#F7F6F2; color:#A9B6B0; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600">Disabled</button>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Rules, props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B">Maximum four, one line each, never wrapping mid-phrase. A chip may draft but never commits — anything that spends money routes to Inline Approval. <b>items</b> with label and intent · <b>onSelect</b> · <b>max</b> number, 4 · <b>dismissible</b> boolean. Rendered as a labelled group of buttons after the turn, so screen-reader users meet the answer first; chips disappear once the operator types.</span>
+      </div>
+    </section>
+
+    <!-- COMPOSER -->
+    <section id="Composer" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Composer</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Where the operator writes. It grows to six lines, accepts invoice photos, and shows the scope the agent is working in so an instruction is never applied to the wrong location.</p>
+      </div>
+      <div style="border:1px solid #E1DED4; border-radius:14px; padding:28px; background:#F1EFE9; display:flex; flex-direction:column; gap:14px">
+        <div style="max-width:620px; background:#fff; border:1px solid #E1DED4; border-radius:16px; padding:12px 14px; display:flex; flex-direction:column; gap:11px; box-shadow:0 6px 20px rgba(22,33,28,.06)">
+          <span style="font-size:14px; color:#8D9994">Ask about orders, invoices, or vendors…</span>
+          <div style="display:flex; align-items:center; gap:9px">
+            <span style="display:flex; align-items:center; gap:6px; border:1px solid #E1DED4; border-radius:999px; padding:4px 10px; font-size:12px; color:#43524B">Downtown kitchen</span>
+            <button style="width:30px; height:30px; border:1px solid #E1DED4; border-radius:9px; background:#fff; color:#43524B; font-size:14px; cursor:pointer">+</button>
+            <button style="margin-left:auto; height:32px; padding:0 14px; border:none; border-radius:10px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Send</button>
+          </div>
+        </div>
+        <div style="max-width:620px; background:#fff; border:1px solid #C98A16; border-radius:16px; padding:12px 14px; display:flex; align-items:center; gap:10px">
+          <span style="font-size:13px; color:#43524B; flex:1">One approval is waiting — answer it before sending a new instruction.</span>
+          <a href="#Approval" style="font-size:12.5px; font-weight:600">Review</a>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> / <b>onChange</b> · <b>onSend</b> · <b>scope</b> — the location or period the agent acts on · <b>attachments</b> · <b>maxRows</b> number, 6 · <b>disabled</b> · <b>pendingApproval</b> boolean · <b>placeholder</b>. Enter sends, Shift+Enter breaks the line, and Escape returns focus to the transcript. A labelled textarea, never a contenteditable div; the scope chip is part of the field's accessible description.</span>
+      </div>
+    </section>
+
+    <!-- AGENT ERROR -->
+    <section id="AgentError" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Agent Error</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">When the agent cannot finish. It says what stopped, what it did complete, and what the operator can do — including doing it by hand.</p>
+      </div>
+      <div style="border:1px solid #E1DED4; border-radius:14px; padding:28px; background:#fff; display:flex; flex-direction:column; gap:14px">
+        <sc-for list="{{ errors }}" as="e" hint-placeholder-count="3">
+          <div style="max-width:620px; border:1px solid #EAD0CB; border-left:3px solid #A32A22; border-radius:12px; padding:14px 16px; display:flex; flex-direction:column; gap:8px; background:#FDF8F7">
+            <span style="font-size:13.5px; font-weight:700">{{ e.title }}</span>
+            <span style="font-size:12.5px; line-height:1.65; color:#43524B">{{ e.body }}</span>
+            <div style="display:flex; gap:9px; padding-top:2px">
+              <button style="height:32px; padding:0 13px; border:none; border-radius:10px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">{{ e.primary }}</button>
+              <button style="height:32px; padding:0 13px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">{{ e.secondary }}</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #C9DED3; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:12px; font-weight:700; color:#1E6B4B; text-transform:uppercase; letter-spacing:.06em">Do</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Keep the partial work visible and say plainly whether anything was sent. Always offer the manual route as the second action.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #EAD0CB; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:12px; font-weight:700; color:#A32A22; text-transform:uppercase; letter-spacing:.06em">Don't</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Don't surface provider names, status codes, or stack traces, and don't apologise twice. Never auto-retry a write.</span>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>kind</b> 'tool' | 'permission' | 'timeout' | 'refusal' | 'network' · <b>title</b> · <b>body</b> · <b>completed</b> — what did land · <b>onRetry</b> (reads only) · <b>manualHref</b> · <b>reportId</b> for support. Announced assertively once; the retry button is focusable but not focused, and the error stays in the transcript as part of the record.</span>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      principles: [
+        { title: "Read freely, write on approval", body: "The agent can query any record and draft any document. Sending an order, a credit request, or a payment always passes through Inline Approval." },
+        { title: "Show the work, not the machinery", body: "Every claim links to its record; every action leaves a tool-call card. No prompts, model names, or token counts in the interface." },
+        { title: "Named steps over spinners", body: "Anything over two seconds reports what it is doing in the operator's vocabulary — reading invoices, matching lines — and can be stopped." },
+        { title: "The transcript is a record", body: "Approvals, declines, and errors stay in place with their timestamps and approver. Nothing is quietly removed once it has been shown." }
+      ],
+      messageAnatomy: [
+        { n: "1", part: "Author mark", note: "26px agent mark, or right alignment for the operator" },
+        { n: "2", part: "Body", note: "14/1.68, capped near 70ch; markdown, tables, and cards allowed" },
+        { n: "3", part: "Caret", note: "Streaming only; replaced by the footer when the turn ends" },
+        { n: "4", part: "Footer", note: "Sources touched and elapsed time, 12px in ink.400" },
+        { n: "5", part: "Turn actions", note: "Copy, retry, feedback — revealed on hover and focus" }
+      ],
+      messageProps: [
+        { name: "role", type: "'user' | 'agent' | 'system'", def: "—", desc: "Sets alignment and surface." },
+        { name: "content", type: "ReactNode", def: "—", desc: "Markdown, tables, or embedded cards." },
+        { name: "streaming", type: "boolean", def: "false", desc: "Shows the caret and sets aria-busy." },
+        { name: "timestamp", type: "string", def: "—", desc: "Shown on hover, and always on the day's first turn." },
+        { name: "footer", type: "{ sources, duration }", def: "—", desc: "Sources touched and elapsed time." },
+        { name: "actions", type: "ReactNode", def: "—", desc: "Copy, retry, feedback. Hidden until hover or focus." },
+        { name: "error", type: "boolean", def: "false", desc: "Renders the turn in the error treatment." },
+        { name: "compact", type: "boolean", def: "false", desc: "Tightens gaps for the side-panel width." },
+        { name: "onRetry", type: "() => void", def: "—", desc: "Reruns the turn; never available after a write." },
+        { name: "attachments", type: "Attachment[]", def: "[]", desc: "Invoice scans and photos, shown above the body." }
+      ],
+      messageCode: '<Message role="agent" streaming={isStreaming}\n  footer={{ sources: "2 invoices", duration: 1400 }}>\n  Yes — twice. Tuesday\'s delivery was 4 cases short\n  <Citation recordType="invoice" label="INV-20841 · line 3" href={inv.href} />\n</Message>\n\n<Message role="user">Did Harbor short us on romaine again?</Message>',
+      toolRows: [
+        { id: "INV-20841 · Aug 22", amount: "$742.10", flag: "4 cs short" },
+        { id: "INV-20902 · Aug 24", amount: "$744.00", flag: "2 cs short" }
+      ],
+      toolStates: [
+        { dot: "#C9DED3", label: "running", note: "aria-busy, stop available" },
+        { dot: "#1E6B4B", label: "done", note: "summary + duration" },
+        { dot: "#A32A22", label: "error", note: "retry, reads only" },
+        { dot: "#C98A16", label: "denied", note: "operator declined" }
+      ],
+      approvalFacts: [
+        { label: "Vendor", value: "Harbor Produce Co." },
+        { label: "Amount", value: "$138.00" },
+        { label: "Against", value: "PO-4471 · INV-20841, 20902" },
+        { label: "Reversible", value: "Undo for 10 minutes" }
+      ],
+      steps: [
+        { label: "Pulled last week's Harbor invoices", meta: "1.1s", ring: "#1E6B4B", fill: "#1E6B4B", text: "#43524B", weight: "500" },
+        { label: "Matched lines against PO-4471", meta: "0.6s", ring: "#1E6B4B", fill: "#1E6B4B", text: "#43524B", weight: "500" },
+        { label: "Drafting credit request", meta: "now", ring: "#1E6B4B", fill: "#E8F2EC", text: "#16211C", weight: "700" },
+        { label: "Send to vendor", meta: "needs approval", ring: "#D7D3C8", fill: "#fff", text: "#8D9994", weight: "500" }
+      ],
+      suggestions: [
+        "Show both short deliveries side by side",
+        "Draft the credit request",
+        "Flag Harbor for the Friday vendor review"
+      ],
+      errors: [
+        { title: "Couldn't reach Harbor Produce's ordering system", body: "The draft credit request is saved and nothing was sent. Harbor's portal has been unavailable since 8:02 AM.", primary: "Try again", secondary: "Email the request instead" },
+        { title: "You don't have permission to send credits", body: "Sending credit requests is limited to managers. The draft is ready for Dana R. to approve.", primary: "Ask Dana to approve", secondary: "View the draft" },
+        { title: "I stopped after 8 of 34 invoices", body: "The period you asked about is larger than one run. The 8 checked invoices are summarised above and two variances were found.", primary: "Continue from invoice 9", secondary: "Narrow to Harbor only" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

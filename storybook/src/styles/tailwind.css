@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: var(--mise-canvas);
+    color: var(--mise-ink-900);
+    font-family: var(--mise-font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  /* Numbers, IDs, code — anything the operator reads as data. */
+  .font-data { font-family: var(--mise-font-data); font-weight: 300; }
+}
+
+@keyframes mise-caret { 0%, 100% { opacity: 1 } 50% { opacity: 0.15 } }

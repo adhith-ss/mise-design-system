@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Elevation" />
+
+# Elevation
+
+Three shadows, assigned by layer rather than by taste. Anything that needs a
+fourth is probably a page.
+
+| Token | Value | Layer |
+| --- | --- | --- |
+| raised | `0 6px 20px rgba(22,33,28,.06)` | Composer, sticky bars |
+| popover | `0 12px 32px rgba(22,33,28,.14)` | Popover, hover card, citation preview |
+| overlay | `0 24px 56px rgba(22,33,28,.22)` | Dialog, alert dialog, command palette, lightbox |
+| scrim | `rgba(22,33,28,.38)` | Behind any modal layer |
+
+## Layer order
+
+| z | Layer | Dismisses on |
+| --- | --- | --- |
+| 100 | Tooltip | Pointer leave, blur, Escape |
+| 200 | Hover card | Pointer leave with grace, Escape |
+| 300 | Popover, dropdown menu | Outside click, Escape, selection |
+| 400 | Toast | Timer or dismiss; paused on hover and focus |
+| 500 | Dialog, alert dialog, lightbox | Explicit action |
+| 600 | Command palette | Escape, selection, hotkey |
+
+Reach for the least interrupting layer that does the job: a tooltip before a
+popover, a popover before a dialog.

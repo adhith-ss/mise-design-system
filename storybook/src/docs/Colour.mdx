@@ -1,0 +1,45 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Foundations/Colour" />
+
+# Colour
+
+Two backgrounds, one accent, and status colours that only appear when something
+needs attention. A screen full of colour is a screen the operator cannot scan.
+
+<ColorPalette>
+  <ColorItem
+    title="brand"
+    subtitle="Actions, links, and agent presence"
+    colors={{ 50: '#E8F2EC', 100: '#D3E6DC', 200: '#C9DED3', 500: '#2A8A61', 600: '#1E6B4B', 700: '#144A34' }}
+  />
+  <ColorItem
+    title="ink"
+    subtitle="Text, in descending emphasis"
+    colors={{ 900: '#16211C', 700: '#43524B', 500: '#6B7A72', 400: '#8D9994', 300: '#A9B6B0' }}
+  />
+  <ColorItem
+    title="surface"
+    subtitle="canvas · surface · raised · sunken"
+    colors={{ canvas: '#F7F6F2', surface: '#FFFFFF', raised: '#FCFBF8', sunken: '#F1EFE9' }}
+  />
+  <ColorItem
+    title="line"
+    subtitle="Borders and dividers"
+    colors={{ line: '#E1DED4', soft: '#EFEDE6' }}
+  />
+  <ColorItem
+    title="status"
+    subtitle="Danger, warning, and variance"
+    colors={{ danger: '#A32A22', warn: '#C98A16', 'warn-ink': '#8A5D0A', alert: '#B4531B' }}
+  />
+</ColorPalette>
+
+## Rules
+
+- `brand/600` is the only fill for a primary action. `brand/700` is its hover.
+- Amber (`warn`) means *a person must decide*. It appears on Inline Approval and
+  on any tool call that writes. Nowhere else.
+- `alert` (#B4531B) marks a variance in a number — a short count, a price gap.
+  It is a data colour, not a status colour, and never used on a control.
+- Never carry meaning in colour alone. Every status in the system has a text label.

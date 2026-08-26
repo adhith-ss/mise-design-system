@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet" />
+<style>
+  body { margin:0; background:#F7F6F2; color:#16211C; font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1E6B4B; text-decoration:none; }
+  a:hover { color:#144A34; }
+  pre { margin:0; font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; line-height:1.7; white-space:pre-wrap; }
+</style>
+</helmet>
+
+<div style="display:grid; grid-template-columns:264px 1fr; min-height:100vh">
+
+  <aside style="border-right:1px solid #E1DED4; background:#fff; padding:24px 20px; display:flex; flex-direction:column; gap:24px; position:sticky; top:0; height:100vh; overflow:auto">
+    <div style="display:flex; align-items:center; gap:10px">
+      <div style="width:24px; height:24px; border-radius:7px; background:#1E6B4B"></div>
+      <div style="display:flex; flex-direction:column">
+        <span style="font-size:15px; font-weight:800; letter-spacing:-.01em">Mise DLS</span>
+        <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">Action</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:6px 8px">Library</div>
+      <a href="Mise-DLS-Index.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overview</a>
+      <a href="Mise Design System.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Foundations</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">On this page</div>
+      <a href="#Button" style="padding:7px 8px; border-radius:8px; font-size:13px; background:#E8F2EC; color:#1E6B4B; font-weight:600">Button</a>
+      <a href="#IconButton" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Icon Button</a>
+      <a href="#ButtonGroup" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Button Group</a>
+      <a href="#ToggleButton" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Toggle Button</a>
+      <a href="#ToggleButtonGroup" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Toggle Button Group</a>
+      <a href="#SegmentedControl" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Segmented Control</a>
+      <a href="#DropdownMenu" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Dropdown Menu</a>
+      <a href="#MoreMenu" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">More Menu</a>
+      <a href="#Link" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Link</a>
+      <a href="#Toolbar" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Toolbar</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">Categories</div>
+      <a href="Mise-DLS-ChatAgent.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Chat &amp; Agent</a>
+      <a href="Mise-DLS-Content.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Content</a>
+      <a href="Mise-DLS-DataInput.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Data Input</a>
+      <a href="Mise-DLS-Feedback.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Feedback &amp; Status</a>
+      <a href="Mise-DLS-Navigation.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Navigation</a>
+      <a href="Mise-DLS-Overlay.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overlay</a>
+      <a href="Mise-DLS-TableList.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Table &amp; List</a>
+    </div>
+  </aside>
+
+  <main style="padding:48px 56px 140px; max-width:1000px; display:flex; flex-direction:column; gap:64px">
+
+    <header style="display:flex; flex-direction:column; gap:14px">
+      <span style="align-self:flex-start; background:#E8F2EC; color:#1E6B4B; border-radius:999px; padding:5px 11px; font-size:12px; font-weight:600">Action · 10 components</span>
+      <h1 style="margin:0; font-size:40px; line-height:1.08; letter-spacing:-.03em; font-weight:800">Action</h1>
+      <p style="margin:0; max-width:62ch; font-size:16px; line-height:1.65; color:#43524B">Controls that commit a change or open a set of choices. One primary action per view. Anything that spends money, changes inventory, or alters a schedule uses a primary button and a confirmation step.</p>
+    </header>
+
+    <!-- ============ BUTTON ============ -->
+    <section id="Button" style="display:flex; flex-direction:column; gap:24px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Button</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A labelled control that performs an action. The label names the action in the operator's words — "Send order", not "Submit".</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700; color:#1E6B4B">Use when</span>
+          <span style="font-size:13px; line-height:1.6; color:#43524B">Something changes as a result of the click — sending a PO, approving an invoice, saving a shift plan.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700; color:#B4531B">Use something else when</span>
+          <span style="font-size:13px; line-height:1.6; color:#43524B">The click only navigates — use Link. There are three or more related actions — use DropdownMenu or MoreMenu.</span>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Anatomy</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:32px; display:flex; align-items:center; justify-content:center; gap:40px">
+          <div style="position:relative; display:flex">
+            <button style="height:40px; padding:0 18px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; display:flex; align-items:center; gap:8px; cursor:pointer">
+              <span style="width:16px; height:16px; border-radius:5px; background:rgba(255,255,255,.34)"></span>Send order
+            </button>
+            <span style="position:absolute; left:-10px; top:-14px; width:20px; height:20px; border-radius:999px; background:#16211C; color:#fff; font-size:11px; display:flex; align-items:center; justify-content:center">1</span>
+            <span style="position:absolute; left:36px; top:-14px; width:20px; height:20px; border-radius:999px; background:#16211C; color:#fff; font-size:11px; display:flex; align-items:center; justify-content:center">2</span>
+            <span style="position:absolute; right:-10px; bottom:-14px; width:20px; height:20px; border-radius:999px; background:#16211C; color:#fff; font-size:11px; display:flex; align-items:center; justify-content:center">3</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px">
+            <sc-for list="{{ btnAnatomy }}" as="a" hint-placeholder-count="3">
+              <div style="display:flex; gap:10px; align-items:baseline">
+                <span style="width:18px; height:18px; border-radius:999px; border:1px solid #C9DED3; color:#1E6B4B; font-size:11px; display:flex; align-items:center; justify-content:center; flex:0 0 auto">{{ a.n }}</span>
+                <span style="font-size:13px; color:#43524B"><b style="color:#16211C">{{ a.part }}</b> — {{ a.note }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Variants</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid #EFEDE6">
+            <div style="padding:20px; display:flex; flex-direction:column; gap:12px; align-items:flex-start; border-right:1px solid #EFEDE6">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">primary</span>
+              <button style="height:40px; padding:0 18px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; cursor:pointer" style-hover="background:#144A34">Send order</button>
+            </div>
+            <div style="padding:20px; display:flex; flex-direction:column; gap:12px; align-items:flex-start; border-right:1px solid #EFEDE6">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">secondary</span>
+              <button style="height:40px; padding:0 18px; border:1px solid #C9DED3; border-radius:12px; background:#fff; color:#1E6B4B; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; cursor:pointer" style-hover="background:#E8F2EC">Edit items</button>
+            </div>
+            <div style="padding:20px; display:flex; flex-direction:column; gap:12px; align-items:flex-start; border-right:1px solid #EFEDE6">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">neutral</span>
+              <button style="height:40px; padding:0 18px; border:1px solid #E1DED4; border-radius:12px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; cursor:pointer" style-hover="background:#F7F6F2">Cancel</button>
+            </div>
+            <div style="padding:20px; display:flex; flex-direction:column; gap:12px; align-items:flex-start">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">danger</span>
+              <button style="height:40px; padding:0 18px; border:1px solid #E4C9C7; border-radius:12px; background:#fff; color:#A32A22; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; cursor:pointer" style-hover="background:#FBF0EF">Reject</button>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr)">
+            <div style="padding:20px; display:flex; flex-direction:column; gap:12px; align-items:flex-start; border-right:1px solid #EFEDE6">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">size sm · 32</span>
+              <button style="height:32px; padding:0 12px; border:none; border-radius:10px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Send</button>
+            </div>
+            <div style="padding:20px; display:flex; flex-direction:column; gap:12px; align-items:flex-start; border-right:1px solid #EFEDE6">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">size md · 40</span>
+              <button style="height:40px; padding:0 18px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; cursor:pointer">Send order</button>
+            </div>
+            <div style="padding:20px; display:flex; flex-direction:column; gap:12px; align-items:flex-start; border-right:1px solid #EFEDE6">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">size lg · 44</span>
+              <button style="height:44px; padding:0 20px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:15px; font-weight:600; cursor:pointer">Book a walkthrough</button>
+            </div>
+            <div style="padding:20px; display:flex; flex-direction:column; gap:12px; align-items:flex-start">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">full width</span>
+              <button style="height:40px; width:100%; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; cursor:pointer">Send order</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">States</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px">
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-start">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">default</span>
+            <button style="height:40px; padding:0 18px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600">Send order</button>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-start">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">hover</span>
+            <button style="height:40px; padding:0 18px; border:none; border-radius:12px; background:#144A34; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600">Send order</button>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-start">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">focus visible</span>
+            <button style="height:40px; padding:0 18px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; box-shadow:0 0 0 3px #E8F2EC, 0 0 0 4px #1E6B4B">Send order</button>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-start">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">active</span>
+            <button style="height:40px; padding:0 18px; border:none; border-radius:12px; background:#103827; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600">Send order</button>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-start">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">loading</span>
+            <button style="height:40px; padding:0 18px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; display:flex; align-items:center; gap:9px">
+              <span style="width:14px; height:14px; border-radius:999px; border:2px solid rgba(255,255,255,.35); border-top-color:#fff"></span>Sending
+            </button>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-start">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">disabled</span>
+            <button style="height:40px; padding:0 18px; border:none; border-radius:12px; background:#DDE2DF; color:#8D9994; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600">Send order</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Do / Don't</h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+          <div style="background:#fff; border:1px solid #C9DED3; border-radius:14px; overflow:hidden">
+            <div style="padding:24px; background:#FBFCFB; display:flex; gap:10px; align-items:center; justify-content:center; min-height:96px">
+              <button style="height:40px; padding:0 18px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600">Send order</button>
+              <button style="height:40px; padding:0 18px; border:1px solid #E1DED4; border-radius:12px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600">Cancel</button>
+            </div>
+            <div style="padding:14px 18px; border-top:1px solid #EFEDE6; display:flex; gap:8px; align-items:baseline">
+              <span style="color:#1E6B4B; font-size:13px; font-weight:700">Do</span>
+              <span style="font-size:13px; line-height:1.6; color:#43524B">One primary action, paired with a neutral escape.</span>
+            </div>
+          </div>
+          <div style="background:#fff; border:1px solid #E4C9C7; border-radius:14px; overflow:hidden">
+            <div style="padding:24px; background:#FDFAF9; display:flex; gap:10px; align-items:center; justify-content:center; min-height:96px">
+              <button style="height:40px; padding:0 14px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600">Send</button>
+              <button style="height:40px; padding:0 14px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600">Save draft</button>
+              <button style="height:40px; padding:0 14px; border:none; border-radius:12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600">Duplicate</button>
+            </div>
+            <div style="padding:14px 18px; border-top:1px solid #EFEDE6; display:flex; gap:8px; align-items:baseline">
+              <span style="color:#A32A22; font-size:13px; font-weight:700">Don't</span>
+              <span style="font-size:13px; line-height:1.6; color:#43524B">Three primaries make the real decision invisible.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Props</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+          <div style="display:grid; grid-template-columns:150px 1.3fr 110px 1.5fr; gap:14px; padding:11px 18px; background:#F7F6F2; border-bottom:1px solid #E1DED4">
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Prop</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Type</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Default</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Description</span>
+          </div>
+          <sc-for list="{{ btnProps }}" as="p" hint-placeholder-count="12">
+            <div style="display:grid; grid-template-columns:150px 1.3fr 110px 1.5fr; gap:14px; padding:11px 18px; border-bottom:1px solid #EFEDE6; align-items:baseline">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#16211C">{{ p.name }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#2F5E8C">{{ p.type }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#6B7A72">{{ p.def }}</span>
+              <span style="font-size:12.5px; line-height:1.55; color:#43524B">{{ p.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <h3 style="margin:0; font-size:16px; font-weight:700">Tokens</h3>
+          <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+            <sc-for list="{{ btnTokens }}" as="t" hint-placeholder-count="6">
+              <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:10px; padding:10px 16px; border-bottom:1px solid #EFEDE6">
+                <span style="font-size:12.5px; color:#43524B">{{ t.prop }}</span>
+                <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#16211C">{{ t.token }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <h3 style="margin:0; font-size:16px; font-weight:700">Accessibility</h3>
+          <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:10px">
+            <sc-for list="{{ btnA11y }}" as="a" hint-placeholder-count="5">
+              <div style="display:flex; gap:9px; align-items:baseline">
+                <span style="width:5px; height:5px; border-radius:999px; background:#1E6B4B; margin-top:7px; flex:0 0 auto"></span>
+                <span style="font-size:12.5px; line-height:1.6; color:#43524B">{{ a }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Code</h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+          <div style="background:#16211C; border-radius:14px; overflow:hidden">
+            <div style="padding:9px 16px; border-bottom:1px solid #2A3832; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">React</div>
+            <pre style="padding:16px; color:#DCE5E0">{{ btnReactCode }}</pre>
+          </div>
+          <div style="background:#16211C; border-radius:14px; overflow:hidden">
+            <div style="padding:9px 16px; border-bottom:1px solid #2A3832; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">HTML + CSS</div>
+            <pre style="padding:16px; color:#DCE5E0">&lt;button class="mise-btn mise-btn--primary"&gt;Send order&lt;/button&gt;
+
+.mise-btn {
+  height: 40px; padding: 0 18px; border-radius: 12px;
+  font: 600 14px/1 Manrope, sans-serif; cursor: pointer;
+}
+.mise-btn--primary { background: #1E6B4B; color: #fff; border: 0; }
+.mise-btn--primary:hover { background: #144A34; }</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ICON BUTTON ============ -->
+    <section id="IconButton" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Icon Button</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A square button carrying only an icon. Every instance needs an accessible label and a tooltip — an unlabelled glyph is a guess.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700; color:#1E6B4B">Use when</span>
+          <span style="font-size:13px; line-height:1.6; color:#43524B">Space is tight and the action is universally understood — close, filter, expand, copy — or inside a Toolbar or table row.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700; color:#B4531B">Use something else when</span>
+          <span style="font-size:13px; line-height:1.6; color:#43524B">The action is consequential or ambiguous. Approving payment always carries words.</span>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Variants and states</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-wrap:wrap; gap:28px">
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">ghost 32</span><button style="width:32px; height:32px; border:none; border-radius:10px; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center" style-hover="background:#F1EFE9"><span style="width:14px; height:14px; border-radius:4px; background:#43524B"></span></button></div>
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">outline 40</span><button style="width:40px; height:40px; border:1px solid #E1DED4; border-radius:12px; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center" style-hover="background:#F7F6F2"><span style="width:16px; height:16px; border-radius:5px; background:#43524B"></span></button></div>
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">solid 40</span><button style="width:40px; height:40px; border:none; border-radius:12px; background:#1E6B4B; cursor:pointer; display:flex; align-items:center; justify-content:center"><span style="width:16px; height:16px; border-radius:5px; background:rgba(255,255,255,.7)"></span></button></div>
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">selected</span><button style="width:40px; height:40px; border:1px solid #1E6B4B; border-radius:12px; background:#E8F2EC; cursor:pointer; display:flex; align-items:center; justify-content:center"><span style="width:16px; height:16px; border-radius:5px; background:#1E6B4B"></span></button></div>
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">focus</span><button style="width:40px; height:40px; border:1px solid #E1DED4; border-radius:12px; background:#fff; box-shadow:0 0 0 3px #E8F2EC; display:flex; align-items:center; justify-content:center"><span style="width:16px; height:16px; border-radius:5px; background:#43524B"></span></button></div>
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">disabled</span><button style="width:40px; height:40px; border:1px solid #EFEDE6; border-radius:12px; background:#F7F6F2; display:flex; align-items:center; justify-content:center"><span style="width:16px; height:16px; border-radius:5px; background:#C4CCC7"></span></button></div>
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">danger</span><button style="width:40px; height:40px; border:1px solid #E4C9C7; border-radius:12px; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center" style-hover="background:#FBF0EF"><span style="width:16px; height:16px; border-radius:5px; background:#A32A22"></span></button></div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Props</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+          <div style="display:grid; grid-template-columns:150px 1.3fr 110px 1.5fr; gap:14px; padding:11px 18px; background:#F7F6F2; border-bottom:1px solid #E1DED4">
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Prop</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Type</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Default</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Description</span>
+          </div>
+          <sc-for list="{{ iconBtnProps }}" as="p" hint-placeholder-count="8">
+            <div style="display:grid; grid-template-columns:150px 1.3fr 110px 1.5fr; gap:14px; padding:11px 18px; border-bottom:1px solid #EFEDE6; align-items:baseline">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#16211C">{{ p.name }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#2F5E8C">{{ p.type }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#6B7A72">{{ p.def }}</span>
+              <span style="font-size:12.5px; line-height:1.55; color:#43524B">{{ p.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:10px">
+          <span style="font-size:13px; font-weight:700">Tokens</span>
+          <span style="font-size:12.5px; line-height:1.6; color:#43524B">Size <b>control.sm 32</b> / <b>control.md 40</b> · radius <b>radius.10</b> / <b>radius.12</b> · icon <b>16px</b>, colour <b>ink.600</b> · hover <b>canvas.raised #F1EFE9</b> · focus ring <b>herb.50</b> 3px.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:10px">
+          <span style="font-size:13px; font-weight:700">Accessibility</span>
+          <span style="font-size:12.5px; line-height:1.6; color:#43524B"><b>aria-label</b> is required and mirrors the tooltip text. Pressed toggles set <b>aria-pressed</b>. Hit area never below 32×32; 40 in dense tables where rows are 44 tall.</span>
+        </div>
+      </div>
+      <div style="background:#16211C; border-radius:14px; overflow:hidden">
+        <div style="padding:9px 16px; border-bottom:1px solid #2A3832; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">React · HTML</div>
+        <pre style="padding:16px; color:#DCE5E0">&lt;IconButton aria-label="Filter rows" variant="outline" icon={&lt;FilterIcon /&gt;} /&gt;
+
+&lt;button class="mise-icon-btn" aria-label="Filter rows"&gt;&lt;svg …/&gt;&lt;/button&gt;</pre>
+      </div>
+    </section>
+
+    <!-- ============ BUTTON GROUP ============ -->
+    <section id="ButtonGroup" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Button Group</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Two or more related buttons laid out as one unit. Use it to keep an action and its qualifier together — send now versus schedule — not to line up unrelated actions.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:20px">
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">attached · primary + split</span>
+          <div style="display:flex">
+            <button style="height:40px; padding:0 16px; border:none; border-radius:12px 0 0 12px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; cursor:pointer">Send order</button>
+            <div style="width:1px; background:rgba(255,255,255,.28)"></div>
+            <button style="height:40px; width:36px; border:none; border-radius:0 12px 12px 0; background:#1E6B4B; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center"><span style="width:8px; height:8px; border-right:2px solid #fff; border-bottom:2px solid #fff; transform:rotate(45deg); margin-top:-3px"></span></button>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">spaced · secondary set</span>
+          <div style="display:flex; gap:8px">
+            <button style="height:36px; padding:0 14px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Export CSV</button>
+            <button style="height:36px; padding:0 14px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Print</button>
+            <button style="height:36px; padding:0 14px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Share</button>
+          </div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:10px">
+          <span style="font-size:13px; font-weight:700">Props</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>attached</b> boolean, false — collapses gaps and shares borders.<br /><b>orientation</b> 'horizontal' | 'vertical', horizontal.<br /><b>gap</b> 4 | 8 | 12, 8.<br /><b>size</b> 'sm' | 'md' | 'lg' — applied to every child.<br /><b>variant</b> — applied to every child unless a child overrides.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:10px">
+          <span style="font-size:13px; font-weight:700">Accessibility</span>
+          <span style="font-size:12.5px; line-height:1.6; color:#43524B">Renders as a plain container with <b>role="group"</b> and an <b>aria-label</b> naming the set. Split triggers get their own label ("Send options"). Tab moves through children; arrows do not — this is not a radio set.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TOGGLE BUTTON + GROUP ============ -->
+    <section id="ToggleButton" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Toggle Button</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A button that stays pressed. Use it for a view or filter that persists — "Show variances only" — never for saving state to the server without a separate commit.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; gap:28px; flex-wrap:wrap">
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">off</span><button style="height:36px; padding:0 14px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Variances only</button></div>
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">on</span><button style="height:36px; padding:0 14px; border:1px solid #1E6B4B; border-radius:10px; background:#E8F2EC; color:#1E6B4B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Variances only</button></div>
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">on · focus</span><button style="height:36px; padding:0 14px; border:1px solid #1E6B4B; border-radius:10px; background:#E8F2EC; color:#1E6B4B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; box-shadow:0 0 0 3px rgba(30,107,75,.18)">Variances only</button></div>
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">disabled</span><button style="height:36px; padding:0 14px; border:1px solid #EFEDE6; border-radius:10px; background:#F7F6F2; color:#B3BBB6; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600">Variances only</button></div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>pressed</b> boolean · <b>defaultPressed</b> boolean · <b>onPressedChange</b> (pressed) =&gt; void · <b>size</b> sm | md · <b>variant</b> outline | ghost. Sets <b>aria-pressed</b>; the label never changes with state, only the fill does — a label that flips between "Show" and "Hide" makes the pressed state unreadable to screen readers.</span>
+      </div>
+    </section>
+
+    <section id="ToggleButtonGroup" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Toggle Button Group</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A set of toggles sharing one container. Single-select behaves like a filter switch; multi-select behaves like a set of independent flags.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:20px">
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">single select</span>
+          <div style="display:inline-flex; border:1px solid #E1DED4; border-radius:10px; overflow:hidden; align-self:flex-start">
+            <button style="height:34px; padding:0 14px; border:none; background:#E8F2EC; color:#1E6B4B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">All</button>
+            <button style="height:34px; padding:0 14px; border:none; border-left:1px solid #E1DED4; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Open</button>
+            <button style="height:34px; padding:0 14px; border:none; border-left:1px solid #E1DED4; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Disputed</button>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">multi select</span>
+          <div style="display:flex; gap:8px">
+            <button style="height:34px; padding:0 13px; border:1px solid #1E6B4B; border-radius:10px; background:#E8F2EC; color:#1E6B4B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Produce</button>
+            <button style="height:34px; padding:0 13px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Dairy</button>
+            <button style="height:34px; padding:0 13px; border:1px solid #1E6B4B; border-radius:10px; background:#E8F2EC; color:#1E6B4B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Meat</button>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> string | string[] · <b>onValueChange</b> · <b>type</b> 'single' | 'multiple' · <b>attached</b> boolean, true · <b>allowEmpty</b> boolean, true. Single-select uses <b>role="radiogroup"</b> with arrow-key movement; multiple keeps individual <b>aria-pressed</b> buttons and Tab movement.</span>
+      </div>
+    </section>
+
+    <!-- ============ SEGMENTED CONTROL ============ -->
+    <section id="SegmentedControl" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Segmented Control</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Switches the view of the content beneath it. Two to four short options that are always visible. It changes what you see, not what is saved.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700; color:#1E6B4B">Use when</span>
+          <span style="font-size:13px; line-height:1.6; color:#43524B">Toggling a granularity or scope in place — day / week / month, all units / this unit.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700; color:#B4531B">Use something else when</span>
+          <span style="font-size:13px; line-height:1.6; color:#43524B">The options are page-level destinations — that is TabList. Over four options — that is Selector.</span>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:28px; display:flex; gap:32px; flex-wrap:wrap; align-items:flex-end">
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">md</span>
+          <div style="display:inline-flex; background:#F1EFE9; border-radius:10px; padding:3px; gap:2px">
+            <button style="height:30px; padding:0 14px; border:none; border-radius:8px; background:#fff; color:#16211C; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; box-shadow:0 1px 2px rgba(22,33,28,.08); cursor:pointer">Day</button>
+            <button style="height:30px; padding:0 14px; border:none; border-radius:8px; background:transparent; color:#6B7A72; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Week</button>
+            <button style="height:30px; padding:0 14px; border:none; border-radius:8px; background:transparent; color:#6B7A72; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Period</button>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">sm · with counts</span>
+          <div style="display:inline-flex; background:#F1EFE9; border-radius:9px; padding:3px; gap:2px">
+            <button style="height:26px; padding:0 11px; border:none; border-radius:7px; background:#fff; color:#16211C; font-family:'Manrope',sans-serif; font-size:12px; font-weight:600; box-shadow:0 1px 2px rgba(22,33,28,.08); cursor:pointer">Open 6</button>
+            <button style="height:26px; padding:0 11px; border:none; border-radius:7px; background:transparent; color:#6B7A72; font-family:'Manrope',sans-serif; font-size:12px; font-weight:600; cursor:pointer">Paid 41</button>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">disabled item</span>
+          <div style="display:inline-flex; background:#F1EFE9; border-radius:10px; padding:3px; gap:2px">
+            <button style="height:30px; padding:0 14px; border:none; border-radius:8px; background:#fff; color:#16211C; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; box-shadow:0 1px 2px rgba(22,33,28,.08)">Day</button>
+            <button style="height:30px; padding:0 14px; border:none; border-radius:8px; background:transparent; color:#C4CCC7; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600">Period</button>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props, tokens, accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> string · <b>onValueChange</b> · <b>size</b> sm | md · <b>items</b> &#123; value, label, count, disabled &#125;[] · <b>fullWidth</b> boolean. Track <b>canvas.raised #F1EFE9</b>, thumb <b>surface #fff</b> + <b>elevation.raised</b>, radius <b>10 / inner 8</b>. Role <b>tablist</b> when it switches panels, otherwise <b>radiogroup</b>; arrows move, Home and End jump to the ends.</span>
+      </div>
+    </section>
+
+    <!-- ============ DROPDOWN MENU ============ -->
+    <section id="DropdownMenu" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Dropdown Menu</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A button that opens a list of actions. Items act immediately; destructive items sit last, below a divider.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Anatomy</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:32px; display:flex; gap:40px; align-items:flex-start">
+          <div style="display:flex; flex-direction:column; gap:8px">
+            <button style="height:36px; padding:0 14px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; display:flex; align-items:center; gap:8px; cursor:pointer">Actions<span style="width:7px; height:7px; border-right:1.5px solid #6B7A72; border-bottom:1.5px solid #6B7A72; transform:rotate(45deg); margin-top:-3px"></span></button>
+            <div style="width:238px; background:#fff; border:1px solid #E1DED4; border-radius:12px; box-shadow:0 12px 32px rgba(22,33,28,.12); padding:6px">
+              <div style="padding:6px 10px; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#8D9994">Order</div>
+              <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:#F7F6F2; font-size:13px; color:#16211C"><span style="width:15px; height:15px; border-radius:4px; background:#C9DED3"></span>Duplicate order<span style="margin-left:auto; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">⌘D</span></div>
+              <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; font-size:13px; color:#16211C"><span style="width:15px; height:15px; border-radius:4px; background:#E1DED4"></span>Export as CSV</div>
+              <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; font-size:13px; color:#C4CCC7"><span style="width:15px; height:15px; border-radius:4px; background:#EFEDE6"></span>Send to accounting</div>
+              <div style="height:1px; background:#EFEDE6; margin:5px 0"></div>
+              <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; font-size:13px; color:#A32A22"><span style="width:15px; height:15px; border-radius:4px; background:#E4C9C7"></span>Cancel order</div>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px; padding-top:4px">
+            <sc-for list="{{ menuAnatomy }}" as="a" hint-placeholder-count="6">
+              <div style="display:flex; gap:10px; align-items:baseline">
+                <span style="width:18px; height:18px; border-radius:999px; border:1px solid #C9DED3; color:#1E6B4B; font-size:11px; display:flex; align-items:center; justify-content:center; flex:0 0 auto">{{ a.n }}</span>
+                <span style="font-size:13px; color:#43524B"><b style="color:#16211C">{{ a.part }}</b> — {{ a.note }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Props</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+          <div style="display:grid; grid-template-columns:150px 1.3fr 110px 1.5fr; gap:14px; padding:11px 18px; background:#F7F6F2; border-bottom:1px solid #E1DED4">
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Prop</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Type</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Default</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Description</span>
+          </div>
+          <sc-for list="{{ menuProps }}" as="p" hint-placeholder-count="10">
+            <div style="display:grid; grid-template-columns:150px 1.3fr 110px 1.5fr; gap:14px; padding:11px 18px; border-bottom:1px solid #EFEDE6; align-items:baseline">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#16211C">{{ p.name }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#2F5E8C">{{ p.type }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#6B7A72">{{ p.def }}</span>
+              <span style="font-size:12.5px; line-height:1.55; color:#43524B">{{ p.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B">Trigger carries <b>aria-haspopup="menu"</b> and <b>aria-expanded</b>. Menu is <b>role="menu"</b>, items <b>role="menuitem"</b>. Arrow keys move, typing jumps by first letter, Escape closes and returns focus to the trigger, Tab closes and moves on. Checkbox and radio items use <b>menuitemcheckbox</b> / <b>menuitemradio</b> and stay open on select.</span>
+      </div>
+    </section>
+
+    <!-- ============ MORE MENU ============ -->
+    <section id="MoreMenu" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">More Menu</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A Dropdown Menu behind an icon trigger, for secondary actions on a row or card. Never the only place an action lives if that action is common.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:0; overflow:hidden">
+        <div style="display:grid; grid-template-columns:1.6fr 1fr .6fr 44px; background:#F7F6F2; border-bottom:1px solid #E1DED4; padding:0 16px">
+          <div style="height:38px; display:flex; align-items:center; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Invoice</div>
+          <div style="height:38px; display:flex; align-items:center; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Vendor</div>
+          <div style="height:38px; display:flex; align-items:center; justify-content:flex-end; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Total</div>
+          <div></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1.6fr 1fr .6fr 44px; padding:0 16px; border-bottom:1px solid #EFEDE6; background:#FBFAF7">
+          <div style="height:44px; display:flex; align-items:center; font-size:14px">INV-20841</div>
+          <div style="height:44px; display:flex; align-items:center; font-size:14px; color:#43524B">Harbor Produce</div>
+          <div style="height:44px; display:flex; align-items:center; justify-content:flex-end; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">$1,912.44</div>
+          <div style="height:44px; display:flex; align-items:center; justify-content:flex-end"><button style="width:28px; height:28px; border:none; border-radius:8px; background:#F1EFE9; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:2px"><span style="width:3px; height:3px; border-radius:999px; background:#43524B"></span><span style="width:3px; height:3px; border-radius:999px; background:#43524B"></span><span style="width:3px; height:3px; border-radius:999px; background:#43524B"></span></button></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1.6fr 1fr .6fr 44px; padding:0 16px">
+          <div style="height:44px; display:flex; align-items:center; font-size:14px">INV-20838</div>
+          <div style="height:44px; display:flex; align-items:center; font-size:14px; color:#43524B">Cedar Dairy</div>
+          <div style="height:44px; display:flex; align-items:center; justify-content:flex-end; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">$604.10</div>
+          <div style="height:44px; display:flex; align-items:center; justify-content:flex-end"><button style="width:28px; height:28px; border:none; border-radius:8px; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:2px" style-hover="background:#F1EFE9"><span style="width:3px; height:3px; border-radius:999px; background:#8D9994"></span><span style="width:3px; height:3px; border-radius:999px; background:#8D9994"></span><span style="width:3px; height:3px; border-radius:999px; background:#8D9994"></span></button></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>items</b> MenuItem[] · <b>placement</b> 'bottom-end' default · <b>label</b> string, "More actions" · <b>icon</b> 'dots-horizontal' | 'dots-vertical' · <b>revealOnHover</b> boolean, false. Inherits Dropdown Menu keyboard behaviour. The trigger stays reachable by keyboard even when it only appears on row hover — visibility is opacity, never <b>display:none</b>.</span>
+      </div>
+    </section>
+
+    <!-- ============ LINK ============ -->
+    <section id="Link" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Link</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Navigation to another place. If the click changes data, it is a Button, whatever it looks like.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:18px">
+        <div style="display:flex; gap:32px; flex-wrap:wrap; align-items:baseline">
+          <div style="display:flex; flex-direction:column; gap:8px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">inline</span><span style="font-size:14px; color:#43524B">Matched against <a href="#Link">PO-4462</a> earlier today.</span></div>
+          <div style="display:flex; flex-direction:column; gap:8px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">standalone</span><a href="#Link" style="font-size:14px; font-weight:600">View all invoices</a></div>
+          <div style="display:flex; flex-direction:column; gap:8px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">external</span><a href="#Link" style="font-size:14px; font-weight:600; display:inline-flex; align-items:center; gap:6px">Vendor portal<span style="width:9px; height:9px; border-top:1.5px solid #1E6B4B; border-right:1.5px solid #1E6B4B; transform:rotate(45deg)"></span></a></div>
+          <div style="display:flex; flex-direction:column; gap:8px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">muted</span><a href="#Link" style="font-size:14px; color:#43524B">Skip for now</a></div>
+          <div style="display:flex; flex-direction:column; gap:8px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">visited</span><a href="#Link" style="font-size:14px; color:#144A34">Week 33 close</a></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props, tokens, accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>href</b> string · <b>variant</b> 'inline' | 'standalone' | 'muted' · <b>external</b> boolean · <b>size</b> inherits · <b>as</b> element or router link. Colour <b>herb.600</b>, hover <b>herb.800</b> with underline; inline links keep the underline on hover so colour is never the only signal. External links announce "opens in a new tab" and set <b>rel="noopener"</b>. Link text describes the destination — never "click here".</span>
+      </div>
+    </section>
+
+    <!-- ============ TOOLBAR ============ -->
+    <section id="Toolbar" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Toolbar</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A horizontal band of controls acting on the content below it. Groups are separated by dividers; overflow collapses into a More Menu rather than wrapping.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px; display:flex; flex-direction:column; gap:16px">
+        <div style="display:flex; align-items:center; gap:10px; border:1px solid #E1DED4; border-radius:12px; padding:8px 10px; background:#FCFBF8">
+          <div style="display:flex; gap:4px">
+            <button style="width:32px; height:32px; border:none; border-radius:8px; background:#E8F2EC; cursor:pointer; display:flex; align-items:center; justify-content:center"><span style="width:14px; height:14px; border-radius:4px; background:#1E6B4B"></span></button>
+            <button style="width:32px; height:32px; border:none; border-radius:8px; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center" style-hover="background:#F1EFE9"><span style="width:14px; height:14px; border-radius:4px; background:#43524B"></span></button>
+          </div>
+          <div style="width:1px; height:20px; background:#E1DED4"></div>
+          <button style="height:32px; padding:0 12px; border:none; border-radius:8px; background:transparent; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer" style-hover="background:#F1EFE9">Filter</button>
+          <button style="height:32px; padding:0 12px; border:none; border-radius:8px; background:transparent; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer" style-hover="background:#F1EFE9">Group</button>
+          <div style="width:1px; height:20px; background:#E1DED4"></div>
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">14 rows</span>
+          <div style="margin-left:auto; display:flex; align-items:center; gap:6px">
+            <button style="height:32px; padding:0 12px; border:1px solid #E1DED4; border-radius:8px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Export</button>
+            <button style="width:32px; height:32px; border:none; border-radius:8px; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:2px" style-hover="background:#F1EFE9"><span style="width:3px; height:3px; border-radius:999px; background:#43524B"></span><span style="width:3px; height:3px; border-radius:999px; background:#43524B"></span><span style="width:3px; height:3px; border-radius:999px; background:#43524B"></span></button>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>orientation</b> 'horizontal' | 'vertical' · <b>density</b> 'compact' | 'default' · <b>collapse</b> boolean, true — moves overflow into a More Menu via <b>useOverflow</b> · <b>label</b> string, required. Role <b>toolbar</b> with one tab stop: arrows move between controls inside it, Tab leaves. Dividers are decorative and hidden from the accessibility tree.</span>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      btnReactCode: '<Button variant="primary" size="md" ' + 'on' + 'Click' + '={sendOrder}>\n  Send order\n</Button>\n\n<Button variant="secondary" icon={<PencilIcon />}>\n  Edit items\n</Button>\n\n<Button variant="primary" loading>Sending</Button>',
+      btnAnatomy: [
+        { n: "1", part: "Container", note: "40px tall, 12px radius, fill from the variant" },
+        { n: "2", part: "Leading icon", note: "16px, optional, never the only content" },
+        { n: "3", part: "Label", note: "14/600, verb first, sentence case, no full stop" }
+      ],
+      btnProps: [
+        { name: "variant", type: "'primary' | 'secondary' | 'neutral' | 'danger' | 'ghost'", def: "'neutral'", desc: "Visual weight. One primary per view." },
+        { name: "size", type: "'sm' | 'md' | 'lg'", def: "'md'", desc: "32 / 40 / 44px heights. lg is for marketing pages only." },
+        { name: "children", type: "ReactNode", def: "—", desc: "The label. Required unless icon-only, in which case use IconButton." },
+        { name: "icon", type: "ReactNode", def: "—", desc: "Leading icon, 16px." },
+        { name: "trailingIcon", type: "ReactNode", def: "—", desc: "Trailing icon; reserved for split and menu triggers." },
+        { name: "loading", type: "boolean", def: "false", desc: "Shows a spinner, keeps the label, blocks repeat clicks." },
+        { name: "disabled", type: "boolean", def: "false", desc: "Non-interactive. Pair with a Tooltip explaining why." },
+        { name: "fullWidth", type: "boolean", def: "false", desc: "Fills the container; used in narrow panels." },
+        { name: "type", type: "'button' | 'submit' | 'reset'", def: "'button'", desc: "Native form behaviour." },
+        { name: "onClick", type: "(e: MouseEvent) => void", def: "—", desc: "Action handler." },
+        { name: "href", type: "string", def: "—", desc: "Renders an anchor styled as a button. Use only for real navigation." },
+        { name: "as", type: "ElementType", def: "'button'", desc: "Escape hatch for router components." },
+        { name: "aria-label", type: "string", def: "—", desc: "Required when the visible label is not descriptive on its own." }
+      ],
+      btnTokens: [
+        { prop: "Height sm / md / lg", token: "control.sm 32 · md 40 · lg 44" },
+        { prop: "Radius", token: "radius.md 12 (sm uses radius.sm 10)" },
+        { prop: "Primary fill / hover / active", token: "herb.600 · herb.800 · herb.900 #103827" },
+        { prop: "Secondary border / fill", token: "herb.200 #C9DED3 · surface #fff" },
+        { prop: "Danger text / border", token: "danger.600 #A32A22 · danger.200 #E4C9C7" },
+        { prop: "Disabled fill / text", token: "neutral.200 #DDE2DF · neutral.500 #8D9994" },
+        { prop: "Label", token: "type.body.strong 14/600" },
+        { prop: "Focus ring", token: "focus.ring herb.50 3px + herb.600 1px" }
+      ],
+      btnA11y: [
+        "Native <button> element; keyboard activation on Enter and Space comes free.",
+        "Focus ring is always visible on keyboard focus and never removed on mouse focus for primary actions.",
+        "loading sets aria-busy and keeps the accessible name stable so screen readers do not re-announce a new control.",
+        "disabled buttons stay in the tab order only when they carry an explanatory tooltip; otherwise use aria-disabled.",
+        "Contrast: primary fill against white text is 5.2:1; danger text on white is 6.1:1."
+      ],
+      iconBtnProps: [
+        { name: "aria-label", type: "string", def: "—", desc: "Required. Names the action, matching the tooltip." },
+        { name: "icon", type: "ReactNode", def: "—", desc: "Required. 16px at md, 14px at sm." },
+        { name: "variant", type: "'ghost' | 'outline' | 'solid' | 'danger'", def: "'ghost'", desc: "Ghost inside toolbars and rows; outline when it stands alone." },
+        { name: "size", type: "'sm' | 'md'", def: "'md'", desc: "32 / 40px square." },
+        { name: "selected", type: "boolean", def: "false", desc: "Persistent pressed appearance; sets aria-pressed." },
+        { name: "loading", type: "boolean", def: "false", desc: "Replaces the icon with a spinner." },
+        { name: "disabled", type: "boolean", def: "false", desc: "Non-interactive." },
+        { name: "tooltip", type: "string", def: "—", desc: "Convenience wrapper that renders a Tooltip on hover and focus." }
+      ],
+      menuAnatomy: [
+        { n: "1", part: "Trigger", note: "Button or IconButton; caret signals a menu" },
+        { n: "2", part: "Surface", note: "Overlay elevation, 12px radius, 6px inner padding" },
+        { n: "3", part: "Group label", note: "Optional; only when items span two subjects" },
+        { n: "4", part: "Item", note: "32px tall, optional icon and shortcut hint" },
+        { n: "5", part: "Divider", note: "Separates destructive items from the rest" },
+        { n: "6", part: "Destructive item", note: "Danger text, always last" }
+      ],
+      menuProps: [
+        { name: "items", type: "MenuItem[]", def: "—", desc: "Flat or grouped item list; each item takes label, icon, shortcut, onSelect, disabled, destructive." },
+        { name: "trigger", type: "ReactNode", def: "—", desc: "The control that opens the menu." },
+        { name: "open", type: "boolean", def: "—", desc: "Controlled open state." },
+        { name: "defaultOpen", type: "boolean", def: "false", desc: "Uncontrolled initial state." },
+        { name: "onOpenChange", type: "(open: boolean) => void", def: "—", desc: "Fires on open and close, including dismissal." },
+        { name: "placement", type: "'bottom-start' | 'bottom-end' | 'top-start' | 'top-end'", def: "'bottom-start'", desc: "Preferred side; flips automatically near a viewport edge." },
+        { name: "matchTriggerWidth", type: "boolean", def: "false", desc: "Menu width follows the trigger." },
+        { name: "closeOnSelect", type: "boolean", def: "true", desc: "False for checkbox and radio items." },
+        { name: "maxHeight", type: "number", def: "320", desc: "Scrolls internally beyond this height." },
+        { name: "portal", type: "boolean", def: "true", desc: "Renders into the layer root to escape overflow clipping." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

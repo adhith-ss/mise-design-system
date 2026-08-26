@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet" />
+<style>
+  body { margin:0; background:#F7F6F2; color:#16211C; font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1E6B4B; text-decoration:none; }
+  a:hover { color:#144A34; }
+  pre { margin:0; font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; line-height:1.7; white-space:pre-wrap; }
+  @keyframes miseSpin { to { transform:rotate(360deg) } }
+  @keyframes miseShimmer { 0%{background-position:-200px 0} 100%{background-position:400px 0} }
+  @keyframes miseIndet { 0%{transform:translateX(-100%)} 100%{transform:translateX(260%)} }
+</style>
+</helmet>
+
+<div style="display:grid; grid-template-columns:264px 1fr; min-height:100vh">
+
+  <aside style="border-right:1px solid #E1DED4; background:#fff; padding:24px 20px; display:flex; flex-direction:column; gap:24px; position:sticky; top:0; height:100vh; overflow:auto">
+    <div style="display:flex; align-items:center; gap:10px">
+      <div style="width:24px; height:24px; border-radius:7px; background:#1E6B4B"></div>
+      <div style="display:flex; flex-direction:column">
+        <span style="font-size:15px; font-weight:800; letter-spacing:-.01em">Mise DLS</span>
+        <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">Feedback &amp; Status</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:6px 8px">Library</div>
+      <a href="Mise-DLS-Index.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overview</a>
+      <a href="Mise Design System.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Foundations</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">On this page</div>
+      <a href="#Badge" style="padding:7px 8px; border-radius:8px; font-size:13px; background:#E8F2EC; color:#1E6B4B; font-weight:600">Badge</a>
+      <a href="#Banner" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Banner</a>
+      <a href="#Toast" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Toast</a>
+      <a href="#ProgressBar" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Progress Bar</a>
+      <a href="#Spinner" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Spinner</a>
+      <a href="#Skeleton" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Skeleton</a>
+      <a href="#StatusDot" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Status Dot</a>
+      <a href="#EmptyState" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Empty State</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">Categories</div>
+      <a href="Mise-DLS-Action.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Action</a>
+      <a href="Mise-DLS-ChatAgent.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Chat &amp; Agent</a>
+      <a href="Mise-DLS-Content.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Content</a>
+      <a href="Mise-DLS-DataInput.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Data Input</a>
+      <a href="Mise-DLS-Navigation.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Navigation</a>
+      <a href="Mise-DLS-Overlay.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overlay</a>
+      <a href="Mise-DLS-TableList.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Table &amp; List</a>
+    </div>
+  </aside>
+
+  <main style="padding:48px 56px 140px; max-width:1000px; display:flex; flex-direction:column; gap:64px">
+
+    <header style="display:flex; flex-direction:column; gap:14px">
+      <span style="align-self:flex-start; background:#E8F2EC; color:#1E6B4B; border-radius:999px; padding:5px 11px; font-size:12px; font-weight:600">Feedback &amp; Status · 8 components</span>
+      <h1 style="margin:0; font-size:40px; line-height:1.08; letter-spacing:-.03em; font-weight:800">Feedback &amp; Status</h1>
+      <p style="margin:0; max-width:62ch; font-size:16px; line-height:1.65; color:#43524B">Three questions these components answer: what state is this record in, what just happened, and is the system still working. Severity colour is reserved — a warning colour on a routine label spends attention the real warning needs.</p>
+    </header>
+
+    <!-- BADGE -->
+    <section id="Badge" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Badge</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A short label for a state or a category. Use it only when the value is a distinct state — Approved, Disputed — or a grouping. Dates, counts, and descriptions are plain text.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700; color:#1E6B4B">Use when</span>
+          <span style="font-size:13px; line-height:1.6; color:#43524B">A record is in one of a known set of states, and the state changes how the operator acts on it.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700; color:#B4531B">Use something else when</span>
+          <span style="font-size:13px; line-height:1.6; color:#43524B">The value is metadata (received Aug 22, 14 lines) — that is Text or MetadataList. A live connection state is a StatusDot.</span>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Anatomy</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:32px; display:flex; gap:40px; align-items:center; justify-content:center">
+          <div style="position:relative">
+            <span style="display:inline-flex; align-items:center; gap:6px; background:#FBEFE6; color:#B4531B; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600"><span style="width:6px; height:6px; border-radius:999px; background:#B4531B"></span>Needs review</span>
+            <span style="position:absolute; left:-9px; top:-13px; width:19px; height:19px; border-radius:999px; background:#16211C; color:#fff; font-size:10px; display:flex; align-items:center; justify-content:center">1</span>
+            <span style="position:absolute; left:14px; top:-13px; width:19px; height:19px; border-radius:999px; background:#16211C; color:#fff; font-size:10px; display:flex; align-items:center; justify-content:center">2</span>
+            <span style="position:absolute; right:-9px; bottom:-13px; width:19px; height:19px; border-radius:999px; background:#16211C; color:#fff; font-size:10px; display:flex; align-items:center; justify-content:center">3</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px">
+            <sc-for list="{{ badgeAnatomy }}" as="a" hint-placeholder-count="3">
+              <div style="display:flex; gap:10px; align-items:baseline">
+                <span style="width:18px; height:18px; border-radius:999px; border:1px solid #C9DED3; color:#1E6B4B; font-size:11px; display:flex; align-items:center; justify-content:center; flex:0 0 auto">{{ a.n }}</span>
+                <span style="font-size:13px; color:#43524B"><b style="color:#16211C">{{ a.part }}</b> — {{ a.note }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Variants</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:18px">
+          <div style="display:flex; flex-direction:column; gap:10px">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">tone · subtle (default)</span>
+            <div style="display:flex; gap:8px; flex-wrap:wrap">
+              <span style="background:#E8F2EC; color:#1E6B4B; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Approved</span>
+              <span style="background:#FBEFE6; color:#B4531B; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Needs review</span>
+              <span style="background:#FBF0EF; color:#A32A22; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Over budget</span>
+              <span style="background:#ECF1F6; color:#2F5E8C; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Draft</span>
+              <span style="background:#F1EFE9; color:#43524B; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Archived</span>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">tone · solid — reserve for one urgent state per screen</span>
+            <div style="display:flex; gap:8px; flex-wrap:wrap">
+              <span style="background:#1E6B4B; color:#fff; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Paid</span>
+              <span style="background:#A32A22; color:#fff; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Failed</span>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">tone · outline · with dot · with count · sm</span>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center">
+              <span style="border:1px solid #E1DED4; color:#43524B; border-radius:8px; padding:3px 9px; font-size:12px; font-weight:600">Produce</span>
+              <span style="display:inline-flex; align-items:center; gap:6px; background:#E8F2EC; color:#1E6B4B; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600"><span style="width:6px; height:6px; border-radius:999px; background:#1E6B4B"></span>Matched</span>
+              <span style="display:inline-flex; align-items:center; gap:6px; background:#FBEFE6; color:#B4531B; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Variances<span style="background:#B4531B; color:#fff; border-radius:999px; padding:0 5px; font-size:11px">2</span></span>
+              <span style="background:#E8F2EC; color:#1E6B4B; border-radius:6px; padding:2px 7px; font-size:11px; font-weight:600">sm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Do / Don't</h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+          <div style="background:#fff; border:1px solid #C9DED3; border-radius:14px; overflow:hidden">
+            <div style="padding:24px; background:#FBFCFB; display:flex; align-items:center; gap:10px; justify-content:center; min-height:88px">
+              <span style="font-size:14px; font-weight:600">INV-20841</span>
+              <span style="background:#FBEFE6; color:#B4531B; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Needs review</span>
+              <span style="font-size:13px; color:#6B7A72">Received Aug 22 · $1,912.44</span>
+            </div>
+            <div style="padding:14px 18px; border-top:1px solid #EFEDE6; display:flex; gap:8px; align-items:baseline"><span style="color:#1E6B4B; font-size:13px; font-weight:700">Do</span><span style="font-size:13px; line-height:1.6; color:#43524B">One badge for the state; the rest is plain text.</span></div>
+          </div>
+          <div style="background:#fff; border:1px solid #E4C9C7; border-radius:14px; overflow:hidden">
+            <div style="padding:24px; background:#FDFAF9; display:flex; align-items:center; gap:8px; justify-content:center; flex-wrap:wrap; min-height:88px">
+              <span style="font-size:14px; font-weight:600">INV-20841</span>
+              <span style="background:#FBEFE6; color:#B4531B; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Needs review</span>
+              <span style="background:#ECF1F6; color:#2F5E8C; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">Aug 22</span>
+              <span style="background:#F1EFE9; color:#43524B; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">14 lines</span>
+              <span style="background:#E8F2EC; color:#1E6B4B; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600">$1,912.44</span>
+            </div>
+            <div style="padding:14px 18px; border-top:1px solid #EFEDE6; display:flex; gap:8px; align-items:baseline"><span style="color:#A32A22; font-size:13px; font-weight:700">Don't</span><span style="font-size:13px; line-height:1.6; color:#43524B">Badging metadata flattens the one state that matters.</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Props</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+          <div style="display:grid; grid-template-columns:130px 1.4fr 100px 1.4fr; gap:14px; padding:11px 18px; background:#F7F6F2; border-bottom:1px solid #E1DED4">
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Prop</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Type</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Default</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Description</span>
+          </div>
+          <sc-for list="{{ badgeProps }}" as="p" hint-placeholder-count="8">
+            <div style="display:grid; grid-template-columns:130px 1.4fr 100px 1.4fr; gap:14px; padding:11px 18px; border-bottom:1px solid #EFEDE6; align-items:baseline">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#16211C">{{ p.name }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#2F5E8C">{{ p.type }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#6B7A72">{{ p.def }}</span>
+              <span style="font-size:12.5px; line-height:1.55; color:#43524B">{{ p.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Tokens</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Height <b>22px</b> (sm 18) · radius <b>radius.sm 8</b> (sm 6) · label <b>12/600</b> · padding <b>4 / 10</b>. Fills <b>herb.50 · ember.50 #FBEFE6 · danger.50 #FBF0EF · info.50 #ECF1F6 · neutral.100 #F1EFE9</b> with the matching 600 text.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Accessibility</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Decorative by default — the text carries the meaning, so colour is never the only signal. A badge whose value changes live sets <b>aria-live="polite"</b> on its container. Never put a click handler on a Badge; if it filters, it is a ToggleButton.</span>
+        </div>
+      </div>
+      <div style="background:#16211C; border-radius:14px; overflow:hidden">
+        <div style="padding:9px 16px; border-bottom:1px solid #2A3832; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">React · HTML</div>
+        <pre style="padding:16px; color:#DCE5E0">&lt;Badge tone="warning" dot&gt;Needs review&lt;/Badge&gt;
+&lt;Badge tone="success" count={2}&gt;Matched&lt;/Badge&gt;
+
+&lt;span class="mise-badge mise-badge--warning"&gt;Needs review&lt;/span&gt;</pre>
+      </div>
+    </section>
+
+    <!-- BANNER -->
+    <section id="Banner" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Banner</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A persistent message anchored in the page, about the page. It stays until the condition clears — unlike a Toast, which is about something you just did.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:14px">
+        <div style="display:flex; gap:12px; background:#ECF1F6; border:1px solid #CFDCE8; border-radius:12px; padding:14px 16px; align-items:flex-start">
+          <span style="width:8px; height:8px; border-radius:999px; background:#2F5E8C; margin-top:6px"></span>
+          <div style="display:flex; flex-direction:column; gap:3px; flex:1"><span style="font-size:14px; font-weight:600">Week 34 closes Friday at 6:00 PM</span><span style="font-size:13px; color:#43524B">Invoices approved after the cutoff land in week 35.</span></div>
+          <button style="height:30px; padding:0 11px; border:1px solid #CFDCE8; border-radius:9px; background:#fff; color:#2F5E8C; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">View close</button>
+        </div>
+        <div style="display:flex; gap:12px; background:#FBEFE6; border:1px solid #EDD3BE; border-radius:12px; padding:14px 16px; align-items:flex-start">
+          <span style="width:8px; height:8px; border-radius:999px; background:#B4531B; margin-top:6px"></span>
+          <div style="display:flex; flex-direction:column; gap:3px; flex:1"><span style="font-size:14px; font-weight:600">Two invoices exceed last week's price</span><span style="font-size:13px; color:#43524B">Review before the Friday close.</span></div>
+          <button style="width:26px; height:26px; border:none; border-radius:7px; background:transparent; color:#B4531B; font-size:15px; cursor:pointer">×</button>
+        </div>
+        <div style="display:flex; gap:12px; background:#FBF0EF; border:1px solid #E4C9C7; border-radius:12px; padding:14px 16px; align-items:flex-start">
+          <span style="width:8px; height:8px; border-radius:999px; background:#A32A22; margin-top:6px"></span>
+          <div style="display:flex; flex-direction:column; gap:3px; flex:1"><span style="font-size:14px; font-weight:600; color:#A32A22">Harbor Produce ordering is offline</span><span style="font-size:13px; color:#43524B">Orders are saved as drafts. Nothing has been sent since 6:12 AM.</span></div>
+          <button style="height:30px; padding:0 11px; border:1px solid #E4C9C7; border-radius:9px; background:#fff; color:#A32A22; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">Retry</button>
+        </div>
+        <div style="display:flex; gap:12px; background:#E8F2EC; border:1px solid #C9DED3; border-radius:12px; padding:14px 16px; align-items:flex-start">
+          <span style="width:8px; height:8px; border-radius:999px; background:#1E6B4B; margin-top:6px"></span>
+          <div style="display:flex; flex-direction:column; gap:3px; flex:1"><span style="font-size:14px; font-weight:600">Period close complete</span><span style="font-size:13px; color:#43524B">All 41 invoices reconciled.</span></div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Props</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>tone</b> 'info' | 'warning' | 'danger' | 'success' · <b>title</b> string, required · <b>description</b> ReactNode · <b>action</b> ReactNode — one button, never two · <b>dismissible</b> boolean, false · <b>onDismiss</b> · <b>inline</b> boolean, false — drops the fill for use inside a Card.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Accessibility</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Danger and warning banners use <b>role="alert"</b>; info and success use <b>role="status"</b>. A banner that appears after a user action moves focus nowhere — it announces instead. Dismiss buttons carry <b>aria-label="Dismiss"</b> plus the banner title.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOAST -->
+    <section id="Toast" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Toast</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A transient confirmation of something the operator just did, with an undo when the action is reversible. Bottom-right, one at a time, stacked to three at most.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:32px; background-image:repeating-linear-gradient(135deg,#FCFBF8 0 8px,#F7F6F2 8px 16px); display:flex; flex-direction:column; gap:10px; align-items:flex-end">
+        <div style="width:360px; background:#16211C; border-radius:12px; box-shadow:0 12px 32px rgba(22,33,28,.2); padding:14px 16px; display:flex; align-items:center; gap:12px">
+          <span style="width:8px; height:8px; border-radius:999px; background:#7FC3A2"></span>
+          <div style="display:flex; flex-direction:column; gap:2px; flex:1"><span style="font-size:13.5px; font-weight:600; color:#fff">Order sent to Harbor Produce</span><span style="font-size:12.5px; color:#A9B6B0">$1,486.10 · delivery Tue 6:00 AM</span></div>
+          <button style="height:28px; padding:0 10px; border:1px solid #3A4A43; border-radius:8px; background:transparent; color:#DCE5E0; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">Undo</button>
+        </div>
+        <div style="width:360px; background:#16211C; border-radius:12px; box-shadow:0 12px 32px rgba(22,33,28,.2); padding:14px 16px; display:flex; align-items:center; gap:12px">
+          <span style="width:8px; height:8px; border-radius:999px; background:#E08A62"></span>
+          <span style="font-size:13.5px; font-weight:600; color:#fff; flex:1">Credit request saved as a draft</span>
+          <button style="width:24px; height:24px; border:none; border-radius:7px; background:transparent; color:#A9B6B0; font-size:14px; cursor:pointer">×</button>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Props · useToast</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>toast(&#123; title, description, tone, action, duration, key &#125;)</b> · <b>tone</b> 'success' | 'warning' | 'danger' | 'neutral' · <b>duration</b> ms, 6000, and 10000 when an action is present · <b>key</b> dedupes repeats · <b>dismiss(key)</b> · <b>placement</b> set once on the provider, 'bottom-end'.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Accessibility</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Region is <b>role="status"</b> with <b>aria-live="polite"</b>; danger toasts use <b>assertive</b>. Timers pause on hover and on keyboard focus. Any undo also exists on the record itself — a toast is never the only route to reversing an action.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRESS BAR -->
+    <section id="ProgressBar" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Progress Bar</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Progress through a known quantity, or an indeterminate band when the total is unknown. Also used for a proportion of a budget.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:20px">
+        <div style="display:flex; flex-direction:column; gap:8px">
+          <div style="display:flex; justify-content:space-between"><span style="font-size:13px; font-weight:600">Reading invoices</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#6B7A72">12 of 14</span></div>
+          <div style="height:6px; border-radius:999px; background:#EFEDE6; overflow:hidden"><div style="width:86%; height:100%; background:#1E6B4B; border-radius:999px"></div></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:600">Indeterminate</span>
+          <div style="height:4px; border-radius:999px; background:#EFEDE6; overflow:hidden"><div style="width:38%; height:100%; background:#1E6B4B; border-radius:999px; animation:miseIndet 1.6s ease-in-out infinite"></div></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px">
+          <div style="display:flex; justify-content:space-between"><span style="font-size:13px; font-weight:600">Produce budget, period to date</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#B4531B">104%</span></div>
+          <div style="height:6px; border-radius:999px; background:#EFEDE6; overflow:hidden"><div style="width:100%; height:100%; background:#B4531B; border-radius:999px"></div></div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Props &amp; tokens</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> number · <b>max</b> number, 100 · <b>indeterminate</b> boolean · <b>tone</b> 'default' | 'warning' | 'danger' · <b>size</b> 'sm' 4 | 'md' 6 · <b>label</b> string. Track <b>neutral.100 #EFEDE6</b>, fill <b>herb.600</b> / <b>ember.600</b> / <b>danger.600</b>, radius <b>pill</b>.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Accessibility</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Role <b>progressbar</b> with <b>aria-valuenow</b>, <b>aria-valuemin</b>, <b>aria-valuemax</b>, and <b>aria-label</b>; indeterminate omits valuenow. The numeric readout sits in text next to the bar, so progress does not depend on bar width alone.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPINNER -->
+    <section id="Spinner" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Spinner</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Work in progress with no measurable total, under about ten seconds. Longer than that, use a Progress Bar with steps so the operator knows it is still moving.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:28px; display:flex; gap:36px; align-items:center; flex-wrap:wrap">
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">sm 14</span><span style="width:14px; height:14px; border-radius:999px; border:2px solid #E1DED4; border-top-color:#1E6B4B; animation:miseSpin .8s linear infinite"></span></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">md 20</span><span style="width:20px; height:20px; border-radius:999px; border:2px solid #E1DED4; border-top-color:#1E6B4B; animation:miseSpin .8s linear infinite"></span></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">lg 28</span><span style="width:28px; height:28px; border-radius:999px; border:3px solid #E1DED4; border-top-color:#1E6B4B; animation:miseSpin .8s linear infinite"></span></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">on dark</span><span style="width:20px; height:20px; border-radius:999px; border:2px solid rgba(255,255,255,.25); border-top-color:#fff; background:transparent; animation:miseSpin .8s linear infinite; box-shadow:0 0 0 10px #16211C"></span></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-start"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">with label</span><span style="display:inline-flex; align-items:center; gap:9px; font-size:13px; color:#43524B"><span style="width:14px; height:14px; border-radius:999px; border:2px solid #E1DED4; border-top-color:#1E6B4B; animation:miseSpin .8s linear infinite"></span>Matching lines</span></div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>size</b> 'sm' | 'md' | 'lg' · <b>tone</b> 'default' | 'inverse' · <b>label</b> string — visually hidden unless <b>showLabel</b>. Wrapper is <b>role="status"</b> with a text label so the wait is announced once, not on every frame. Respects <b>prefers-reduced-motion</b> by slowing to a 2s rotation rather than stopping.</span>
+      </div>
+    </section>
+
+    <!-- SKELETON -->
+    <section id="Skeleton" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Skeleton</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A placeholder that matches the shape of the content it replaces. Use it where layout is predictable — table rows, metric cards — so nothing jumps when data lands.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:grid; grid-template-columns:1fr 1fr; gap:24px">
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">metric card</span>
+          <div style="border:1px solid #E1DED4; border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:10px">
+            <div style="width:72px; height:9px; border-radius:999px; background:linear-gradient(90deg,#EFEDE6 0%,#F7F6F2 40%,#EFEDE6 80%); background-size:400px 100%; animation:miseShimmer 1.4s linear infinite"></div>
+            <div style="width:104px; height:22px; border-radius:8px; background:linear-gradient(90deg,#EFEDE6 0%,#F7F6F2 40%,#EFEDE6 80%); background-size:400px 100%; animation:miseShimmer 1.4s linear infinite"></div>
+            <div style="width:130px; height:9px; border-radius:999px; background:#F1EFE9"></div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">table rows</span>
+          <div style="border:1px solid #E1DED4; border-radius:12px; overflow:hidden">
+            <sc-for list="{{ skeletonRows }}" as="w" hint-placeholder-count="4">
+              <div style="display:grid; grid-template-columns:1.6fr .8fr; gap:12px; padding:13px 16px; border-bottom:1px solid #EFEDE6; align-items:center">
+                <div style="height:9px; border-radius:999px; width:{{ w }}; background:linear-gradient(90deg,#EFEDE6 0%,#F7F6F2 40%,#EFEDE6 80%); background-size:400px 100%; animation:miseShimmer 1.4s linear infinite"></div>
+                <div style="height:9px; border-radius:999px; background:#F1EFE9; justify-self:end; width:56px"></div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>shape</b> 'text' | 'block' | 'circle' · <b>width</b> number | string · <b>height</b> number · <b>lines</b> number for multi-line text · <b>animated</b> boolean, true. Base <b>neutral.100 #EFEDE6</b>, shimmer to <b>canvas #F7F6F2</b>. The container carries <b>aria-busy="true"</b> and the skeletons themselves are <b>aria-hidden</b> — one announcement, not fifty.</span>
+      </div>
+    </section>
+
+    <!-- STATUS DOT -->
+    <section id="StatusDot" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Status Dot</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A live condition attached to an entity — a vendor connection, an agent, a unit. Always paired with a word; a bare dot is decoration.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:14px">
+        <sc-for list="{{ statuses }}" as="s" hint-placeholder-count="5">
+          <div style="display:flex; align-items:center; gap:12px">
+            <span style="width:8px; height:8px; border-radius:999px; background:{{ s.color }}"></span>
+            <span style="font-size:13.5px; font-weight:600; width:120px">{{ s.label }}</span>
+            <span style="font-size:13px; color:#43524B">{{ s.note }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>status</b> 'online' | 'busy' | 'warning' | 'offline' | 'unknown' · <b>label</b> string, required · <b>pulse</b> boolean, false — only for work actively in flight · <b>size</b> 6 | 8. The dot is <b>aria-hidden</b>; the label is the accessible name. Status that changes without a page load lives in an <b>aria-live="polite"</b> region.</span>
+      </div>
+    </section>
+
+    <!-- EMPTY STATE -->
+    <section id="EmptyState" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Empty State</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">What a container says when it has nothing in it. Three flavours, and they read differently: nothing yet, nothing matching, or something broke.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:40px 28px; display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center">
+          <div style="width:36px; height:36px; border-radius:11px; background:#E8F2EC; border:1px solid #C9DED3"></div>
+          <span style="font-size:15px; font-weight:700">No invoices yet</span>
+          <span style="font-size:13px; line-height:1.6; color:#43524B; max-width:32ch">Connect a vendor and invoices will appear here as they arrive.</span>
+          <button style="height:36px; padding:0 14px; border:none; border-radius:10px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer; margin-top:4px">Connect a vendor</button>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:40px 28px; display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center">
+          <div style="width:36px; height:36px; border-radius:11px; background:#F1EFE9; border:1px solid #E1DED4"></div>
+          <span style="font-size:15px; font-weight:700">No rows match these filters</span>
+          <span style="font-size:13px; line-height:1.6; color:#43524B; max-width:32ch">Disputed + Cedar Dairy + this week returns nothing.</span>
+          <button style="height:36px; padding:0 14px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer; margin-top:4px">Clear filters</button>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; guidance</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>variant</b> 'empty' | 'no-results' | 'error' · <b>title</b> string · <b>description</b> ReactNode · <b>action</b> / <b>secondaryAction</b> ReactNode · <b>icon</b> ReactNode · <b>compact</b> boolean for inline panels. The title states the fact, the description says why, the action is the way out. No illustrations of empty boxes and no apologies. Heading level follows the surrounding page, and the whole block is <b>role="status"</b> when it replaces loaded content.</span>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      badgeAnatomy: [
+        { n: "1", part: "Container", note: "22px tall, 8px radius, subtle tone fill" },
+        { n: "2", part: "Optional dot", note: "6px, only when the badge maps to a live status" },
+        { n: "3", part: "Label", note: "12/600, one or two words, sentence case" }
+      ],
+      badgeProps: [
+        { name: "children", type: "ReactNode", def: "—", desc: "The label. One or two words." },
+        { name: "tone", type: "'neutral' | 'success' | 'warning' | 'danger' | 'info'", def: "'neutral'", desc: "Maps to the state's meaning, not to a preference." },
+        { name: "variant", type: "'subtle' | 'solid' | 'outline'", def: "'subtle'", desc: "Solid is reserved for one urgent state per screen." },
+        { name: "size", type: "'sm' | 'md'", def: "'md'", desc: "18 / 22px tall. sm for table cells." },
+        { name: "dot", type: "boolean", def: "false", desc: "Leading dot for live states." },
+        { name: "count", type: "number", def: "—", desc: "Trailing counter pill." },
+        { name: "icon", type: "ReactNode", def: "—", desc: "12px leading icon; use sparingly." },
+        { name: "truncate", type: "boolean", def: "true", desc: "Ellipsis rather than wrap inside dense rows." }
+      ],
+      skeletonRows: ["78%", "62%", "88%", "54%"],
+      statuses: [
+        { color: "#1E6B4B", label: "Online", note: "Harbor Produce · ordering API responding" },
+        { color: "#2F5E8C", label: "Working", note: "Agent matching 14 invoices" },
+        { color: "#B4531B", label: "Degraded", note: "Cedar Dairy · responses over 30s" },
+        { color: "#A32A22", label: "Offline", note: "Northline Meats · no response since 6:12 AM" },
+        { color: "#C4CCC7", label: "Not connected", note: "Sorrento Imports · invoices entered by hand" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

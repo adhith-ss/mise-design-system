@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet" />
+<style>
+  body { margin:0; background:#F7F6F2; color:#16211C; font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1E6B4B; text-decoration:none; }
+  a:hover { color:#144A34; }
+  pre { margin:0; font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; line-height:1.7; white-space:pre-wrap; }
+</style>
+</helmet>
+
+<div style="display:grid; grid-template-columns:264px 1fr; min-height:100vh">
+
+  <aside style="border-right:1px solid #E1DED4; background:#fff; padding:24px 20px; display:flex; flex-direction:column; gap:24px; position:sticky; top:0; height:100vh; overflow:auto">
+    <div style="display:flex; align-items:center; gap:10px">
+      <div style="width:24px; height:24px; border-radius:7px; background:#1E6B4B"></div>
+      <div style="display:flex; flex-direction:column">
+        <span style="font-size:15px; font-weight:800; letter-spacing:-.01em">Mise DLS</span>
+        <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">Content</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:6px 8px">Library</div>
+      <a href="Mise-DLS-Index.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overview</a>
+      <a href="Mise Design System.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Foundations</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">On this page</div>
+      <a href="#Heading" style="padding:7px 8px; border-radius:8px; font-size:13px; background:#E8F2EC; color:#1E6B4B; font-weight:600">Heading</a>
+      <a href="#Text" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Text</a>
+      <a href="#Avatar" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Avatar</a>
+      <a href="#AvatarGroup" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Avatar Group</a>
+      <a href="#Icon" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Icon</a>
+      <a href="#Thumbnail" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Thumbnail</a>
+      <a href="#Timestamp" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Timestamp</a>
+      <a href="#Token" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Token</a>
+      <a href="#Kbd" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Kbd</a>
+      <a href="#Code" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Code</a>
+      <a href="#CodeBlock" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Code Block</a>
+      <a href="#Markdown" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Markdown</a>
+      <a href="#Blockquote" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Blockquote</a>
+      <a href="#Citation" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Citation</a>
+      <a href="#Divider" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Divider</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">Categories</div>
+      <a href="Mise-DLS-Action.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Action</a>
+      <a href="Mise-DLS-ChatAgent.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Chat &amp; Agent</a>
+      <a href="Mise-DLS-DataInput.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Data Input</a>
+      <a href="Mise-DLS-Feedback.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Feedback &amp; Status</a>
+      <a href="Mise-DLS-Navigation.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Navigation</a>
+      <a href="Mise-DLS-Overlay.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overlay</a>
+      <a href="Mise-DLS-TableList.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Table &amp; List</a>
+    </div>
+  </aside>
+
+  <main style="padding:48px 56px 140px; max-width:1000px; display:flex; flex-direction:column; gap:60px">
+
+    <header style="display:flex; flex-direction:column; gap:14px">
+      <span style="align-self:flex-start; background:#E8F2EC; color:#1E6B4B; border-radius:999px; padding:5px 11px; font-size:12px; font-weight:600">Content · 15 components</span>
+      <h1 style="margin:0; font-size:40px; line-height:1.08; letter-spacing:-.03em; font-weight:800">Content</h1>
+      <p style="margin:0; max-width:62ch; font-size:16px; line-height:1.65; color:#43524B">Type, identity, numbers, and code. Numerals always render in General Sans Light with tabular figures so columns of money line up; prose is Manrope.</p>
+    </header>
+
+    <!-- HEADING -->
+    <section id="Heading" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Heading</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A titled break in the page. Level sets the semantic rank; size is chosen separately, so a subsection can look small without breaking the document outline.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <sc-for list="{{ headingScale }}" as="h" hint-placeholder-count="6">
+          <div style="display:grid; grid-template-columns:210px 1fr; gap:20px; padding:16px 20px; border-bottom:1px solid #EFEDE6; align-items:baseline">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">{{ h.spec }}</span>
+            <span style="font-size:{{ h.px }}; font-weight:{{ h.weight }}; letter-spacing:{{ h.ls }}; line-height:1.15">{{ h.sample }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>level</b> 1–6, required · <b>size</b> 'display' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' · <b>weight</b> 700 | 800 · <b>truncate</b> boolean · <b>as</b> ElementType. Levels never skip — a page has one h1, and section titles descend in order regardless of visual size. Sentence case throughout; title case only in the product name.</span>
+      </div>
+    </section>
+
+    <!-- TEXT -->
+    <section id="Text" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Text</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Every non-heading string. The numeric variant switches to General Sans Light with tabular figures — use it for money, percentages, counts, and identifiers.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:20px; padding:15px 20px; border-bottom:1px solid #EFEDE6; align-items:baseline"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">body · 15/1.6</span><span style="font-size:15px; line-height:1.6; color:#43524B; max-width:58ch">Romaine ran 18% above forecast last week, and Harbor raised the case price twice this month.</span></div>
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:20px; padding:15px 20px; border-bottom:1px solid #EFEDE6; align-items:baseline"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">body strong · 15/600</span><span style="font-size:15px; font-weight:600">Send PO-4471 to Harbor Produce?</span></div>
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:20px; padding:15px 20px; border-bottom:1px solid #EFEDE6; align-items:baseline"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">ui · 14/500</span><span style="font-size:14px; font-weight:500">Vendor invoices awaiting review</span></div>
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:20px; padding:15px 20px; border-bottom:1px solid #EFEDE6; align-items:baseline"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">small · 13</span><span style="font-size:13px; color:#43524B">Confirmation expected within 2 hours.</span></div>
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:20px; padding:15px 20px; border-bottom:1px solid #EFEDE6; align-items:baseline"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">caption · 12 · muted</span><span style="font-size:12px; color:#6B7A72">Matched to PO-4462</span></div>
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:20px; padding:15px 20px; border-bottom:1px solid #EFEDE6; align-items:baseline"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">label · 11 · uppercase</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994">Food cost</span></div>
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:20px; padding:15px 20px; align-items:baseline"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">numeric · tabular</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; font-variant-numeric:tabular-nums">$14,208.50 · 32.4% · INV-20841</span></div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>variant</b> 'body' | 'ui' | 'small' | 'caption' | 'label' | 'numeric' · <b>weight</b> 400 | 500 | 600 · <b>tone</b> 'default' | 'muted' | 'success' | 'warning' | 'danger' · <b>truncate</b> boolean | number of lines · <b>align</b> 'start' | 'end' — numeric cells align end · <b>as</b> ElementType, defaults to span.</span>
+      </div>
+    </section>
+
+    <!-- AVATAR + GROUP -->
+    <section id="Avatar" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Avatar</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A person, a unit, or the agent. Initials are the default — photos are rare in a back office and a missing photo should not look broken.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; gap:30px; align-items:flex-end; flex-wrap:wrap">
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">xs 20</span><span style="width:20px; height:20px; border-radius:999px; background:#E8F2EC; color:#1E6B4B; font-size:9px; font-weight:700; display:flex; align-items:center; justify-content:center">DM</span></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">sm 26</span><span style="width:26px; height:26px; border-radius:999px; background:#E8F2EC; color:#1E6B4B; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center">DM</span></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">md 32</span><span style="width:32px; height:32px; border-radius:999px; background:#E8F2EC; color:#1E6B4B; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center">DM</span></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">lg 44</span><span style="width:44px; height:44px; border-radius:999px; background:#E8F2EC; color:#1E6B4B; font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center">DM</span></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">agent</span><span style="width:32px; height:32px; border-radius:10px; background:#1E6B4B"></span></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">unit · square</span><span style="width:32px; height:32px; border-radius:10px; background:#F1EFE9; color:#43524B; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center">FO</span></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">with status</span><span style="position:relative; display:inline-flex"><span style="width:32px; height:32px; border-radius:999px; background:#E8F2EC; color:#1E6B4B; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center">RK</span><span style="position:absolute; right:-1px; bottom:-1px; width:10px; height:10px; border-radius:999px; background:#1E6B4B; border:2px solid #fff"></span></span></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">placeholder</span><span style="width:32px; height:32px; border-radius:999px; background:#F1EFE9; border:1px dashed #DDD9CE"></span></div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>name</b> string, required — drives initials and the accessible name · <b>src</b> string · <b>shape</b> 'circle' for people, 'square' for units and the agent · <b>size</b> xs | sm | md | lg · <b>status</b> StatusDot value · <b>tone</b> derived from the name hash so the same person keeps the same fill. Images are <b>alt=""</b> with the name on the wrapper, so the name is announced once.</span>
+      </div>
+    </section>
+
+    <section id="AvatarGroup" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Avatar Group</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Several people in one slot — a shift, an approval chain. Overflow collapses into a count that opens the full list in a Popover.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; gap:36px; align-items:center; flex-wrap:wrap">
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">3 of 3</span>
+          <div style="display:flex">
+            <span style="width:30px; height:30px; border-radius:999px; background:#E8F2EC; color:#1E6B4B; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; border:2px solid #fff">DM</span>
+            <span style="width:30px; height:30px; border-radius:999px; background:#ECF1F6; color:#2F5E8C; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; border:2px solid #fff; margin-left:-9px">RK</span>
+            <span style="width:30px; height:30px; border-radius:999px; background:#FBEFE6; color:#B4531B; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; border:2px solid #fff; margin-left:-9px">TS</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">max 3 · overflow</span>
+          <div style="display:flex">
+            <span style="width:30px; height:30px; border-radius:999px; background:#E8F2EC; color:#1E6B4B; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; border:2px solid #fff">DM</span>
+            <span style="width:30px; height:30px; border-radius:999px; background:#ECF1F6; color:#2F5E8C; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; border:2px solid #fff; margin-left:-9px">RK</span>
+            <span style="width:30px; height:30px; border-radius:999px; background:#FBEFE6; color:#B4531B; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; border:2px solid #fff; margin-left:-9px">TS</span>
+            <button style="width:30px; height:30px; border-radius:999px; background:#F1EFE9; color:#43524B; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; display:flex; align-items:center; justify-content:center; border:2px solid #fff; margin-left:-9px; cursor:pointer">+4</button>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>max</b> number, 3 · <b>size</b> inherited by children · <b>overlap</b> number, 9 · <b>onOverflowClick</b> · <b>label</b> string, required — "Saturday dinner shift". Renders as a list with the label as its accessible name; the overflow control is a real button that names the hidden count ("Show 4 more people").</span>
+      </div>
+    </section>
+
+    <!-- ICON -->
+    <section id="Icon" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Icon</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A 24-grid line set drawn at 1.5px, rendered at 14, 16, or 20px. Icons support labels; they do not replace them outside toolbars and table rows.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:16px">
+        <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">Sizes · 14 / 16 / 20 · optical alignment on the text baseline</span>
+        <div style="display:flex; gap:14px; align-items:center">
+          <span style="width:14px; height:14px; border-radius:4px; background:#43524B"></span>
+          <span style="width:16px; height:16px; border-radius:5px; background:#43524B"></span>
+          <span style="width:20px; height:20px; border-radius:6px; background:#43524B"></span>
+          <span style="font-size:13px; color:#6B7A72">Placeholders — the production set ships from the icon library, not drawn here.</span>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>name</b> string, required · <b>size</b> 14 | 16 | 20 · <b>color</b> token name, defaults to <b>currentColor</b> · <b>label</b> string — when present the icon becomes <b>role="img"</b> with that name; when absent it is <b>aria-hidden</b>. Never scale an icon beyond 20px in the app; larger sizes belong to marketing illustration.</span>
+      </div>
+    </section>
+
+    <!-- THUMBNAIL -->
+    <section id="Thumbnail" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Thumbnail</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A small fixed-ratio preview of a document or a dish photo, with a stable placeholder so lists do not reflow while images load.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; gap:24px; align-items:flex-end; flex-wrap:wrap">
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">40 · 1:1</span><div style="width:40px; height:40px; border-radius:9px; background:#F1EFE9; border:1px solid #E1DED4"></div></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">64 · 4:3</span><div style="width:85px; height:64px; border-radius:10px; background:#F1EFE9; border:1px solid #E1DED4"></div></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">pdf badge</span><div style="width:40px; height:52px; border-radius:8px; background:#fff; border:1px solid #E1DED4; display:flex; align-items:flex-end; justify-content:center; padding-bottom:6px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:9px; color:#A32A22">PDF</span></div></div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">loading</span><div style="width:40px; height:40px; border-radius:9px; background:#EFEDE6"></div></div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>src</b> string · <b>alt</b> string, required unless decorative · <b>ratio</b> '1:1' | '4:3' | '3:4' · <b>size</b> 40 | 64 | 96 · <b>fit</b> 'cover' | 'contain' · <b>fileType</b> string — renders a type chip when there is no preview · <b>onClick</b> opens a Lightbox.</span>
+      </div>
+    </section>
+
+    <!-- TIMESTAMP -->
+    <section id="Timestamp" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Timestamp</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A formatted moment in the restaurant's timezone, not the browser's. Relative for recent activity, absolute everywhere money is involved.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <sc-for list="{{ timeFormats }}" as="t" hint-placeholder-count="5">
+          <div style="display:grid; grid-template-columns:150px 220px 1fr; gap:16px; padding:13px 20px; border-bottom:1px solid #EFEDE6; align-items:baseline">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">{{ t.format }}</span>
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13.5px; color:#16211C">{{ t.output }}</span>
+            <span style="font-size:12.5px; color:#43524B">{{ t.use }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> Date | ISO string · <b>format</b> 'relative' | 'time' | 'date' | 'datetime' | 'shift' · <b>timezone</b> string, defaults to the unit's · <b>tooltip</b> boolean, true — the absolute value on hover · <b>refresh</b> boolean for live relative values. Renders a <b>&lt;time&gt;</b> element with a machine-readable <b>datetime</b>; relative text is refreshed politely, never announced on every tick.</span>
+      </div>
+    </section>
+
+    <!-- TOKEN -->
+    <section id="Token" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Token</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A reference to a real entity inside a sentence or an input — a vendor, an invoice, an item. It carries an identity, so it can be removed as one unit rather than edited character by character.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:18px">
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">inline in agent text</span>
+          <span style="font-size:14px; line-height:1.9; color:#16211C">Raised <span style="background:#E8F2EC; border:1px solid #C9DED3; border-radius:7px; padding:2px 7px; font-size:13px; font-weight:600; color:#1E6B4B">Romaine 24ct</span> by 4 cases on <span style="background:#E8F2EC; border:1px solid #C9DED3; border-radius:7px; padding:2px 7px; font-size:13px; font-weight:600; color:#1E6B4B">PO-4471</span> for <span style="background:#E8F2EC; border:1px solid #C9DED3; border-radius:7px; padding:2px 7px; font-size:13px; font-weight:600; color:#1E6B4B">Harbor Produce</span>.</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">removable · in an input</span>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; border:1px solid #E1DED4; border-radius:12px; padding:8px 10px; min-height:40px">
+            <span style="display:inline-flex; align-items:center; gap:7px; background:#F1EFE9; border-radius:7px; padding:3px 5px 3px 9px; font-size:13px; color:#16211C">Cedar Dairy<button style="width:16px; height:16px; border:none; border-radius:5px; background:#DDE2DF; color:#43524B; font-size:11px; cursor:pointer; display:flex; align-items:center; justify-content:center">×</button></span>
+            <span style="display:inline-flex; align-items:center; gap:7px; background:#F1EFE9; border-radius:7px; padding:3px 5px 3px 9px; font-size:13px; color:#16211C">Harbor Produce<button style="width:16px; height:16px; border:none; border-radius:5px; background:#DDE2DF; color:#43524B; font-size:11px; cursor:pointer; display:flex; align-items:center; justify-content:center">×</button></span>
+            <span style="font-size:13px; color:#B3BBB6">Add a vendor…</span>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>label</b> string · <b>entity</b> &#123; type, id &#125; · <b>tone</b> 'reference' | 'neutral' · <b>removable</b> boolean · <b>onRemove</b> · <b>onClick</b> — opens the record in a HoverCard or navigates. Inside an input, tokens are list items with Backspace removing the last one, and the remove button carries "Remove Cedar Dairy".</span>
+      </div>
+    </section>
+
+    <!-- KBD -->
+    <section id="Kbd" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Kbd</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A keyboard key or a chord. Platform-aware: the same shortcut renders ⌘K on macOS and Ctrl K elsewhere.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; gap:24px; align-items:center; flex-wrap:wrap">
+        <span style="display:inline-flex; gap:4px"><span style="min-width:22px; height:22px; border:1px solid #E1DED4; border-bottom-width:2px; border-radius:6px; background:#fff; font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; display:flex; align-items:center; justify-content:center; padding:0 5px">⌘</span><span style="min-width:22px; height:22px; border:1px solid #E1DED4; border-bottom-width:2px; border-radius:6px; background:#fff; font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; display:flex; align-items:center; justify-content:center; padding:0 5px">K</span></span>
+        <span style="display:inline-flex; gap:4px"><span style="min-width:22px; height:22px; border:1px solid #E1DED4; border-bottom-width:2px; border-radius:6px; background:#fff; font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; display:flex; align-items:center; justify-content:center; padding:0 6px">Ctrl</span><span style="min-width:22px; height:22px; border:1px solid #E1DED4; border-bottom-width:2px; border-radius:6px; background:#fff; font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; display:flex; align-items:center; justify-content:center; padding:0 5px">K</span></span>
+        <span style="min-width:22px; height:22px; border:1px solid #E1DED4; border-bottom-width:2px; border-radius:6px; background:#fff; font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; display:inline-flex; align-items:center; justify-content:center; padding:0 6px">Esc</span>
+        <span style="min-width:22px; height:22px; border:1px solid #2A3832; border-bottom-width:2px; border-radius:6px; background:#16211C; color:#DCE5E0; font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; display:inline-flex; align-items:center; justify-content:center; padding:0 6px">⏎</span>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>keys</b> string | string[] — 'mod+k' resolves per platform · <b>tone</b> 'default' | 'inverse' for dark surfaces · <b>size</b> 'sm' | 'md'. Renders <b>&lt;kbd&gt;</b> elements; symbol-only keys carry a spoken label so ⌘ is announced as "Command".</span>
+      </div>
+    </section>
+
+    <!-- CODE + CODEBLOCK -->
+    <section id="Code" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Code</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Inline literal values — an ID, a field name, an API key fragment. In the app it appears mostly in integration settings and audit detail.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:12px">
+        <span style="font-size:14px; line-height:1.9; color:#43524B">The webhook posts to <span style="background:#F1EFE9; border-radius:6px; padding:2px 6px; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#16211C">/v1/invoices/matched</span> with the header <span style="background:#F1EFE9; border-radius:6px; padding:2px 6px; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#16211C">X-Mise-Unit</span>.</span>
+        <span style="font-size:12.5px; color:#6B7A72">Props: <b>children</b> string · <b>tone</b> 'default' | 'danger' for invalid values · <b>copyable</b> boolean. Rendered as <b>&lt;code&gt;</b>; never used for emphasis.</span>
+      </div>
+    </section>
+
+    <section id="CodeBlock" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Code Block</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A multi-line sample with a language label and a copy action. Used in these docs and in the integrations area of the product.</p>
+      </div>
+      <div style="background:#16211C; border-radius:14px; overflow:hidden">
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:9px 16px; border-bottom:1px solid #2A3832">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">JSON · webhook payload</span>
+          <button style="height:26px; padding:0 10px; border:1px solid #3A4A43; border-radius:7px; background:transparent; color:#DCE5E0; font-family:'Manrope',sans-serif; font-size:12px; font-weight:600; cursor:pointer">Copy</button>
+        </div>
+        <pre style="padding:16px; color:#DCE5E0">{
+  "invoice": "INV-20841",
+  "vendor": "harbor-produce",
+  "matched_lines": 12,
+  "variances": [
+    { "line": "romaine-24ct", "quoted": 23.00, "billed": 29.10 }
+  ]
+}</pre>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>code</b> string · <b>language</b> string · <b>title</b> string · <b>copyable</b> boolean, true · <b>lineNumbers</b> boolean, false · <b>maxHeight</b> number — scrolls beyond it · <b>wrap</b> boolean, true. The block is focusable and scrollable by keyboard; copy announces "Copied" through a polite live region, and the code itself is never the only place a value can be read.</span>
+      </div>
+    </section>
+
+    <!-- MARKDOWN -->
+    <section id="Markdown" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Markdown</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Renders agent output and vendor notes with the same type scale as the rest of the app. Lists, tables, inline code, and links only — no raw HTML, no images from untrusted text.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:12px; max-width:64ch">
+        <span style="font-size:17px; font-weight:700">Why the order changed</span>
+        <span style="font-size:15px; line-height:1.65; color:#43524B">Romaine usage rose 18% against forecast. Two contributing factors:</span>
+        <div style="display:flex; flex-direction:column; gap:7px; padding-left:2px">
+          <div style="display:flex; gap:10px"><span style="width:5px; height:5px; border-radius:999px; background:#1E6B4B; margin-top:9px"></span><span style="font-size:15px; line-height:1.6; color:#43524B">Two catering covers on Thursday that were not in the forecast</span></div>
+          <div style="display:flex; gap:10px"><span style="width:5px; height:5px; border-radius:999px; background:#1E6B4B; margin-top:9px"></span><span style="font-size:15px; line-height:1.6; color:#43524B">Yield loss of about 9% on the last two Harbor cases</span></div>
+        </div>
+        <span style="font-size:15px; line-height:1.65; color:#43524B">Case price moved from <span style="background:#F1EFE9; border-radius:6px; padding:2px 6px; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">$23.00</span> to <span style="background:#F1EFE9; border-radius:6px; padding:2px 6px; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">$29.10</span>. See <a href="#Markdown">invoice INV-20841</a>.</span>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; safety</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>content</b> string · <b>allow</b> array of node types, defaults to headings, paragraphs, lists, tables, code, links, emphasis · <b>maxHeadingLevel</b> number, 3 — so agent output never outranks the page title · <b>linkTarget</b> · <b>streaming</b> boolean, which keeps partial nodes stable while text arrives. Raw HTML is stripped, not escaped and rendered.</span>
+      </div>
+    </section>
+
+    <!-- BLOCKQUOTE -->
+    <section id="Blockquote" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Blockquote</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Someone else's words, attributed. In the product it quotes a vendor note or an operator's comment; on marketing pages it carries a customer quote.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:28px; display:flex; flex-direction:column; gap:20px">
+        <div style="display:flex; gap:16px; max-width:60ch"><div style="width:2px; background:#C9DED3; border-radius:999px"></div><div style="display:flex; flex-direction:column; gap:10px"><span style="font-size:17px; line-height:1.6; color:#16211C">Short delivery on tomatoes was our error. Credit is approved for the crate.</span><span style="font-size:13px; color:#6B7A72">Marisol Vega · Harbor Produce · Aug 23</span></div></div>
+        <div style="display:flex; gap:16px; max-width:60ch; background:#F7F6F2; border-radius:12px; padding:18px"><div style="display:flex; flex-direction:column; gap:10px"><span style="font-size:19px; line-height:1.5; font-weight:600; letter-spacing:-.01em">We stopped guessing at Friday close. The variance list is already waiting for us.</span><span style="font-size:13px; color:#6B7A72">Dana Mercer · Culinary Director, Fig &amp; Oak</span></div></div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>children</b> ReactNode · <b>attribution</b> string · <b>meta</b> string · <b>variant</b> 'rule' | 'card' · <b>size</b> 'md' | 'lg' for marketing. Renders <b>&lt;blockquote&gt;</b> with the attribution in a <b>&lt;figcaption&gt;</b>; quotation marks are not drawn as decoration.</span>
+      </div>
+    </section>
+
+    <!-- CITATION -->
+    <section id="Citation" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Citation</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">The record an agent claim came from. Every number the agent states in a decision context carries one, and clicking it opens the source.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:16px">
+        <span style="font-size:14px; line-height:1.8; color:#16211C">Romaine ran 18% above forecast last week<sup style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#1E6B4B">&nbsp;1</sup> and the case price rose twice this month<sup style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#1E6B4B">&nbsp;2</sup>.</span>
+        <div style="display:flex; gap:8px; flex-wrap:wrap">
+          <span style="display:inline-flex; align-items:center; gap:7px; border:1px solid #E1DED4; border-radius:8px; padding:6px 10px; font-size:12.5px; color:#43524B; cursor:pointer" style-hover="background:#F7F6F2"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">1</span><span style="width:14px; height:14px; border-radius:4px; background:#E8F2EC; border:1px solid #C9DED3"></span>POS sales · week 34</span>
+          <span style="display:inline-flex; align-items:center; gap:7px; border:1px solid #E1DED4; border-radius:8px; padding:6px 10px; font-size:12.5px; color:#43524B; cursor:pointer" style-hover="background:#F7F6F2"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">2</span><span style="width:14px; height:14px; border-radius:4px; background:#E8F2EC; border:1px solid #C9DED3"></span>Invoice INV-20841</span>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>index</b> number · <b>source</b> &#123; type, label, href, timestamp &#125; · <b>variant</b> 'marker' | 'chip' · <b>onOpen</b> — opens the record in a panel rather than leaving the conversation. Markers are links with an accessible name of "Source 1, invoice INV-20841", not a bare number.</span>
+      </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <section id="Divider" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Divider</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A one-pixel rule where whitespace alone is not enough. If a divider and a gap are both needed, the gap is too small.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:18px">
+        <div style="height:1px; background:#E1DED4"></div>
+        <div style="display:flex; align-items:center; gap:12px"><div style="flex:1; height:1px; background:#E1DED4"></div><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">Yesterday</span><div style="flex:1; height:1px; background:#E1DED4"></div></div>
+        <div style="display:flex; align-items:center; gap:14px; height:24px"><span style="font-size:13px; color:#43524B">Vertical</span><div style="width:1px; height:100%; background:#E1DED4"></div><span style="font-size:13px; color:#43524B">between controls</span></div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>orientation</b> 'horizontal' | 'vertical' · <b>label</b> string — centred text, used for date breaks in activity streams · <b>tone</b> 'default' #E1DED4 | 'subtle' #EFEDE6 · <b>inset</b> boolean. Decorative dividers are <b>aria-hidden</b>; a labelled divider that marks a real section boundary uses <b>role="separator"</b> with that label.</span>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      headingScale: [
+        { spec: "display · 44/800 · -3%", px: "44px", weight: "800", ls: "-.03em", sample: "Your back office, staffed by agents" },
+        { spec: "xl · 32/700 · -2.5%", px: "32px", weight: "700", ls: "-.025em", sample: "Invoice review" },
+        { spec: "lg · 24/700 · -2%", px: "24px", weight: "700", ls: "-.02em", sample: "Weekly food cost" },
+        { spec: "md · 18/600", px: "18px", weight: "600", ls: "-.01em", sample: "Vendor invoices awaiting review" },
+        { spec: "sm · 15/600", px: "15px", weight: "600", ls: "0", sample: "Needs your decision" },
+        { spec: "xs · 13/600", px: "13px", weight: "600", ls: "0", sample: "Delivery window" }
+      ],
+      timeFormats: [
+        { format: "relative", output: "4 minutes ago", use: "Activity streams and agent messages under an hour old" },
+        { format: "time", output: "6:12 AM", use: "Deliveries and shifts inside today" },
+        { format: "date", output: "Aug 22, 2026", use: "Invoices, POs, anything auditable" },
+        { format: "datetime", output: "Aug 22, 2026 · 6:12 AM", use: "Approval records and the audit log" },
+        { format: "shift", output: "Sat dinner · 4:00–11:00 PM", use: "Labor planning and schedule rows" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

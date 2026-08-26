@@ -1,0 +1,87 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import * as BadgeStories from '../components/feedback/Badge.stories';
+import * as BannerStories from '../components/feedback/Banner.stories';
+import * as ToastStories from '../components/feedback/Toast.stories';
+import * as ProgressStories from '../components/feedback/ProgressBar.stories';
+import * as SkeletonStories from '../components/feedback/Skeleton.stories';
+import * as EmptyStories from '../components/feedback/EmptyState.stories';
+
+<Meta title="Feedback & Status/Category" />
+
+# Feedback & Status
+
+Eight components that tell the operator where things stand. The category's whole
+job is proportion: a stored state is a Badge, a page-wide condition is a Banner,
+something that just happened is a Toast. Reaching for the wrong one is how a
+screen ends up shouting.
+
+## Choosing
+
+| The thing you want to say | Component |
+| --- | --- |
+| This record is in state X | Badge |
+| This page has a condition, unresolved | Banner |
+| That worked (or didn't), just now | Toast |
+| This will take a while, and here is how far | Progress Bar |
+| This will take a moment | Spinner |
+| Content is coming, here is its shape | Skeleton |
+| This connection or run is live | Status Dot |
+| There is nothing here, and here is why | Empty State |
+
+## Five tones, one set of values
+
+<Canvas of={BadgeStories.AllTones} />
+
+Success, warning, danger, info, neutral — defined once in `tone.ts` and shared
+by Badge, Banner, Toast, and Status Dot, so a warning is the same amber wherever
+it appears. Solid appearance is reserved for one urgent state per screen.
+
+<Controls of={BadgeStories.Subtle} />
+
+## Conditions vs. events
+
+<Canvas of={BannerStories.WithAction} />
+
+A Banner stays until the condition is resolved and carries at most one action.
+Two actions means the operator is making a decision, and a decision belongs in a
+Dialog.
+
+<Canvas of={ToastStories.WithUndo} />
+
+A Toast is past tense. The timer pauses on hover and focus, and an error toast
+never auto-dismisses — a failure the operator can miss is one they will hear
+about from the vendor instead.
+
+## Waiting
+
+<Canvas of={ProgressStories.Determinate} />
+
+The count is what the operator reads; the bar only confirms movement. Under two
+seconds with no nameable steps, use a Spinner. Over two seconds with steps you
+can name, use Agent Status instead — it is the same information with the useful
+part included.
+
+<Canvas of={SkeletonStories.CardLoading} />
+
+A skeleton must match the layout it replaces. If the page jumps when data lands,
+the skeleton was decoration.
+
+## Emptiness has four causes
+
+<Canvas of={EmptyStories.AllClear} />
+
+Never used, nothing matched, nothing left to do, something broke. "No data" is
+never enough, because the operator's next move depends entirely on which one it
+is — and one of the four is good news.
+
+## Accessibility
+
+- Every tone is carried in text as well as colour. A bare coloured dot never
+  ships without a label.
+- Banner and Toast use `role="status"`, or `role="alert"` for danger, so
+  urgency maps to how insistently it is announced.
+- Progress Bar exposes `aria-valuenow`/`min`/`max`; the indeterminate variant
+  omits `valuenow` rather than faking one.
+- Skeletons are `aria-hidden`; the container carries `aria-busy`, so a screen
+  reader hears "busy", not a row of empty boxes.
+- All pulses and spins are behind `motion-safe:`.

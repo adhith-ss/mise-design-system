@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet" />
+<style>
+  body { margin:0; background:#F7F6F2; color:#16211C; font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1E6B4B; text-decoration:none; }
+  a:hover { color:#144A34; }
+</style>
+</helmet>
+
+<div style="display:grid; grid-template-columns:264px 1fr; min-height:100vh">
+
+  <aside style="border-right:1px solid #E1DED4; background:#fff; padding:24px 20px; display:flex; flex-direction:column; gap:24px; position:sticky; top:0; height:100vh; overflow:auto">
+    <div style="display:flex; align-items:center; gap:10px">
+      <div style="width:24px; height:24px; border-radius:7px; background:#1E6B4B"></div>
+      <div style="display:flex; flex-direction:column">
+        <span style="font-size:15px; font-weight:800; letter-spacing:-.01em">Mise DLS</span>
+        <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">Overlay</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:6px 8px">Library</div>
+      <a href="Mise-DLS-Index.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overview</a>
+      <a href="Mise Design System.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Foundations</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">On this page</div>
+      <a href="#Layers" style="padding:7px 8px; border-radius:8px; font-size:13px; background:#E8F2EC; color:#1E6B4B; font-weight:600">Layer order</a>
+      <a href="#Dialog" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Dialog</a>
+      <a href="#AlertDialog" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Alert Dialog</a>
+      <a href="#Popover" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Popover</a>
+      <a href="#Tooltip" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Tooltip</a>
+      <a href="#HoverCard" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Hover Card</a>
+      <a href="#CommandPalette" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Command Palette</a>
+      <a href="#Lightbox" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Lightbox</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">Categories</div>
+      <a href="Mise-DLS-Action.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Action</a>
+      <a href="Mise-DLS-ChatAgent.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Chat &amp; Agent</a>
+      <a href="Mise-DLS-Content.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Content</a>
+      <a href="Mise-DLS-DataInput.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Data Input</a>
+      <a href="Mise-DLS-Feedback.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Feedback &amp; Status</a>
+      <a href="Mise-DLS-Navigation.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Navigation</a>
+      <a href="Mise-DLS-TableList.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Table &amp; List</a>
+    </div>
+  </aside>
+
+  <main style="padding:48px 56px 140px; max-width:1000px; display:flex; flex-direction:column; gap:60px">
+
+    <header style="display:flex; flex-direction:column; gap:14px">
+      <span style="align-self:flex-start; background:#E8F2EC; color:#1E6B4B; border-radius:999px; padding:5px 11px; font-size:12px; font-weight:600">Overlay · 7 components</span>
+      <h1 style="margin:0; font-size:40px; line-height:1.08; letter-spacing:-.03em; font-weight:800">Overlay</h1>
+      <p style="margin:0; max-width:62ch; font-size:16px; line-height:1.65; color:#43524B">Layers above the page, ordered by how much they interrupt. Reach for the least interrupting one that does the job: a Tooltip before a Popover, a Popover before a Dialog.</p>
+    </header>
+
+    <section id="Layers" style="display:flex; flex-direction:column; gap:16px; border-top:1px solid #E1DED4; padding-top:32px">
+      <h2 style="margin:0; font-size:24px; font-weight:700; letter-spacing:-.02em">Layer order</h2>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+        <div style="display:grid; grid-template-columns:60px 170px 1fr; gap:14px; padding:11px 18px; background:#F7F6F2; border-bottom:1px solid #E1DED4">
+          <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">z</span>
+          <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Layer</span>
+          <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Dismisses on</span>
+        </div>
+        <sc-for list="{{ layers }}" as="l" hint-placeholder-count="6">
+          <div style="display:grid; grid-template-columns:60px 170px 1fr; gap:14px; padding:11px 18px; border-bottom:1px solid #EFEDE6; align-items:baseline">
+            <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#6B7A72">{{ l.z }}</span>
+            <span style="font-size:13.5px; font-weight:600">{{ l.name }}</span>
+            <span style="font-size:12.5px; line-height:1.55; color:#43524B">{{ l.dismiss }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- DIALOG -->
+    <section id="Dialog" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Dialog</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A focused task that must finish or be abandoned — editing an order line, drafting a credit request. Anything longer than a screenful belongs on a page instead.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Anatomy</h3>
+        <div style="border:1px solid #E1DED4; border-radius:14px; padding:32px; background:#F1EFE9; display:flex; gap:36px; align-items:flex-start">
+          <div style="width:400px; background:#fff; border-radius:16px; box-shadow:0 24px 56px rgba(22,33,28,.22); overflow:hidden">
+            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; padding:18px 20px 14px">
+              <div style="display:flex; flex-direction:column; gap:3px"><span style="font-size:17px; font-weight:700">Edit line · Romaine, 24 ct</span><span style="font-size:12.5px; color:#6B7A72">PO-4471 · Harbor Produce</span></div>
+              <button style="width:26px; height:26px; border:none; border-radius:7px; background:#F1EFE9; color:#43524B; font-size:14px; cursor:pointer">×</button>
+            </div>
+            <div style="padding:4px 20px 18px; display:flex; flex-direction:column; gap:14px">
+              <label style="display:flex; flex-direction:column; gap:7px"><span style="font-size:13px; font-weight:600">Cases</span><div style="display:flex; align-items:center; height:40px; border:1px solid #E1DED4; border-radius:12px; overflow:hidden; width:132px"><button style="width:32px; height:100%; border:none; border-right:1px solid #E1DED4; background:#F7F6F2; color:#43524B; font-size:15px; cursor:pointer">−</button><input value="10" style="flex:1; border:none; text-align:center; font-family:'General Sans',sans-serif; font-weight:300; font-size:14px; outline:none" /><button style="width:32px; height:100%; border:none; border-left:1px solid #E1DED4; background:#F7F6F2; color:#43524B; font-size:15px; cursor:pointer">+</button></div></label>
+              <div style="display:flex; justify-content:space-between; padding-top:2px"><span style="font-size:13px; color:#43524B">Line total</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">$230.00</span></div>
+            </div>
+            <div style="display:flex; justify-content:flex-end; gap:10px; padding:14px 20px; border-top:1px solid #EFEDE6; background:#FCFBF8">
+              <button style="height:36px; padding:0 14px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Cancel</button>
+              <button style="height:36px; padding:0 14px; border:none; border-radius:10px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Save line</button>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px; padding-top:4px">
+            <sc-for list="{{ dialogAnatomy }}" as="a" hint-placeholder-count="5">
+              <div style="display:flex; gap:10px; align-items:baseline">
+                <span style="width:18px; height:18px; border-radius:999px; border:1px solid #C9DED3; background:#fff; color:#1E6B4B; font-size:11px; display:flex; align-items:center; justify-content:center; flex:0 0 auto">{{ a.n }}</span>
+                <span style="font-size:13px; color:#43524B"><b style="color:#16211C">{{ a.part }}</b> — {{ a.note }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Props</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+          <div style="display:grid; grid-template-columns:150px 1.3fr 100px 1.4fr; gap:14px; padding:11px 18px; background:#F7F6F2; border-bottom:1px solid #E1DED4">
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Prop</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Type</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Default</span>
+            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6B7A72">Description</span>
+          </div>
+          <sc-for list="{{ dialogProps }}" as="p" hint-placeholder-count="11">
+            <div style="display:grid; grid-template-columns:150px 1.3fr 100px 1.4fr; gap:14px; padding:11px 18px; border-bottom:1px solid #EFEDE6; align-items:baseline">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#16211C">{{ p.name }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#2F5E8C">{{ p.type }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; color:#6B7A72">{{ p.def }}</span>
+              <span style="font-size:12.5px; line-height:1.55; color:#43524B">{{ p.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Tokens</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Widths <b>sm 400 · md 520 · lg 680</b> · radius <b>16</b> · shadow <b>0 24 56 / 22%</b> · scrim <b>ink.900 at 38%</b> · header <b>17/700</b> · footer on <b>#FCFBF8</b> with a <b>#EFEDE6</b> divider · body padding <b>20</b>.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Accessibility</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Role <b>dialog</b> with <b>aria-modal</b>, labelled by its title. Focus moves to the first control on open and returns to the trigger on close, via <b>useFocusTrap</b> and <b>useScrollLock</b>. Escape closes; a dialog with unsaved edits asks before discarding rather than closing on a stray backdrop click.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALERT DIALOG -->
+    <section id="AlertDialog" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Alert Dialog</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A confirmation for something irreversible or expensive. The title asks the question, the body states the consequence, and the confirm button names the action.</p>
+      </div>
+      <div style="border:1px solid #E1DED4; border-radius:14px; padding:32px; background:#F1EFE9; display:flex; gap:20px; justify-content:center; flex-wrap:wrap">
+        <div style="width:376px; background:#fff; border-radius:16px; box-shadow:0 24px 56px rgba(22,33,28,.22); padding:20px; display:flex; flex-direction:column; gap:12px">
+          <span style="font-size:17px; font-weight:700">Cancel PO-4471?</span>
+          <span style="font-size:13.5px; line-height:1.6; color:#43524B">Harbor Produce has already confirmed this order. Cancelling after 8:00 PM may still be charged.</span>
+          <div style="display:flex; justify-content:flex-end; gap:10px; padding-top:4px">
+            <button style="height:36px; padding:0 14px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Keep order</button>
+            <button style="height:36px; padding:0 14px; border:none; border-radius:10px; background:#A32A22; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Cancel order</button>
+          </div>
+        </div>
+        <div style="width:376px; background:#fff; border-radius:16px; box-shadow:0 24px 56px rgba(22,33,28,.22); padding:20px; display:flex; flex-direction:column; gap:12px">
+          <span style="font-size:17px; font-weight:700">Send PO-4471 to Harbor Produce?</span>
+          <span style="font-size:13.5px; line-height:1.6; color:#43524B">$1,486.10 · delivery Tue 6:00 AM. You can undo for 10 minutes after sending.</span>
+          <div style="display:flex; justify-content:flex-end; gap:10px; padding-top:4px">
+            <button style="height:36px; padding:0 14px; border:1px solid #E1DED4; border-radius:10px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Not now</button>
+            <button style="height:36px; padding:0 14px; border:none; border-radius:10px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Send order</button>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>title</b> · <b>description</b> · <b>confirmLabel</b> — a verb, never "OK" · <b>cancelLabel</b> · <b>tone</b> 'default' | 'danger' · <b>onConfirm</b> · <b>loading</b> · <b>requireTypedConfirmation</b> string, for deletions that cannot be undone. Role <b>alertdialog</b>; focus lands on the cancel button for danger tone, Escape cancels, and there is no backdrop dismissal.</span>
+      </div>
+    </section>
+
+    <!-- POPOVER -->
+    <section id="Popover" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Popover</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A small piece of interactive content anchored to its trigger — a filter panel, a column picker, a quick edit. It does not block the page.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:28px; display:flex; gap:36px; align-items:flex-start">
+        <div style="display:flex; flex-direction:column; gap:8px; width:250px">
+          <button style="height:32px; padding:0 12px; border:1px solid #1E6B4B; border-radius:10px; background:#E8F2EC; color:#1E6B4B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; align-self:flex-start; cursor:pointer">Filter</button>
+          <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; box-shadow:0 12px 32px rgba(22,33,28,.14); padding:14px; display:flex; flex-direction:column; gap:12px">
+            <span style="font-size:13px; font-weight:700">Filter invoices</span>
+            <label style="display:flex; align-items:center; gap:9px; font-size:13px"><span style="width:16px; height:16px; border:1px solid #1E6B4B; border-radius:5px; background:#1E6B4B"></span>Variances only</label>
+            <label style="display:flex; align-items:center; gap:9px; font-size:13px"><span style="width:16px; height:16px; border:1px solid #C4CCC7; border-radius:5px; background:#fff"></span>Unmatched lines</label>
+            <div style="height:1px; background:#EFEDE6"></div>
+            <div style="display:flex; justify-content:space-between"><button style="height:30px; padding:0 10px; border:none; border-radius:8px; background:transparent; color:#6B7A72; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">Clear</button><button style="height:30px; padding:0 12px; border:none; border-radius:8px; background:#1E6B4B; color:#fff; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">Apply</button></div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:9px; flex:1">
+          <span style="font-size:13px; font-weight:700">Rules</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">Opens on click, never on hover. Closes on outside click, Escape, or Apply. Positioning flips near viewport edges through <b>usePopover</b>. A Popover never contains another Popover; nested choices become a Dialog.</span>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>trigger</b> · <b>open</b> / <b>defaultOpen</b> / <b>onOpenChange</b> · <b>placement</b> · <b>offset</b> number, 6 · <b>width</b> number | 'trigger' · <b>arrow</b> boolean, false · <b>closeOnInteractOutside</b> boolean, true · <b>portal</b> boolean, true. Trigger sets <b>aria-expanded</b> and <b>aria-controls</b>; focus moves in on open and returns to the trigger on close, but the rest of the page stays operable.</span>
+      </div>
+    </section>
+
+    <!-- TOOLTIP -->
+    <section id="Tooltip" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Tooltip</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A short label for a control whose meaning is not fully visible. Never holds information the operator needs to complete a task, and never holds a control.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:32px; display:flex; gap:44px; align-items:center; flex-wrap:wrap">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:10px">
+          <span style="background:#16211C; color:#fff; border-radius:9px; padding:6px 10px; font-size:12.5px">Filter rows</span>
+          <span style="width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:5px solid #16211C; margin-top:-9px"></span>
+          <button style="width:32px; height:32px; border:1px solid #E1DED4; border-radius:10px; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center"><span style="width:14px; height:14px; border-radius:4px; background:#43524B"></span></button>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; max-width:340px">
+          <span style="font-size:13px; font-weight:700">Rules</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">300ms open delay, no close delay, one tooltip at a time. Appears on hover <em>and</em> keyboard focus. Maximum two lines; if it needs more, the interface needs a hint under the field.</span>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>content</b> string · <b>placement</b> · <b>delay</b> ms, 300 · <b>disabled</b> · <b>maxWidth</b> number, 240. Role <b>tooltip</b> referenced by <b>aria-describedby</b> — or used as the control's <b>aria-label</b> when the trigger is icon-only. Escape dismisses without moving focus, and it never covers its own trigger.</span>
+      </div>
+    </section>
+
+    <!-- HOVER CARD -->
+    <section id="HoverCard" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Hover Card</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">A preview of a record behind a reference — a vendor, an invoice, an item. Everything in it exists elsewhere, so nothing is lost if it is never opened.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:28px; display:flex; gap:36px; align-items:flex-start">
+        <div style="display:flex; flex-direction:column; gap:10px; width:300px">
+          <span style="font-size:14px; color:#43524B">Order sent to <span style="color:#1E6B4B; font-weight:600; box-shadow:inset 0 -1px 0 #C9DED3">Harbor Produce</span></span>
+          <div style="background:#fff; border:1px solid #E1DED4; border-radius:12px; box-shadow:0 12px 32px rgba(22,33,28,.14); padding:14px; display:flex, flex-direction:column; gap:10px">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px"><span style="width:30px; height:30px; border-radius:9px; background:#F1EFE9; color:#43524B; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center">HP</span><div style="display:flex; flex-direction:column"><span style="font-size:13.5px; font-weight:700">Harbor Produce Co.</span><span style="font-size:12px; color:#6B7A72">Produce · Tue, Thu delivery</span></div></div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+              <div style="display:flex; flex-direction:column"><span style="font-size:11.5px; color:#6B7A72">Period spend</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">$3,806.44</span></div>
+              <div style="display:flex; flex-direction:column"><span style="font-size:11.5px; color:#6B7A72">Open variances</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#B4531B">2</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:9px; flex:1">
+          <span style="font-size:13px; font-weight:700">Rules</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">500ms open delay, 200ms close grace so the pointer can travel into the card. Read-only: no forms, no destructive actions, at most one link. Keyboard users reach the same content by activating the reference.</span>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>trigger</b> · <b>openDelay</b> 500 · <b>closeDelay</b> 200 · <b>placement</b> · <b>width</b> number, 300 · <b>loading</b> — skeleton content while the record is fetched. Never the only path to the information; suppressed entirely under <b>prefers-reduced-motion</b> plus touch input.</span>
+      </div>
+    </section>
+
+    <!-- COMMAND PALETTE -->
+    <section id="CommandPalette" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Command Palette</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Keyboard-first search across records and actions. For an experienced operator this is the fastest route to any invoice, vendor, or task in the product.</p>
+      </div>
+      <div style="border:1px solid #E1DED4; border-radius:14px; padding:32px; background:#F1EFE9; display:flex; justify-content:center">
+        <div style="width:520px; background:#fff; border-radius:16px; box-shadow:0 24px 56px rgba(22,33,28,.22); overflow:hidden">
+          <div style="display:flex; align-items:center; gap:10px; padding:14px 16px; border-bottom:1px solid #EFEDE6"><span style="width:15px; height:15px; border-radius:999px; border:1.5px solid #8D9994"></span><span style="font-size:15px; flex:1">harbor</span><span style="height:20px; padding:0 6px; border:1px solid #E1DED4; border-radius:6px; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72; display:flex; align-items:center">esc</span></div>
+          <div style="padding:6px">
+            <div style="padding:7px 10px; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#8D9994">Records</div>
+            <sc-for list="{{ paletteRecords }}" as="p" hint-placeholder-count="3">
+              <div style="display:flex; align-items:center; gap:11px; padding:9px 10px; border-radius:9px; font-size:13.5px" style-hover="background:#F7F6F2"><span style="width:16px; height:16px; border-radius:5px; background:#E8F2EC; border:1px solid #C9DED3"></span>{{ p.label }}<span style="margin-left:auto; font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#8D9994">{{ p.meta }}</span></div>
+            </sc-for>
+            <div style="padding:7px 10px; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#8D9994">Actions</div>
+            <div style="display:flex; align-items:center; gap:11px; padding:9px 10px; border-radius:9px; background:#F7F6F2; font-size:13.5px"><span style="width:16px; height:16px; border-radius:5px; background:#1E6B4B"></span>New order for Harbor Produce<span style="margin-left:auto; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">⏎</span></div>
+          </div>
+          <div style="display:flex; align-items:center; gap:14px; padding:9px 16px; border-top:1px solid #EFEDE6; background:#FCFBF8"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11.5px; color:#6B7A72">↑↓ navigate</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11.5px; color:#6B7A72">⏎ open</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11.5px; color:#6B7A72">⌘K toggle</span></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>open</b> / <b>onOpenChange</b> · <b>groups</b> with heading and items · <b>onSearch</b> · <b>placeholder</b> · <b>recents</b> · <b>hotkey</b> string, 'mod+k' · <b>emptyMessage</b> · <b>footer</b> ReactNode. Combobox inside a modal dialog: <b>aria-activedescendant</b> tracks the highlighted row, results are announced with their count, and every action in it also exists in the interface.</span>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <section id="Lightbox" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Lightbox</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Full-size view of an invoice scan or a delivery photo, with zoom and paging through the set attached to one record.</p>
+      </div>
+      <div style="border:1px solid #E1DED4; border-radius:14px; background:#16211C; padding:20px; display:flex; flex-direction:column; gap:14px">
+        <div style="display:flex; align-items:center; justify-content:space-between"><div style="display:flex; flex-direction:column; gap:2px"><span style="font-size:13.5px; font-weight:600; color:#fff">harbor-aug22.pdf</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11.5px; color:#A9B6B0">Page 1 of 3 · INV-20841</span></div><div style="display:flex; gap:8px"><button style="height:30px; padding:0 11px; border:1px solid #3A4A43; border-radius:9px; background:transparent; color:#DCE5E0; font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer">Download</button><button style="width:30px; height:30px; border:1px solid #3A4A43; border-radius:9px; background:transparent; color:#DCE5E0; font-size:14px; cursor:pointer">×</button></div></div>
+        <div style="height:200px; border-radius:12px; background:repeating-linear-gradient(135deg,#1C2822 0 10px,#202D26 10px 20px); display:flex; align-items:center; justify-content:center"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#8D9994; background:#16211C; border:1px solid #2A3832; border-radius:8px; padding:7px 11px">invoice scan</span></div>
+        <div style="display:flex; gap:8px; justify-content:center"><span style="width:34px; height:24px; border-radius:5px; border:1px solid #7FC3A2; background:#22302A"></span><span style="width:34px; height:24px; border-radius:5px; border:1px solid #2A3832; background:#1C2822"></span><span style="width:34px; height:24px; border-radius:5px; border:1px solid #2A3832; background:#1C2822"></span></div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>items</b> with src, alt, caption · <b>index</b> / <b>onIndexChange</b> · <b>zoom</b> boolean, true · <b>download</b> boolean · <b>thumbnails</b> boolean. Modal dialog labelled by the file name; arrows page, plus and minus zoom, Escape closes and returns focus to the thumbnail that opened it. Every image carries alt text from the upload record.</span>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      layers: [
+        { z: "100", name: "Tooltip", dismiss: "Pointer leave, blur, Escape — never blocks anything" },
+        { z: "200", name: "Hover Card", dismiss: "Pointer leave with a grace period, Escape" },
+        { z: "300", name: "Popover · Dropdown Menu", dismiss: "Outside click, Escape, selection" },
+        { z: "400", name: "Toast", dismiss: "Timer, dismiss button; paused on hover and focus" },
+        { z: "500", name: "Dialog · Alert Dialog · Lightbox", dismiss: "Explicit action; Escape unless there are unsaved edits" },
+        { z: "600", name: "Command Palette", dismiss: "Escape, selection, or the hotkey again" }
+      ],
+      dialogAnatomy: [
+        { n: "1", part: "Scrim", note: "ink.900 at 38%, locks scroll behind it" },
+        { n: "2", part: "Header", note: "Title plus record context, and one close control" },
+        { n: "3", part: "Body", note: "One task; scrolls internally past 60% viewport height" },
+        { n: "4", part: "Footer", note: "Primary right, cancel left of it, nothing else" },
+        { n: "5", part: "Surface", note: "16px radius, overlay shadow, 400–680 wide" }
+      ],
+      dialogProps: [
+        { name: "open", type: "boolean", def: "—", desc: "Controlled visibility." },
+        { name: "onOpenChange", type: "(open: boolean) => void", def: "—", desc: "Fires for every route out, including Escape." },
+        { name: "title", type: "string", def: "—", desc: "Required. Labels the dialog for assistive tech." },
+        { name: "description", type: "ReactNode", def: "—", desc: "Record context under the title." },
+        { name: "size", type: "'sm' | 'md' | 'lg'", def: "'md'", desc: "400 / 520 / 680px." },
+        { name: "footer", type: "ReactNode", def: "—", desc: "Action row. Primary action last in DOM order." },
+        { name: "dismissible", type: "boolean", def: "true", desc: "False while a save is in flight." },
+        { name: "closeOnBackdrop", type: "boolean", def: "true", desc: "Set false when the dialog holds unsaved edits." },
+        { name: "initialFocus", type: "RefObject", def: "first control", desc: "Overrides where focus lands on open." },
+        { name: "scrollBehavior", type: "'inside' | 'outside'", def: "'inside'", desc: "Body scrolls, header and footer stay put." },
+        { name: "portal", type: "boolean", def: "true", desc: "Renders into the layer root." }
+      ],
+      paletteRecords: [
+        { label: "Harbor Produce Co.", meta: "vendor" },
+        { label: "INV-20841 · Harbor Produce", meta: "invoice · 2 variances" },
+        { label: "PO-4471 · Harbor Produce", meta: "order · draft" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

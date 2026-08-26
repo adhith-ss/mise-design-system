@@ -1,0 +1,31 @@
+import { Meta, Typeset } from '@storybook/blocks';
+
+<Meta title="Foundations/Type" />
+
+# Type
+
+Manrope for the interface. General Sans Light for data — amounts, counts, IDs,
+tool names, code. The split is what makes a dense table readable: numbers stop
+competing with labels.
+
+<Typeset
+  fontFamily="Manrope, system-ui, sans-serif"
+  fontSizes={[11, 12, 12.5, 13, 13.5, 14, 15, 16, 17, 24, 30, 40]}
+  fontWeight={600}
+  sampleText="Harbor Produce · PO-4471"
+/>
+
+## Scale in use
+
+| Role | Size / line | Weight |
+| --- | --- | --- |
+| Page title | 40 / 1.08 | 800 |
+| Section title | 30 / 1.1 | 700 |
+| Subsection | 24 | 700 |
+| Card title | 15–17 | 700 |
+| Body | 14 / 1.68 | 400 |
+| Dense body | 12.5–13.5 / 1.6 | 400 |
+| Meta and footers | 11.5–12 | 400 |
+
+Titles carry negative tracking (−0.02em to −0.03em); body text does not.
+Nothing below 11.5px ships.

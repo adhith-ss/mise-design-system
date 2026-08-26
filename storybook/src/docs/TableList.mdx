@@ -1,0 +1,84 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import * as TableStories from '../components/table-list/Table.stories';
+import * as ListStories from '../components/table-list/List.stories';
+import * as MetaStories from '../components/table-list/MetadataList.stories';
+import * as TreeStories from '../components/table-list/TreeList.stories';
+import * as OverflowStories from '../components/table-list/OverflowList.stories';
+
+<Meta title="Table & List/Category" />
+
+# Table & List
+
+Where the work actually happens. An operator reconciling a period spends more
+time in a Table than in every other component in this system combined, so this
+category optimises for scanning and comparing, not for looking good in a
+screenshot.
+
+## Choosing
+
+| The records have… | Component |
+| --- | --- |
+| Several attributes worth comparing | Table |
+| One attribute worth comparing | List |
+| Attributes read, not compared | Metadata List |
+| A parent–child structure | Tree List |
+| More items than the row can fit | Overflow List |
+
+## Numbers compare down, not across
+
+<Canvas of={TableStories.Default} />
+
+Every figure in this category is right-aligned and set in General Sans Light.
+That is what lets an operator run their eye down the Amount column and spot the
+one that is wrong — the single most common task in the product.
+
+<Controls of={TableStories.Default} />
+
+Density is 48px by default, 40px compact for tables over about twenty rows. The
+header sticks; the row's actions live in a More Menu whose accessible name
+includes the record id, so a screen-reader user always knows which invoice they
+are acting on.
+
+<Canvas of={TableStories.Empty} />
+
+An empty table still says why it is empty. "No rows" is never enough.
+
+## One attribute is a List
+
+<Canvas of={ListStories.WithLeading} />
+
+If a List's meta line is carrying three facts separated by dots, it is a Table in
+disguise. Promote it.
+
+## Attributes, not comparisons
+
+<Canvas of={MetaStories.TwoColumns} />
+
+A real `<dl>`, so the label–value pairing survives being read aloud. Record
+headers and detail panels only.
+
+## Hierarchy
+
+<Canvas of={TreeStories.Default} />
+
+Two or three levels. Deeper than that and the operator loses the thread — that
+structure wants a Table with a group column.
+
+## Overflow is counted, never clipped
+
+<Canvas of={OverflowStories.Expandable} />
+
+"+3 more vendors" changes how the row reads. Silently cutting the list off
+changes what the operator believes.
+
+## Accessibility
+
+- Real `<table>` semantics: `<caption>` naming the table, `<th scope="col">`
+  headers, one `<tbody>` row per record. No div grids.
+- Select-all announces its action ("Select all rows" / "Deselect all rows"), and
+  each row checkbox names its record.
+- Tree List uses `role="tree"`/`treeitem` with `aria-expanded`, so depth and
+  state are spoken.
+- Metadata List is a definition list, not a two-column div grid.
+- Row hover is never the only affordance — anything clickable is reachable by
+  keyboard and has a visible focus style.

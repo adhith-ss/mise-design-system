@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet" />
+<style>
+  body { margin:0; background:#F7F6F2; color:#16211C; font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1E6B4B; text-decoration:none; }
+  a:hover { color:#144A34; }
+</style>
+</helmet>
+
+<div style="display:grid; grid-template-columns:264px 1fr; min-height:100vh">
+
+  <aside style="border-right:1px solid #E1DED4; background:#fff; padding:24px 20px; display:flex; flex-direction:column; gap:24px; position:sticky; top:0; height:100vh; overflow:auto">
+    <div style="display:flex; align-items:center; gap:10px">
+      <div style="width:24px; height:24px; border-radius:7px; background:#1E6B4B"></div>
+      <div style="display:flex; flex-direction:column">
+        <span style="font-size:15px; font-weight:800; letter-spacing:-.01em">Mise DLS</span>
+        <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">v0.2 · batch one</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:6px 8px">Foundations</div>
+      <a href="Mise Design System.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Color, type, space</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">Components</div>
+      <a href="Mise-DLS-Index.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; background:#E8F2EC; color:#1E6B4B; font-weight:600">Overview</a>
+      <a href="Mise-DLS-Action.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Action</a>
+      <a href="Mise-DLS-Content.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Content</a>
+      <a href="Mise-DLS-DataInput.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Data Input</a>
+      <a href="Mise-DLS-Feedback.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Feedback &amp; Status</a>
+      <a href="Mise-DLS-Navigation.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Navigation</a>
+      <a href="Mise-DLS-Overlay.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overlay</a>
+      <a href="Mise-DLS-TableList.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Table &amp; List</a>
+      <a href="Mise-DLS-ChatAgent.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Chat &amp; Agent</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">Reference</div>
+      <a href="#hooks" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Hooks &amp; utilities</a>
+      <a href="#conventions" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Doc conventions</a>
+    </div>
+  </aside>
+
+  <main style="padding:48px 56px 120px; max-width:1040px">
+    <div style="display:flex; flex-direction:column; gap:56px">
+
+      <header style="display:flex; flex-direction:column; gap:16px">
+        <span style="align-self:flex-start; background:#E8F2EC; color:#1E6B4B; border-radius:999px; padding:5px 11px; font-size:12px; font-weight:600">Component library</span>
+        <h1 style="margin:0; font-size:44px; line-height:1.06; letter-spacing:-.03em; font-weight:800; max-width:24ch">Every component, documented the same way.</h1>
+        <p style="margin:0; max-width:64ch; font-size:16px; line-height:1.65; color:#43524B">Mise DLS covers the desktop web app, internal ops dashboards, marketing pages, and the agent panel. Component names mirror the Astryx taxonomy so engineering can map one-to-one. Mobile-only primitives — bottom sheets, mobile nav, dictation — are intentionally excluded; Mise runs on desktop.</p>
+      </header>
+
+      <section style="display:flex; flex-direction:column; gap:16px">
+        <h2 style="margin:0; font-size:24px; font-weight:700; letter-spacing:-.02em">Categories</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+          <sc-for list="{{ categories }}" as="c" hint-placeholder-count="8">
+            <a href="{{ c.href }}" style="display:flex; flex-direction:column; gap:8px; background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:20px; text-decoration:none" style-hover="border-color:#C9DED3; background:#FCFBF8">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px">
+                <span style="font-size:16px; font-weight:700; color:#16211C">{{ c.name }}</span>
+                <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#6B7A72">{{ c.count }}</span>
+              </div>
+              <span style="font-size:13px; line-height:1.6; color:#43524B">{{ c.blurb }}</span>
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; color:#8D9994">{{ c.items }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+
+      <section id="conventions" style="display:flex; flex-direction:column; gap:16px">
+        <h2 style="margin:0; font-size:24px; font-weight:700; letter-spacing:-.02em">How each component is documented</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Every entry carries the same nine sections in the same order, so a reader learns the page shape once.</p>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+          <sc-for list="{{ conventions }}" as="s" hint-placeholder-count="9">
+            <div style="display:grid; grid-template-columns:32px 180px 1fr; gap:16px; padding:14px 20px; border-bottom:1px solid #EFEDE6; align-items:baseline">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#8D9994">{{ s.n }}</span>
+              <span style="font-size:14px; font-weight:600">{{ s.name }}</span>
+              <span style="font-size:13px; line-height:1.6; color:#43524B">{{ s.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="display:flex; flex-direction:column; gap:16px">
+        <h2 style="margin:0; font-size:24px; font-weight:700; letter-spacing:-.02em">Excluded on purpose</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+          <sc-for list="{{ excluded }}" as="e" hint-placeholder-count="4">
+            <div style="background:#fff; border:1px dashed #DDD9CE; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:6px">
+              <span style="font-size:14px; font-weight:600; color:#43524B">{{ e.name }}</span>
+              <span style="font-size:13px; line-height:1.6; color:#6B7A72">{{ e.why }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section id="hooks" style="display:flex; flex-direction:column; gap:16px">
+        <h2 style="margin:0; font-size:24px; font-weight:700; letter-spacing:-.02em">Hooks &amp; utilities</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Behaviour the components share. Listed as API only — no visual documentation.</p>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; overflow:hidden">
+          <div style="display:grid; grid-template-columns:220px 1fr; gap:16px; padding:12px 20px; background:#F7F6F2; border-bottom:1px solid #E1DED4">
+            <span style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; color:#6B7A72">Name</span>
+            <span style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; color:#6B7A72">Returns / purpose</span>
+          </div>
+          <sc-for list="{{ hooks }}" as="h" hint-placeholder-count="14">
+            <div style="display:grid; grid-template-columns:220px 1fr; gap:16px; padding:11px 20px; border-bottom:1px solid #EFEDE6">
+              <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; color:#16211C">{{ h.name }}</span>
+              <span style="font-size:13px; line-height:1.55; color:#43524B">{{ h.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      categories: [
+        { name: "Action", count: "10 components", href: "Mise-DLS-Action.dc.html", blurb: "Anything that commits a change or opens a choice.", items: "Button · IconButton · ButtonGroup · ToggleButton · ToggleButtonGroup · SegmentedControl · DropdownMenu · MoreMenu · Link · Toolbar" },
+        { name: "Content", count: "15 components", href: "Mise-DLS-Content.dc.html", blurb: "Text, identity, numbers, and code.", items: "Heading · Text · Avatar · AvatarGroup · Token · Code · CodeBlock · Markdown · Blockquote · Citation · Kbd · Icon · Thumbnail · Timestamp · Divider" },
+        { name: "Data Input", count: "13 components", href: "Mise-DLS-DataInput.dc.html", blurb: "Everything the operator types, picks, or toggles.", items: "Field · TextInput · TextArea · NumberInput · Selector · MultiSelector · CheckboxInput · RadioList · Switch · Slider · DateInput · FileInput · Typeahead" },
+        { name: "Feedback & Status", count: "8 components", href: "Mise-DLS-Feedback.dc.html", blurb: "What happened, what is happening, what is wrong.", items: "Badge · Banner · Toast · ProgressBar · Spinner · Skeleton · StatusDot · EmptyState" },
+        { name: "Navigation", count: "7 components", href: "Mise-DLS-Navigation.dc.html", blurb: "Moving between units, sections, and records.", items: "TopNav · SideNav · TabList · Breadcrumbs · Pagination · Stepper · Outline" },
+        { name: "Overlay", count: "7 components", href: "Mise-DLS-Overlay.dc.html", blurb: "Layers above the page. Ordered by how much they interrupt.", items: "Dialog · AlertDialog · Popover · Tooltip · HoverCard · CommandPalette · Lightbox" },
+        { name: "Table & List", count: "5 components", href: "Mise-DLS-TableList.dc.html", blurb: "Dense records — where ops work actually happens.", items: "Table · List · MetadataList · TreeList · OverflowList" },
+        { name: "Chat & Agent", count: "8 components", href: "Mise-DLS-ChatAgent.dc.html", blurb: "The agent surface: what it did, and what it is about to do.", items: "Message Bubble · Tool-call Card · Inline Approval · Agent Status · Citation · Suggestion Chip · Composer · Agent Error" },
+      ],
+      conventions: [
+        { n: "01", name: "Description", desc: "One sentence on what it is, then when to use it and when to reach for something else." },
+        { n: "02", name: "Anatomy", desc: "A live instance with numbered callouts and a legend naming each part." },
+        { n: "03", name: "Variants", desc: "Every variant axis shown as a labelled grid, matching the Figma variant properties." },
+        { n: "04", name: "States", desc: "Default, hover, focus, active, disabled, loading, error — shown, not described." },
+        { n: "05", name: "Do / Don't", desc: "Two real examples side by side with a one-line reason under each." },
+        { n: "06", name: "Props", desc: "Full API surface: name, type, default, and what it does." },
+        { n: "07", name: "Tokens", desc: "Which foundation token drives each visual property, so a theme change is predictable." },
+        { n: "08", name: "Accessibility", desc: "Roles, keyboard behaviour, focus handling, and announcement expectations." },
+        { n: "09", name: "Code", desc: "React and plain HTML+CSS, both copy-ready." }
+      ],
+      excluded: [
+        { name: "Bottom Sheet, Bottom Sheet Switcher", why: "Touch-first pattern. On desktop a Dialog or Popover carries the same content with better keyboard support." },
+        { name: "Mobile Nav, Mobile Nav Toggle", why: "Mise ships a desktop app shell. Narrow viewports collapse SideNav instead." },
+        { name: "Chat Dictation Button", why: "No voice input in a back-office context; kitchens use the tablet reader, not dictation." },
+        { name: "Carousel", why: "Ops screens do not hide records behind horizontal paging. Table or OverflowList instead." }
+      ],
+      hooks: [
+        { name: "useTheme", desc: "Current theme object and setter. Reads the Theme provider." },
+        { name: "useMediaQuery", desc: "Boolean for a media query; used by Layout to collapse panels." },
+        { name: "useHotkeys", desc: "Registers scoped keyboard shortcuts; powers CommandPalette." },
+        { name: "useFocusTrap", desc: "Traps focus inside Dialog and CommandPalette while open." },
+        { name: "useScrollLock", desc: "Locks body scroll behind any modal layer." },
+        { name: "useLayer", desc: "Stacking context and z-order for nested overlays." },
+        { name: "useClipboard", desc: "Copy handler plus a transient copied flag for CodeBlock." },
+        { name: "useListFocus", desc: "Roving tabindex for List, DropdownMenu, and Typeahead." },
+        { name: "useGridFocus", desc: "Two-axis arrow navigation for Table cells and Calendar." },
+        { name: "useTreeFocus", desc: "Expand, collapse, and traverse for TreeList." },
+        { name: "useOverflow", desc: "Reports overflowing children; drives OverflowList and Toolbar collapse." },
+        { name: "useResizable", desc: "Drag-to-resize sizing for Layout panels and table columns." },
+        { name: "useCollapsible", desc: "Open state, height animation, and trigger props for Collapsible." },
+        { name: "usePopover", desc: "Positioning, flip, and dismiss for Popover, Tooltip, HoverCard." },
+        { name: "useToast", desc: "Imperative queue for Toast; dedupes by key." },
+        { name: "useStreamingText", desc: "Character-rate reveal for agent messages, respects reduced motion." },
+        { name: "useEntryAnimation", desc: "Shared enter transition for overlay layers." },
+        { name: "useClickableContainer", desc: "Makes a card clickable while keeping inner controls independently focusable." },
+        { name: "useTableSelection", desc: "Row selection state, shift-range, and select-all semantics." },
+        { name: "useTableSortable", desc: "Sort key, direction, and header props." },
+        { name: "useTableFiltering", desc: "Filter predicates and active-filter chips." },
+        { name: "useTablePagination", desc: "Page size, offset, and page-count math." },
+        { name: "useLocale", desc: "Active locale for Timestamp, DateInput, and number formatting." },
+        { name: "useTranslator", desc: "String lookup for component-internal copy." },
+        { name: "LayerProvider", desc: "Root for overlay stacking; one per app shell." },
+        { name: "Theme", desc: "Applies a token set to a subtree; used for the agent panel's tinted surface." },
+        { name: "LinkProvider", desc: "Routes every Link through the app router." },
+        { name: "InternationalizationProvider", desc: "Locale, collator, and direction for the whole tree." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

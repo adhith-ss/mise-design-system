@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet" />
+<style>
+  body { margin:0; background:#F7F6F2; color:#16211C; font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1E6B4B; text-decoration:none; }
+  a:hover { color:#144A34; }
+  pre { margin:0; font-family:'General Sans',sans-serif; font-weight:300; font-size:12.5px; line-height:1.7; white-space:pre-wrap; }
+</style>
+</helmet>
+
+<div style="display:grid; grid-template-columns:264px 1fr; min-height:100vh">
+
+  <aside style="border-right:1px solid #E1DED4; background:#fff; padding:24px 20px; display:flex; flex-direction:column; gap:24px; position:sticky; top:0; height:100vh; overflow:auto">
+    <div style="display:flex; align-items:center; gap:10px">
+      <div style="width:24px; height:24px; border-radius:7px; background:#1E6B4B"></div>
+      <div style="display:flex; flex-direction:column">
+        <span style="font-size:15px; font-weight:800; letter-spacing:-.01em">Mise DLS</span>
+        <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#6B7A72">Navigation</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px">
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:6px 8px">Library</div>
+      <a href="Mise-DLS-Index.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overview</a>
+      <a href="Mise Design System.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Foundations</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">On this page</div>
+      <a href="#TopNav" style="padding:7px 8px; border-radius:8px; font-size:13px; background:#E8F2EC; color:#1E6B4B; font-weight:600">Top Nav</a>
+      <a href="#SideNav" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Side Nav</a>
+      <a href="#TabList" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Tab List</a>
+      <a href="#Breadcrumbs" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Breadcrumbs</a>
+      <a href="#Pagination" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Pagination</a>
+      <a href="#Stepper" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Stepper</a>
+      <a href="#Outline" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Outline</a>
+      <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">Categories</div>
+      <a href="Mise-DLS-Action.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Action</a>
+      <a href="Mise-DLS-ChatAgent.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Chat &amp; Agent</a>
+      <a href="Mise-DLS-Content.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Content</a>
+      <a href="Mise-DLS-DataInput.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Data Input</a>
+      <a href="Mise-DLS-Feedback.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Feedback &amp; Status</a>
+      <a href="Mise-DLS-Overlay.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Overlay</a>
+      <a href="Mise-DLS-TableList.dc.html" style="padding:7px 8px; border-radius:8px; font-size:13px; color:#43524B">Table &amp; List</a>
+    </div>
+  </aside>
+
+  <main style="padding:48px 56px 140px; max-width:1000px; display:flex; flex-direction:column; gap:60px">
+
+    <header style="display:flex; flex-direction:column; gap:14px">
+      <span style="align-self:flex-start; background:#E8F2EC; color:#1E6B4B; border-radius:999px; padding:5px 11px; font-size:12px; font-weight:600">Navigation · 7 components</span>
+      <h1 style="margin:0; font-size:40px; line-height:1.08; letter-spacing:-.03em; font-weight:800">Navigation</h1>
+      <p style="margin:0; max-width:62ch; font-size:16px; line-height:1.65; color:#43524B">Mise has two axes: which unit you are looking at, and which part of the back office. The unit lives in the Top Nav and persists; sections live in the Side Nav. Nothing else competes at that level.</p>
+    </header>
+
+    <!-- TOP NAV -->
+    <section id="TopNav" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Top Nav</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">The app's fixed header: product mark, the unit switcher, global search, and account. It never carries page-level actions.</p>
+      </div>
+      <div style="border:1px solid #E1DED4; border-radius:14px; overflow:hidden; box-shadow:0 1px 2px rgba(22,33,28,.05)">
+        <div style="display:flex; align-items:center; gap:14px; height:52px; padding:0 16px; background:#fff; border-bottom:1px solid #E1DED4">
+          <div style="display:flex; align-items:center; gap:9px"><div style="width:22px; height:22px; border-radius:7px; background:#1E6B4B"></div><span style="font-size:14px; font-weight:800">Mise</span></div>
+          <div style="display:flex; align-items:center; gap:8px; height:32px; padding:0 10px; border:1px solid #E1DED4; border-radius:10px; cursor:pointer"><span style="width:18px; height:18px; border-radius:6px; background:#F1EFE9; color:#43524B; font-size:9px; font-weight:700; display:flex; align-items:center; justify-content:center">FO</span><span style="font-size:13px; font-weight:600">Fig &amp; Oak · Downtown</span><span style="width:6px; height:6px; border-right:1.5px solid #6B7A72; border-bottom:1.5px solid #6B7A72; transform:rotate(45deg); margin-top:-3px"></span></div>
+          <div style="flex:1; max-width:300px; height:32px; border:1px solid #E1DED4; border-radius:10px; display:flex; align-items:center; padding:0 10px; gap:8px"><span style="width:13px; height:13px; border-radius:999px; border:1.5px solid #8D9994"></span><span style="font-size:13px; color:#B3BBB6; flex:1">Search</span><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">⌘K</span></div>
+          <div style="margin-left:auto; display:flex; align-items:center; gap:10px">
+            <button style="width:32px; height:32px; border:none; border-radius:9px; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; position:relative" style-hover="background:#F1EFE9"><span style="width:15px; height:15px; border-radius:5px; background:#43524B"></span><span style="position:absolute; top:5px; right:5px; width:7px; height:7px; border-radius:999px; background:#B4531B; border:1.5px solid #fff"></span></button>
+            <span style="width:28px; height:28px; border-radius:999px; background:#E8F2EC; color:#1E6B4B; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center">DM</span>
+          </div>
+        </div>
+        <div style="height:64px; background:#F7F6F2"></div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Props</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>brand</b> ReactNode · <b>unitSwitcher</b> ReactNode · <b>search</b> boolean, true — opens the Command Palette · <b>items</b> for marketing pages only · <b>notifications</b> count · <b>account</b> ReactNode · <b>sticky</b> boolean, true · <b>height</b> 52. On marketing pages the same shell takes <b>items</b> plus a Top Nav Mega Menu.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Accessibility</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">A <b>banner</b> landmark holding a <b>nav</b> labelled "Global". Skip-to-content is the first tab stop. The unit switcher announces the current unit as part of its name, because getting the wrong unit is the most expensive mistake in the product.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIDE NAV -->
+    <section id="SideNav" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Side Nav</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Sections of the back office, grouped and always visible. Counts appear only where they change what the operator does next.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Anatomy</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:28px; display:flex; gap:44px; align-items:flex-start">
+          <div style="width:212px; border:1px solid #E1DED4; border-radius:12px; padding:10px; display:flex; flex-direction:column; gap:3px">
+            <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994; padding:6px 8px">Today</div>
+            <div style="display:flex; align-items:center; gap:9px; padding:7px 8px; border-radius:8px; background:#E8F2EC; color:#1E6B4B; font-size:13px; font-weight:600"><span style="width:14px; height:14px; border-radius:4px; background:#1E6B4B"></span>Overview</div>
+            <div style="display:flex; align-items:center; gap:9px; padding:7px 8px; border-radius:8px; color:#43524B; font-size:13px"><span style="width:14px; height:14px; border-radius:4px; background:#DDE2DF"></span>Decisions<span style="margin-left:auto; background:#FBEFE6; color:#B4531B; border-radius:7px; padding:1px 6px; font-size:11px; font-weight:600">3</span></div>
+            <div style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994; padding:10px 8px 6px">Purchasing</div>
+            <div style="display:flex; align-items:center; gap:9px; padding:7px 8px; border-radius:8px; color:#43524B; font-size:13px"><span style="width:14px; height:14px; border-radius:4px; background:#DDE2DF"></span>Orders</div>
+            <div style="display:flex; align-items:center; gap:9px; padding:7px 8px; border-radius:8px; color:#43524B; font-size:13px"><span style="width:14px; height:14px; border-radius:4px; background:#DDE2DF"></span>Invoices</div>
+            <div style="display:flex; align-items:center; gap:9px; padding:7px 8px; border-radius:8px; color:#43524B; font-size:13px"><span style="width:14px; height:14px; border-radius:4px; background:#DDE2DF"></span>Vendors</div>
+            <div style="height:1px; background:#EFEDE6; margin:8px 0"></div>
+            <div style="display:flex; align-items:center; gap:9px; padding:7px 8px; border-radius:8px; color:#6B7A72; font-size:13px"><span style="width:14px; height:14px; border-radius:4px; background:#EFEDE6"></span>Collapse</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px; padding-top:4px">
+            <sc-for list="{{ sideNavAnatomy }}" as="a" hint-placeholder-count="5">
+              <div style="display:flex; gap:10px; align-items:baseline">
+                <span style="width:18px; height:18px; border-radius:999px; border:1px solid #C9DED3; color:#1E6B4B; font-size:11px; display:flex; align-items:center; justify-content:center; flex:0 0 auto">{{ a.n }}</span>
+                <span style="font-size:13px; color:#43524B"><b style="color:#16211C">{{ a.part }}</b> — {{ a.note }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <h3 style="margin:0; font-size:16px; font-weight:700">Variants and states</h3>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; gap:24px; align-items:flex-start">
+          <div style="display:flex; flex-direction:column; gap:10px"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">collapsed · 56px</span>
+            <div style="width:56px; border:1px solid #E1DED4; border-radius:12px; padding:8px; display:flex; flex-direction:column; gap:5px; align-items:center">
+              <span style="width:34px; height:34px; border-radius:9px; background:#E8F2EC; display:flex; align-items:center; justify-content:center"><span style="width:14px; height:14px; border-radius:4px; background:#1E6B4B"></span></span>
+              <span style="width:34px; height:34px; border-radius:9px; display:flex; align-items:center; justify-content:center"><span style="width:14px; height:14px; border-radius:4px; background:#DDE2DF"></span></span>
+              <span style="width:34px; height:34px; border-radius:9px; display:flex; align-items:center; justify-content:center"><span style="width:14px; height:14px; border-radius:4px; background:#DDE2DF"></span></span>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; flex:1"><span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; color:#8D9994">item states</span>
+            <div style="display:flex; flex-direction:column; gap:4px; max-width:240px">
+              <div style="display:flex; align-items:center; gap:9px; padding:7px 8px; border-radius:8px; background:#E8F2EC; color:#1E6B4B; font-size:13px; font-weight:600"><span style="width:14px; height:14px; border-radius:4px; background:#1E6B4B"></span>Current</div>
+              <div style="display:flex; align-items:center; gap:9px; padding:7px 8px; border-radius:8px; background:#F7F6F2; color:#16211C; font-size:13px"><span style="width:14px; height:14px; border-radius:4px; background:#C4CCC7"></span>Hover</div>
+              <div style="display:flex; align-items:center; gap:9px; padding:7px 8px; border-radius:8px; color:#43524B; font-size:13px; box-shadow:0 0 0 2px #1E6B4B"><span style="width:14px; height:14px; border-radius:4px; background:#DDE2DF"></span>Focus</div>
+              <div style="display:flex; align-items:center; gap:9px; padding:7px 8px; border-radius:8px; color:#B3BBB6; font-size:13px"><span style="width:14px; height:14px; border-radius:4px; background:#EFEDE6"></span>Not available on this plan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Props</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>sections</b> with heading and items · item takes label, icon, href, count, disabled · <b>collapsed</b> boolean · <b>onCollapsedChange</b> · <b>width</b> 212 expanded / 56 collapsed · <b>footer</b> ReactNode · <b>activePath</b> string. Collapsed items show a Tooltip on hover and focus.</span>
+        </div>
+        <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+          <span style="font-size:13px; font-weight:700">Accessibility</span>
+          <span style="font-size:12.5px; line-height:1.7; color:#43524B">A <b>nav</b> landmark labelled "Sections", built from a list of links. The current item carries <b>aria-current="page"</b> — not just a fill. Headings are real headings, so the section structure is reachable by rotor. Collapsed state persists per user and is announced when toggled.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB LIST -->
+    <section id="TabList" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Tab List</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Views of the same record. Tabs never change what record you are looking at, only which facet of it.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:24px">
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">underline · default</span>
+          <div style="display:flex; gap:4px; border-bottom:1px solid #E1DED4">
+            <div style="padding:10px 14px; font-size:14px; font-weight:600; color:#16211C; box-shadow:inset 0 -2px 0 #1E6B4B">Lines</div>
+            <div style="padding:10px 14px; font-size:14px; color:#6B7A72; display:flex; align-items:center; gap:7px">Variances<span style="background:#FBEFE6; color:#B4531B; border-radius:7px; padding:1px 6px; font-size:11px; font-weight:600">2</span></div>
+            <div style="padding:10px 14px; font-size:14px; color:#6B7A72">Attachments</div>
+            <div style="padding:10px 14px; font-size:14px; color:#C4CCC7">Payment</div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">enclosed · inside a panel</span>
+          <div style="display:flex; gap:3px; background:#F1EFE9; border-radius:10px; padding:3px; align-self:flex-start">
+            <div style="padding:7px 13px; border-radius:8px; background:#fff; font-size:13px; font-weight:600; box-shadow:0 1px 2px rgba(22,33,28,.08)">Lines</div>
+            <div style="padding:7px 13px; border-radius:8px; font-size:13px; color:#6B7A72">Variances</div>
+            <div style="padding:7px 13px; border-radius:8px; font-size:13px; color:#6B7A72">History</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>value</b> · <b>onValueChange</b> · <b>tabs</b> with label, count, disabled, href · <b>variant</b> 'underline' | 'enclosed' · <b>size</b> 'sm' | 'md' · <b>overflow</b> 'scroll' | 'menu'. Standard tabs pattern: one tab stop, arrows move, the panel is labelled by its tab. Tab state lives in the URL so a variance view can be linked and reloaded.</span>
+      </div>
+    </section>
+
+    <!-- BREADCRUMBS -->
+    <section id="Breadcrumbs" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Breadcrumbs</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Where a record sits, and the route back up. Used on detail pages that are three levels deep or more.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:16px">
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px"><a href="#Breadcrumbs" style="color:#43524B">Purchasing</a><span style="color:#C4CCC7">/</span><a href="#Breadcrumbs" style="color:#43524B">Invoices</a><span style="color:#C4CCC7">/</span><span style="color:#16211C; font-weight:600">INV-20841</span></div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px"><a href="#Breadcrumbs" style="color:#43524B">Purchasing</a><span style="color:#C4CCC7">/</span><button style="height:22px; padding:0 7px; border:1px solid #E1DED4; border-radius:6px; background:#fff; color:#6B7A72; font-size:12px; cursor:pointer">…</button><span style="color:#C4CCC7">/</span><span style="color:#16211C; font-weight:600">Line 4 · Romaine 24ct</span></div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>items</b> with label and href · <b>maxItems</b> number, 4 — middle items collapse into a menu · <b>separator</b> ReactNode. A <b>nav</b> labelled "Breadcrumb" wrapping an ordered list; the last item is text with <b>aria-current="page"</b>, never a link to itself.</span>
+      </div>
+    </section>
+
+    <!-- PAGINATION -->
+    <section id="Pagination" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Pagination</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Paging through a long table. Preferred over infinite scroll in ops work, because "the invoice on page three" is a thing people say to each other.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:20px">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
+          <span style="font-size:13px; color:#6B7A72">41 invoices · showing <span style="font-family:'General Sans',sans-serif; font-weight:300">1–25</span></span>
+          <div style="display:flex; align-items:center; gap:6px">
+            <button style="height:32px; padding:0 11px; border:1px solid #E1DED4; border-radius:9px; background:#fff; color:#C4CCC7; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600">Previous</button>
+            <button style="width:32px; height:32px; border:1px solid #1E6B4B; border-radius:9px; background:#E8F2EC; color:#1E6B4B; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; cursor:pointer">1</button>
+            <button style="width:32px; height:32px; border:1px solid #E1DED4; border-radius:9px; background:#fff; color:#43524B; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; cursor:pointer">2</button>
+            <span style="width:20px; text-align:center; color:#8D9994">…</span>
+            <button style="width:32px; height:32px; border:1px solid #E1DED4; border-radius:9px; background:#fff; color:#43524B; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px; cursor:pointer">2</button>
+            <button style="height:32px; padding:0 11px; border:1px solid #E1DED4; border-radius:9px; background:#fff; color:#43524B; font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; cursor:pointer">Next</button>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px"><span style="font-size:13px; color:#6B7A72">Per page</span><div style="height:32px; padding:0 10px; border:1px solid #E1DED4; border-radius:9px; display:flex; align-items:center; gap:8px; font-family:'General Sans',sans-serif; font-weight:300; font-size:13px">25<span style="width:6px; height:6px; border-right:1.5px solid #6B7A72; border-bottom:1.5px solid #6B7A72; transform:rotate(45deg); margin-top:-3px"></span></div></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>page</b> · <b>pageCount</b> · <b>pageSize</b> · <b>total</b> · <b>onPageChange</b> · <b>onPageSizeChange</b> · <b>siblingCount</b> number, 1 · <b>showSummary</b> boolean, true. A <b>nav</b> labelled "Pagination"; page buttons name themselves ("Page 2 of 2"), the current page carries <b>aria-current="page"</b>, and the new range is announced politely after each change.</span>
+      </div>
+    </section>
+
+    <!-- STEPPER -->
+    <section id="Stepper" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Stepper</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">Progress through a sequence that has to happen in order — vendor onboarding, period close. Completed steps stay reachable; future steps do not.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:28px; display:flex; flex-direction:column; gap:28px">
+        <div style="display:flex; align-items:center; gap:0">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex; align-items:center; flex:1">
+              <div style="display:flex; align-items:center; gap:10px">
+                <span style="width:26px; height:26px; border-radius:999px; background:{{ s.dotBg }}; border:1px solid {{ s.dotBorder }}; color:{{ s.dotText }}; font-family:'General Sans',sans-serif; font-weight:300; font-size:12px; display:flex; align-items:center; justify-content:center; flex:0 0 auto">{{ s.n }}</span>
+                <span style="display:flex; flex-direction:column"><span style="font-size:13px; font-weight:600; color:{{ s.labelColor }}">{{ s.label }}</span><span style="font-size:11.5px; color:#8D9994">{{ s.meta }}</span></span>
+              </div>
+              <div style="flex:1; height:1px; background:#E1DED4; margin:0 14px"></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px; max-width:340px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994">vertical</span>
+          <div style="display:flex; gap:12px"><span style="width:22px; height:22px; border-radius:999px; background:#1E6B4B; color:#fff; font-size:11px; display:flex; align-items:center; justify-content:center">✓</span><span style="font-size:13px; font-weight:600">Vendor details</span></div>
+          <div style="display:flex; gap:12px"><span style="width:22px; height:22px; border-radius:999px; background:#E8F2EC; border:1px solid #1E6B4B; color:#1E6B4B; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; display:flex; align-items:center; justify-content:center">2</span><span style="display:flex; flex-direction:column; gap:2px"><span style="font-size:13px; font-weight:600">Delivery windows</span><span style="font-size:12px; color:#6B7A72">Two of three set</span></span></div>
+          <div style="display:flex; gap:12px"><span style="width:22px; height:22px; border-radius:999px; border:1px dashed #C4CCC7; color:#B3BBB6; font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; display:flex; align-items:center; justify-content:center">3</span><span style="font-size:13px; color:#B3BBB6">Price list</span></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>steps</b> with label, meta, status 'complete' | 'current' | 'upcoming' | 'error' · <b>activeIndex</b> · <b>orientation</b> · <b>onStepClick</b> — only for completed steps · <b>clickable</b> boolean. An ordered list where each step's status is in its text ("Step 2 of 4, current"); the error status is stated, not only coloured.</span>
+      </div>
+    </section>
+
+    <!-- OUTLINE -->
+    <section id="Outline" style="display:flex; flex-direction:column; gap:22px; border-top:1px solid #E1DED4; padding-top:32px">
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <h2 style="margin:0; font-size:30px; font-weight:700; letter-spacing:-.025em">Outline</h2>
+        <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.65; color:#43524B">In-page navigation for long documents — these docs, a vendor contract, a period close report. Tracks the reading position.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:24px; display:flex; gap:32px">
+        <div style="width:220px; display:flex; flex-direction:column; gap:3px; border-left:1px solid #E1DED4; padding-left:14px">
+          <span style="font-family:'General Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8D9994; padding-bottom:6px">On this page</span>
+          <span style="font-size:13px; color:#43524B; padding:4px 0">Summary</span>
+          <span style="font-size:13px; color:#1E6B4B; font-weight:600; padding:4px 0; box-shadow:-15px 0 0 -14px #1E6B4B">Variances</span>
+          <span style="font-size:13px; color:#43524B; padding:4px 0 4px 14px">Price changes</span>
+          <span style="font-size:13px; color:#43524B; padding:4px 0 4px 14px">Short deliveries</span>
+          <span style="font-size:13px; color:#43524B; padding:4px 0">Approvals</span>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:8px"><span style="font-size:13px; color:#6B7A72; line-height:1.7">Two levels at most. Headings deeper than that are not navigation targets — if a document needs three levels of jumping, it needs to be two documents.</span></div>
+      </div>
+      <div style="background:#fff; border:1px solid #E1DED4; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-size:13px; font-weight:700">Props &amp; accessibility</span>
+        <span style="font-size:12.5px; line-height:1.7; color:#43524B"><b>items</b> with id, label, level · <b>activeId</b> · <b>maxLevel</b> number, 2 · <b>scrollOffset</b> number · <b>title</b> string, "On this page". A <b>nav</b> landmark with its own label; the active item uses <b>aria-current="location"</b> and updates on scroll without stealing focus.</span>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      sideNavAnatomy: [
+        { n: "1", part: "Section heading", note: "11px uppercase, groups three to six items" },
+        { n: "2", part: "Item", note: "32px tall, 14px icon, 8px radius" },
+        { n: "3", part: "Current item", note: "herb.50 fill and herb.600 text, plus aria-current" },
+        { n: "4", part: "Count", note: "Only where it changes what the operator does next" },
+        { n: "5", part: "Footer", note: "Collapse control, pinned to the bottom" }
+      ],
+      steps: [
+        { n: "✓", label: "Vendor details", meta: "Complete", dotBg: "#1E6B4B", dotBorder: "#1E6B4B", dotText: "#fff", labelColor: "#16211C" },
+        { n: "2", label: "Delivery windows", meta: "Current", dotBg: "#E8F2EC", dotBorder: "#1E6B4B", dotText: "#1E6B4B", labelColor: "#16211C" },
+        { n: "3", label: "Price list", meta: "Upcoming", dotBg: "#fff", dotBorder: "#C4CCC7", dotText: "#B3BBB6", labelColor: "#B3BBB6" },
+        { n: "4", label: "Review", meta: "Upcoming", dotBg: "#fff", dotBorder: "#C4CCC7", dotText: "#B3BBB6", labelColor: "#B3BBB6" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

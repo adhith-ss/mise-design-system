@@ -1,0 +1,84 @@
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import * as MessageStories from '../components/chat-agent/Message.stories';
+import * as ToolCallStories from '../components/chat-agent/ToolCallCard.stories';
+import * as ApprovalStories from '../components/chat-agent/InlineApproval.stories';
+import * as StatusStories from '../components/chat-agent/AgentStatus.stories';
+import * as ErrorStories from '../components/chat-agent/AgentError.stories';
+
+<Meta title="Chat & Agent/Category" />
+
+# Chat & Agent
+
+The surface where Mise's agent works alongside an operator: ordering,
+reconciling invoices, chasing credits. The agent may read anything and draft
+anything, but money leaves the restaurant only after a person approves it. These
+components exist to make what the agent did, and what it is about to do,
+legible at a glance.
+
+## Principles
+
+**Read freely, write on approval.** The agent can query any record and draft any
+document. Sending an order, a credit request, or a payment always passes through
+`InlineApproval`.
+
+**Show the work, not the machinery.** Every claim links to its record; every
+action leaves a tool-call card. No prompts, model names, or token counts in the
+interface.
+
+**Named steps over spinners.** Anything over two seconds reports what it is
+doing in the operator's vocabulary — reading invoices, matching lines — and can
+be stopped.
+
+**The transcript is a record.** Approvals, declines, and errors stay in place
+with their timestamps and approver. Nothing is quietly removed once shown.
+
+## The turn
+
+<Canvas of={MessageStories.AllStates} />
+
+An operator turn bubbles and right-aligns. An agent turn does not: it sits flush
+on the surface so tables, tool calls, and approvals inside it are readable at
+full width.
+
+<Controls of={MessageStories.AgentTurn} />
+
+## What the agent did
+
+<Canvas of={ToolCallStories.Expanded} />
+
+Collapsed, the summary alone must be enough to trust or challenge the turn. A
+tool call that writes is expanded from the first render and carries an amber edge.
+
+<Canvas of={ToolCallStories.Write} />
+
+## What the agent is about to do
+
+<Canvas of={ApprovalStories.Pending} />
+
+The only component that turns agent intent into an action against a vendor. The
+title names the amount and the counterparty; the facts grid is enough to decide
+from without opening anything.
+
+Approve is never the default focus. An unanswered approval is pinned rather than
+allowed to scroll away, and the composer blocks new instructions until it is
+resolved.
+
+<Controls of={ApprovalStories.Pending} />
+
+## While it works
+
+<Canvas of={StatusStories.Working} />
+
+## When it cannot finish
+
+<Canvas of={ErrorStories.Timeout} />
+
+Partial work stays visible, the interface says plainly whether anything was sent,
+and the manual route is always the second action.
+
+## Composition
+
+A full agent panel is: `AgentStatus` (compact) in the header, a transcript of
+`Message` turns with `ToolCallCard` and `Citation` inside them,
+`InlineApproval` pinned when pending, `SuggestionChips` after the last turn,
+and `Composer` at the foot.

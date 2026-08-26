@@ -1,0 +1,88 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import * as DialogStories from '../components/overlay/Dialog.stories';
+import * as AlertStories from '../components/overlay/AlertDialog.stories';
+import * as PopoverStories from '../components/overlay/Popover.stories';
+import * as TooltipStories from '../components/overlay/Tooltip.stories';
+import * as HoverStories from '../components/overlay/HoverCard.stories';
+import * as PaletteStories from '../components/overlay/CommandPalette.stories';
+
+<Meta title="Overlay/Category" />
+
+# Overlay
+
+Seven layers above the page, ordered by how much they interrupt. Reach for the
+least interrupting one that does the job: a Tooltip before a Popover, a Popover
+before a Dialog.
+
+## Layer order
+
+| z | Layer | Dismisses on |
+| --- | --- | --- |
+| 100 | Tooltip | Pointer leave, blur, Escape — never blocks anything |
+| 200 | Hover Card | Pointer leave with a grace period, Escape |
+| 300 | Popover, Dropdown Menu | Outside click, Escape, selection |
+| 400 | Toast | Timer, dismiss button; paused on hover and focus |
+| 500 | Dialog, Alert Dialog, Lightbox | Explicit action; Escape unless there are unsaved edits |
+| 600 | Command Palette | Escape, selection, or the hotkey again |
+
+## Tasks
+
+<Canvas of={DialogStories.Default} />
+
+A Dialog is a task that must finish or be abandoned. Anything longer than a
+screenful belongs on a page. Focus moves to the first control on open and returns
+to the trigger on close.
+
+<Controls of={DialogStories.Default} />
+
+## Decisions
+
+<Canvas of={AlertStories.Danger} />
+
+The title asks the question, the body states the consequence, the confirm button
+names the action. Never "OK" — an operator scanning a modal reads the button, not
+the sentence. For danger tone, focus lands on cancel and there is no backdrop
+dismissal.
+
+<Canvas of={AlertStories.TypedConfirmation} />
+
+Typed confirmation for the handful of actions that genuinely cannot be undone.
+
+## Content beside a control
+
+<Canvas of={PopoverStories.Open} />
+
+Opens on click, never on hover. A Popover never contains another Popover; nested
+choices become a Dialog.
+
+<Canvas of={TooltipStories.Top} />
+
+A Tooltip labels; it never informs. Two lines maximum, and it never holds a
+control. If the operator needs the text to finish the task, it belongs under the
+field as a hint.
+
+<Canvas of={HoverStories.Default} />
+
+A Hover Card previews a record. Read-only, at most one link, and never the only
+path to what it shows — keyboard users get there by activating the reference.
+
+## Search
+
+<Canvas of={PaletteStories.Open} />
+
+For an experienced operator this is the fastest route to anything in the product.
+Every action in the palette also exists in the interface; the palette is an
+accelerator, not a hiding place.
+
+## Accessibility
+
+- `role="dialog"` with `aria-modal` for tasks, `role="alertdialog"` for
+  decisions, both labelled by their title.
+- Focus is trapped while a modal layer is open and returns to the trigger on
+  close; scroll behind is locked.
+- Escape closes every layer, except a Dialog holding unsaved edits, which asks
+  first.
+- Tooltip is referenced by `aria-describedby`, or used as the control's
+  `aria-label` when the trigger is icon-only.
+- The Command Palette is a combobox in a modal: `aria-activedescendant` tracks
+  the highlighted row and results are announced with their count.

@@ -1,0 +1,47 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Overview" />
+
+# Mise DLS
+
+A design system for restaurant back-office work: ordering, receiving, invoice
+reconciliation, vendor management — and an agent that does the first draft of all
+of it. 72 components across eight categories.
+
+## What this Storybook is for
+
+The HTML documentation site is the specification: anatomy, do/don't, tokens,
+accessibility notes. This Storybook is the implementation of that specification —
+every prop in the spec exists here, every state in the spec is a story.
+
+If the two disagree, the spec is right and the code is behind.
+
+## Conventions
+
+**Tokens, not values.** Components read CSS custom properties defined in
+`src/styles/tokens.css`. Tailwind's theme maps to those same variables, so
+`bg-brand-600` and Figma's `brand/600` are the same value. Never hard-code a hex.
+
+**Data type vs. UI type.** Manrope for interface text, General Sans Light for
+anything the operator reads as data — amounts, counts, invoice numbers, tool
+names. The `.font-data` utility carries it.
+
+**States are stories.** Hover, focus, disabled, loading, and error each get a
+named export. An `AllStates` story is the visual-regression baseline where a
+component has more than four.
+
+**The agent writes nothing unapproved.** Any component that can commit money
+routes through `InlineApproval`. This is a system rule, not a component option.
+
+## Category map
+
+| Category | Count | Purpose |
+| --- | --- | --- |
+| Action | 10 | Buttons, menus, and everything that starts work |
+| Content | 15 | Cards, text, media, and record display |
+| Data Input | 8 | Fields, pickers, and forms |
+| Feedback & Status | 9 | Toasts, badges, progress, empty states |
+| Navigation | 9 | Shell, tabs, breadcrumbs, pagination |
+| Overlay | 7 | Dialogs, popovers, tooltips, palette |
+| Table & List | 7 | Dense records — where ops work happens |
+| Chat & Agent | 8 | The agent surface |
