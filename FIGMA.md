@@ -56,6 +56,7 @@ and its shortcut text is fixed at the component default.
 | Navigation | TopNav, SideNav, TabList, Breadcrumbs, Pagination, Stepper, Outline |
 | Overlay | Tooltip, Popover, HoverCard, Dialog, AlertDialog, CommandPalette, Lightbox |
 | Table & List | Table, List, MetadataList, TreeList, OverflowList |
+| Chat & Agent | Citation, Message, ToolCallCard, InlineApproval, AgentStatus, SuggestionChips, Composer, AgentError |
 
 Variables: `primitives` (31, hidden from pickers) and `semantic` (49, aliased to
 primitives, WEB code syntax on every one).
@@ -225,7 +226,69 @@ four fixes, three real, one false alarm:
   variant), and separately the component was simply too narrow (360px) for
   two inline label/value columns with 90px fixed labels to fit real content.
 
+### Chat & Agent — variant counts
+
+| Component | Variants | Axes |
+| --- | --- | --- |
+| Citation | 2 | Confidence |
+| Message | 3 | Role |
+| ToolCallCard | 4 | Status |
+| InlineApproval | 3 | State |
+| AgentStatus | 3 | State |
+| SuggestionChips | 2 | Variant |
+| Composer | 2 | State |
+| AgentError | 4 | Kind |
+
+The category most exposed to the FILL-on-TEXT trap, since every component here
+is a paragraph of prose in a fixed-width card rather than a short label — used
+the `fixedText`/`resolvedText` helper (`resize()` to the parent's real inner
+width → `layoutSizingHorizontal = 'FIXED'` → `textAutoResize = 'HEIGHT'`) from
+the start on every component built after `Message`, rather than reaching for
+`FILL` and finding out the hard way each time.
+
+- **`Citation`'s confidence chip was pinned at 1px wide.** `resize(1, 10)` set
+  a placeholder, then only `counterAxisSizingMode = 'AUTO'` was set (hugging
+  height, since the chip is a `HORIZONTAL` frame) — `primaryAxisSizingMode`
+  (width) was left at the `resize()` value and never told to hug. Same family
+  of bug as the `resize()`-resets-sizing trap below, just on the axis that's
+  easy to forget once you've already remembered the other one.
+- **`Message` rendered as a single vertical column of individual letters, full
+  height of the page (640×1183).** Exactly the FILL-on-TEXT trap below, in its
+  original, page-breaking form — this is the component that got it documented.
+- **`ToolCallCard`'s tool name and summary ran together with no gap.**
+  `itemSpacing` was bound to `space/11`, which does not exist in the token
+  scale — `setBoundVariable` no-ops silently on a missing variable rather than
+  throwing, so the frame's `itemSpacing` stayed at its unset default of 0.
+  Fixed by rebinding to the existing `space/10` rather than adding a
+  speculative new token for one gap.
+
+### Chat & Agent — AgentError content notes
+
+Four `Kind` variants (`network`, `permission`, `timeout`, `refusal`), each with
+its own title/body pair and a primary/secondary action row — content
+deliberately never names a provider, never shows a stack trace, and never
+offers to auto-retry a write (a queued credit request or payment), only a read
+like "Try again" on a fetch or "Continue from invoice 9" on a paused read-only
+scan. `Timeout` is the one variant with a third line (`completed`) reporting
+partial progress before the ask; the other three kinds have nothing finished
+to report, so the property is conditionally rendered rather than always
+present with an empty string.
+
 ## Traps worth knowing before building the next category
+
+**`layoutSizingHorizontal = 'FILL'` on a `TEXT` node does nothing while
+`textAutoResize` is still the default `WIDTH_AND_HEIGHT` — the box collapses
+to near-zero width and every character wraps onto its own line.** `Message`'s
+agent and user turns rendered as a single vertical column of individual
+letters, full height of the page, because the pre-flight checklist's own
+warning about this ("NOT `FILL` alone... collapsing the node to a near-zero-
+width thread") got skipped in the moment. The fix that actually worked:
+**don't use `FILL` for wrapping text at all** — `resize()` the node to the
+parent's real inner width (parent width minus its own padding), set
+`layoutSizingHorizontal = 'FIXED'`, then `textAutoResize = 'HEIGHT'`. Toggling
+`FILL` off and back on to force a relayout was tried first and did not fix
+it — this is a case where the reliable path is avoiding the property that
+usually works elsewhere in this file, not fighting it into behaving.
 
 **A hidden auto-layout child still costs you its gap.** Hiding a node removes it
 from layout, but the spacing between its two neighbours remains. An unlabelled
