@@ -55,6 +55,7 @@ and its shortcut text is fixed at the component default.
 | Feedback & Status | StatusDot, Spinner, Skeleton, Badge, Banner, Toast, ProgressBar, EmptyState |
 | Navigation | TopNav, SideNav, TabList, Breadcrumbs, Pagination, Stepper, Outline |
 | Overlay | Tooltip, Popover, HoverCard, Dialog, AlertDialog, CommandPalette, Lightbox |
+| Table & List | Table, List, MetadataList, TreeList, OverflowList |
 
 Variables: `primitives` (31, hidden from pickers) and `semantic` (49, aliased to
 primitives, WEB code syntax on every one).
@@ -188,6 +189,42 @@ start this time, so none of them round-tripped through a one-child
 Popover's leftover single-variant wrap was caught early and fixed the same
 way as `TopNav`/`Outline`) was content, not layout.
 
+### Table & List — variant counts
+
+| Component | Variants | Axes |
+| --- | --- | --- |
+| Table | 2 | Density (Default, Compact) |
+| List | 2 | Density (Default, Compact) |
+| MetadataList | 2 | Layout (Stacked, Inline) |
+| TreeList | — | plain `COMPONENT` |
+| OverflowList | 2 | Behaviour (Expandable, CountOnly) |
+
+Every real bug this category was found by screenshot and deferred to a single
+fix pass at the end, per the reviewing instruction that shaped this category —
+four fixes, three real, one false alarm:
+
+- **Table's card was 12px too narrow** for its own five columns plus padding
+  (280+160+90+90+90 + 2×14 ≠ 720), clipping the Delta column at the right
+  edge. Widened to 750.
+- **Table's Compact variant looked identical to Default at thumbnail scale**
+  — turned out not to be a bug at all; the row heights were correctly 36 vs
+  44, an 8px difference just doesn't read at the zoom level a quick screenshot
+  renders at. Worth remembering before spending a fix cycle on what a closer
+  look would show is already correct.
+- **List's leading icon ended up inside the text column, stacked below the
+  title instead of beside it** — a leftover fragment from mid-edit code
+  (`textCol.appendChild(icon)` followed immediately by re-appending `textCol`
+  itself) that moved the icon to the wrong parent without erroring. Fixed by
+  reading the actual node tree back after the fact rather than trusting what
+  the build script intended to do.
+- **MetadataList clipped its Stacked entries and truncated Inline's values.**
+  Two independent causes bundled into one visual symptom: the inner `cols`
+  wrapper frame was built with plain `layoutMode = 'HORIZONTAL'` and never
+  told to hug its height (the same "manual `layoutMode` assignment keeps
+  Figma's 100×100 default until told otherwise" trap as `Spinner`'s Inverse
+  variant), and separately the component was simply too narrow (360px) for
+  two inline label/value columns with 90px fixed labels to fit real content.
+
 ## Traps worth knowing before building the next category
 
 **A hidden auto-layout child still costs you its gap.** Hiding a node removes it
@@ -278,13 +315,16 @@ visible space at all. When porting a Tailwind arbitrary class, convert the
 
 Padding and gap were raw numbers everywhere through Action and the first pass of
 Content — a documented convention on the Spacing & Radius page, but nothing
-bound to it. Fixed: 16 `space/*` variables (0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 12,
-14, 16, 18, 20 — every discrete value actually found inside a component, not
-the doc scaffolding around it) plus `overlap/sm|md|lg` for AvatarGroup's
-negative stacking margin and `overlap/border` for ButtonGroup's −1px attached-
-border collapse. Live on the Spacing & Radius page under **Spacing
-(variables)**, in the `semantic` collection, scope `GAP`. `space/14` and
-`overlap/border` were added in a second pass once Action's Button and
+bound to it. Fixed: 18 `space/*` variables (0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 12,
+14, 16, 18, 20, 24, 32 — every discrete value actually found inside a
+component, not the doc scaffolding around it) plus `overlap/sm|md|lg` for
+AvatarGroup's negative stacking margin and `overlap/border` for ButtonGroup's
+−1px attached-border collapse. Live on the Spacing & Radius page under
+**Spacing (variables)**, in the `semantic` collection, scope `GAP`. `space/24`
+joined for FileInput's drop-zone padding, `space/32` for TreeList's depth-1
+indent — same story each time: build first, add the token the moment a real
+value needs it, never speculatively. `space/14` and `overlap/border` were
+added in a second pass once Action's Button and
 ButtonGroup turned up values the Content-only scale didn't cover — the scale
 grows from what's actually used, not from guessing ahead.
 
