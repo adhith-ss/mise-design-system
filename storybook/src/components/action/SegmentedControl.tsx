@@ -1,3 +1,4 @@
+import type { KeyboardEvent } from 'react';
 import { cx } from '../../lib/cx';
 
 export interface Segment {
@@ -21,6 +22,24 @@ export interface SegmentedControlProps {
 export function SegmentedControl({
   segments, value, onChange, label, size = 'md', fullWidth = false,
 }: SegmentedControlProps) {
+  // Roving tabindex, per the WAI-ARIA tabs pattern: only the selected segment
+  // sits in the page's Tab order, so reaching the control costs one Tab stop
+  // regardless of how many segments it has. Arrow/Home/End move focus *and*
+  // switch the value — this is an "automatic activation" tablist, matching
+  // how it already behaves on click.
+  const move = (e: KeyboardEvent<HTMLButtonElement>, i: number) => {
+    let next: number;
+    if (e.key === 'ArrowRight') next = (i + 1) % segments.length;
+    else if (e.key === 'ArrowLeft') next = (i - 1 + segments.length) % segments.length;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = segments.length - 1;
+    else return;
+    e.preventDefault();
+    onChange(segments[next].value);
+    const list = e.currentTarget.parentElement;
+    (list?.children[next] as HTMLElement | undefined)?.focus();
+  };
+
   return (
     <div
       role="tablist"
@@ -30,7 +49,7 @@ export function SegmentedControl({
         fullWidth && 'flex w-full',
       )}
     >
-      {segments.map((s) => {
+      {segments.map((s, i) => {
         const on = s.value === value;
         return (
           <button
@@ -38,7 +57,9 @@ export function SegmentedControl({
             role="tab"
             type="button"
             aria-selected={on}
+            tabIndex={on ? 0 : -1}
             onClick={() => onChange(s.value)}
+            onKeyDown={(e) => move(e, i)}
             className={cx(
               'inline-flex items-center gap-2 rounded-md font-semibold transition-colors duration-fast ease-mise',
               size === 'sm' ? 'h-[26px] px-[10px] text-[12.5px]' : 'h-8 px-3 text-[13px]',

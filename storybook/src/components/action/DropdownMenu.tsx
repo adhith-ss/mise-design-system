@@ -38,20 +38,61 @@ export function DropdownMenu({
 }: DropdownMenuProps) {
   const [open, setOpen] = useState(defaultOpen);
   const root = useRef<HTMLDivElement>(null);
+  const triggerWrap = useRef<HTMLSpanElement>(null);
+  const menu = useRef<HTMLDivElement>(null);
 
-  const set = (v: boolean) => { setOpen(v); onOpenChange?.(v); };
+  // The trigger is an arbitrary ReactNode (usually a Button/IconButton, none
+  // of which forward refs), so the actual focusable element inside it is
+  // found by querying the DOM rather than cloning it with a ref.
+  const triggerEl = () => triggerWrap.current?.querySelector<HTMLElement>('button, a[href], [tabindex]');
+
+  const set = (v: boolean) => {
+    setOpen(v);
+    onOpenChange?.(v);
+    // WAI-ARIA menu pattern: closing (Escape, outside click, or a selection)
+    // returns focus to the control that opened it, not to the document body.
+    if (!v) triggerEl()?.focus();
+  };
+
+  // aria-haspopup/aria-expanded belong on the trigger itself, not the
+  // wrapping span — set imperatively for the same forwardRef reason above.
+  useEffect(() => {
+    const el = triggerEl();
+    el?.setAttribute('aria-haspopup', 'menu');
+    el?.setAttribute('aria-expanded', String(open));
+  }, [open]);
+
+  // Opening a menu moves focus into it — the WAI-ARIA menu pattern expects
+  // the first item to be focused immediately, not left on the trigger.
+  useEffect(() => {
+    if (!open) return;
+    menu.current?.querySelector<HTMLElement>('[role="menuitem"]:not(:disabled)')?.focus();
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
     const away = (e: MouseEvent) => {
       if (!root.current?.contains(e.target as Node)) set(false);
     };
-    const esc = (e: KeyboardEvent) => { if (e.key === 'Escape') set(false); };
+    const key = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { set(false); return; }
+      if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'Home' && e.key !== 'End') return;
+      e.preventDefault();
+      const focusable = Array.from(menu.current?.querySelectorAll<HTMLElement>('[role="menuitem"]:not(:disabled)') ?? []);
+      if (focusable.length === 0) return;
+      const at = focusable.indexOf(document.activeElement as HTMLElement);
+      let next: number;
+      if (e.key === 'ArrowDown') next = (at + 1) % focusable.length;
+      else if (e.key === 'ArrowUp') next = (at - 1 + focusable.length) % focusable.length;
+      else if (e.key === 'Home') next = 0;
+      else next = focusable.length - 1;
+      focusable[next]?.focus();
+    };
     document.addEventListener('mousedown', away);
-    document.addEventListener('keydown', esc);
+    document.addEventListener('keydown', key);
     return () => {
       document.removeEventListener('mousedown', away);
-      document.removeEventListener('keydown', esc);
+      document.removeEventListener('keydown', key);
     };
   });
 
@@ -64,9 +105,10 @@ export function DropdownMenu({
 
   return (
     <div ref={root} className="relative inline-block">
-      <span onClick={() => set(!open)} role="presentation">{trigger}</span>
+      <span ref={triggerWrap} onClick={() => set(!open)} role="presentation">{trigger}</span>
       {open && (
         <div
+          ref={menu}
           role="menu"
           style={{ maxHeight }}
           className={cx(

@@ -29,7 +29,10 @@ export function Banner({ title, children, tone = 'info', action, onDismiss }: Ba
       style={{ '--mise-streak-color': TONE_STREAK[tone] } as CSSProperties}
       className={cx('mise-streak-border flex items-start gap-3 rounded-control border px-4 py-[13px]', TONE_BG[tone])}
     >
-      {tone !== 'neutral' && <Icon icon={Glyph} size="md" className={cx('mt-[1px]', TONE_FG[tone])} label={tone} />}
+      {/* Decorative, not labelled — the banner's role (status/alert) plus the
+          title text already carry the condition; a labelled icon here would
+          have a screen reader announce the tone word twice. */}
+      {tone !== 'neutral' && <Icon icon={Glyph} size="md" className={cx('mt-[1px]', TONE_FG[tone])} />}
       <div className="flex flex-1 flex-col gap-[3px]">
         <span className={cx('text-[13.5px] font-bold', TONE_FG[tone])}>{title}</span>
         {children && <span className="text-[12.5px] leading-[1.6] text-ink-700">{children}</span>}
