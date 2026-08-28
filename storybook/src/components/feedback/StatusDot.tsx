@@ -1,6 +1,13 @@
 import { cx } from '../../lib/cx';
 import { TONE_DOT, type Tone } from './tone';
 
+/**
+ * The dot's own colour, not the shared TONE_DOT used by Badge/Toast — waiting
+ * on a human reads as yellow specifically, distinct from the burnt-orange
+ * `tone-warning-fg` used for warning *text* elsewhere in the system.
+ */
+const DOT_COLOR: Record<Tone, string> = { ...TONE_DOT, warning: 'bg-warn' };
+
 export interface StatusDotProps {
   tone: Tone;
   /** Required. The state in words — the dot is never the only signal. */
@@ -21,7 +28,7 @@ export function StatusDot({ tone, label, labelHidden = false, live = false, size
         className={cx(
           'shrink-0 rounded-pill',
           size === 'sm' ? 'h-[6px] w-[6px]' : 'h-2 w-2',
-          TONE_DOT[tone],
+          DOT_COLOR[tone],
           live && 'motion-safe:animate-pulse',
         )}
       />

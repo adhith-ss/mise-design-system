@@ -10,6 +10,22 @@ export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export function TextInput({ data = false, invalid, className, ...rest }: TextInputProps) {
   const field = useField();
+
+  // Read-only is a fact, not an editable field — showing the input bar around
+  // it invites a click that does nothing. Render the value as plain text at
+  // the same height instead, so it still lines up with editable siblings.
+  if (rest.readOnly) {
+    return (
+      <span
+        id={field?.id}
+        aria-describedby={field?.describedBy}
+        className={cx('flex h-md w-full items-center text-[14px] text-ink-900', data && 'font-data', className)}
+      >
+        {rest.value ?? rest.defaultValue}
+      </span>
+    );
+  }
+
   return (
     <input
       id={field?.id}

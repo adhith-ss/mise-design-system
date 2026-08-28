@@ -41,15 +41,19 @@ export function Pagination({
       )}
 
       <nav aria-label="Pagination" className="ml-auto flex items-center gap-[6px]">
-        <button type="button" className={btn} disabled={page <= 1} onClick={() => onPageChange(page - 1)}>
-          Previous
-        </button>
+        {pageCount > 1 && (
+          <button type="button" className={btn} disabled={page <= 1} onClick={() => onPageChange(page - 1)}>
+            Previous
+          </button>
+        )}
         <span className="font-data px-1 text-[12.5px] text-ink-500">
           Page {page} of {pageCount}
         </span>
-        <button type="button" className={btn} disabled={page >= pageCount} onClick={() => onPageChange(page + 1)}>
-          Next
-        </button>
+        {pageCount > 1 && (
+          <button type="button" className={btn} disabled={page >= pageCount} onClick={() => onPageChange(page + 1)}>
+            Next
+          </button>
+        )}
       </nav>
 
       {pageSize && onPageSizeChange && (

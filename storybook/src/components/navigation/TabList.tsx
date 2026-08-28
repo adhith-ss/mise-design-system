@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { cx } from '../../lib/cx';
 
 export interface Tab {
@@ -5,6 +6,8 @@ export interface Tab {
   label: string;
   count?: number;
   disabled?: boolean;
+  /** Leading glyph, 16px. */
+  icon?: ReactNode;
 }
 
 export interface TabListProps {
@@ -31,6 +34,11 @@ export function TabList({ tabs, value, onChange, label, appearance = 'underline'
     >
       {tabs.map((t) => {
         const on = t.value === value;
+        // The count reads at the same weight as the label it sits beside —
+        // 'underline' active text is brand-600, 'enclosed' active text is
+        // ink-900, so the count follows whichever one applies rather than
+        // defaulting to brand-600 regardless of appearance.
+        const activeTextClass = appearance === 'underline' ? 'text-brand-600' : 'text-ink-900';
         return (
           <button
             key={t.value}
@@ -49,9 +57,10 @@ export function TabList({ tabs, value, onChange, label, appearance = 'underline'
               t.disabled && 'cursor-not-allowed text-ink-300',
             )}
           >
+            {t.icon}
             {t.label}
             {t.count != null && (
-              <span className={cx('font-data rounded-pill px-[6px] text-[11px]', on ? 'bg-brand-50 text-brand-600' : 'bg-canvas text-ink-500')}>
+              <span className={cx('font-data rounded-pill px-[6px] text-[11px]', on ? cx('bg-brand-50 font-semibold', activeTextClass) : 'bg-canvas text-ink-500')}>
                 {t.count}
               </span>
             )}

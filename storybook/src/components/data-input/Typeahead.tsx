@@ -24,7 +24,7 @@ export interface TypeaheadProps {
 /** Search across a list too long to show at once — vendors, items, invoices. */
 export function Typeahead({
   items, value, onChange, placeholder = 'Search…', loading = false,
-  emptyMessage = 'No matches', disabled, invalid,
+  emptyMessage = 'Uh oh!…No matches found', disabled, invalid,
 }: TypeaheadProps) {
   const field = useField();
   const [query, setQuery] = useState('');

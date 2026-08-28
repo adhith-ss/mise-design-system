@@ -42,5 +42,4 @@ export const Default: Story = {};
 export const Selected: Story = { args: { value: 'romaine' } };
 export const Loading: Story = { args: { loading: true } };
 export const NoMatches: Story = { args: { items: [] } };
-export const Invalid: Story = { args: { invalid: true } };
 export const Disabled: Story = { args: { disabled: true, value: 'romaine' } };

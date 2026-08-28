@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { TopNav } from './TopNav';
 import { StatusDot } from '../feedback/StatusDot';
+import { Icon } from '../content/Icon';
+import { Calendar, ShoppingCart, Receipt, Building2, Package } from 'lucide-react';
 
 const meta = {
   title: 'Navigation/Top Nav',
@@ -22,11 +24,11 @@ const meta = {
       </div>
     ),
     items: [
-      { label: 'Today', href: '#', current: true },
-      { label: 'Orders', href: '#' },
-      { label: 'Invoices', href: '#', count: 2 },
-      { label: 'Vendors', href: '#' },
-      { label: 'Items', href: '#' },
+      { label: 'Today', href: '#', current: true, icon: <Icon icon={Calendar} size="sm" /> },
+      { label: 'Orders', href: '#', icon: <Icon icon={ShoppingCart} size="sm" /> },
+      { label: 'Invoices', href: '#', count: 2, icon: <Icon icon={Receipt} size="sm" /> },
+      { label: 'Vendors', href: '#', icon: <Icon icon={Building2} size="sm" /> },
+      { label: 'Items', href: '#', icon: <Icon icon={Package} size="sm" /> },
     ],
     actions: <StatusDot tone="success" label="Agent idle" size="sm" />,
   },

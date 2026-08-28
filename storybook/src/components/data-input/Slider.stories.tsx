@@ -15,7 +15,7 @@ const meta = {
       },
     },
   },
-  args: { value: 15, min: 0, max: 50, onChange: () => {} },
+  args: { value: 80, min: 0, max: 100, onChange: () => {} },
   render: (args) => {
     const [value, setValue] = useState(args.value);
     return (
@@ -31,11 +31,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = { args: { format: (v: number) => `${v}%` } };
+export const Default: Story = { args: { format: (v: number) => `${v}% of 100` } };
 export const WithEndLabels: Story = {
-  args: { format: (v: number) => `${v}%`, minLabel: 'Flag everything', maxLabel: 'Only large gaps' },
+  args: { format: (v: number) => `${v}% of 100`, minLabel: 'Flag everything', maxLabel: 'Only large gaps' },
 };
 export const Currency: Story = {
   args: { min: 0, max: 500, step: 10, value: 50, format: (v: number) => `$${v}` },
 };
-export const Disabled: Story = { args: { disabled: true, format: (v: number) => `${v}%` } };
+export const Disabled: Story = { args: { disabled: true, format: (v: number) => `${v}% of 100` } };

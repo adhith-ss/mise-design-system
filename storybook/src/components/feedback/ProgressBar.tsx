@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { cx } from '../../lib/cx';
 
 export interface ProgressBarProps {
@@ -10,11 +11,13 @@ export interface ProgressBarProps {
   detail?: string;
   size?: 'sm' | 'md';
   tone?: 'brand' | 'warning';
+  /** Leading glyph before the label — a checkmark on Complete, an alert on Warning. 14px. */
+  icon?: ReactNode;
 }
 
 /** Determinate work with a known end: reading 8 invoices, uploading 3 files. */
 export function ProgressBar({
-  value, max = 100, label, detail, size = 'md', tone = 'brand',
+  value, max = 100, label, detail, size = 'md', tone = 'brand', icon,
 }: ProgressBarProps) {
   const indeterminate = value == null;
   const pct = indeterminate ? 30 : Math.min(100, Math.max(0, (value / max) * 100));
@@ -23,7 +26,12 @@ export function ProgressBar({
     <div className="flex w-full flex-col gap-[6px]">
       {(label || detail) && (
         <div className="flex items-baseline justify-between">
-          {label && <span className="text-[12.5px] font-medium">{label}</span>}
+          {label && (
+            <span className="inline-flex items-center gap-[6px] text-[12.5px] font-medium">
+              {icon}
+              {label}
+            </span>
+          )}
           {detail && <span className="font-data text-[11.5px] text-ink-500">{detail}</span>}
         </div>
       )}

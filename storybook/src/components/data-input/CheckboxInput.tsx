@@ -12,10 +12,12 @@ export interface CheckboxInputProps {
   indeterminate?: boolean;
   disabled?: boolean;
   invalid?: boolean;
+  /** Marks the choice mandatory and adds the visible marker on the label. */
+  required?: boolean;
 }
 
 export function CheckboxInput({
-  checked, onChange, label, hint, indeterminate = false, disabled, invalid,
+  checked, onChange, label, hint, indeterminate = false, disabled, invalid, required,
 }: CheckboxInputProps) {
   const id = useId();
   const hintId = hint ? `${id}-hint` : undefined;
@@ -28,6 +30,7 @@ export function CheckboxInput({
         role="checkbox"
         aria-checked={indeterminate ? 'mixed' : checked}
         aria-describedby={hintId}
+        aria-required={required || undefined}
         disabled={disabled}
         onClick={() => onChange(!checked)}
         className={cx(
@@ -45,7 +48,10 @@ export function CheckboxInput({
         )}
       </button>
       <label htmlFor={id} className={cx('flex flex-col gap-[2px]', disabled && 'text-ink-400')}>
-        <span className="text-[13.5px]">{label}</span>
+        <span className="text-[13.5px]">
+          {label}
+          {required && <span aria-hidden="true" className="ml-1 text-danger">*</span>}
+        </span>
         {hint && <span id={hintId} className="text-[12px] leading-[1.5] text-ink-500">{hint}</span>}
       </label>
     </div>

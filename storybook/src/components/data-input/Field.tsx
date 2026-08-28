@@ -74,5 +74,5 @@ export const controlClass = (invalid?: boolean) =>
     'placeholder:text-ink-400',
     'focus:border-brand-600 focus:ring-[3px] focus:ring-brand-50',
     'disabled:cursor-not-allowed disabled:bg-canvas disabled:text-ink-400',
-    invalid ? 'border-danger' : 'border-line',
+    invalid ? 'border-2 border-danger' : 'border-line',
   );

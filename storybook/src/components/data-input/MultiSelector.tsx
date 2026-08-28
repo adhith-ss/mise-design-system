@@ -42,7 +42,7 @@ export function MultiSelector({
         onClick={() => setOpen((v) => !v)}
         className={cx(
           'flex min-h-md w-full flex-wrap items-center gap-[6px] rounded-control border bg-surface px-[10px] py-[6px] text-left transition-colors duration-fast ease-mise',
-          invalid ?? field?.invalid ? 'border-danger' : 'border-line',
+          invalid ?? field?.invalid ? 'border-2 border-danger' : 'border-line',
           'focus-visible:border-brand-600 focus-visible:ring-[3px] focus-visible:ring-brand-50',
           off && 'cursor-not-allowed bg-canvas',
         )}

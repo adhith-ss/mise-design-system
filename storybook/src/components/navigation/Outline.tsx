@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { cx } from '../../lib/cx';
 
 export interface OutlineItem {
@@ -5,6 +6,8 @@ export interface OutlineItem {
   label: string;
   /** 2 or 3 — heading depth. */
   level?: 2 | 3;
+  /** Leading glyph, 14px — a section's icon rather than just its heading text. */
+  icon?: ReactNode;
 }
 
 export interface OutlineProps {
@@ -27,11 +30,12 @@ export function Outline({ items, activeId, onSelect, label = 'On this page' }: O
           aria-current={i.id === activeId ? 'true' : undefined}
           onClick={() => onSelect?.(i.id)}
           className={cx(
-            'rounded-[8px] py-[7px] text-[13px] no-underline transition-colors duration-fast ease-mise',
+            'flex items-center gap-[7px] rounded-[8px] py-[7px] text-[13px] no-underline transition-colors duration-fast ease-mise',
             i.level === 3 ? 'pl-5 pr-2' : 'px-2',
             i.id === activeId ? 'bg-brand-50 font-semibold text-brand-600' : 'text-ink-700 hover:bg-canvas',
           )}
         >
+          {i.icon}
           {i.label}
         </a>
       ))}

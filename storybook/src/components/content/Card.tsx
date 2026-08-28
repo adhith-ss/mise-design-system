@@ -1,5 +1,8 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, CSSProperties } from 'react';
+import { AlertTriangle } from 'lucide-react';
 import { cx } from '../../lib/cx';
+import { Icon } from './Icon';
+import { TONE_STREAK } from '../feedback/tone';
 
 export interface CardProps {
   children: ReactNode;
@@ -23,16 +26,17 @@ export function Card({
   children, title, subtitle, action, footer, padding = 'md', onClick, edge = 'none',
 }: CardProps) {
   const pad = padding === 'none' ? '' : padding === 'sm' ? 'px-[14px] py-3' : 'px-4 py-4';
+  const needsAttention = edge === 'warning' || edge === 'danger';
 
   return (
     <div
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
       onClick={onClick}
+      style={needsAttention ? { '--mise-streak-color': TONE_STREAK[edge === 'warning' ? 'warning' : 'danger'] } as CSSProperties : undefined}
       className={cx(
         'overflow-hidden rounded-lg border border-line bg-surface',
-        edge === 'warning' && 'border-l-[3px] border-l-warn',
-        edge === 'danger' && 'border-l-[3px] border-l-danger',
+        needsAttention && 'mise-streak-border',
         onClick && 'cursor-pointer transition-shadow duration-fast ease-mise hover:shadow-raised',
       )}
     >
@@ -45,7 +49,14 @@ export function Card({
           {action}
         </div>
       )}
-      <div className={pad}>{children}</div>
+      <div className={pad}>
+        {children}
+        {needsAttention && (
+          <div className="mt-3 flex items-center gap-2">
+            <Icon icon={AlertTriangle} size="sm" tone={edge === 'danger' ? 'danger' : 'current'} className={edge === 'warning' ? 'text-warn' : undefined} label="Needs attention" />
+          </div>
+        )}
+      </div>
       {footer && (
         <div className="border-t border-line-soft bg-surface-raised px-4 py-3">{footer}</div>
       )}

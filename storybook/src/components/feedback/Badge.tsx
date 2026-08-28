@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { cx } from '../../lib/cx';
 import { TONE_SUBTLE, TONE_DOT, type Tone } from './tone';
 
@@ -7,8 +8,10 @@ export interface BadgeProps {
   tone?: Tone;
   /** Solid is reserved for one urgent state per screen. */
   appearance?: 'subtle' | 'solid' | 'outline';
-  /** A leading dot, for states that map to a live condition. */
+  /** A leading dot, for states that map to a live condition. Mutually exclusive with `icon`. */
   dot?: boolean;
+  /** A leading Lucide icon instead of a dot — e.g. a truck for "Shipped". 12px. */
+  icon?: ReactNode;
   /** Trailing count, e.g. 2 variances. */
   count?: number;
   size?: 'sm' | 'md';
@@ -27,18 +30,19 @@ const SOLID: Record<Tone, string> = {
  * Metadata (received Aug 22, 14 lines) is Text, not a Badge.
  */
 export function Badge({
-  children, tone = 'neutral', appearance = 'subtle', dot = false, count, size = 'md',
+  children, tone = 'neutral', appearance = 'subtle', dot = false, icon, count, size = 'md',
 }: BadgeProps) {
   return (
     <span
       className={cx(
-        'inline-flex items-center gap-[6px] font-semibold',
-        size === 'sm' ? 'rounded-sm px-[7px] py-[2px] text-[11px]' : 'rounded-[8px] px-[10px] py-1 text-[12px]',
+        'inline-flex items-center gap-[6px] rounded-pill font-semibold',
+        size === 'sm' ? 'px-[7px] py-[2px] text-[11px]' : 'px-[10px] py-1 text-[12px]',
         appearance === 'subtle' && TONE_SUBTLE[tone],
         appearance === 'solid' && SOLID[tone],
         appearance === 'outline' && 'border border-line bg-surface text-ink-700',
       )}
     >
+      {icon}
       {dot && <span aria-hidden="true" className={cx('h-[6px] w-[6px] rounded-pill', appearance === 'solid' ? 'bg-current' : TONE_DOT[tone])} />}
       {children}
       {count != null && (

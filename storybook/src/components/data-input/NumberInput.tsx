@@ -40,7 +40,7 @@ export function NumberInput({
           aria-label="Decrease"
           disabled={off || value <= min}
           onClick={() => onChange(clamp(value - step))}
-          className="h-full w-8 border-r border-line bg-canvas text-[15px] text-ink-700 disabled:text-ink-300"
+          className="inline-flex h-full w-8 items-center justify-center border-r border-line bg-canvas text-[15px] text-ink-700 disabled:text-ink-300"
         >
           <Minus size={14} strokeWidth={1.5} />
         </button>
@@ -66,7 +66,7 @@ export function NumberInput({
           aria-label="Increase"
           disabled={off || (max != null && value >= max)}
           onClick={() => onChange(clamp(value + step))}
-          className="h-full w-8 border-l border-line bg-canvas text-[15px] text-ink-700 disabled:text-ink-300"
+          className="inline-flex h-full w-8 items-center justify-center border-l border-line bg-canvas text-[15px] text-ink-700 disabled:text-ink-300"
         >
           <Plus size={14} strokeWidth={1.5} />
         </button>

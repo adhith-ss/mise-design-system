@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Outline } from './Outline';
+import { Icon } from '../content/Icon';
+import { FileText, Truck, CreditCard, Tag, Phone } from 'lucide-react';
 
 const meta = {
   title: 'Navigation/Outline',
@@ -16,11 +18,11 @@ const meta = {
   },
   args: {
     items: [
-      { id: 'terms', label: 'Terms' },
+      { id: 'terms', label: 'Terms', icon: <Icon icon={FileText} size="sm" tone="quiet" /> },
       { id: 'delivery', label: 'Delivery windows', level: 3 as const },
       { id: 'credits', label: 'Credits & returns', level: 3 as const },
-      { id: 'pricing', label: 'Pricing' },
-      { id: 'contacts', label: 'Contacts' },
+      { id: 'pricing', label: 'Pricing', icon: <Icon icon={Tag} size="sm" tone="quiet" /> },
+      { id: 'contacts', label: 'Contacts', icon: <Icon icon={Phone} size="sm" tone="quiet" /> },
     ],
     activeId: 'delivery',
   },
@@ -34,6 +36,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
-export const FlatList: Story = {
-  args: { items: [{ id: 'a', label: 'Overview' }, { id: 'b', label: 'Lines' }, { id: 'c', label: 'History' }], activeId: 'a' },
+/** A flat, single-level list — every item can carry a leading icon since there's no nesting to compete with. */
+export const Linear: Story = {
+  args: {
+    items: [
+      { id: 'a', label: 'Overview', icon: <Icon icon={FileText} size="sm" tone="quiet" /> },
+      { id: 'b', label: 'Delivery', icon: <Icon icon={Truck} size="sm" tone="quiet" /> },
+      { id: 'c', label: 'Billing', icon: <Icon icon={CreditCard} size="sm" tone="quiet" /> },
+    ],
+    activeId: 'a',
+  },
 };

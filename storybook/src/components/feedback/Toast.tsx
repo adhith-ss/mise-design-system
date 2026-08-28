@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { cx } from '../../lib/cx';
-import { TONE_DOT, type Tone } from './tone';
+import { TONE_FG, TONE_ICON, TONE_BG, type Tone } from './tone';
+import { Icon } from '../content/Icon';
 import { X } from 'lucide-react';
 
 export interface ToastProps {
@@ -15,16 +16,21 @@ export interface ToastProps {
   duration?: number;
 }
 
-/** Confirmation that something happened, for work the operator already knows about. */
+/**
+ * Confirmation that something happened, for work the operator already knows
+ * about. A leading icon carries the tone instead of the old status dot, and
+ * the tint follows the same background/border treatment as Banner.
+ */
 export function Toast({ title, description, tone = 'neutral', action, onDismiss }: ToastProps) {
+  const Glyph = TONE_ICON[tone];
   return (
     <div
       role={tone === 'danger' ? 'alert' : 'status'}
-      className="flex w-[380px] items-start gap-3 rounded-control border border-line bg-surface px-4 py-[13px] shadow-popover"
+      className={cx('flex w-[380px] items-start gap-3 rounded-control border px-4 py-[13px] shadow-popover', TONE_BG[tone])}
     >
-      <span aria-hidden="true" className={cx('mt-[5px] h-2 w-2 shrink-0 rounded-pill', TONE_DOT[tone])} />
+      <Icon icon={Glyph} size="md" className={cx('mt-[1px]', TONE_FG[tone])} label={tone} />
       <div className="flex flex-1 flex-col gap-[2px]">
-        <span className="text-[13.5px] font-semibold">{title}</span>
+        <span className={cx('text-[13.5px] font-semibold', TONE_FG[tone])}>{title}</span>
         {description && <span className="text-[12.5px] leading-[1.55] text-ink-500">{description}</span>}
       </div>
       {action}

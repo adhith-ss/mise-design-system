@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Badge } from './Badge';
+import { Icon } from '../content/Icon';
+import { Truck } from 'lucide-react';
 
 const meta = {
   title: 'Feedback & Status/Badge',
@@ -30,6 +32,13 @@ export const Solid: Story = {
 export const Outline: Story = { args: { appearance: 'outline', children: 'Produce' } };
 export const WithDot: Story = { args: { dot: true, tone: 'success', children: 'Matched' } };
 export const WithCount: Story = { args: { count: 2, children: 'Variances' } };
+export const WithIcon: Story = {
+  args: { icon: <Icon icon={Truck} size="sm" />, tone: 'info', children: 'Shipped' },
+  parameters: { docs: { description: { story: 'Icon on the left, count on the right — a hybrid badge for a state that reads better with a glyph than a dot.' } } },
+};
+export const WithIconAndCount: Story = {
+  args: { icon: <Icon icon={Truck} size="sm" />, count: 3, tone: 'info', children: 'Shipments' },
+};
 export const Small: Story = { args: { size: 'sm', tone: 'success', children: 'Paid' } };
 
 export const AllTones: Story = {

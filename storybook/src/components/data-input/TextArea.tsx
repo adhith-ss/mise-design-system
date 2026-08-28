@@ -31,7 +31,7 @@ export function TextArea({
           'w-full resize-y rounded-control border bg-surface px-3 py-[10px] text-[14px] leading-[1.6] text-ink-900 outline-none transition-colors duration-fast ease-mise',
           'placeholder:text-ink-400 focus:border-brand-600 focus:ring-[3px] focus:ring-brand-50',
           'disabled:cursor-not-allowed disabled:bg-canvas disabled:text-ink-400',
-          invalid ?? field?.invalid ? 'border-danger' : 'border-line',
+          invalid ?? field?.invalid ? 'border-2 border-danger' : 'border-line',
           className,
         )}
         {...rest}

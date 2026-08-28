@@ -14,6 +14,13 @@ export interface DateInputProps {
   onEndChange?: (value: string) => void;
   disabled?: boolean;
   invalid?: boolean;
+  /**
+   * Callout shown below the input when invalid — states what's wrong with
+   * *this* date specifically, e.g. "That date is before the order was
+   * placed" or "A delivery date is required." Falls back to a generic
+   * message so `invalid` alone still renders something.
+   */
+  error?: string;
 }
 
 /**
@@ -21,54 +28,64 @@ export interface DateInputProps {
  * platform's own locale and keyboard behaviour apply.
  */
 export function DateInput({
-  value, onChange, min, max, mode = 'date', endValue, onEndChange, disabled, invalid,
+  value, onChange, min, max, mode = 'date', endValue, onEndChange, disabled, invalid, error,
 }: DateInputProps) {
   const field = useField();
   const bad = invalid ?? field?.invalid;
   const off = disabled ?? field?.disabled;
+  const callout = bad ? (error ?? (value ? "That date isn't valid." : 'A date is required.')) : undefined;
+  const calloutId = callout ? `${field?.id ?? 'date'}-callout` : undefined;
 
   if (mode === 'range') {
     return (
-      <div className="flex items-center gap-2">
-        <input
-          type="date"
-          value={value}
-          min={min}
-          max={endValue || max}
-          disabled={off}
-          aria-label="From"
-          aria-invalid={bad ? true : undefined}
-          onChange={(e) => onChange(e.target.value)}
-          className={cx(controlClass(bad), 'font-data flex-1')}
-        />
-        <span aria-hidden="true" className="text-[13px] text-ink-400">to</span>
-        <input
-          type="date"
-          value={endValue ?? ''}
-          min={value || min}
-          max={max}
-          disabled={off}
-          aria-label="To"
-          aria-invalid={bad ? true : undefined}
-          onChange={(e) => onEndChange?.(e.target.value)}
-          className={cx(controlClass(bad), 'font-data flex-1')}
-        />
+      <div className="flex flex-col gap-[6px]">
+        <div className="flex items-center gap-2">
+          <input
+            type="date"
+            value={value}
+            min={min}
+            max={endValue || max}
+            disabled={off}
+            aria-label="From"
+            aria-invalid={bad ? true : undefined}
+            aria-describedby={calloutId}
+            onChange={(e) => onChange(e.target.value)}
+            className={cx(controlClass(bad), 'font-data flex-1')}
+          />
+          <span aria-hidden="true" className="text-[13px] text-ink-400">to</span>
+          <input
+            type="date"
+            value={endValue ?? ''}
+            min={value || min}
+            max={max}
+            disabled={off}
+            aria-label="To"
+            aria-invalid={bad ? true : undefined}
+            aria-describedby={calloutId}
+            onChange={(e) => onEndChange?.(e.target.value)}
+            className={cx(controlClass(bad), 'font-data flex-1')}
+          />
+        </div>
+        {callout && <span id={calloutId} className="text-[12px] leading-[1.5] text-danger">{callout}</span>}
       </div>
     );
   }
 
   return (
-    <input
-      id={field?.id}
-      type="date"
-      value={value}
-      min={min}
-      max={max}
-      disabled={off}
-      aria-describedby={field?.describedBy}
-      aria-invalid={bad ? true : undefined}
-      onChange={(e) => onChange(e.target.value)}
-      className={cx(controlClass(bad), 'font-data')}
-    />
+    <div className="flex flex-col gap-[6px]">
+      <input
+        id={field?.id}
+        type="date"
+        value={value}
+        min={min}
+        max={max}
+        disabled={off}
+        aria-describedby={cx(field?.describedBy, calloutId) || undefined}
+        aria-invalid={bad ? true : undefined}
+        onChange={(e) => onChange(e.target.value)}
+        className={cx(controlClass(bad), 'font-data')}
+      />
+      {callout && <span id={calloutId} className="text-[12px] leading-[1.5] text-danger">{callout}</span>}
+    </div>
   );
 }

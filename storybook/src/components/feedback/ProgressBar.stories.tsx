@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ProgressBar } from './ProgressBar';
+import { Icon } from '../content/Icon';
+import { CheckCircle2, AlertTriangle } from 'lucide-react';
 
 const meta = {
   title: 'Feedback & Status/Progress Bar',
@@ -21,10 +23,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Determinate: Story = {};
-export const Complete: Story = { args: { value: 8, detail: '8 of 8' } };
+export const Complete: Story = {
+  args: { value: 8, detail: '8 of 8', icon: <Icon icon={CheckCircle2} size="sm" tone="brand" /> },
+};
 export const Indeterminate: Story = { args: { value: undefined, detail: undefined } };
 export const Small: Story = { args: { size: 'sm', label: undefined, detail: undefined } };
 export const Warning: Story = {
-  args: { tone: 'warning', label: 'Period closes Friday', detail: '4 days left', value: 60, max: 100 },
+  args: {
+    tone: 'warning', label: 'Period closes Friday', detail: '4 days left', value: 60, max: 100,
+    icon: <Icon icon={AlertTriangle} size="sm" className="text-warn" />,
+  },
 };
 export const BarOnly: Story = { args: { label: undefined, detail: undefined } };

@@ -46,7 +46,9 @@ export function FileInput({
           (disabled ?? field?.disabled) && 'cursor-not-allowed bg-canvas',
         )}
       >
-        <span className="text-[13.5px] font-semibold text-brand-600">Drop a file or browse</span>
+        <span className={cx('text-[13.5px] font-semibold', (disabled ?? field?.disabled) ? 'text-ink-400' : 'text-brand-600')}>
+          Drop a file or browse
+        </span>
         {constraint && <span className="text-[12px] text-ink-500">{constraint}</span>}
       </button>
       <input

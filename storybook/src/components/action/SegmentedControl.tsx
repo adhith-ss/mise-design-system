@@ -47,7 +47,11 @@ export function SegmentedControl({
             )}
           >
             {s.label}
-            {s.meta && <span className="font-data text-[11.5px] text-ink-400">{s.meta}</span>}
+            {s.meta && (
+              <span className={cx('font-data text-[11.5px]', on ? 'text-ink-900' : 'text-ink-400')}>
+                {s.meta}
+              </span>
+            )}
           </button>
         );
       })}

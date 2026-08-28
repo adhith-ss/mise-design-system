@@ -35,5 +35,10 @@ type Story = StoryObj<typeof meta>;
 export const Single: Story = {};
 export const Range: Story = { args: { mode: 'range' } };
 export const Bounded: Story = { args: { min: '2026-08-25', max: '2026-09-30' } };
-export const Invalid: Story = { args: { invalid: true } };
+export const Invalid: Story = {
+  args: { invalid: true, error: "That date is before the order was placed." },
+};
+export const Missing: Story = {
+  args: { value: '', invalid: true, error: 'A delivery date is required.' },
+};
 export const Disabled: Story = { args: { disabled: true } };

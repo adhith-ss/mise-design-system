@@ -1,6 +1,7 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, CSSProperties } from 'react';
 import { cx } from '../../lib/cx';
-import { type Tone } from './tone';
+import { TONE_FG, TONE_ICON, TONE_BG, TONE_STREAK, type Tone } from './tone';
+import { Icon } from '../content/Icon';
 import { X } from 'lucide-react';
 
 export interface BannerProps {
@@ -14,34 +15,23 @@ export interface BannerProps {
   onDismiss?: () => void;
 }
 
-const BG: Record<Tone, string> = {
-  success: 'border-brand-200 bg-tone-success-bg',
-  warning: 'border-warn bg-tone-warning-bg',
-  danger: 'border-danger-line bg-tone-danger-bg',
-  info: 'border-line bg-tone-info-bg',
-  neutral: 'border-line bg-tone-neutral-bg',
-};
-
-const EDGE: Record<Tone, string> = {
-  success: 'border-l-brand-600',
-  warning: 'border-l-alert',
-  danger: 'border-l-danger',
-  info: 'border-l-tone-info-fg',
-  neutral: 'border-l-ink-500',
-};
-
 /**
  * A condition affecting the whole page or a whole record, staying until it is
- * resolved. Anything transient is a Toast.
+ * resolved. Anything transient is a Toast. Warning, danger, success and info
+ * carry a leading icon; the title reads in the tone's own dark accent so the
+ * status is legible even before the icon or the streak border register.
  */
 export function Banner({ title, children, tone = 'info', action, onDismiss }: BannerProps) {
+  const Glyph = TONE_ICON[tone];
   return (
     <div
       role={tone === 'danger' ? 'alert' : 'status'}
-      className={cx('flex items-start gap-3 rounded-control border border-l-[3px] px-4 py-[13px]', BG[tone], EDGE[tone])}
+      style={{ '--mise-streak-color': TONE_STREAK[tone] } as CSSProperties}
+      className={cx('mise-streak-border flex items-start gap-3 rounded-control border px-4 py-[13px]', TONE_BG[tone])}
     >
+      {tone !== 'neutral' && <Icon icon={Glyph} size="md" className={cx('mt-[1px]', TONE_FG[tone])} label={tone} />}
       <div className="flex flex-1 flex-col gap-[3px]">
-        <span className="text-[13.5px] font-bold">{title}</span>
+        <span className={cx('text-[13.5px] font-bold', TONE_FG[tone])}>{title}</span>
         {children && <span className="text-[12.5px] leading-[1.6] text-ink-700">{children}</span>}
       </div>
       {action}

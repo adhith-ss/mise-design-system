@@ -28,7 +28,7 @@ export function Slider({
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-[12px]">
         <input
           id={field?.id}
           type="range"
@@ -50,7 +50,7 @@ export function Slider({
             (disabled ?? field?.disabled) && 'cursor-not-allowed opacity-60',
           )}
         />
-        <span className="font-data w-[56px] text-right text-[13px]">
+        <span className="font-data shrink-0 whitespace-nowrap text-right text-[13px]">
           {format ? format(value) : value}
         </span>
       </div>

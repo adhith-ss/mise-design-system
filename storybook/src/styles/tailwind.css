@@ -17,3 +17,39 @@
 }
 
 @keyframes mise-caret { 0%, 100% { opacity: 1 } 50% { opacity: 0.15 } }
+
+/*
+ * Streak border — a short arc of colour circling a card or banner's edge,
+ * clockwise, in place of a flat coloured border. Used wherever something
+ * needs ongoing attention rather than a one-time state. `--mise-streak-color`
+ * sets the arc's colour per instance; the ring thickness is fixed at 2px.
+ * Rotates the *gradient angle* via a registered custom property, not the
+ * element itself — rotating the element would misalign a rounded rectangle's
+ * corners against its own mask on every frame but the first.
+ */
+@property --mise-streak-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes mise-streak-spin { to { --mise-streak-angle: 360deg; } }
+.mise-streak-border { position: relative; }
+.mise-streak-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--mise-streak-angle, 0deg),
+    transparent 0deg,
+    var(--mise-streak-color, var(--mise-ink-500)) 40deg,
+    transparent 95deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: mise-streak-spin 2.6s linear infinite;
+  pointer-events: none;
+}

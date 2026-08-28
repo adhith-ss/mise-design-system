@@ -7,6 +7,8 @@ export interface TopNavItem {
   current?: boolean;
   /** Count of things needing attention, e.g. unmatched invoices. */
   count?: number;
+  /** Leading glyph, 16px. */
+  icon?: ReactNode;
 }
 
 export interface TopNavProps {
@@ -33,6 +35,7 @@ export function TopNav({ brand, items, actions }: TopNavProps) {
               i.current ? 'bg-brand-50 font-semibold text-brand-600' : 'text-ink-700 hover:bg-canvas',
             )}
           >
+            {i.icon}
             {i.label}
             {i.count != null && (
               <span className="font-data rounded-pill bg-tone-warning-bg px-[6px] text-[11px] text-tone-warning-fg">

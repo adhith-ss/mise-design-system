@@ -49,7 +49,18 @@ export const Error: Story = {
     kind: 'error',
     title: "Couldn't load invoices",
     children: 'The connection to your accounting system dropped. Nothing has changed on your side.',
-    action: <Button variant="primary" size="sm">Try again</Button>,
+    // White on the red frame, not the usual green primary — this is a retry
+    // sitting on an already-alarming surface, so the button itself stays
+    // calm. Green only shows up on hover, as the invitation to act.
+    action: (
+      <Button
+        variant="neutral"
+        size="sm"
+        className="!border-transparent !bg-white !text-ink-900 hover:!bg-brand-600 hover:!text-white"
+      >
+        Try again
+      </Button>
+    ),
   },
 };
 export const Compact: Story = { args: { size: 'sm', action: undefined } };

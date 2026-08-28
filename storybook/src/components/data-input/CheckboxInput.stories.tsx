@@ -30,5 +30,6 @@ export const WithHint: Story = {
   args: { checked: true, label: 'Auto-approve credits under $50', hint: 'Applies to vendors with no open disputes.' },
 };
 export const Indeterminate: Story = { args: { indeterminate: true, label: 'All invoices' } };
+export const Required: Story = { args: { required: true, label: 'I confirm the received counts' } };
 export const Invalid: Story = { args: { invalid: true, label: 'I confirm the received counts' } };
 export const Disabled: Story = { args: { disabled: true, checked: true } };
