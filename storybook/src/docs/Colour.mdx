@@ -11,12 +11,12 @@ needs attention. A screen full of colour is a screen the operator cannot scan.
   <ColorItem
     title="brand"
     subtitle="Actions, links, and agent presence"
-    colors={{ 50: '#E8F2EC', 100: '#D3E6DC', 200: '#C9DED3', 500: '#2A8A61', 600: '#1E6B4B', 700: '#144A34' }}
+    colors={{ 50: '#E8F2EC', 100: '#D3E6DC', 200: '#C9DED3', 500: '#2A8A61', 600: '#1E6B4B', 700: '#144A34', 800: '#123F2C', 900: '#103827' }}
   />
   <ColorItem
     title="ink"
     subtitle="Text, in descending emphasis"
-    colors={{ 900: '#16211C', 700: '#43524B', 500: '#6B7A72', 400: '#8D9994', 300: '#A9B6B0' }}
+    colors={{ 900: '#16211C', 700: '#43524B', 500: '#5E6D65', 400: '#63726A', 300: '#A9B6B0' }}
   />
   <ColorItem
     title="surface"
@@ -34,6 +34,39 @@ needs attention. A screen full of colour is a screen the operator cannot scan.
     colors={{ danger: '#A32A22', warn: '#C98A16', 'warn-ink': '#8A5D0A', alert: '#B4531B' }}
   />
 </ColorPalette>
+
+## Marketing & mascot (Plato)
+
+Plato — the agent's animated character — is built directly on `brand/600`.
+Nothing here is a separate marketing hue; it's the same green ramp extended
+with the tints and shades the product screens never needed, plus the two
+colours the character itself introduced.
+
+<ColorPalette>
+  <ColorItem
+    title="brand — extended"
+    subtitle="300/400/950 fill the ramp's gaps for gradients and illustration; interpolated in HSL along the same curve as the other eight stops, not picked by eye"
+    colors={{ 300: '#A3D1B9', 400: '#54BB8B', 950: '#092519' }}
+  />
+  <ColorItem
+    title="mascot-ink"
+    subtitle="Plato's line art on its white 'streak' tile — a warm near-black (H≈40°), not ink/900 (H≈153°, green-tinted). Two different near-blacks on purpose."
+    colors={{ 'mascot-ink': '#171614' }}
+  />
+  <ColorItem
+    title="brand-glow"
+    subtitle="The two stops of Plato's breathing streak ring — brand/600 at full strength fading to a quarter. Reusable anywhere that wants the same 'agent is active' glow: a border, a focus ring, a loading halo."
+    colors={{ start: '#1E6B4B', end: 'rgba(30, 107, 75, 0.24)' }}
+  />
+</ColorPalette>
+
+**Icon language — two, on purpose.** Product UI icons (`Icon`, Lucide-based)
+draw at 1.5px stroke against a 24px box — about 6% of the glyph. Plato's
+strokes run close to double that proportionally (16 units against a ~140-unit
+glyph canvas, ≈11%), always round-capped, never filled. That weight is what
+makes the character read as a character rather than another toolbar glyph —
+it is a *marketing/mascot* icon language, not a replacement for the thin
+product one, and the two should never be mixed on the same screen.
 
 ## Rules
 

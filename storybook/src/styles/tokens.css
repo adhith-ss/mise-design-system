@@ -5,11 +5,38 @@
   --mise-brand-50: #E8F2EC;
   --mise-brand-100: #D3E6DC;
   --mise-brand-200: #C9DED3;
+  /* 300/400 fill the gap the product ramp never needed — UI only jumps
+     tint (200) straight to mid (500). Marketing does need the steps between,
+     for gradients and illustration fills, so they're interpolated in HSL
+     along the same hue (~144-155°) and lightness curve the existing eight
+     stops already follow, not picked by eye. */
+  --mise-brand-300: #A3D1B9;
+  --mise-brand-400: #54BB8B;
   --mise-brand-500: #2A8A61;
   --mise-brand-600: #1E6B4B;
   --mise-brand-700: #144A34;
   --mise-brand-800: #123F2C;
   --mise-brand-900: #103827;
+  /* Extrapolated one step past 900 on the same curve — a near-black green for
+     dark hero sections and marketing video backgrounds, not used in product UI. */
+  --mise-brand-950: #092519;
+
+  /* Brand — marketing & mascot (Plato)
+     Plato's tile fill is exactly --mise-brand-600 — the character was built
+     directly on the product's brand-600, not a separate marketing hue, so
+     nothing new was invented here beyond what the asset itself introduced. */
+  /* The line art's near-black on Plato's white "streak" tile — warm (H≈40°),
+     not the product's --mise-ink-900 (H≈153°, a green-tinted near-black).
+     Two different near-blacks on purpose: ink-900 is UI text on warm paper
+     surfaces, mascot-ink is line art on a pure white mascot tile. Do not
+     merge them. */
+  --mise-mascot-ink: #171614;
+  /* The two stops of Plato's "streak" ring — a radial sense of activity
+     around the tile, breathing at low opacity. Same brand-600 hue at full
+     strength fading to a quarter, reusable anywhere that wants the same
+     "agent is active" glow (a border, a focus ring, a loading halo). */
+  --mise-brand-glow-start: #1E6B4B;
+  --mise-brand-glow-end: rgba(30, 107, 75, 0.24);
 
   /* Ink */
   --mise-ink-900: #16211C;

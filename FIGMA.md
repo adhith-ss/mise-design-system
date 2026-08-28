@@ -73,6 +73,7 @@ and its shortcut text is fixed at the component default.
 | Overlay | Tooltip, Popover, HoverCard, Dialog, AlertDialog, CommandPalette, Lightbox |
 | Table & List | Table, List, MetadataList, TreeList, OverflowList |
 | Chat & Agent | Citation, Message, ToolCallCard, InlineApproval, AgentStatus, SuggestionChips, Composer, AgentError |
+| Brand & Marketing | Extended palette, Plato reference tiles, icon-language spec |
 
 Variables: `primitives` (31, hidden from pickers) and `semantic` (49, aliased to
 primitives, WEB code syntax on every one).
@@ -289,6 +290,63 @@ scan. `Timeout` is the one variant with a third line (`completed`) reporting
 partial progress before the ask; the other three kinds have nothing finished
 to report, so the property is conditionally rendered rather than always
 present with an empty string.
+
+### Brand & Marketing — Plato
+
+The agent's animated character (Plato, delivered as 8-emotion SVGs, solid +
+"streak" tile variants) turned out to be built directly on `brand/600` — its
+tile fill is the *exact* hex already in the product ramp, not a separate
+marketing hue. That made the extension disciplined rather than invented:
+everything on this page traces back to either brand/600 itself or an
+HSL-interpolation of the existing 8-stop ramp's own curve.
+
+New tokens (primitive + semantic pair each, `WEB` code syntax bound, same
+two-tier pattern as every other colour in the file):
+
+| Token | Hex | Source |
+| --- | --- | --- |
+| `brand/300` | `#A3D1B9` | Interpolated — fills the 200→500 gap |
+| `brand/400` | `#54BB8B` | Interpolated — fills the 200→500 gap |
+| `brand/950` | `#092519` | Extrapolated one step past 900, same curve |
+| `mascot-ink` | `#171614` | Plato's line art colour on its white tile — a warm near-black (H≈40°), distinct from `ink/900`'s green-tinted near-black (H≈153°). Two different near-blacks, kept apart on purpose, same reasoning as `warn` vs `tone-warning-bg` in the Spacing section below. |
+| `brand-glow/start` | `#1E6B4B` | The bright stop of Plato's breathing streak ring |
+| `brand-glow/end` | `rgba(30,107,75,.24)` | The faded stop of the same ring — a direct semantic colour with alpha, no primitive twin (there's no separate hex, just brand-600 at 24%) |
+
+Mirrored in code the same day: all six as real `--mise-*` custom properties
+in `tokens.css`, and `brand-300/400/950`, `mascot-ink`, `brand-glow-{start,end}`
+exposed as Tailwind utilities in `tailwind.config.ts` — same source of truth
+as the product palette, not a one-off design-file hex.
+
+**Two icon languages, kept apart on purpose.** Measuring Plato's own stroke
+geometry against the product `Icon` component's Lucide-based 1.5px stroke
+turned up a real, consistent difference: Plato's strokes run at ~11% of the
+glyph box (16 units on a ~140-unit design canvas) against the UI icon's
+~6.25% (1.5px on a 24px box) — close to double the relative weight, always
+round-capped, never filled. That's what reads as "a character" rather than
+"another toolbar glyph." Documented as a deliberate second icon language for
+marketing/mascot-adjacent surfaces only — built two comparison pairs (a
+check and a plus) redrawn in Plato's stroke language next to the real
+`icon/check` and `icon/sparkles` component instances, to make the direction
+concrete rather than descriptive-only. The product `Icon` component itself is
+untouched; the two weights should never appear on the same screen.
+
+**Plato's exact geometry, reproduced as bound vectors, not a pasted image.**
+Both the solid (`brand/600` tile, white line art) and streak (white tile,
+`mascot-ink` line art, `brand-glow` gradient ring) tiles were rebuilt from
+the source SVGs' literal line coordinates (eyes at x=65/135, plate mouth
+trapezoid at y=150→178) rather than imported as a flattened asset — every
+stroke is a real vector bound to a real variable, consistent with how every
+other component in this file is built. The streak ring is a rounded
+rectangle (cornerRadius 40, 180×180) with a linear-gradient stroke rather
+than a hand-authored SVG path — visually identical to the source's rounded-
+rect path, far simpler to author correctly in the plugin API.
+
+**Caption text needs an explicit fixed width to wrap inside its own
+column** — same trap as always, caught immediately this time rather than
+after a screenshot round-trip: a `TEXT` node's default `WIDTH_AND_HEIGHT`
+auto-resize let the Plato tile captions overflow past their 200px column
+into the neighbour's space until `resize(200, h)` → `layoutSizingHorizontal
+= 'FIXED'` → `textAutoResize = 'HEIGHT'` was applied.
 
 ## Traps worth knowing before building the next category
 

@@ -8,10 +8,13 @@ export default {
     extend: {
       colors: {
         brand: {
-          50: t('brand-50'), 100: t('brand-100'), 200: t('brand-200'),
-          500: t('brand-500'), 600: t('brand-600'), 700: t('brand-700'),
-          800: t('brand-800'), 900: t('brand-900'),
+          50: t('brand-50'), 100: t('brand-100'), 200: t('brand-200'), 300: t('brand-300'),
+          400: t('brand-400'), 500: t('brand-500'), 600: t('brand-600'), 700: t('brand-700'),
+          800: t('brand-800'), 900: t('brand-900'), 950: t('brand-950'),
         },
+        /* Marketing & mascot only — not for product UI. */
+        'mascot-ink': t('mascot-ink'),
+        'brand-glow': { start: t('brand-glow-start'), end: t('brand-glow-end') },
         ink: {
           900: t('ink-900'), 700: t('ink-700'), 500: t('ink-500'),
           400: t('ink-400'), 300: t('ink-300'),
