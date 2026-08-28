@@ -679,3 +679,16 @@ it five more times:
   brand-600 stroke (streak proxy, not tone-matched like Card/Banner since
   the request was explicitly for brand colour here). `Declined`'s dot
   swapped from `ink/400` grey to `danger/DEFAULT` red.
+
+## AgentError: left border + hover-only primary button (2026-08-27)
+
+All four `Kind` variants share one component, so this landed in a single
+pass: `strokeLeftWeight` un-set back to match the other three sides (was 3,
+matching `border-l-[3px]`), and each variant's primary button re-filled from
+solid `brand/600` to `surface/DEFAULT` + `line/DEFAULT` border + `ink/900`
+text — the same white/black-until-hover treatment Empty State's Error action
+got earlier. Figma can't show the hover state itself (green + white text on
+:hover), so that half is verified in Storybook only; the static file shows
+the resting white/black look, consistent with how every other hover-only
+Figma limitation in this project has been handled — document it, don't fake
+a state Figma can't represent.
