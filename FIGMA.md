@@ -758,6 +758,10 @@ screenshotted `Banner` and `DropdownMenu` (open state) to confirm exactly
 that, pixel-identical to before. Figma has nothing to receive a mirror of
 in this pass.
 
-Toast has the same redundant-icon-label pattern Banner had — spotted in
-passing, not part of this request, flagged as a separate follow-up rather
-than fixed here.
+**Follow-up: Toast got the same fix.** The redundant-icon-label pattern
+flagged in Banner above also existed in `Toast` — same `label={tone}` on
+the leading icon, same double-announcement, same fix (remove the label,
+icon becomes `aria-hidden`). Verified icon has no role/aria-label and no
+visual change; axe-core clean. Nothing to mirror in Figma for the same
+reason as Banner's own fix — this is a screen-reader-only attribute with
+zero effect on any static frame.
