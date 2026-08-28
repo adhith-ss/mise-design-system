@@ -738,3 +738,26 @@ missing `aria-controls`/`role="listbox"` and `Table`'s nameless actions
 column header are both pure DOM/screen-reader semantics with zero visual
 change — Figma has no live ARIA tree or accessibility API to represent
 them in. Documented here so the gap is visible, not silently skipped.
+
+## Keyboard/focus fixes: SegmentedControl, DropdownMenu, Banner (2026-08-28)
+
+Axe-core's automated ruleset was already clean on all 16 stories across
+these three components — re-confirmed before touching anything. The
+remaining issues were WAI-ARIA authoring-practice conformance gaps
+(roving tabindex, arrow-key navigation, focus management on open/close,
+`aria-haspopup`/`aria-expanded`) and one redundant icon label, none of
+which a scanner can test since they're about *behaviour*, not markup a
+static DOM snapshot can evaluate. Full detail is in the `storybook` commit.
+
+**Nothing to mirror here either, for the same reason as CommandPalette's
+fix above.** SegmentedControl's roving tabindex and arrow-key handling,
+DropdownMenu's focus management and `aria-haspopup`/`aria-expanded`, and
+Banner's icon going from labelled to `aria-hidden` are all runtime
+DOM/keyboard behaviour with zero visual difference in any static frame —
+screenshotted `Banner` and `DropdownMenu` (open state) to confirm exactly
+that, pixel-identical to before. Figma has nothing to receive a mirror of
+in this pass.
+
+Toast has the same redundant-icon-label pattern Banner had — spotted in
+passing, not part of this request, flagged as a separate follow-up rather
+than fixed here.
