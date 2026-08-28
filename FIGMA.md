@@ -561,3 +561,121 @@ first, then mirrored here as before.
   longer labels got visibly longer dashes. Fixed code to match Figma's
   already-even fixed width rather than the other way round — the one case
   in this project so far where the Figma side led and code caught up.
+
+## 12-issue review pass: Command Palette, Overlay/Table font audit, Chat & Agent (2026-08-27)
+
+### The General Sans trap has a workaround after all
+
+Every prior note said the swapped `data/*` styles are frozen — can't edit
+`.characters` on an already-styled node. Still true. But this pass found the
+actual boundary is narrower than that made it sound:
+
+- **Editing an existing General-Sans-styled node's text → still blocked.**
+- **Restyling an existing node that's currently in a *loadable* font (e.g.
+  still Manrope) to a `data/*` style → works fine.** `node.setTextStyleIdAsync(dataStyleId)`
+  succeeds with no `loadFontAsync` call at all, as long as the node isn't
+  already sitting in the unloadable font when you call it.
+- **Creating brand-new data-styled text from scratch → works, in the right
+  order.** `figma.createText()` → set `fontName` to a loadable font (e.g.
+  Manrope) → set `.characters` → *then* `setTextStyleIdAsync(dataStyleId)`.
+  Setting the style before the characters is what fails; setting it after
+  works every time.
+
+This meant most of the "verify General Sans" fixes in this pass were a
+straight `setTextStyleIdAsync` call on existing Manrope nodes that had
+drifted from convention — not sibling-node surgery. The sibling-node
+workaround from the last pass is still correct for the one case that's
+genuinely closed: changing what an *already data-styled* node says.
+
+### Font audit findings (items 1, 3, 6, 8 — no code changes, all Figma)
+
+Scanned every TEXT node across Command Palette, the whole Overlay category,
+the whole Table & List category, `AgentError`, and `Citation` for font
+family. `Citation` and `AgentError`'s reportId (once added — see below) were
+already correct or fixed on the spot. Three real gaps, all fixed by
+restyling in place:
+
+- **Command Palette** — none of its secondary text was General Sans: the
+  `esc` kbd hint, `RECORDS`/`ACTIONS` group headers, each result's `meta`
+  text ("vendor", "invoice · 2 variances", "order · draft"), the action
+  row's `⏎` hint, and the footer's `↑↓ navigate` / `⏎ open` / `⌘K toggle`
+  were all sitting in Manrope. Restyled all nine to `data/11.5` or
+  `data/12`, matching each one's `font-data` counterpart in code.
+- **`MetadataList`** — the actual data values (`INV-20841`, `PO-4462`,
+  `Aug 22, 2026`, `14 · 12 matched`) were Manrope Medium/Regular instead of
+  General Sans, while `Vendor: Harbor Produce Co.` (correctly *not*
+  `data: true` in code) was already fine left alone. Restyled the four
+  data-eligible values (×2 instances) to `data/13`.
+- **`AgentError`** had no `reportId` demoed at all — none of the four `Kind`
+  variants rendered one, even though the code story for `Refusal` sets
+  `reportId: 'ref 8f21c4'`. Added it as new data-styled text (via the
+  set-characters-then-style order above) to `Kind=Refusal`.
+
+**One real gap the audit couldn't close via tooling:** `OverflowList`'s
+Count-only "+3" needs to be both bold *and* General Sans (item 4). General
+Sans has no loadable Bold face in this tooling context — same restriction
+that blocks the Light face's characters, just on a different weight of the
+same family. Left it in Manrope Bold + brand-600 for now (achievable, and
+visually close since the deployed Storybook build doesn't even load General
+Sans as a webfont — `--mise-font-data` falls back to `ui-monospace,
+monospace` for anyone without it installed locally). **Follow-up needed by
+hand:** swap this one node to General Sans Bold in the Figma client once
+that face is confirmed to exist as a real installed font, the same way the
+original Geist→General Sans Light swap was done.
+
+### Components that had never been built with the state a fix needed
+
+The recurring shape of this whole project: a requested fix reveals a state
+that was demoed nowhere in Figma, not a state that regressed. This pass hit
+it five more times:
+
+- **`Table` had no selectable state at all** — zero checkboxes anywhere in
+  either density variant. Added `Selectable=Partial` (new axis, existing two
+  variants renamed to `Selectable=None` to match), with a real indeterminate
+  header checkbox (brand-600 fill, white dash) and two of three rows
+  checked. Widening the row by the new 40px checkbox column clipped the
+  rightmost `Delta` column at first — each row frame had a fixed pixel
+  width, and inserting a child doesn't grow a fixed-width frame. Resized
+  every row (and the variant, and the component set) by the exact column
+  width added.
+- **`AgentStatus` had no compact+working state** — `Waiting` and `Idle` were
+  already built as compact pills (matching their code stories, which always
+  pass `compact: true`), but `Working` only existed as the full step list.
+  Cloned `Waiting`'s compact shell, swapped in a brand-600 dot and the
+  working copy, and gave it a full brand-coloured stroke (the same static
+  full-perimeter proxy used for Card/Banner's streak border, since this
+  pill has the same "should visually pulse" requirement CSS can't show
+  statically here).
+- **`Message` had no Error state** — only the `Role` axis (User/Agent/
+  System) existed. Added `Role=Agent, State=Error` (existing three renamed
+  to `State=Default`): pink `tone-danger-bg` bubble, no border, single line
+  of copy, citation and footer stripped since the error story doesn't carry
+  either.
+- **`ToolCallCard` had no Write state** — `Status` was the only axis. Added
+  `Status=Done, Writes=True` (existing four renamed to `Writes=False`),
+  swapping in the write example's own tool name and summary. Tripped over a
+  script bug here, not a Figma trap: `summary.visible = false` inside the
+  same script that immediately re-queried and inserted a sibling silently
+  didn't stick (returned `done: true` with no error, but a follow-up
+  `findAll` showed the old node still `visible: true`) — fixed by re-running
+  the hide as its own isolated call afterward. Worth remembering: a
+  same-script property write that reports success isn't proof it landed;
+  re-read the node if the visual doesn't match what the script claims it did.
+- **`Composer`'s plus button had never had its "+" drawn** — the attach
+  button was an empty 30×30 frame with zero children in every prior
+  screenshot, easy to miss because the outline and spacing looked complete.
+  Reordering it before the scope pill (the actual ask) meant touching this
+  frame anyway, so drew the missing glyph in the same pass rather than
+  leaving a blank box one token now sits in front of.
+
+### Everything else in this pass
+
+- **`Dialog`'s close button** — removed the `bg-surface-sunken` box fill
+  from all three size variants, leaving the `×` as a plain glyph. No new
+  variant needed.
+- **`InlineApproval`'s unresolved state** (`Pending` — the single Figma
+  variant standing in for code's Pending/Permanent/NeedsAnotherRole, which
+  all render the same branch) — dropped the 3px left border for a full
+  brand-600 stroke (streak proxy, not tone-matched like Card/Banner since
+  the request was explicitly for brand colour here). `Declined`'s dot
+  swapped from `ink/400` grey to `danger/DEFAULT` red.
