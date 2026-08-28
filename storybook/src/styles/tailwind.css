@@ -53,3 +53,38 @@
   animation: mise-streak-spin 2.6s linear infinite;
   pointer-events: none;
 }
+
+/*
+ * Wake splash (SplashWake, future scope — mobile agent-open moment, not a
+ * shipping product surface). Two resting dashes rotate 90° in opposite
+ * directions into Plato's eyes, then the wordmark fades in with a streak
+ * sweep through it. `forwards` holds the settled end state; the reduced-
+ * motion query below jumps straight there instead of animating.
+ */
+@keyframes mise-wake-eye-l { to { transform: translate(-35px, -33px) rotate(-90deg); } }
+@keyframes mise-wake-eye-r { to { transform: translate(35px, -55px) rotate(90deg); } }
+@keyframes mise-wake-name-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes mise-wake-streak { from { background-position: 130% 0; } to { background-position: -30% 0; } }
+.mise-wake-eye-l { transform-box: fill-box; transform-origin: center; animation: mise-wake-eye-l 1700ms cubic-bezier(.3,1.2,.4,1) forwards; }
+.mise-wake-eye-r { transform-box: fill-box; transform-origin: center; animation: mise-wake-eye-r 1700ms cubic-bezier(.3,1.2,.4,1) forwards; }
+.mise-wake-name {
+  opacity: 0;
+  background-image: linear-gradient(90deg, var(--mise-brand-600) 35%, #ffffff 50%, var(--mise-brand-600) 65%);
+  background-size: 300% 100%;
+  background-position: 130% 0;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation:
+    mise-wake-name-in 1400ms ease-in-out 1700ms forwards,
+    mise-wake-streak 1.8s ease-in-out 1700ms 1 forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mise-wake-eye-l { animation: none; transform: translate(-35px, -33px) rotate(-90deg); }
+  .mise-wake-eye-r { animation: none; transform: translate(35px, -55px) rotate(90deg); }
+  .mise-wake-name {
+    animation: none; opacity: 1; background: none;
+    color: var(--mise-brand-600); -webkit-text-fill-color: var(--mise-brand-600);
+  }
+}

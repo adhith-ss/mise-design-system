@@ -26,6 +26,7 @@ const preview: Preview = {
           ['Overview', 'Colour', 'Type', 'Spacing & radius', 'Elevation', 'Motion'],
           'Action', 'Content', 'Data Input', 'Feedback & Status',
           'Navigation', 'Overlay', 'Table & List', 'Chat & Agent',
+          'Future Scope',
         ],
       },
     },

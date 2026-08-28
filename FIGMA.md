@@ -27,6 +27,16 @@ building a brand-new data-styled component from scratch still works fine
 (Geist can be swapped in low-effort at the end, as before), it's only
 *editing an already-swapped* node that's closed off.
 
+**A second, unrelated font-swap is now pending too: Satoshi, for the
+`SplashWake` wordmark ("Plato").** Same root cause as General Sans — not
+one of Figma's ~1,900 hosted families, so unloadable in this tooling
+context. Built on Manrope Bold as the stand-in in Figma (see Brand &
+Marketing → Splash — wake); the real Satoshi loads fine in Storybook itself
+via a Fontshare `<link>`, since that's an ordinary browser, not this plugin
+sandbox. Swap the Figma wordmark's font to Satoshi by hand before it ships
+— same procedure as the `data/*` swap above, just for one text node instead
+of a whole style family.
+
 <details>
 <summary>Why they were wrong on purpose (Geist-first build history)</summary>
 
@@ -73,7 +83,7 @@ and its shortcut text is fixed at the component default.
 | Overlay | Tooltip, Popover, HoverCard, Dialog, AlertDialog, CommandPalette, Lightbox |
 | Table & List | Table, List, MetadataList, TreeList, OverflowList |
 | Chat & Agent | Citation, Message, ToolCallCard, InlineApproval, AgentStatus, SuggestionChips, Composer, AgentError |
-| Brand & Marketing | Extended palette, Plato reference tiles, icon-language spec |
+| Brand & Marketing | Extended palette, accent (wine) ramp, Plato reference tiles, icon-language spec, Splash — wake keyframes |
 
 Variables: `primitives` (31, hidden from pickers) and `semantic` (49, aliased to
 primitives, WEB code syntax on every one).
@@ -365,6 +375,54 @@ to `tokens.css` or `tailwind.config.ts`. No component can `bg-accent-600`
 its way into product UI by accident, because there is no such class. If the
 colour is ever needed in the app, that has to be a separate, deliberate
 decision — this page doesn't grant it by existing.
+
+**Follow-up: `SplashWake` — a wake-up animation, future scope only.** The
+user shared a full animation package (SVG, MP4, GIF, HTML preview) for the
+moment the agent opens on a *mobile* version of the application — a surface
+that doesn't exist yet. Two resting dashes (a 6px gap between two 16px-tall
+rounded bars — tight, reads as one thick double-bar, confirmed against the
+SVG's own authored `0%` keyframe values, not guessed) rotate 90° in opposite
+directions into Plato's established eyes, then the "Plato" wordmark fades in
+with a `brand/600` streak sweep.
+
+- **Built as a real, playable component** — `storybook/src/components/
+  marketing/SplashWake.tsx`, under a new `Future Scope` story category kept
+  last in `storySort`, clearly separated from every shipping category. A
+  `Replay` control remounts it (`animation-fill-mode: forwards` doesn't
+  restart on its own). Keyframes and the streak-sweep gradient live in
+  `tailwind.css` as global `@keyframes`, matching the existing `mise-streak-*`
+  convention — not component-scoped, since Tailwind has no per-component
+  style scoping in this project.
+- **Figma got 3 static keyframe cards, not a single static logo** — resting,
+  ~50% (both dashes mid-rotation, computed analytically), and settled +
+  wordmark — because a single frame can't communicate "this moves." Eye
+  geometry is a stroked line (matching the plate's own technique) with
+  endpoints computed from an interpolated centre + angle, not a rotated
+  rectangle — Figma's `rotation` property did not compose predictably with
+  `resize()` in this plugin context (two full rebuilds produced eyes
+  overlapping or poking outside their card before switching to the
+  line-endpoint math; documented as its own trap below).
+- **Third typeface, Satoshi, reserved for this one wordmark** — approved by
+  the user specifically as the logotype face, distinct from Manrope (UI) and
+  General Sans (data). Loaded via a Fontshare `<link>` in a new
+  `.storybook/preview-head.html` (Storybook's supported mechanism for extra
+  `<head>` content — no such file existed before). Unloadable in the Figma
+  plugin context for the same reason General Sans is — see the font-swap
+  note at the top of this file.
+
+**A rotated rectangle's `x`/`y` did not behave as expected once `rotation`
+was set, then `resize()` and further `x`/`y` writes were applied on top.**
+Two consecutive builds of `SplashWake`'s mid-rotation eye put one dash
+overlapping the other, or one dash's stroke poking outside its card
+entirely — structurally valid, no thrown error, wrong on screen both times.
+The fix was to stop using `rotation` for anything but a static, already-
+final angle: for an interpolated angle, compute the two endpoints of the
+stroke analytically (`centre ± half-length · (cos θ, sin θ)`) and draw it as
+a `VECTOR` line, exactly like every other stroked shape in this file. Same
+family of lesson as the FILL-on-TEXT trap — the property that works
+elsewhere in Figma (`rotation`, straightforward on a static shape) is not
+the reliable path once another transform is layered on top of it in the
+same script.
 
 ## Traps worth knowing before building the next category
 
