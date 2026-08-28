@@ -21,7 +21,7 @@ export function AgentError({
   return (
     <div
       role="alert"
-      className="flex max-w-[620px] flex-col gap-2 rounded-lg border border-danger-line border-l-[3px] border-l-danger bg-tone-danger-bg px-4 py-[14px]"
+      className="flex max-w-[620px] flex-col gap-2 rounded-lg border border-danger-line bg-tone-danger-bg px-4 py-[14px]"
     >
       <h3 className="m-0 text-[13.5px] font-bold">{title}</h3>
       <p className="m-0 text-[12.5px] leading-[1.65] text-ink-700">{body}</p>
@@ -29,7 +29,11 @@ export function AgentError({
       {(primaryLabel || secondaryLabel) && (
         <div className="flex gap-[9px] pt-[2px]">
           {primaryLabel && (
-            <button type="button" onClick={onPrimary} className="h-8 rounded-md bg-brand-600 px-[13px] text-[12.5px] font-semibold text-white">
+            <button
+              type="button"
+              onClick={onPrimary}
+              className="h-8 rounded-md border border-line bg-surface px-[13px] text-[12.5px] font-semibold text-ink-900 transition-colors duration-fast ease-mise hover:border-transparent hover:bg-brand-600 hover:text-white"
+            >
               {primaryLabel}
             </button>
           )}
