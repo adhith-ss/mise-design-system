@@ -697,3 +697,44 @@ a state Figma can't represent.
 all four `Kind` variants — the `completed` line (Timeout's third text node)
 stayed at its original `ink/700`, matching code's scope: the request was
 title and body specifically, not every line in the card.
+
+## Accessibility sweep: ink-500, ink-400, alert/tone-warning-fg (2026-08-28)
+
+Ran axe-core against one representative story per component (73 components)
+in the deployed Storybook, then targeted deep-dives on anything flagged.
+Found exactly three failing colour pairs system-wide — `ink-500` and
+`ink-400` on every light surface (canvas/surface/surface-raised), and
+`alert`/`tone-warning-fg` on `tone-warning-bg`, all below WCAG's 4.5:1 —
+plus two structural ARIA bugs in `CommandPalette` and one nameless `<th>` in
+`Table`. Full detail and the exact contrast math is in the commit for
+`storybook`; here's what changed on the Figma side.
+
+**Fixed at the primitive layer, not the semantic alias.** First attempt
+called `setValueForMode` directly on `ink/500`, `ink/400`, `alert`, and
+`tone/warning-fg` — which are *semantic* variables aliased to `palette/*`
+primitives (`Variables: primitives (31, hidden from pickers) and semantic
+(49, aliased to primitives)`, per the Structure section above). Setting a
+semantic variable's value directly overwrites the alias with a raw colour,
+silently breaking the primitive→semantic chain this whole file is built on.
+Caught it by checking `valuesByMode` right after and seeing a raw RGB object
+instead of a `VARIABLE_ALIAS`. Fixed correctly: updated `palette/ink/400`,
+`palette/ink/500`, and `palette/orange/600` (the actual primitive `alert`
+and `tone/warning-fg` both point to) to the new hex values, then explicitly
+re-set the four semantic variables back to `{ type: 'VARIABLE_ALIAS', id:
+<primitive id> }` to restore the chain. Verified afterward that
+`valuesByMode` on all four semantic variables shows an alias, not a raw
+colour, and screenshotted `Table` and `Banner` to confirm the darker colour
+actually rippled through every bound instance rather than just the two
+variables checked directly.
+
+Because these are bound variables touched at the token layer, every
+component using `ink/500`, `ink/400`, `alert`, or `tone/warning-fg`
+anywhere in the file picked up the fix in one script — no per-component
+edits, the same pattern as the `overlap/sm` and Geist→General Sans fixes
+before it.
+
+**Nothing to mirror for the ARIA and empty-`<th>` fixes.** `CommandPalette`'s
+missing `aria-controls`/`role="listbox"` and `Table`'s nameless actions
+column header are both pure DOM/screen-reader semantics with zero visual
+change — Figma has no live ARIA tree or accessibility API to represent
+them in. Documented here so the gap is visible, not silently skipped.
