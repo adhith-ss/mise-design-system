@@ -528,3 +528,36 @@ explicitly `setBoundVariable('itemSpacing', space/7)` on every row after
 inserting. The same trap as ToolCallCard's `space/11` miss, different cause:
 that one was a wrong token name, this one was a spacing property that was
 simply never set because the row never needed it before.
+
+## Four follow-up fixes (2026-08-27, same day)
+
+A second, smaller round after the 27-issue pass — code fixed and verified
+first, then mirrored here as before.
+
+- **`DateInput`'s Missing state now shows "DD/MM/YYYY" inside the bar.** In
+  code this needed an absolutely-positioned overlay plus `text-transparent`
+  on the real `<input type="date">`, since browsers ignore the `placeholder`
+  attribute on date inputs and render their own locale format instead. In
+  Figma, the `value` text is already `data/*`-styled (unloadable per the
+  General Sans trap above) — hid it (`visible = false`) rather than editing
+  it, and added a sibling Manrope text reading "DD/MM/YYYY" at the same
+  position instead of trying to touch the frozen node.
+- **`Card`'s needs-attention icon moved from after the body to before the
+  title**, in the header row next to `titles`. Fixing this in code surfaced a
+  real bug: the header row only rendered when `title || action` was truthy,
+  so a title-less needs-attention card would have silently dropped the icon
+  with nowhere to put it — fixed by adding `needsAttention` to that
+  condition too. The Figma side just needed the existing icon instance moved
+  from `body` into `header`, inserted before `titles`, with `itemSpacing`
+  set on `header` (it had none — a 2-child row that never needed a gap
+  before the icon existed).
+- **`Toast`'s Danger description is `text-danger`**, not the shared
+  `text-ink-500` every other tone description used — a one-line fill swap on
+  both sides.
+- **`Stepper`'s connector was already fixed-length in Figma** (24px
+  horizontal, 14px vertical, from the earlier pass's positioning fix) — code
+  was the one still using `flex-1` for the horizontal connector, which
+  stretched proportionally to each step's own leftover width, so steps with
+  longer labels got visibly longer dashes. Fixed code to match Figma's
+  already-even fixed width rather than the other way round — the one case
+  in this project so far where the Figma side led and code caught up.
