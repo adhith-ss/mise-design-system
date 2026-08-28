@@ -692,3 +692,8 @@ got earlier. Figma can't show the hover state itself (green + white text on
 the resting white/black look, consistent with how every other hover-only
 Figma limitation in this project has been handled — document it, don't fake
 a state Figma can't represent.
+
+**Follow-up same day: title and body turned red** (`danger/DEFAULT`) across
+all four `Kind` variants — the `completed` line (Timeout's third text node)
+stayed at its original `ink/700`, matching code's scope: the request was
+title and body specifically, not every line in the card.
