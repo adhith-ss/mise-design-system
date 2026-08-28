@@ -32,6 +32,7 @@ export function CommandPalette({
     [items, query],
   );
   const groups = [...new Set(results.map((r) => r.group))];
+  const groupId = (g: string) => `cmd-group-${g.replace(/\s+/g, '-').toLowerCase()}`;
 
   if (!open) return null;
 
@@ -46,6 +47,7 @@ export function CommandPalette({
             autoFocus
             role="combobox"
             aria-expanded="true"
+            aria-controls="cmd-listbox"
             aria-activedescendant={`cmd-${active}`}
             value={query}
             placeholder={placeholder}
@@ -61,11 +63,11 @@ export function CommandPalette({
           <span className="font-data flex h-5 items-center rounded-sm border border-line px-[6px] text-[11px] text-ink-500">esc</span>
         </div>
 
-        <div className="max-h-[320px] overflow-auto p-[6px]">
+        <div id="cmd-listbox" role="listbox" aria-label="Results" className="max-h-[320px] overflow-auto p-[6px]">
           {results.length === 0 && <div className="px-[10px] py-4 text-[13px] text-ink-500">{emptyMessage}</div>}
           {groups.map((g) => (
-            <div key={g}>
-              <div className="font-data px-[10px] py-[7px] text-[11px] uppercase tracking-[0.08em] text-ink-400">{g}</div>
+            <div key={g} role="group" aria-labelledby={groupId(g)}>
+              <div id={groupId(g)} className="font-data px-[10px] py-[7px] text-[11px] uppercase tracking-[0.08em] text-ink-400">{g}</div>
               {results.filter((r) => r.group === g).map((r) => {
                 const i = results.indexOf(r);
                 return (

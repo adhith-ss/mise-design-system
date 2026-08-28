@@ -14,8 +14,15 @@
   /* Ink */
   --mise-ink-900: #16211C;
   --mise-ink-700: #43524B;
-  --mise-ink-500: #6B7A72;
-  --mise-ink-400: #8D9994;
+  /* ink-500 and ink-400 were darkened from #6B7A72 / #8D9994 — an accessibility
+     sweep found both failing WCAG 1.4.3 (4.17:1 and 2.95:1 against canvas,
+     need 4.5:1) everywhere they're used for real secondary text (hints,
+     captions, units, metadata), which is most places in this file. Both new
+     values clear 4.5:1 against every surface colour in the system (canvas,
+     surface, surface-raised) with room to spare. ink-300 stays as-is — it's
+     only ever used on disabled controls, which are exempt from 1.4.3. */
+  --mise-ink-500: #5E6D65;
+  --mise-ink-400: #63726A;
   --mise-ink-300: #A9B6B0;
 
   /* Surfaces */
@@ -41,13 +48,18 @@
      tone-warning-bg is the routine warning behind any Badge or Banner.
      They sit four hexes apart on purpose — do not merge them. */
   --mise-warn-bg: #FBF1DC;
-  --mise-alert: #B4531B;
+  /* alert and tone-warning-fg were both #B4531B — kept in sync, darkened
+     to #AD4F19, since an accessibility sweep found the original failing
+     4.5:1 (4.43-4.76 depending on background) wherever it sits on a light
+     tinted surface as text, not just as tone-warning-fg's badge/banner/toast
+     role. */
+  --mise-alert: #AD4F19;
 
   /* Tone pairs — badge, banner, toast */
   --mise-tone-success-bg: #E8F2EC;
   --mise-tone-success-fg: #1E6B4B;
   --mise-tone-warning-bg: #FBEFE6;
-  --mise-tone-warning-fg: #B4531B;
+  --mise-tone-warning-fg: #AD4F19;
   --mise-tone-danger-bg: #FBF0EF;
   --mise-tone-danger-fg: #A32A22;
   --mise-tone-info-bg: #ECF1F6;

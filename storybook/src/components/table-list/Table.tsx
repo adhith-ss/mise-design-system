@@ -4,6 +4,13 @@ import { cx } from '../../lib/cx';
 export interface Column<Row> {
   key: string;
   header: string;
+  /**
+   * Accessible name for a column whose visible header is intentionally
+   * blank — an icon-only actions column, say. A `<th>` with no text of any
+   * kind reads as nameless to a screen reader navigating by column, even
+   * though the visual design has nothing to show there.
+   */
+  srHeader?: string;
   /** Right-align numbers; they compare down a column, not across. */
   align?: 'left' | 'right';
   width?: string;
@@ -73,7 +80,7 @@ export function Table<Row extends { id: string }>({
                   c.align === 'right' && 'text-right',
                 )}
               >
-                {c.header}
+                {c.header || (c.srHeader && <span className="sr-only">{c.srHeader}</span>)}
               </th>
             ))}
           </tr>

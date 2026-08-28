@@ -38,6 +38,7 @@ const columns: Array<Column<InvoiceRow>> = [
   {
     key: 'actions',
     header: '',
+    srHeader: 'Row actions',
     align: 'right',
     width: '56px',
     render: (r) => <MoreMenu subject={r.id} items={[{ label: 'Open invoice' }, { label: 'Match lines' }]} />,
