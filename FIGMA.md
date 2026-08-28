@@ -348,6 +348,24 @@ auto-resize let the Plato tile captions overflow past their 200px column
 into the neighbour's space until `resize(200, h)` → `layoutSizingHorizontal
 = 'FIXED'` → `textAutoResize = 'HEIGHT'` was applied.
 
+**Follow-up: an `accent` (wine) ramp, guidelines-scoped only.** The user
+supplied `#6B1E3E` as a complementary colour. It turned out to be an *exact*
+180° hue rotation of `brand/600` — identical saturation and lightness
+(56.2%, 26.9%), not a coincidence — so the 11-stop ramp was built the same
+disciplined way as the brand ramp's own 300/400/950 extension: every
+`brand/*` stop rotated 180°, S/L untouched. Reviewed with the user via a
+published Artifact (a hue-wheel proof plus a contrast table) before
+anything was committed, per their explicit ask. Their decision on review:
+**approved for Brand & Marketing guidelines only, not as an application
+colour.** That changed the implementation from the earlier `brand`/
+`mascot-ink`/`brand-glow` pattern in a specific way — `accent/*` exists as
+Figma variables (so it can still be picked up consistently by hand) but
+carries **no `WEB` code syntax binding**, and was deliberately *not* added
+to `tokens.css` or `tailwind.config.ts`. No component can `bg-accent-600`
+its way into product UI by accident, because there is no such class. If the
+colour is ever needed in the app, that has to be a separate, deliberate
+decision — this page doesn't grant it by existing.
+
 ## Traps worth knowing before building the next category
 
 **`layoutSizingHorizontal = 'FILL'` on a `TEXT` node does nothing while

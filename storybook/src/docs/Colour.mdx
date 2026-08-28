@@ -68,6 +68,37 @@ makes the character read as a character rather than another toolbar glyph —
 it is a *marketing/mascot* icon language, not a replacement for the thin
 product one, and the two should never be mixed on the same screen.
 
+## Accent — wine (brand guidelines only)
+
+A true second brand hue — not another green extension. Anchored on a
+supplied `#6B1E3E`, which turns out to be an *exact* 180° hue rotation of
+`brand/600` with identical saturation and lightness (56.2%, 26.9%): not a
+coincidence, so the full ramp below rotates every `brand/*` stop the same
+way, S/L untouched — same discipline as the brand ramp's own 300/400/950
+extension, nothing picked by eye.
+
+<ColorPalette>
+  <ColorItem
+    title="accent"
+    subtitle="Wine — documented here for brand guidelines and marketing use only"
+    colors={{ 50: '#F2E8EE', 100: '#E6D3DD', 200: '#DEC9D4', 300: '#D1A3BB', 400: '#BB5484', 500: '#8A2A53', 600: '#6B1E3E', 700: '#4A142A', 800: '#3F1225', 900: '#381021', 950: '#250915' }}
+  />
+</ColorPalette>
+
+- **Reference only — deliberately not a token.** Unlike `brand/*`,
+  `mascot-ink`, and `brand-glow`, this ramp has no `--mise-accent-*` entry
+  in `tokens.css` and no Tailwind utility. It exists so the hex values are
+  documented and consistent wherever a designer needs them by hand — a
+  slide, a print piece, a campaign asset — never so a component can pull
+  `bg-accent-600` into product UI. If it's ever needed *in the app*, that's
+  a deliberate follow-up decision, not something this page grants on its own.
+- **Hue distance from `danger`:** accent/600 sits at H≈335°, `danger` at
+  H≈4° — about 28-33° apart on the wheel. Distinct, but both read
+  "warm/reddish" at a glance. Never pair accent with a status colour in the
+  same view.
+- **Contrast:** accent/600 is 11.17:1 on white, 10.33:1 on canvas — clears
+  AAA (7:1) with room to spare if it's ever used as text.
+
 ## Rules
 
 - `brand/600` is the only fill for a primary action. `brand/700` is its hover.
