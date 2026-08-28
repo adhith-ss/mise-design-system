@@ -23,8 +23,8 @@ export function AgentError({
       role="alert"
       className="flex max-w-[620px] flex-col gap-2 rounded-lg border border-danger-line bg-tone-danger-bg px-4 py-[14px]"
     >
-      <h3 className="m-0 text-[13.5px] font-bold">{title}</h3>
-      <p className="m-0 text-[12.5px] leading-[1.65] text-ink-700">{body}</p>
+      <h3 className="m-0 text-[13.5px] font-bold text-danger">{title}</h3>
+      <p className="m-0 text-[12.5px] leading-[1.65] text-danger">{body}</p>
       {completed && <p className="m-0 text-[12.5px] leading-[1.65] text-ink-700">{completed}</p>}
       {(primaryLabel || secondaryLabel) && (
         <div className="flex gap-[9px] pt-[2px]">
