@@ -28,7 +28,10 @@ export function Toast({ title, description, tone = 'neutral', action, onDismiss 
       role={tone === 'danger' ? 'alert' : 'status'}
       className={cx('flex w-[380px] items-start gap-3 rounded-control border px-4 py-[13px] shadow-popover', TONE_BG[tone])}
     >
-      <Icon icon={Glyph} size="md" className={cx('mt-[1px]', TONE_FG[tone])} label={tone} />
+      {/* Decorative, not labelled — role="status"/"alert" plus the title text
+          already carry the condition; a labelled icon here would have a
+          screen reader announce the tone word twice. Same fix as Banner. */}
+      <Icon icon={Glyph} size="md" className={cx('mt-[1px]', TONE_FG[tone])} />
       <div className="flex flex-1 flex-col gap-[2px]">
         <span className={cx('text-[13.5px] font-semibold', TONE_FG[tone])}>{title}</span>
         {description && (
