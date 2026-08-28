@@ -69,6 +69,9 @@ export function Composer({
           className="resize-none border-0 bg-transparent text-[14px] leading-[22px] text-ink-900 outline-none placeholder:text-ink-400"
         />
         <div className="flex items-center gap-[9px]">
+          <button type="button" className="h-[30px] w-[30px] rounded-md border border-line bg-surface text-[14px] text-ink-700" aria-label="Attach an invoice or photo">
+            +
+          </button>
           {scope && (
             <button
               type="button"
@@ -79,9 +82,6 @@ export function Composer({
               {scope}
             </button>
           )}
-          <button type="button" className="h-[30px] w-[30px] rounded-md border border-line bg-surface text-[14px] text-ink-700" aria-label="Attach an invoice or photo">
-            +
-          </button>
           <button
             type="button"
             onClick={onSend}

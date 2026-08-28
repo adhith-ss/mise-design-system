@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { cx } from '../../lib/cx';
 
 export type ApprovalImpact = 'reversible' | 'undoable' | 'permanent';
@@ -34,7 +35,7 @@ export function InlineApproval({
     const approved = resolution.state === 'approved';
     return (
       <div className="flex items-center gap-[9px] rounded-[11px] border border-line bg-surface px-[13px] py-[10px]">
-        <span aria-hidden="true" className={cx('h-[14px] w-[14px] rounded-pill', approved ? 'bg-brand-600' : 'bg-ink-400')} />
+        <span aria-hidden="true" className={cx('h-[14px] w-[14px] rounded-pill', approved ? 'bg-brand-600' : 'bg-danger')} />
         <span className="text-[12.5px]">
           {approved
             ? `Approved${resolution.by ? ` by ${resolution.by}` : ''}${resolution.at ? ` · ${resolution.at}` : ''}${resolution.undoFor ? ` · undo for ${resolution.undoFor}` : ''}`
@@ -47,7 +48,8 @@ export function InlineApproval({
   return (
     <section
       aria-label={title}
-      className="max-w-[560px] overflow-hidden rounded-lg border border-line border-l-[3px] border-l-warn bg-surface"
+      style={{ '--mise-streak-color': 'var(--mise-brand-600)' } as CSSProperties}
+      className="mise-streak-border max-w-[560px] overflow-hidden rounded-lg border border-line bg-surface"
     >
       <div className="flex flex-col gap-3 px-[17px] py-[15px]">
         <div className="flex items-center gap-[9px]">

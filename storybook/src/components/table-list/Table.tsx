@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import { cx } from '../../lib/cx';
 
 export interface Column<Row> {
@@ -37,6 +37,13 @@ export function Table<Row extends { id: string }>({
 }: TableProps<Row>) {
   const h = density === 'compact' ? 'h-10' : 'h-12';
   const allOn = rows.length > 0 && selected.length === rows.length;
+  const someOn = selected.length > 0 && !allOn;
+  const headerCheckbox = useRef<HTMLInputElement>(null);
+  // `indeterminate` is a DOM property, not an HTML attribute — there is no
+  // JSX prop for it, it has to be set imperatively after every render.
+  useEffect(() => {
+    if (headerCheckbox.current) headerCheckbox.current.indeterminate = someOn;
+  }, [someOn]);
 
   return (
     <div className="overflow-hidden rounded-lg border border-line bg-surface">
@@ -47,6 +54,7 @@ export function Table<Row extends { id: string }>({
             {selectable && (
               <th scope="col" className="w-10 border-b border-line px-3">
                 <input
+                  ref={headerCheckbox}
                   type="checkbox"
                   aria-label={allOn ? 'Deselect all rows' : 'Select all rows'}
                   checked={allOn}

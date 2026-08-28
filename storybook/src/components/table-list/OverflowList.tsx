@@ -8,7 +8,7 @@ export interface OverflowListProps {
   visibleCount?: number;
   /** Label for the collapsed group, e.g. "vendors". */
   unit?: string;
-  /** 'expand' reveals in place; 'count' shows a static "+n". */
+  /** 'expand' reveals behind a bordered pill; 'count' is a bold brand-coloured "+n" that expands the same way. */
   behaviour?: 'expand' | 'count';
 }
 
@@ -36,7 +36,16 @@ export function OverflowList({
             +{hidden} more{unit ? ` ${unit}` : ''}
           </button>
         ) : (
-          <span className="font-data text-[12px] text-ink-500">+{hidden}</span>
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            // `.font-data` hardcodes font-weight:300 and wins the cascade over
+            // `.font-bold` regardless of class order (it's declared later in
+            // tailwind.css) — `!font-bold` forces the override.
+            className="font-data text-[12px] !font-bold text-brand-600 hover:text-brand-800"
+          >
+            +{hidden}
+          </button>
         )
       )}
       {open && items.length > visibleCount && (

@@ -37,10 +37,7 @@ export function ToolCallCard({
 
   return (
     <div
-      className={cx(
-        'overflow-hidden rounded-lg border border-line',
-        writesData && 'border-l-[3px] border-l-warn',
-      )}
+      className="overflow-hidden rounded-lg border border-line"
       aria-busy={status === 'running' || undefined}
     >
       <button

@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { cx } from '../../lib/cx';
 
 export type AgentState = 'idle' | 'working' | 'waiting' | 'stopped';
@@ -33,8 +34,15 @@ export function AgentStatus({ state, steps = [], onStop, compact = false, detail
   const pill = PILL[state];
 
   if (compact) {
+    const working = state === 'working';
     return (
-      <div className="inline-flex items-center gap-[9px] rounded-[11px] border border-line bg-surface-raised px-3 py-[9px]">
+      <div
+        style={working ? { '--mise-streak-color': 'var(--mise-brand-600)' } as CSSProperties : undefined}
+        className={cx(
+          'inline-flex items-center gap-[9px] rounded-[11px] border border-line bg-surface-raised px-3 py-[9px]',
+          working && 'mise-streak-border',
+        )}
+      >
         <span aria-hidden="true" className={cx('h-2 w-2 rounded-pill', pill.dot)} />
         <span className="text-[12.5px]">{[pill.label, detail].filter(Boolean).join(' · ')}</span>
       </div>
@@ -57,7 +65,10 @@ export function AgentStatus({ state, steps = [], onStop, compact = false, detail
           <span
             className={cx(
               'text-[13.5px]',
-              s.status === 'active' && 'font-bold text-ink-900',
+              // Matches Skeleton's own pulse exactly (motion-safe:animate-pulse
+              // on bg-neutral-200) — the active step is the one line still
+              // arriving, so it reads the same way a loading placeholder does.
+              s.status === 'active' && 'font-bold text-ink-900 motion-safe:animate-pulse',
               s.status === 'done' && 'font-medium text-ink-700',
               s.status === 'pending' && 'text-ink-400',
             )}
