@@ -40,23 +40,27 @@ export function Card({
         onClick && 'cursor-pointer transition-shadow duration-fast ease-mise hover:shadow-raised',
       )}
     >
-      {(title || action) && (
+      {(title || action || needsAttention) && (
         <div className={cx('flex items-start justify-between gap-3', padding === 'none' ? 'px-4 pb-3 pt-4' : pad, 'pb-0')}>
-          <div className="flex flex-col gap-[2px]">
-            {title && <span className="text-[15px] font-bold">{title}</span>}
-            {subtitle && <span className="text-[12.5px] text-ink-500">{subtitle}</span>}
+          <div className="flex items-start gap-2">
+            {needsAttention && (
+              <Icon
+                icon={AlertTriangle}
+                size="sm"
+                tone={edge === 'danger' ? 'danger' : 'current'}
+                className={cx('mt-[2px]', edge === 'warning' && 'text-warn')}
+                label="Needs attention"
+              />
+            )}
+            <div className="flex flex-col gap-[2px]">
+              {title && <span className="text-[15px] font-bold">{title}</span>}
+              {subtitle && <span className="text-[12.5px] text-ink-500">{subtitle}</span>}
+            </div>
           </div>
           {action}
         </div>
       )}
-      <div className={pad}>
-        {children}
-        {needsAttention && (
-          <div className="mt-3 flex items-center gap-2">
-            <Icon icon={AlertTriangle} size="sm" tone={edge === 'danger' ? 'danger' : 'current'} className={edge === 'warning' ? 'text-warn' : undefined} label="Needs attention" />
-          </div>
-        )}
-      </div>
+      <div className={pad}>{children}</div>
       {footer && (
         <div className="border-t border-line-soft bg-surface-raised px-4 py-3">{footer}</div>
       )}

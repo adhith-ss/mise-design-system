@@ -73,18 +73,30 @@ export function DateInput({
 
   return (
     <div className="flex flex-col gap-[6px]">
-      <input
-        id={field?.id}
-        type="date"
-        value={value}
-        min={min}
-        max={max}
-        disabled={off}
-        aria-describedby={cx(field?.describedBy, calloutId) || undefined}
-        aria-invalid={bad ? true : undefined}
-        onChange={(e) => onChange(e.target.value)}
-        className={cx(controlClass(bad), 'font-data')}
-      />
+      <div className="relative">
+        <input
+          id={field?.id}
+          type="date"
+          value={value}
+          min={min}
+          max={max}
+          disabled={off}
+          aria-describedby={cx(field?.describedBy, calloutId) || undefined}
+          aria-invalid={bad ? true : undefined}
+          onChange={(e) => onChange(e.target.value)}
+          className={cx(controlClass(bad), 'font-data', !value && 'text-transparent')}
+        />
+        {/* Native date inputs ignore `placeholder` and show the browser's own
+            locale format instead, so it has to be hidden (text-transparent
+            above) for this overlay to be the only visible prompt — otherwise
+            our "DD/MM/YYYY" would sit on top of the browser's own mm/dd/yyyy
+            segments. */}
+        {!value && (
+          <span aria-hidden="true" className="font-data pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[14px] text-ink-400">
+            DD/MM/YYYY
+          </span>
+        )}
+      </div>
       {callout && <span id={calloutId} className="text-[12px] leading-[1.5] text-danger">{callout}</span>}
     </div>
   );

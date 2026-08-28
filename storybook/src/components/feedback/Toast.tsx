@@ -31,7 +31,11 @@ export function Toast({ title, description, tone = 'neutral', action, onDismiss 
       <Icon icon={Glyph} size="md" className={cx('mt-[1px]', TONE_FG[tone])} label={tone} />
       <div className="flex flex-1 flex-col gap-[2px]">
         <span className={cx('text-[13.5px] font-semibold', TONE_FG[tone])}>{title}</span>
-        {description && <span className="text-[12.5px] leading-[1.55] text-ink-500">{description}</span>}
+        {description && (
+          <span className={cx('text-[12.5px] leading-[1.55]', tone === 'danger' ? 'text-danger' : 'text-ink-500')}>
+            {description}
+          </span>
+        )}
       </div>
       {action}
       {onDismiss && (

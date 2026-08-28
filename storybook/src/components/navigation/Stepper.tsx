@@ -29,13 +29,18 @@ export function Stepper({ steps, orientation = 'horizontal', onStepClick }: Step
         // The connector leads *into* a step — it sits before the circle, not
         // after it, so a completed step visibly reads as "arrived at" rather
         // than "about to leave." It's filled in once the step it leads into
-        // has actually been completed.
+        // has actually been completed. Fixed length in both orientations —
+        // `flex-1` here (horizontal's original shape) stretched to whatever
+        // leftover width that particular step's `li` happened to have, so
+        // steps with longer labels got visibly longer dashes than steps with
+        // short ones. A constant 24px (horizontal) / 14px (vertical) reads
+        // as one even rhythm regardless of label length.
         const connector = i > 0 && (
           <span
             aria-hidden="true"
             className={cx(
               s.status === 'done' ? 'bg-brand-600' : 'bg-line',
-              orientation === 'horizontal' ? 'mt-[10px] h-px flex-1 self-start' : 'ml-[10px] h-[14px] w-px',
+              orientation === 'horizontal' ? 'mt-[10px] h-px w-6 shrink-0 self-start' : 'ml-[10px] h-[14px] w-px',
             )}
           />
         );
