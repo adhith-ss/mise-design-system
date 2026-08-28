@@ -5,16 +5,30 @@
 Built from this repo. Values come from `tokens.css`, geometry from Lucide,
 component behaviour from `storybook/src/components`.
 
-## ⚠️ One thing to change back before shipping
+## ✅ The Geist → General Sans swap is done
 
-**Every `data/*` text style points at Geist Light. They must be General Sans
-Light.**
+`data/*` text styles now point at General Sans Light, done by hand in the
+Figma client on 2026-08-27 and verified by screenshot (Table, Timestamp —
+numbers and dates render correctly, no fallback tofu, no layout shift).
 
-Repoint all of them in Figma's local text styles — there are five today
-(`data/14`, `data/13`, `data/12.5`, `data/12`, `data/11.5`) and the set grows as
-components need new sizes, so select the whole `data/` group rather than working
-from a list. Every number, ID and tool name in the file becomes correct at once;
-nothing else needs touching and no component has to be rebuilt.
+**This closed one door: any `data/*`-styled TEXT node can no longer be edited
+or created through `use_figma` scripts.** `loadFontAsync({family:'General
+Sans', ...})` throws — that tooling context only sees Figma-hosted families,
+General Sans isn't one — so `.characters =`, `setTextStyleIdAsync`, and any
+new text node built with a `data/*` style all fail with "Cannot write to node
+with unloaded font." Hit repeatedly during the 27-issue review pass (Slider's
+"of 100" suffix, Pagination's page/count text, DateInput's Missing-state
+value). The workaround, every time: don't touch the `data/*` node. Add a
+**second, sibling TEXT node** in a loadable font (Manrope, matching size and
+colour) carrying the new characters, positioned right next to or in place of
+the untouchable one — two text nodes reading as one string. This is now the
+permanent shape of "add data-styled text" for the rest of this file's life;
+building a brand-new data-styled component from scratch still works fine
+(Geist can be swapped in low-effort at the end, as before), it's only
+*editing an already-swapped* node that's closed off.
+
+<details>
+<summary>Why they were wrong on purpose (Geist-first build history)</summary>
 
 ### Why they are wrong on purpose
 
@@ -38,6 +52,8 @@ nodes are humans in Figma — where the font is available.
 Two components already carry the scars of building the other way round, both
 flagged in amber on their pages: `DropdownMenu`'s group heading has no tracking,
 and its shortcut text is fixed at the component default.
+
+</details>
 
 ## Structure
 
@@ -380,8 +396,10 @@ Padding and gap were raw numbers everywhere through Action and the first pass of
 Content — a documented convention on the Spacing & Radius page, but nothing
 bound to it. Fixed: 18 `space/*` variables (0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 12,
 14, 16, 18, 20, 24, 32 — every discrete value actually found inside a
-component, not the doc scaffolding around it) plus `overlap/sm|md|lg` for
-AvatarGroup's negative stacking margin and `overlap/border` for ButtonGroup's
+component, not the doc scaffolding around it) plus `overlap/sm|md|lg` (`sm`
+corrected to `-5` in the 27-issue review pass — the fixed 2px ring border eats
+proportionally more space at 24px than at md/lg, so `-4` read looser than the
+larger sizes) for AvatarGroup's negative stacking margin and `overlap/border` for ButtonGroup's
 −1px attached-border collapse. Live on the Spacing & Radius page under
 **Spacing (variables)**, in the `semantic` collection, scope `GAP`. `space/24`
 joined for FileInput's drop-zone padding, `space/32` for TreeList's depth-1
@@ -440,3 +458,73 @@ need a hardcoded node ID and works unchanged on a page with one component
   values. Screenshotted `Button` (150 bindings, the largest single page) and
   `DropdownMenu` (three separate component sets on one page) after the rebind;
   both pixel-identical to before.
+
+## 27-issue Storybook review pass (2026-08-27)
+
+A full visual review of the deployed Storybook surfaced 27 issues across
+Content, Action, Data Input, Feedback & Status, and Navigation. Every one was
+fixed in the React components first (verified in the Storybook dev server,
+`tsc --noEmit` and `storybook build` both clean), then mirrored into this
+file so the two never drift. `overlap/sm` itself changed value — `-4` → `-5`
+— rather than picking up a new token, since the ring border eating
+proportional space at 24px was a genuine measurement correction, not a new
+value to bind.
+
+**New Icon-page components**, added because the fix genuinely needed them and
+nothing in the existing 32 was close enough: `icon/info` (Banner/Toast's
+info tone — no reasonable substitute existed) and `icon/circle` (Toast's
+neutral tone, matching code's bare `Circle` glyph). Everywhere else, an
+existing icon was reused as the closest available stand-in rather than
+growing the sheet further — e.g. `chart-column` for "Orders", `database` for
+"Vendors", `arrow-up-right` for "Shipped" on Badge. The 32-icon sheet is
+still an asset sheet, not a full Lucide mirror; it grows only when a fix
+truly has no fit, the same rule the `space/*` scale already follows.
+
+**Streak border.** Card's "needs attention" edge and Banner's tone edge both
+moved from a flat coloured strip to a rotating CSS conic-gradient border in
+code (`.mise-streak-border`, documented in `tailwind.css`). Figma has no
+motion — the static proxy here is a **full-perimeter 1–1.5px stroke in the
+tone colour**, which is what the rotating arc visits over one full cycle.
+Not literal frame-matching, a reasonable "what would you see if you averaged
+every frame" substitute.
+
+**New variants added, not just re-skinned** (several code fixes revealed
+Figma components that had never been given the state the fix needed):
+- `CheckboxInput` — `State=Required` (was missing entirely)
+- `DateInput` — went from `Mode` as the only axis to `Mode × State`, adding
+  `State=Invalid` and `State=Missing`; existing variants were renamed to
+  `State=Default` to keep every variant on the same two axes (Figma throws
+  "component set has existing errors" the moment variants don't share axes)
+- `MultiSelector` — `State=Invalid` (was missing)
+- `FileInput` — `State=Disabled` (was missing; only Default/DragOver existed)
+- `ProgressBar` — `Variant=Complete` (Determinate only ever showed partial
+  progress; cloned and set to N of N, plus a leading check icon)
+- `Pagination` — `Variant=SinglePage` (Prev/Next hidden, "Page 1 of 1")
+- `Badge` — no new variant axis (an icon+count combination would explode 15
+  variants into 30 for one demonstration); added as a standalone instance in
+  the "in use" row instead, matching how one-off states have been shown
+  elsewhere in this file when a full axis isn't warranted
+
+**SideNav's icon slots were empty in both Expanded and Collapsed** — not a
+first-letter fallback like the code, just blank rounded chips with zero
+children, in *every* item, in *every* state. The reported bug (collapsed
+needs real icons) was really surfacing a gap that existed everywhere;
+fixed both states in one pass rather than leaving Expanded looking
+inconsistent with a freshly-icon'd Collapsed. Added a 20px logo-mark square
+to both states too — this component never had a header slot at all.
+
+**Stepper never drew a connector, in either orientation** — the code's
+"trailing line after each step" turned out not to exist in Figma at all, so
+"move the dash from after to before" became "add the dash." Horizontal reused
+a `flex-1` gap sibling as in code; vertical needed absolute-ish manual
+positioning instead (`layoutMode = 'NONE'`, explicit x/y per row) since a
+fixed-height rectangle inside an unconstrained auto-layout column doesn't
+have anything to size against.
+
+**TopNav's icons landed with zero gap to their labels** — inserting a new
+first child into a row whose `itemSpacing` had never been set (because it
+only ever had one child before) doesn't create spacing from nothing; had to
+explicitly `setBoundVariable('itemSpacing', space/7)` on every row after
+inserting. The same trap as ToolCallCard's `space/11` miss, different cause:
+that one was a wrong token name, this one was a spacing property that was
+simply never set because the row never needed it before.
