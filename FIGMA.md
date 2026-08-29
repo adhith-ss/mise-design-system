@@ -180,7 +180,7 @@ the property from the start on everything after.
 | Component | Variants | Axes |
 | --- | --- | --- |
 | TopNav | — | plain `COMPONENT`, no axis |
-| SideNav | 2 | State (Expanded, Collapsed) |
+| SideNav | 4 | State (Expanded, Collapsed) × Tone (Light, Dark) |
 | TabList | 2 | Appearance (Underline, Enclosed) |
 | Breadcrumbs | 2 | State (Default, Collapsed) |
 | Pagination | 2 | Variant (WithPageSize, WithoutPageSize) |
@@ -570,8 +570,6 @@ need a hardcoded node ID and works unchanged on a page with one component
   so it is a raw value. Needs a token or should inherit `control/sm`.
 - `Link`'s inline underline is `decoration-brand-200` in code — lighter than the
   text. Figma cannot colour an underline separately.
-- The MVP's sidebar is a dark surface with an amber logo mark. Neither exists in
-  the token set; resolve before building an app shell.
 - **`Avatar` initials have no text style.** The scale needs 10 / 11 / 13px bold
   and the `ui/*` ramp has nothing below 11.5, so the three sizes set Manrope Bold
   directly. Either add three styles or accept the exception.
@@ -696,6 +694,82 @@ first, then mirrored here as before.
   longer labels got visibly longer dashes. Fixed code to match Figma's
   already-even fixed width rather than the other way round — the one case
   in this project so far where the Figma side led and code caught up.
+
+## SideNav — dark rail (2026-08-28)
+
+Closed the oldest open item in "Known gaps": *"The MVP's sidebar is a dark
+surface with an amber logo mark. Neither exists in the token set; resolve
+before building an app shell."* Built as `SideNav`'s `tone="dark"` — a
+persistent-chrome rail that stays dark while the rest of the product is
+light, not a general dark mode.
+
+**Two review rounds, not one — first pass wasn't close enough, and the
+second pass shipped two real Figma-only bugs.**
+
+- Round 1 built a plain reskin (dark bg, quiet counts, a single saturated
+  amber square) and asked for sign-off before committing. The user replied
+  with an actual MVP screenshot: a much richer composition — a bold header
+  mark, a bordered workspace-switcher card with an avatar, icons beside
+  every label (not just collapsed), a solid gold count badge on one item,
+  and a footer status widget below a divider. The amber itself was also
+  wrong — softer and far less saturated than the first guess.
+- Round 2 rebuilt the palette (`--mise-rail-mark` retuned from H36°/S88%/L58%
+  to H40°/S55%/L72% — same amber family, much less saturated) and extended
+  `SideNav` with two new opt-in props (`showIcons`, `SideNavItem.highlightCount`)
+  rather than changing the light rail's default look. `rail-current-bg`
+  also changed from a translucent 14%-opacity overlay to a solid fill,
+  because that's what the reference actually showed — and the first solid
+  value chosen (L22) put `brand-400` at 4.48:1 against it, one hundredth
+  under WCAG AA; stepped down to L20, which turned out to be numerically
+  identical to `rail-border` — confirms it's a real, usable step in the
+  scale, not a number invented to pass a contrast checker.
+
+**Two Figma-only bugs, not present in the Storybook build:**
+
+- **Every wrapper `figma.createAutoLayout()` frame defaults to an opaque
+  white fill.** Six frames across the new variant (the switcher card, its
+  text column, the nav column, the footer column, the status row, its text
+  column) were left with that default because nothing was meant to need an
+  explicit fill — they were meant to be transparent, showing the dark rail
+  behind them. Instead the whole composition rendered as solid white cards
+  floating on a dark background. `createAutoLayout` needs `fills = []`
+  stated explicitly every time a frame is meant to be invisible; there is
+  no "transparent by default" the way a plain `<div>` in code has.
+- **Every icon instance defaulted to `ink/700` — a colour tuned for icons on
+  a light surface — regardless of which rail they were placed on.** Icon
+  components in this library don't inherit `currentColor` the way the code
+  `Icon` component does (Lucide's own `stroke="currentColor"` behaviour);
+  a Figma `INSTANCE` of `icon/*` keeps whatever colour its vectors were
+  last painted with until told otherwise. On `rail-bg` this read as barely-
+  visible dark-on-dark. Fixed by explicitly repainting every icon
+  instance's vector strokes/fills to `rail/text` (or `brand/400` for the
+  current item) after placing it — the same "recolour after instantiating"
+  step every icon in this file needs when it lands on a non-default
+  background, just newly relevant because this was the first genuinely
+  dark one.
+
+**New variables** (primitive + semantic pairs, `WEB` code syntax, same
+two-tier pattern as everything else): `rail/bg` (`ink-900` reused, not a
+new hex), `rail/bg-hover`, `rail/border`, `rail/text`, `rail/text-muted`,
+`rail/current-bg`, `rail/avatar-bg` (`brand-800` reused), `rail/mark`,
+`rail/mark-ink` (`ink-900` reused). The current-item label and footer
+status dot both reuse `brand/400` directly rather than adding rail-scoped
+duplicates of a colour the ramp already had.
+
+**Component set:** added a `Tone` variant property (`Light` default,
+`Dark`) alongside the existing `State` (`Expanded`/`Collapsed`) — 4
+variants total. Retrofitting the two pre-existing light variants required
+renaming them to include `Tone=Light` in the node name directly
+(`TextStyle`-style `setFontNameAsync` doesn't exist on a plain `COMPONENT`;
+a `COMPONENT_SET` derives its property definitions from parsing every
+child's name, so the rename *is* the edit).
+
+**`resize()` reset sizing yet again** — same trap as always, on the exact
+call I already knew to watch for: `primaryAxisSizingMode = 'AUTO'` was set
+*before* `root.resize(232, 10)` to seed a placeholder width, and `resize()`
+silently flipped it back to `FIXED`. Caught immediately (`root.height`
+read back as `10`, the placeholder, not the real auto-grown height) and
+fixed by re-setting `AUTO` after all children were appended, not before.
 
 ## General Sans → Roboto Mono, system-wide (2026-08-28)
 

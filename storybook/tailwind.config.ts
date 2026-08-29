@@ -15,6 +15,14 @@ export default {
         /* Marketing & mascot only — not for product UI. */
         'mascot-ink': t('mascot-ink'),
         'brand-glow': { start: t('brand-glow-start'), end: t('brand-glow-end') },
+        /* The dark left-nav surface only — SideNav's tone="dark". Not a
+           general dark-mode palette; the rest of the product stays light. */
+        rail: {
+          bg: t('rail-bg'), 'bg-hover': t('rail-bg-hover'), border: t('rail-border'),
+          text: t('rail-text'), 'text-muted': t('rail-text-muted'),
+          'current-bg': t('rail-current-bg'), 'avatar-bg': t('rail-avatar-bg'),
+          mark: t('rail-mark'), 'mark-ink': t('rail-mark-ink'),
+        },
         ink: {
           900: t('ink-900'), 700: t('ink-700'), 500: t('ink-500'),
           400: t('ink-400'), 300: t('ink-300'),

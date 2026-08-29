@@ -52,6 +52,56 @@
   --mise-ink-400: #63726A;
   --mise-ink-300: #A9B6B0;
 
+  /* Rail — the dark left-nav surface (SideNav's `tone="dark"`).
+     A known gap since the very first pass ("the MVP's sidebar is a dark
+     surface with an amber logo mark — neither exists in the token set"),
+     closed here, retuned once against a real MVP screenshot. `rail-bg`
+     isn't a new hex — it's `ink-900` reused, since the system already had
+     a brand-tinted near-black that fits a nav rail as well as it fits
+     text. Everything else in this group is derived from that same hue
+     (~153°) at different lightness/saturation, except the mark, which is
+     genuinely new (see below). Contrast checked against rail-bg: rail-text
+     14.66:1, rail-text-muted 5.96:1, brand-400-on-dark 6.98:1, rail-mark
+     8.9:1 (mark-ink 9.88:1 on the mark itself) — all clear AA (4.5:1), all
+     but brand-400 clear AAA (7:1) too. */
+  --mise-rail-bg: #16211C;
+  --mise-rail-bg-hover: #21312A;
+  --mise-rail-border: #293D34;
+  --mise-rail-text: #EEF2F0;
+  --mise-rail-text-muted: #87A195;
+  /* The current-page label and the footer status dot both reuse brand-400
+     directly (Tailwind's text-brand-400 / bg-brand-400) — already in the
+     ramp, already tuned as the brand's "readable on a darker ground" step —
+     rather than adding a rail-scoped token for a colour the ramp already
+     has. */
+  /* A solid, visibly-lighter fill for the selected item — not a translucent
+     overlay (the first pass used one at 14% opacity; a real MVP reference
+     showed a plainly solid, slightly-lighter block instead). First value
+     (L22, one step lighter than rail-bg-hover) put brand-400's text at
+     4.48:1 against it — axe-flagged, just under AA's 4.5:1. Stepped down to
+     L20 instead, which lands, by coincidence rather than design, on the
+     exact same hex as rail-border — confirms this is a real, usable step in
+     the scale rather than an arbitrary one. */
+  --mise-rail-current-bg: #293D34;
+  /* The switcher card's avatar/initials tile reuses brand-800 — already the
+     system's dark forest green, no new value needed for "a dark tinted
+     square inside a dark rail." */
+  --mise-rail-avatar-bg: #123F2C;
+  /* The genuinely new colours here — the amber mark and the badge that
+     shares its colour, for brand/emphasis only, never a status. Deliberately
+     not `--mise-warn` or `--mise-alert`: both are semantic ("a person must
+     decide" / "a number varied") and reusing either would blur that meaning
+     the same way accent/danger almost did. First pass (`#F2A736`, H36°
+     S88% L58%) read as closer to "alert orange" than the reference's own
+     mark — a muted, desaturated warm gold. Retuned to H40° S55% L72%: same
+     amber family, far less saturated, much lighter — reads as a considered
+     brand tint instead of a status colour that wandered onto a logo.
+     `rail-mark-ink` is the dark text/icon colour sitting *on* the mark or
+     badge — ink-900 reused, since a warm near-black already existed and a
+     light gold background doesn't need its own dedicated ink. */
+  --mise-rail-mark: #DFC590;
+  --mise-rail-mark-ink: #16211C;
+
   /* Surfaces */
   --mise-canvas: #F7F6F2;
   --mise-surface: #FFFFFF;
