@@ -28,6 +28,12 @@ export interface SideNavProps {
   /** Swapped in for `header` when collapsed — a mark alone, not the full wordmark. */
   collapsedHeader?: ReactNode;
   footer?: ReactNode;
+  /** Swapped in for `footer` when collapsed. A footer built for the full
+   *  264px rail (a switcher card, a status widget with two lines of text)
+   *  breaks at 64px rather than just looking cramped — unlike a short
+   *  header, there's no safe fallback, so `footer` renders nothing at all
+   *  while collapsed unless this is provided. */
+  collapsedFooter?: ReactNode;
   /** Icons-only rail at 64px. */
   collapsed?: boolean;
   width?: number;
@@ -42,7 +48,7 @@ export interface SideNavProps {
 
 /** The persistent left rail: where the operator is, and everything one click away. */
 export function SideNav({
-  groups, header, collapsedHeader, footer, collapsed = false, width = 264, tone = 'light', showIcons = false,
+  groups, header, collapsedHeader, footer, collapsedFooter, collapsed = false, width = 264, tone = 'light', showIcons = false,
 }: SideNavProps) {
   const dark = tone === 'dark';
   return (
@@ -103,11 +109,13 @@ export function SideNav({
                   i.label
                 )}
                 {i.count != null && !collapsed && (
-                  i.highlightCount && dark ? (
-                    // rail-mark is scoped to the dark rail — no light-mode
-                    // equivalent exists yet, so highlightCount only changes
-                    // the light rail's rendering once one is designed.
-                    <span className="font-data ml-auto rounded-pill bg-rail-mark px-[7px] py-[1px] text-[11px] font-bold text-rail-mark-ink">
+                  i.highlightCount ? (
+                    <span
+                      className={cx(
+                        'font-data ml-auto rounded-pill px-[7px] py-[1px] text-[11px] font-bold',
+                        dark ? 'bg-rail-mark text-rail-mark-ink' : 'bg-brand-600 text-white',
+                      )}
+                    >
                       {i.count}
                     </span>
                   ) : (
@@ -128,7 +136,10 @@ export function SideNav({
           </div>
         ))}
       </div>
-      {footer && <div className="mt-auto">{footer}</div>}
+      {(() => {
+        const content = collapsed ? collapsedFooter : footer;
+        return content && <div className="mt-auto">{content}</div>;
+      })()}
     </nav>
   );
 }

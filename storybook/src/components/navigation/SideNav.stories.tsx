@@ -19,24 +19,50 @@ const meta = {
     },
   },
   args: {
+    showIcons: true,
     header: (
-      <div className="flex items-center gap-[10px]">
-        <span aria-hidden="true" className="h-6 w-6 shrink-0 rounded-[7px] bg-brand-600" />
-        <div className="flex flex-col">
-          <span className="text-[15px] font-extrabold tracking-[-0.01em]">Mise</span>
-          <span className="font-data text-[11px] text-ink-500">Downtown kitchen</span>
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-3">
+          <span aria-hidden="true" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[12px] bg-brand-600">
+            <Icon icon={UtensilsCrossed} size="md" className="text-white" />
+          </span>
+          <span className="text-[22px] font-extrabold tracking-[-0.01em]">Mise</span>
         </div>
+        {/* The workspace switcher — a bordered card, not a bare row, so it
+            reads as a control (something you click to change) rather than
+            more static header text. Matches SideNav's dark-rail switcher
+            card 1:1, just in light tokens. */}
+        <button
+          type="button"
+          className="flex items-center gap-2 rounded-[12px] border border-line px-[10px] py-[10px] text-left transition-colors duration-fast ease-mise hover:bg-canvas"
+        >
+          <span
+            aria-hidden="true"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[8px] bg-surface-sunken text-[12px] font-bold text-ink-700"
+          >
+            HP
+          </span>
+          <span className="flex min-w-0 flex-1 flex-col overflow-hidden">
+            <span className="truncate text-[13.5px] font-bold text-ink-900">Harbor Produce Co.</span>
+            <span className="font-data text-[11px] text-ink-500">Downtown kitchen</span>
+          </span>
+          <Icon icon={ChevronRight} size="sm" className="shrink-0 text-ink-400" />
+        </button>
       </div>
     ),
-    // Collapsed keeps only the mark — the wordmark and location name have
+    // Collapsed keeps only the mark — the wordmark and switcher have
     // nowhere to go at 64px, so showing half of them is worse than showing
     // neither.
-    collapsedHeader: <span aria-hidden="true" className="mx-auto h-6 w-6 shrink-0 rounded-[7px] bg-brand-600" />,
+    collapsedHeader: (
+      <span aria-hidden="true" className="mx-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-brand-600">
+        <Icon icon={UtensilsCrossed} size="sm" className="text-white" />
+      </span>
+    ),
     groups: [
       {
         items: [
           { label: 'Today', href: '#', current: true, icon: <Icon icon={Calendar} size="sm" /> },
-          { label: 'Agent', href: '#', icon: <Icon icon={Bot} size="sm" /> },
+          { label: 'Agent', href: '#', count: 2, highlightCount: true, icon: <Icon icon={Bot} size="sm" /> },
         ],
       },
       {
@@ -56,8 +82,49 @@ const meta = {
         ],
       },
     ],
+    footer: (
+      <div className="flex flex-col gap-3">
+        <div className="border-t border-line pt-3">
+          <a
+            href="#"
+            className="flex items-center gap-[9px] rounded-[8px] px-2 py-[7px] text-[13px] text-ink-700 no-underline transition-colors duration-fast ease-mise hover:bg-canvas"
+          >
+            <Icon icon={Settings} size="sm" />
+            Settings
+          </a>
+        </div>
+        <div className="flex items-center gap-[9px] px-2">
+          <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-pill bg-brand-600" />
+          <span className="flex flex-col">
+            <span className="text-[12.5px] font-semibold text-ink-900">All changes saved</span>
+            <span className="font-data text-[11px] text-ink-500">Synced 2 min ago</span>
+          </span>
+        </div>
+      </div>
+    ),
+    // Settings survives as an icon; the two-line status widget doesn't fit
+    // 64px at all, so it's dropped rather than squeezed — same reasoning
+    // collapsedHeader already uses for the wordmark and switcher card.
+    collapsedFooter: (
+      <div className="flex flex-col gap-3">
+        <div className="border-t border-line pt-3">
+          <a
+            href="#"
+            title="Settings"
+            className="flex items-center justify-center rounded-[8px] px-2 py-[7px] text-ink-700 no-underline transition-colors duration-fast ease-mise hover:bg-canvas"
+          >
+            <Icon icon={Settings} size="sm" />
+            <span className="sr-only">Settings</span>
+          </a>
+        </div>
+        <span aria-hidden="true" className="mx-auto h-2 w-2 shrink-0 rounded-pill bg-brand-600" />
+      </div>
+    ),
   },
-  render: (args) => <div className="h-[560px]"><SideNav {...args} /></div>,
+  // Taller than a plain-header rail — the switcher card and footer status
+  // widget need more room, matching a real sidebar's full-viewport height
+  // better than a cramped demo box. Same height as DarkRail's own override.
+  render: (args) => <div className="h-[780px]"><SideNav {...args} /></div>,
 } satisfies Meta<typeof SideNav>;
 
 export default meta;
@@ -157,16 +224,27 @@ export const DarkRail: Story = {
         </div>
       </div>
     ),
+    collapsedFooter: (
+      <div className="flex flex-col gap-3">
+        <div className="border-t border-rail-border pt-3">
+          <a
+            href="#"
+            title="Settings"
+            className="flex items-center justify-center rounded-[8px] px-2 py-[7px] text-rail-text no-underline transition-colors duration-fast ease-mise hover:bg-rail-bg-hover"
+          >
+            <Icon icon={Settings} size="sm" />
+            <span className="sr-only">Settings</span>
+          </a>
+        </div>
+        <span aria-hidden="true" className="mx-auto h-2 w-2 shrink-0 rounded-pill bg-brand-400" />
+      </div>
+    ),
   },
-  // Taller than the shared 560px wrapper — this composition's switcher card
-  // and footer status widget need more room than the plain-header default,
-  // matching a real sidebar's full-viewport height better than a cramped demo box.
-  render: (args) => <div className="h-[780px]"><SideNav {...args} /></div>,
   parameters: {
     docs: {
       description: {
         story:
-          "The persistent-chrome variant — a dark rail that stays put while the rest of the product is light, closing a gap flagged since the library's first pass. rail-bg reuses ink/900; the workspace switcher's avatar reuses brand-800; the footer dot reuses brand-400. The amber mark and its badge twin are the two genuinely new colours, deliberately separate from warn/alert (both semantic) since a logo glyph and an emphasis pill aren't statuses. showIcons and highlightCount are both new, opt-in SideNav props — the light rail's default look is unchanged.",
+          "The persistent-chrome variant — a dark rail that stays put while the rest of the product is light, closing a gap flagged since the library's first pass. rail-bg reuses ink/900; the workspace switcher's avatar reuses brand-800; the footer dot reuses brand-400. The amber mark and its badge twin are the two genuinely new colours, deliberately separate from warn/alert (both semantic) since a logo glyph and an emphasis pill aren't statuses. The light rail now matches this same composition — switcher card, icons, highlighted badge, footer status — just in light tokens, so the two tones read as one system rather than two different products.",
       },
     },
   },

@@ -771,6 +771,48 @@ silently flipped it back to `FIXED`. Caught immediately (`root.height`
 read back as `10`, the placeholder, not the real auto-grown height) and
 fixed by re-setting `AUTO` after all children were appended, not before.
 
+### Follow-up: the light rail didn't match (same day)
+
+Shipping the dark rail alone left the two tones reading as different
+products — the light rail kept its original plain header and quiet counts
+while the dark one gained a switcher card, icons, a badge, and a footer
+status widget. The user caught this immediately: *"The light side nav and
+dark mode look totally different."* Fixed by bringing light up to the same
+composition, not by simplifying dark back down — same switcher card, same
+icons-beside-every-label, same highlighted-badge pattern, same footer,
+just in light tokens (`surface`, `line`, `ink/*`, `brand-600`) instead of
+`rail/*`.
+
+- **`SideNavItem.highlightCount` needed a real light-mode badge, not a
+  fallback.** It shipped dark-only on the first pass, with a comment
+  explaining light had "no equivalent designed yet" — that equivalent is
+  now `bg-brand-600 text-white`, the same solid-pill shape as the dark
+  version's `rail-mark`/`rail-mark-ink` pairing.
+- **A real bug, not just a mismatch: `footer` wasn't collapse-aware, and
+  `collapsed` broke it.** `header` already had `collapsedHeader` as a
+  deliberate fallback ("the wordmark and location name have nowhere to go
+  at 64px"). `footer` had no equivalent, so passing the same switcher-card-
+  era footer (a divider, a Settings link, a two-line status block) into the
+   64px collapsed rail forced full-width content into a narrow column —
+  text wrapped onto 3+ lines and spilled outside the rail entirely,
+  confirmed by screenshot before the fix. Added `collapsedFooter`, same
+  pattern as `collapsedHeader`: falls back to rendering nothing at all when
+  collapsed and not provided, rather than falling back to the broken full
+  content — a two-line status widget has no safe partial version the way a
+  short header sometimes does.
+- **Rebuilding light `Expanded` in Figma left the new component
+  ownerless.** `figma.createComponent()` was called without checking
+  `figma.currentPage` first, and the current page had drifted to `Cover`
+  from an earlier script in the same session — the new node was created
+  there, not on `SideNav`'s page, and was never appended into the
+  `COMPONENT_SET` at all. `variantGroupProperties` still returned cleanly
+  because the *existing* 3 variants were untouched; the gap only surfaced
+  on a full audit that explicitly listed variant names and found only 3
+  where 4 were expected. Fixed by moving the node to the right page,
+  appending it into the set, and repositioning all 4 variants into a clean
+  non-overlapping grid. Worth checking variant *names*, not just the
+  absence of a thrown error, after any script that creates a new variant.
+
 ## General Sans → Roboto Mono, system-wide (2026-08-28)
 
 The data typeface changed for good — not another Geist-style stand-in.
