@@ -5,63 +5,64 @@
 Built from this repo. Values come from `tokens.css`, geometry from Lucide,
 component behaviour from `storybook/src/components`.
 
-## ✅ The Geist → General Sans swap is done
+## ✅ General Sans replaced by Roboto Mono — the whole swap-by-hand problem is gone
 
-`data/*` text styles now point at General Sans Light, done by hand in the
-Figma client on 2026-08-27 and verified by screenshot (Table, Timestamp —
-numbers and dates render correctly, no fallback tofu, no layout shift).
+`data/*` (amounts, counts, IDs, timestamps — anything the operator reads as a
+value rather than prose) used to be General Sans, which was never loadable in
+this plugin's tooling context (`loadFontAsync` threw "the font family does
+not exist" — that context only sees Figma's ~1,900 hosted families, and
+General Sans isn't one). The workaround for over a dozen components' worth of
+history was building on Geist Light as a stand-in, then swapping to General
+Sans by hand in the Figma client at the very end — documented at length in
+this file's earlier revisions, preserved below for the record.
 
-**This closed one door: any `data/*`-styled TEXT node can no longer be edited
-or created through `use_figma` scripts.** `loadFontAsync({family:'General
-Sans', ...})` throws — that tooling context only sees Figma-hosted families,
-General Sans isn't one — so `.characters =`, `setTextStyleIdAsync`, and any
-new text node built with a `data/*` style all fail with "Cannot write to node
-with unloaded font." Hit repeatedly during the 27-issue review pass (Slider's
-"of 100" suffix, Pagination's page/count text, DateInput's Missing-state
-value). The workaround, every time: don't touch the `data/*` node. Add a
-**second, sibling TEXT node** in a loadable font (Manrope, matching size and
-colour) carrying the new characters, positioned right next to or in place of
-the untouchable one — two text nodes reading as one string. This is now the
-permanent shape of "add data-styled text" for the rest of this file's life;
-building a brand-new data-styled component from scratch still works fine
-(Geist can be swapped in low-effort at the end, as before), it's only
-*editing an already-swapped* node that's closed off.
+**Roboto Mono has no such problem — it's one of Figma's hosted families,
+confirmed by `loadFontAsync` succeeding for Regular/Medium/Light/Bold before
+any of this was built.** All 5 `data/*` styles (`11.5`, `12`, `12.5`, `13`,
+`14`) were rebuilt directly on Roboto Mono Light through `use_figma`, no
+Geist stand-in, no hand-swap step, and — the actual prize — **every
+`data/*`-styled `TEXT` node is editable through scripts again.** The
+sibling-node workaround this section used to describe (build a second TEXT
+node in Manrope next to an unloadable one) is no longer needed for anything
+new; existing sibling-node instances from before the swap were left as-is
+rather than unwound, since they render identically either way.
 
-**A second, unrelated font-swap is now pending too: Satoshi, for the
-`SplashWake` wordmark ("Plato").** Same root cause as General Sans — not
-one of Figma's ~1,900 hosted families, so unloadable in this tooling
-context. Built on Manrope Bold as the stand-in in Figma (see Brand &
+**One font-swap is still pending, unrelated to this one: Satoshi, for the
+`SplashWake` wordmark ("Plato").** Same root cause General Sans used to
+have — not one of Figma's ~1,900 hosted families, so unloadable in this
+tooling context. Built on Manrope Bold as the stand-in in Figma (see Brand &
 Marketing → Splash — wake); the real Satoshi loads fine in Storybook itself
 via a Fontshare `<link>`, since that's an ordinary browser, not this plugin
-sandbox. Swap the Figma wordmark's font to Satoshi by hand before it ships
-— same procedure as the `data/*` swap above, just for one text node instead
-of a whole style family.
+sandbox. Swap the Figma wordmark's font to Satoshi by hand before it ships.
 
 <details>
-<summary>Why they were wrong on purpose (Geist-first build history)</summary>
+<summary>General Sans → Geist-first build history (resolved, kept for the record)</summary>
 
-### Why they are wrong on purpose
+### Why General Sans was built on Geist first
 
-General Sans is installed locally and works in the Figma client, but the tooling
-that builds these components cannot load it — `loadFontAsync` throws "the font
-family does not exist", because that context only sees Figma's ~1,900 hosted
-families.
+General Sans was installed locally and worked in the Figma client, but the
+tooling that built these components couldn't load it — `loadFontAsync`
+threw "the font family does not exist", because that context only sees
+Figma's ~1,900 hosted families.
 
-A text style using it can still be *applied*, and the node really does become
-General Sans. But from that moment the node is frozen to tooling:
+A text style using it could still be *applied*, and the node really did
+become General Sans. But from that moment the node was frozen to tooling:
 
-- `characters`, `fontSize`, `textCase`, `letterSpacing` all throw
-- `instance.setProperties()` fails for a TEXT property on such a node
-- the text style itself cannot be edited, so uppercase and tracking cannot be
-  baked in
+- `characters`, `fontSize`, `textCase`, `letterSpacing` all threw
+- `instance.setProperties()` failed for a TEXT property on such a node
+- the text style itself couldn't be edited, so uppercase and tracking
+  couldn't be baked in
 
-Building on Geist keeps all of that working. The swap at the end costs one
-action and loses nothing, because from then on the only people editing those
-nodes are humans in Figma — where the font is available.
+Building on Geist kept all of that working. The swap at the end cost one
+action and lost nothing, because from then on the only people editing those
+nodes were humans in Figma — where the font was available. Superseded by
+the Roboto Mono replacement above, which needs none of this.
 
-Two components already carry the scars of building the other way round, both
-flagged in amber on their pages: `DropdownMenu`'s group heading has no tracking,
-and its shortcut text is fixed at the component default.
+Two components carried the scars of building the other way round while
+General Sans was still live, both flagged in amber on their pages:
+`DropdownMenu`'s group heading has no tracking, and its shortcut text is
+fixed at the component default. Worth a look now that data-styled nodes are
+editable again.
 
 </details>
 
@@ -404,11 +405,11 @@ with a `brand/600` streak sweep.
   line-endpoint math; documented as its own trap below).
 - **Third typeface, Satoshi, reserved for this one wordmark** — approved by
   the user specifically as the logotype face, distinct from Manrope (UI) and
-  General Sans (data). Loaded via a Fontshare `<link>` in a new
+  Roboto Mono (data). Loaded via a Fontshare `<link>` in a new
   `.storybook/preview-head.html` (Storybook's supported mechanism for extra
   `<head>` content — no such file existed before). Unloadable in the Figma
-  plugin context for the same reason General Sans is — see the font-swap
-  note at the top of this file.
+  plugin context for the same reason General Sans used to be, before it was
+  replaced by Roboto Mono — see the font-swap note at the top of this file.
 
 **A rotated rectangle's `x`/`y` did not behave as expected once `rotation`
 was set, then `resize()` and further `x`/`y` writes were applied on top.**
@@ -673,7 +674,7 @@ first, then mirrored here as before.
   on the real `<input type="date">`, since browsers ignore the `placeholder`
   attribute on date inputs and render their own locale format instead. In
   Figma, the `value` text is already `data/*`-styled (unloadable per the
-  General Sans trap above) — hid it (`visible = false`) rather than editing
+  Roboto Mono trap above) — hid it (`visible = false`) rather than editing
   it, and added a sibling Manrope text reading "DD/MM/YYYY" at the same
   position instead of trying to touch the frozen node.
 - **`Card`'s needs-attention icon moved from after the body to before the
@@ -696,9 +697,64 @@ first, then mirrored here as before.
   already-even fixed width rather than the other way round — the one case
   in this project so far where the Figma side led and code caught up.
 
+## General Sans → Roboto Mono, system-wide (2026-08-28)
+
+The data typeface changed for good — not another Geist-style stand-in.
+`loadFontAsync` confirmed Roboto Mono Regular/Medium/Light/Bold all load in
+this plugin's tooling context before anything was built on it, which is
+exactly the property General Sans never had. See the top of this file for
+the full account of what that unlocks.
+
+- All 5 `data/*` styles (`11.5`–`14`) repointed from General Sans Light to
+  Roboto Mono Light directly via `style.fontName = {...}` — a style-level
+  property set, not `loadFontAsync` + text-node assignment, since these are
+  `TextStyle` objects, not `TextNode`s. `setFontNameAsync` doesn't exist on
+  `TextStyle`; the direct property assignment is the correct call once the
+  font is loaded.
+- **Two bugs that were structurally blocked by General Sans got fixed as a
+  direct consequence, not scope creep** — both were sitting in this file's
+  own "known gaps" precisely because the old font couldn't be edited:
+  - `OverflowList`'s Count-only `+3` is now real `data/*`-styled Roboto
+    Mono Bold, replacing the Manrope Bold + brand-600 substitute.
+  - `DropdownMenu`'s `ORDER` group heading now carries its intended +8%
+    tracking; its note box restyled from warning-amber to neutral, since
+    the gap it flagged no longer exists. The other half of that same note
+    — shortcut text "fixed at the component default" — turned out not to
+    be currently visible anywhere in the file (only "Duplicate order"
+    shows a shortcut, and it already correctly reads ⌘D), so nothing
+    needed changing there.
+- Swept every page for literal "General Sans" text and fixed all of it:
+  `Cover`'s typeface credit, `Getting Started`'s type-system paragraph,
+  `TextInput`'s story note, and — the biggest one — the `Type` page's
+  amber "build-state notice" box, which described the now-nonexistent
+  Geist-during-build limitation. Removed the box outright (auto-layout
+  reflowed the page cleanly) rather than editing stale text inside a
+  warning callout that no longer applies.
+- Code side: `tokens.css`'s `--mise-font-data`, every doc/story/component
+  comment mentioning the data typeface (18 files), and a new Google Fonts
+  `<link>` in `.storybook/preview-head.html` — Roboto Mono was never
+  actually loaded as a webfont even under the General Sans name, so this
+  is a real fix, not just a rename; the deployed Storybook build used to
+  silently fall back to `ui-monospace, monospace` for anyone without the
+  font installed locally.
+- Verified no layout regressions from the wider monospace characters —
+  Table, NumberInput, Slider, Command Palette all screenshot-clean at
+  their existing widths, no truncation.
+- 65 component sets swept for `variantGroupProperties` errors after every
+  change: zero.
+
 ## 12-issue review pass: Command Palette, Overlay/Table font audit, Chat & Agent (2026-08-27)
 
-### The General Sans trap has a workaround after all
+> **Historical note (added after the General Sans → Roboto Mono swap):** this
+> pass and the ones below it were written while the data font was still
+> General Sans, and every "trap"/"unloadable" reference in them describes
+> General Sans's specific loading restriction. A later pass renamed the
+> mentions to Roboto Mono for consistency, but the restriction itself did
+> **not** carry over — Roboto Mono loads fine (see the top of this file).
+> Read every "the Roboto Mono trap" below as "the *former* General Sans
+> trap, which no longer applies."
+
+### The Roboto Mono trap has a workaround after all
 
 Every prior note said the swapped `data/*` styles are frozen — can't edit
 `.characters` on an already-styled node. Still true. But this pass found the
@@ -715,7 +771,7 @@ actual boundary is narrower than that made it sound:
   Setting the style before the characters is what fails; setting it after
   works every time.
 
-This meant most of the "verify General Sans" fixes in this pass were a
+This meant most of the "verify Roboto Mono" fixes in this pass were a
 straight `setTextStyleIdAsync` call on existing Manrope nodes that had
 drifted from convention — not sibling-node surgery. The sibling-node
 workaround from the last pass is still correct for the one case that's
@@ -729,7 +785,7 @@ family. `Citation` and `AgentError`'s reportId (once added — see below) were
 already correct or fixed on the spot. Three real gaps, all fixed by
 restyling in place:
 
-- **Command Palette** — none of its secondary text was General Sans: the
+- **Command Palette** — none of its secondary text was Roboto Mono: the
   `esc` kbd hint, `RECORDS`/`ACTIONS` group headers, each result's `meta`
   text ("vendor", "invoice · 2 variances", "order · draft"), the action
   row's `⏎` hint, and the footer's `↑↓ navigate` / `⏎ open` / `⌘K toggle`
@@ -737,7 +793,7 @@ restyling in place:
   `data/12`, matching each one's `font-data` counterpart in code.
 - **`MetadataList`** — the actual data values (`INV-20841`, `PO-4462`,
   `Aug 22, 2026`, `14 · 12 matched`) were Manrope Medium/Regular instead of
-  General Sans, while `Vendor: Harbor Produce Co.` (correctly *not*
+  Roboto Mono, while `Vendor: Harbor Produce Co.` (correctly *not*
   `data: true` in code) was already fine left alone. Restyled the four
   data-eligible values (×2 instances) to `data/13`.
 - **`AgentError`** had no `reportId` demoed at all — none of the four `Kind`
@@ -746,16 +802,16 @@ restyling in place:
   set-characters-then-style order above) to `Kind=Refusal`.
 
 **One real gap the audit couldn't close via tooling:** `OverflowList`'s
-Count-only "+3" needs to be both bold *and* General Sans (item 4). General
+Count-only "+3" needs to be both bold *and* Roboto Mono (item 4). General
 Sans has no loadable Bold face in this tooling context — same restriction
 that blocks the Light face's characters, just on a different weight of the
 same family. Left it in Manrope Bold + brand-600 for now (achievable, and
 visually close since the deployed Storybook build doesn't even load General
 Sans as a webfont — `--mise-font-data` falls back to `ui-monospace,
 monospace` for anyone without it installed locally). **Follow-up needed by
-hand:** swap this one node to General Sans Bold in the Figma client once
+hand:** swap this one node to Roboto Mono Bold in the Figma client once
 that face is confirmed to exist as a real installed font, the same way the
-original Geist→General Sans Light swap was done.
+original Geist→Roboto Mono Light swap was done.
 
 ### Components that had never been built with the state a fix needed
 
@@ -864,7 +920,7 @@ variables checked directly.
 Because these are bound variables touched at the token layer, every
 component using `ink/500`, `ink/400`, `alert`, or `tone/warning-fg`
 anywhere in the file picked up the fix in one script — no per-component
-edits, the same pattern as the `overlap/sm` and Geist→General Sans fixes
+edits, the same pattern as the `overlap/sm` and Geist→Roboto Mono fixes
 before it.
 
 **Nothing to mirror for the ARIA and empty-`<th>` fixes.** `CommandPalette`'s

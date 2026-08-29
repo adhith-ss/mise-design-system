@@ -9,7 +9,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Body copy at three sizes and five tones. The data flag switches to General Sans Light for values rather than prose — the single most-used option in the system.',
+          'Body copy at three sizes and five tones. The data flag switches to Roboto Mono Light for values rather than prose — the single most-used option in the system.',
       },
     },
   },

@@ -3,7 +3,7 @@ import { controlClass, useField } from './Field';
 import { cx } from '../../lib/cx';
 
 export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  /** Renders in General Sans Light — for IDs, codes, and amounts. */
+  /** Renders in Roboto Mono Light — for IDs, codes, and amounts. */
   data?: boolean;
   invalid?: boolean;
 }

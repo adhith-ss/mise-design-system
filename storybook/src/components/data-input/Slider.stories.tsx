@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'An approximate value where the direction matters more than the digit — a par-level threshold, a variance tolerance. The live value sits beside the track in General Sans Light. Anything the operator must type exactly is a Number Input.',
+          'An approximate value where the direction matters more than the digit — a par-level threshold, a variance tolerance. The live value sits beside the track in Roboto Mono Light. Anything the operator must type exactly is a Number Input.',
       },
     },
   },

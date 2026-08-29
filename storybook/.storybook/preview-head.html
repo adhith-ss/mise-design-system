@@ -1,9 +1,20 @@
 <!--
-  Satoshi is the sole exception to the system's Manrope/General Sans pairing
+  Roboto Mono is the system's data typeface — `--mise-font-data`, anything
+  the operator reads as a value rather than prose (amounts, counts, IDs,
+  timestamps). Loaded here via Google Fonts since Storybook has no other
+  font-loading mechanism; without this link the deployed build silently
+  falls back to `ui-monospace, monospace` for anyone without it installed
+  locally.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<!--
+  Satoshi is the sole exception to the system's Manrope/Roboto Mono pairing
   — reserved for the "Plato" wordmark in SplashWake (Future Scope), nowhere
-  else. Loaded globally here since Storybook has no other font-loading
-  mechanism, but every other component in the file still resolves to
-  Manrope/General Sans as normal.
+  else. Every other component in the file resolves to Manrope/Roboto Mono
+  as normal.
 -->
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,701,900,901&display=swap" rel="stylesheet">

@@ -10,7 +10,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'A single line of text. 40px tall, 12px radius. The data variant switches to General Sans Light for anything the operator reads as a value rather than prose — invoice numbers, PO codes, SKUs.',
+          'A single line of text. 40px tall, 12px radius. The data variant switches to Roboto Mono Light for anything the operator reads as a value rather than prose — invoice numbers, PO codes, SKUs.',
       },
     },
   },

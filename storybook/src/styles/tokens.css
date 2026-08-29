@@ -115,7 +115,7 @@
 
   /* Type */
   --mise-font-sans: 'Manrope', system-ui, sans-serif;
-  --mise-font-data: 'General Sans', ui-monospace, monospace;
+  --mise-font-data: 'Roboto Mono', ui-monospace, monospace;
 
   /* Motion */
   --mise-duration-fast: 120ms;

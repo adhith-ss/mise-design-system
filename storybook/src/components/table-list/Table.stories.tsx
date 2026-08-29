@@ -53,7 +53,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Dense records with more than one attribute worth comparing. Numbers are right-aligned and set in General Sans Light so they compare down the column. This is where operators spend most of their day, so density and scanability beat decoration.',
+          'Dense records with more than one attribute worth comparing. Numbers are right-aligned and set in Roboto Mono Light so they compare down the column. This is where operators spend most of their day, so density and scanability beat decoration.',
       },
     },
   },

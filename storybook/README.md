@@ -27,7 +27,7 @@ src/components/<category>/
 ## Rules the files follow
 
 - Components read `tokens.css` through Tailwind's theme. No hex in a component.
-- `.font-data` (General Sans Light) for anything read as data: amounts, counts,
+- `.font-data` (Roboto Mono Light) for anything read as data: amounts, counts,
   IDs, tool names. Manrope everywhere else.
 - One story per state, named for the state. Where a component has more than four,
   an `AllStates` story is the visual-regression baseline.

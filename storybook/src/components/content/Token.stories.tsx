@@ -8,7 +8,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'An inline reference to a record — a PO number, an SKU, a filter value. Distinct from Badge, which describes a state rather than naming a thing. Always General Sans Light, because a token is a value.',
+          'An inline reference to a record — a PO number, an SKU, a filter value. Distinct from Badge, which describes a state rather than naming a thing. Always Roboto Mono Light, because a token is a value.',
       },
     },
   },

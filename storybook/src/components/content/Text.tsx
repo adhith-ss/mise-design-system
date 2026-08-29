@@ -7,7 +7,7 @@ export interface TextProps {
   size?: 'body' | 'dense' | 'meta';
   tone?: 'default' | 'muted' | 'quiet' | 'danger' | 'brand';
   weight?: 'regular' | 'medium' | 'semibold' | 'bold';
-  /** General Sans Light — for amounts, counts, IDs. */
+  /** Roboto Mono Light — for amounts, counts, IDs. */
   data?: boolean;
   /** Caps the measure at 64 characters for readability. */
   measure?: boolean;

@@ -14,7 +14,7 @@ export interface Column<Row> {
   /** Right-align numbers; they compare down a column, not across. */
   align?: 'left' | 'right';
   width?: string;
-  /** Renders in General Sans Light — amounts, counts, IDs. */
+  /** Renders in Roboto Mono Light — amounts, counts, IDs. */
   data?: boolean;
   render?: (row: Row) => ReactNode;
 }

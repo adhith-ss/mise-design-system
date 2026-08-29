@@ -4,7 +4,7 @@ import { cx } from '../../lib/cx';
 export interface MetadataEntry {
   label: string;
   value: ReactNode;
-  /** Renders the value in General Sans Light. */
+  /** Renders the value in Roboto Mono Light. */
   data?: boolean;
   /** Spans both columns in a two-column layout. */
   wide?: boolean;

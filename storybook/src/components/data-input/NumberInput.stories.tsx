@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'A count the operator adjusts more often than they type — cases, units, days. Steppers are 32px wide and the value is centred in General Sans Light, so a column of them reads as data. Arrow keys step; the value is clamped to min and max.',
+          'A count the operator adjusts more often than they type — cases, units, days. Steppers are 32px wide and the value is centred in Roboto Mono Light, so a column of them reads as data. Arrow keys step; the value is clamped to min and max.',
       },
     },
   },
