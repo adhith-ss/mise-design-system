@@ -44,13 +44,104 @@ export interface SideNavProps {
    *  by default so every existing light-rail story keeps its current,
    *  label-only look — opt in per instance. */
   showIcons?: boolean;
+  /** SPA navigation — renders buttons instead of anchors when set. */
+  onNavigate?: (href: string) => void;
 }
 
 /** The persistent left rail: where the operator is, and everything one click away. */
 export function SideNav({
-  groups, header, collapsedHeader, footer, collapsedFooter, collapsed = false, width = 264, tone = 'light', showIcons = false,
+  groups, header, collapsedHeader, footer, collapsedFooter, collapsed = false, width = 264, tone = 'light', showIcons = false, onNavigate,
 }: SideNavProps) {
   const dark = tone === 'dark';
+
+  function itemClass(i: SideNavItem) {
+    return cx(
+      'flex w-full items-center gap-[9px] rounded-[8px] px-2 py-[7px] text-[13px] no-underline transition-colors duration-fast ease-mise',
+      collapsed && 'justify-center',
+      dark
+        ? cx(
+            i.current ? 'bg-rail-current-bg font-semibold text-brand-400' : 'text-rail-text hover:bg-rail-bg-hover',
+            i.disabled && 'pointer-events-none text-rail-text-muted',
+          )
+        : cx(
+            i.current ? 'bg-brand-50 font-semibold text-brand-600' : 'text-ink-700 hover:bg-canvas',
+            i.disabled && 'pointer-events-none text-ink-300',
+          ),
+    );
+  }
+
+  function renderItem(i: SideNavItem) {
+    const content = (
+      <>
+        {collapsed ? (
+          <>
+            {i.icon ?? <span aria-hidden="true">{i.label.slice(0, 1)}</span>}
+            <span className="sr-only">{i.label}</span>
+          </>
+        ) : showIcons ? (
+          <>
+            {i.icon && <span aria-hidden="true" className="shrink-0">{i.icon}</span>}
+            {i.label}
+          </>
+        ) : (
+          i.label
+        )}
+        {i.count != null && !collapsed && (
+          i.highlightCount ? (
+            <span
+              className={cx(
+                'font-data ml-auto rounded-pill px-[7px] py-[1px] text-[11px] font-bold',
+                dark ? 'bg-rail-mark text-rail-mark-ink' : 'bg-brand-600 text-white',
+              )}
+            >
+              {i.count}
+            </span>
+          ) : (
+            <span
+              className={cx(
+                'font-data ml-auto text-[11.5px]',
+                dark
+                  ? i.current ? 'font-semibold text-brand-400' : 'text-rail-text-muted'
+                  : i.current ? 'font-semibold text-brand-600' : 'text-ink-400',
+              )}
+            >
+              {i.count}
+            </span>
+          )
+        )}
+      </>
+    );
+
+    if (onNavigate) {
+      return (
+        <button
+          key={i.href + i.label}
+          type="button"
+          aria-current={i.current ? 'page' : undefined}
+          disabled={i.disabled}
+          title={collapsed ? i.label : undefined}
+          className={cx(itemClass(i), 'border-0 bg-transparent text-left')}
+          onClick={() => onNavigate(i.href)}
+        >
+          {content}
+        </button>
+      );
+    }
+
+    return (
+      <a
+        key={i.href + i.label}
+        href={i.disabled ? undefined : i.href}
+        aria-current={i.current ? 'page' : undefined}
+        aria-disabled={i.disabled || undefined}
+        title={collapsed ? i.label : undefined}
+        className={itemClass(i)}
+      >
+        {content}
+      </a>
+    );
+  }
+
   return (
     <nav
       aria-label="Sections"
@@ -74,65 +165,7 @@ export function SideNav({
                 {g.label}
               </div>
             )}
-            {g.items.map((i) => (
-              <a
-                key={i.href + i.label}
-                href={i.disabled ? undefined : i.href}
-                aria-current={i.current ? 'page' : undefined}
-                aria-disabled={i.disabled || undefined}
-                title={collapsed ? i.label : undefined}
-                className={cx(
-                  'flex items-center gap-[9px] rounded-[8px] px-2 py-[7px] text-[13px] no-underline transition-colors duration-fast ease-mise',
-                  collapsed && 'justify-center',
-                  dark
-                    ? cx(
-                        i.current ? 'bg-rail-current-bg font-semibold text-brand-400' : 'text-rail-text hover:bg-rail-bg-hover',
-                        i.disabled && 'pointer-events-none text-rail-text-muted',
-                      )
-                    : cx(
-                        i.current ? 'bg-brand-50 font-semibold text-brand-600' : 'text-ink-700 hover:bg-canvas',
-                        i.disabled && 'pointer-events-none text-ink-300',
-                      ),
-                )}
-              >
-                {collapsed ? (
-                  <>
-                    {i.icon ?? <span aria-hidden="true">{i.label.slice(0, 1)}</span>}
-                    <span className="sr-only">{i.label}</span>
-                  </>
-                ) : showIcons ? (
-                  <>
-                    {i.icon && <span aria-hidden="true" className="shrink-0">{i.icon}</span>}
-                    {i.label}
-                  </>
-                ) : (
-                  i.label
-                )}
-                {i.count != null && !collapsed && (
-                  i.highlightCount ? (
-                    <span
-                      className={cx(
-                        'font-data ml-auto rounded-pill px-[7px] py-[1px] text-[11px] font-bold',
-                        dark ? 'bg-rail-mark text-rail-mark-ink' : 'bg-brand-600 text-white',
-                      )}
-                    >
-                      {i.count}
-                    </span>
-                  ) : (
-                    <span
-                      className={cx(
-                        'font-data ml-auto text-[11.5px]',
-                        dark
-                          ? i.current ? 'font-semibold text-brand-400' : 'text-rail-text-muted'
-                          : i.current ? 'font-semibold text-brand-600' : 'text-ink-400',
-                      )}
-                    >
-                      {i.count}
-                    </span>
-                  )
-                )}
-              </a>
-            ))}
+            {g.items.map((i) => renderItem(i))}
           </div>
         ))}
       </div>

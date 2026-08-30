@@ -12,7 +12,7 @@ export interface UploadedFile {
 }
 
 export interface FileInputProps {
-  files: UploadedFile[];
+  files?: UploadedFile[];
   onAdd?: (files: FileList) => void;
   onRemove?: (name: string) => void;
   /** Accept attribute, e.g. "image/*,.pdf". */
@@ -21,11 +21,13 @@ export interface FileInputProps {
   /** Human copy under the prompt, e.g. "PDF or photo, up to 10 MB". */
   constraint?: string;
   disabled?: boolean;
+  /** Override the default drop-zone label. */
+  prompt?: string;
 }
 
 /** An invoice scan or a delivery photo, dropped or picked. */
 export function FileInput({
-  files, onAdd, onRemove, accept, multiple = true, constraint, disabled,
+  files = [], onAdd, onRemove, accept, multiple = true, constraint, disabled, prompt = 'Drop a file or browse',
 }: FileInputProps) {
   const input = useRef<HTMLInputElement>(null);
   const [over, setOver] = useState(false);
@@ -47,7 +49,7 @@ export function FileInput({
         )}
       >
         <span className={cx('text-[13.5px] font-semibold', (disabled ?? field?.disabled) ? 'text-ink-400' : 'text-brand-600')}>
-          Drop a file or browse
+          {prompt}
         </span>
         {constraint && <span className="text-[12px] text-ink-500">{constraint}</span>}
       </button>
@@ -58,7 +60,10 @@ export function FileInput({
         accept={accept}
         multiple={multiple}
         className="sr-only"
-        onChange={(e) => e.target.files && onAdd?.(e.target.files)}
+        onChange={(e) => {
+          if (e.target.files?.length) onAdd?.(e.target.files);
+          e.target.value = '';
+        }}
       />
 
       {files.length > 0 && (
@@ -82,14 +87,16 @@ export function FileInput({
                   </span>
                 )}
               </span>
-              <button
-                type="button"
-                onClick={() => onRemove?.(file.name)}
-                aria-label={`Remove ${file.name}`}
-                className="ml-auto text-[14px] text-ink-500"
-              >
-                <X size={14} strokeWidth={1.5} />
-              </button>
+              {onRemove && (
+                <button
+                  type="button"
+                  onClick={() => onRemove(file.name)}
+                  aria-label={`Remove ${file.name}`}
+                  className="ml-auto text-[14px] text-ink-500"
+                >
+                  <X size={14} strokeWidth={1.5} />
+                </button>
+              )}
             </li>
           ))}
         </ul>

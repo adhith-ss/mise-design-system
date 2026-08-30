@@ -17,13 +17,15 @@ export interface CardProps {
   padding?: 'none' | 'sm' | 'md';
   /** Raises the card and makes the whole surface interactive. */
   onClick?: () => void;
+  /** Host layout hook for grid and panel spacing. */
+  className?: string;
   /** Amber or red left edge for a card that needs attention. */
   edge?: 'none' | 'warning' | 'danger';
 }
 
 /** The default container for a group of related content about one subject. */
 export function Card({
-  children, title, subtitle, action, footer, padding = 'md', onClick, edge = 'none',
+  children, title, subtitle, action, footer, padding = 'md', onClick, className, edge = 'none',
 }: CardProps) {
   const pad = padding === 'none' ? '' : padding === 'sm' ? 'px-[14px] py-3' : 'px-4 py-4';
   const needsAttention = edge === 'warning' || edge === 'danger';
@@ -38,6 +40,7 @@ export function Card({
         'overflow-hidden rounded-lg border border-line bg-surface',
         needsAttention && 'mise-streak-border',
         onClick && 'cursor-pointer transition-shadow duration-fast ease-mise hover:shadow-raised',
+        className,
       )}
     >
       {(title || action || needsAttention) && (

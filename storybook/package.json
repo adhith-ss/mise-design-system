@@ -27,5 +27,22 @@
   },
   "dependencies": {
     "lucide-react": "^1.34.0"
+  },
+  "exports": {
+    "./tokens.css": "./src/styles/tokens.css",
+    "./action/Button": "./src/components/action/Button.tsx",
+    "./content/Card": "./src/components/content/Card.tsx",
+    "./content/Icon": "./src/components/content/Icon.tsx",
+    "./data-input/Field": "./src/components/data-input/Field.tsx",
+    "./data-input/FileInput": "./src/components/data-input/FileInput.tsx",
+    "./data-input/Selector": "./src/components/data-input/Selector.tsx",
+    "./data-input/Slider": "./src/components/data-input/Slider.tsx",
+    "./data-input/TextInput": "./src/components/data-input/TextInput.tsx",
+    "./feedback/Badge": "./src/components/feedback/Badge.tsx",
+    "./feedback/Banner": "./src/components/feedback/Banner.tsx",
+    "./feedback/EmptyState": "./src/components/feedback/EmptyState.tsx",
+    "./feedback/tone": "./src/components/feedback/tone.ts",
+    "./navigation/SideNav": "./src/components/navigation/SideNav.tsx",
+    "./table-list/Table": "./src/components/table-list/Table.tsx"
   }
 }

@@ -13,6 +13,8 @@ export interface BannerProps {
   /** A single action. Two actions means this should be a Dialog. */
   action?: ReactNode;
   onDismiss?: () => void;
+  /** Host layout hook for stacked banners in workspace panels. */
+  className?: string;
 }
 
 /**
@@ -21,13 +23,13 @@ export interface BannerProps {
  * carry a leading icon; the title reads in the tone's own dark accent so the
  * status is legible even before the icon or the streak border register.
  */
-export function Banner({ title, children, tone = 'info', action, onDismiss }: BannerProps) {
+export function Banner({ title, children, tone = 'info', action, onDismiss, className }: BannerProps) {
   const Glyph = TONE_ICON[tone];
   return (
     <div
       role={tone === 'danger' ? 'alert' : 'status'}
       style={{ '--mise-streak-color': TONE_STREAK[tone] } as CSSProperties}
-      className={cx('mise-streak-border flex items-start gap-3 rounded-control border px-4 py-[13px]', TONE_BG[tone])}
+      className={cx('mise-streak-border flex items-start gap-3 rounded-control border px-4 py-[13px]', TONE_BG[tone], className)}
     >
       {/* Decorative, not labelled — the banner's role (status/alert) plus the
           title text already carry the condition; a labelled icon here would
