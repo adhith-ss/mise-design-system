@@ -66,6 +66,97 @@ editable again.
 
 </details>
 
+## Layout normalization + annotation pass (2026-08-29)
+
+The complaint that started this pass was accurate: only the Content category
+(the 14 pages built with the most recent conventions) actually followed the
+documented page template above. Every earlier category had drifted from it
+in two ways —
+
+1. **Naming drift.** Roughly 30 pages (the back half of Feedback & Status
+   onward through all of Navigation, Overlay, Table & List, and Chat &
+   Agent) had lost the semantic `doc — header` / `doc — notes` names
+   entirely, sitting as generic `Frame`/`Frame` instead — invisible in the
+   layers panel, indistinguishable from any other frame at a glance.
+2. **Positioning drift.** `doc — notes` (and `in use`, where it existed) was
+   placed **beside** the component set — at x=340, 440, 560, 680, 740, 977,
+   1103, wherever happened to fit that page's particular width that day —
+   rather than stacked below it in the single left column the template
+   itself specifies. Gaps between sections ranged from 36px to 260px with
+   no consistent rule.
+
+**Fixed mechanically, not by hand, across all 71 component pages** (every
+page in Action, Content, Data Input, Feedback & Status, Navigation, Overlay,
+Table & List, Chat & Agent): a script per category classified each page's
+top-level children by *content*, not by name — a header is a `FRAME` near
+y=60 with exactly a title `TEXT` and a description `TEXT`; a notes panel is
+a `FRAME` whose every child is itself a `FRAME` containing at least one
+`TEXT` (the title+body card pattern); an "in use" panel is a `FRAME`
+containing a real component `INSTANCE` somewhere inside it. Classified
+frames were renamed to their canonical name if generic, then repositioned
+into the single left column at x=40, stacked with a 60px gap below whatever
+came before.
+
+**One deliberate constraint kept this safe at this scale: the script never
+touches a `COMPONENT_SET` or `COMPONENT`'s own position, ever.** Only
+`doc — header`, `in use`, and `doc — notes` move. Pages like `DropdownMenu`
+(three separate specimens — `MenuItem`, `DropdownMenu`, `MoreMenu` — laid
+out side by side on purpose) and `SuggestionChips` (a second, intentionally
+separate `WithDisabled` component off to the right) keep their deliberate
+multi-specimen arrangements untouched; only the notes panel beneath them
+moved. Verified: 65 component sets swept for `variantGroupProperties`
+errors post-move — zero. Several pages screenshotted across categories
+(DateInput, AgentError, SuggestionChips) to confirm no overlaps and correct
+top-to-bottom flow.
+
+**Not touched:** `Brand & Marketing` — it doesn't follow the four-zone
+component-page template at all (it's a sequence of standalone documentation
+sections: palette swatches, the Plato reference tiles, the icon-language
+comparison, the Splash keyframes), and each of those sections was already
+built with the same bottom-plus-gap logic by hand in the sessions that
+created them.
+
+### Annotations — the reviewer-facing marker system
+
+The other half of this pass: "add annotations for all the components, using
+any free annotation plugin." This file is built entirely through the
+Plugin API — there's no path from that automation into Figma's actual
+plugin-install flow, so a genuine third-party plugin (including Figma's
+own free community **Annotation Kit**, the obvious choice) can't be invoked
+the way the rest of the library gets built. The fix was to reproduce that
+kit's own visual language — a numbered circular marker plus a linked
+note — as two native components on a new **Annotations** page, which get
+the same reviewer-facing result (a numbered callout naming one true, specific
+thing about the component) as a first-class part of the system instead of
+an external dependency this automation can't reach.
+
+- **`annotation/marker`** — a 22px circle, `accent/600` fill (the wine
+  colour, reused here for the same reason it's reused for `SplashWake`'s
+  wordmark: both are meta/documentation content, never product UI, so
+  borrowing the one hue already scoped that way beats inventing a third),
+  white 2px ring, a bold white number driven by a `number` TEXT property.
+- **`annotation/callout`** — the marker plus a short label in a pill,
+  `accent/600` stroke, white fill. `label` is a TEXT property; the nested
+  marker's `number` is set per instance via `instance.setProperties()` on
+  the found nested `INSTANCE`, not exposed as a bubbled property on the
+  callout itself — simpler, and there's never more than one marker per
+  callout in practice.
+- **Placement rule, identical on all 71 pages:** one callout instance,
+  anchored at `(main.x, main.y − 34)` — directly above the top-left corner
+  of the page's component set (or, for multi-specimen pages like
+  `DropdownMenu` and `SuggestionChips`, the *first* main component only).
+  Floating above rather than overlapping any part of the component itself
+  means the placement rule needs no knowledge of what's inside any given
+  component — it works identically whether the component is 90px or 700px
+  tall, and can never visually corrupt the thing it's annotating.
+- **Content, one callout per page, drawn from what this file already
+  knows** — the single most specific, non-obvious true fact about that
+  component, pulled from its own doc-notes cards or from a fix already
+  logged elsewhere in this file (a real bug once shipped, a trap once hit,
+  a measurement that matters). Not filler, and not a second copy of the
+  doc-notes cards' own content — a one-line pointer a reviewer would
+  otherwise have to read the whole notes panel to find.
+
 ## Structure
 
 | Page | Contents |
@@ -75,6 +166,7 @@ editable again.
 | Type | 11 `ui/*` and 5 `data/*` styles, with specimens |
 | Spacing & Radius | Spacing bars, 6 radii, 3 control heights |
 | Elevation | 3 effect styles, scrim |
+| Annotations | `annotation/marker` + `annotation/callout` — the reviewer-facing marker system, one callout on every component page |
 | Icon | 32 Lucide components at 24×24, stroke 1.5 |
 | Action | Button, IconButton, ButtonGroup, ToggleButton, ToggleButtonGroup, SegmentedControl, Link, MenuItem, DropdownMenu, MoreMenu, Toolbar |
 | Content | Heading, Text, Divider, Token, Kbd, Code, Timestamp, Avatar, AvatarGroup, Thumbnail, Blockquote, CodeBlock, Markdown, Card |
@@ -95,17 +187,22 @@ asset sheet rather than a documented component.
 
 ### Page template
 
-Every component page is laid out the same way, so a reader learns the shape once:
+Every component page is laid out the same way, so a reader learns the shape once — **enforced across all 71 pages** (see the layout normalization pass below), not just the Content category that originated it:
 
 | Frame | Position | Contents |
 | --- | --- | --- |
 | `doc — header` | 40, 60 · w 980 | `ui/section-title` name, `ui/body` description |
 | component set | 40, 300 · no fill | The variant grid |
-| `in use` | 40, 640 · w 760 | The component in a real ops context, with a caption |
-| `doc — notes` | 10, 1320 · w 520 | Note cards: `ui/card-title-sm` + `ui/dense`, radius 14 |
+| `in use` | 40, (component set bottom + 60) · w 760, when it exists | The component in a real ops context, with a caption |
+| `doc — notes` | 40, (previous section's bottom + 60) · w 400–560 | Note cards: `ui/card-title-sm` + `ui/dense`, radius 14 |
 
 Variants are named `Axis=Value, Axis=Value`. Editable text is a component
-property named for the node it drives (`label`, `quote`, `value`).
+property named for the node it drives (`label`, `quote`, `value`). The gap
+before `in use` and before `doc — notes` is always **60px from the actual
+bottom edge of whatever comes before it** — a fixed rule, not a fixed
+absolute Y — since component sets vary wildly in height (100px to 700px+)
+and a fixed Y like the old "1320" for notes either left a huge gap or
+crashed straight into taller content depending on the page.
 
 ### Content — variant counts
 
