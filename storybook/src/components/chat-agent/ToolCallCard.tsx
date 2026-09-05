@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { cx } from '../../lib/cx';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Wrench } from 'lucide-react';
 
 export type ToolCallStatus = 'running' | 'done' | 'error' | 'denied';
 
@@ -19,6 +19,8 @@ export interface ToolCallCardProps {
   onRetry?: () => void;
   /** A write shows the amber marker and must never be collapsed by default. */
   writesData?: boolean;
+  /** Leading mark. Defaults to the tool wrench. */
+  icon?: ReactNode;
 }
 
 const STATUS: Record<ToolCallStatus, { label: string; className: string }> = {
@@ -30,7 +32,7 @@ const STATUS: Record<ToolCallStatus, { label: string; className: string }> = {
 
 export function ToolCallCard({
   tool, summary, args, result, status = 'done', duration,
-  defaultExpanded = false, onRetry, writesData = false,
+  defaultExpanded = false, onRetry, writesData = false, icon,
 }: ToolCallCardProps) {
   const [open, setOpen] = useState(defaultExpanded || writesData);
   const s = STATUS[status];
@@ -46,7 +48,12 @@ export function ToolCallCard({
         aria-expanded={open}
         className="flex w-full items-center gap-[11px] bg-surface-raised px-[14px] py-[11px] text-left transition-colors duration-fast ease-mise hover:bg-surface-sunken focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-brand-600"
       >
-        <span aria-hidden="true" className="h-[18px] w-[18px] rounded-sm border border-brand-200 bg-brand-50" />
+        <span
+          aria-hidden="true"
+          className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-sm border border-brand-200 bg-brand-50 text-brand-600"
+        >
+          {icon ?? <Wrench size={11} strokeWidth={2} />}
+        </span>
         <span className="font-data text-[13px]">{tool}</span>
         <span className="text-[12.5px] text-ink-500">{summary}</span>
         <span className="ml-auto flex items-center gap-[10px]">
