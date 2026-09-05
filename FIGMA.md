@@ -206,6 +206,53 @@ core value instead: a redline-style dimension marker showing a real,
   script afterward: callout-vs-main, measure-vs-main, and callout-vs-measure
   overlap all checked directly, zero found.
 
+## AgentAvatar — Plato's 8 idle emotions, as a real component (2026-09-04)
+
+Requested by name (naming each variant per emotion) and sourced from the
+`Plato_Agent_Character` asset — the same solid-tile geometry already used
+for `SplashWake` and the Brand & Marketing reference tiles, now shipped as
+an actual product component: `AgentAvatar` stands in for the agent the way
+`Avatar` stands in for a person, sized on the same sm/md/lg steps.
+
+**Every emotion shares the exact same base geometry — only the animation
+differs.** All 8 emotions in the source SVGs use identical `<line>`
+coordinates for both eyes and the plate mouth; the visual difference comes
+entirely from the CSS `@keyframes` applied to each. That's true in the real
+component (8 real animations, translated directly from the source into
+`tailwind.css`) and it's the reason a static Figma variant can't just freeze
+each emotion's *rest frame* — every rest frame is pixel-identical, which
+would make all 8 look the same in Figma.
+
+**Fixed by computing each emotion's own characteristic pose analytically**,
+the same technique proven on `SplashWake`'s mid-rotation keyframe: for each
+`@keyframes` rule, apply its actual transform (rotate/scale/translate, in
+the order CSS lists them, around the source's own `transform-origin`) to
+the base line coordinates in Python, verify the result, then draw the
+result as stroked `VECTOR` lines — never Figma's `rotation` property, which
+didn't compose predictably with `resize()` last time it was tried. All 8
+came out visually distinct in both Figma and the real component:
+short/squinted dashes (Happy), inward-angled brows (Sad), sharp V angles
+(Angry), asymmetric tilted eyes (Confused), elongated eyes with a dropped
+mouth (Surprised), near-closed dot eyes (Sleepy), one open eye/one closed
+plus a tilted mouth (Wink), a bounced-and-scaled pose (Excited).
+
+**`prefers-reduced-motion` uses the same computed poses**, not just
+`animation: none` — disabling animation alone would leave every emotion at
+the identical shared rest frame, same problem as the Figma variants. Each
+`.mise-agent-*` class gets an explicit static `transform` matching its own
+characteristic pose under the reduced-motion media query.
+
+Verified: all 8 Storybook stories (individually named) render visually
+distinct, axe-core clean, `tsc --noEmit` and `storybook build` clean. Figma:
+8-variant `COMPONENT_SET`, `variantGroupProperties` read clean, page placed
+after `AgentError` (Chat & Agent's existing order).
+
+**Found in passing, not touched:** the working tree had unrelated
+uncommitted changes to `Message.tsx`/`ToolCallCard.tsx` (an `avatar` prop
+on Message, an `icon` prop on ToolCallCard) that predate this change and
+weren't made as part of it. Left as-is and excluded from this commit — not
+this session's work to claim or discard.
+
 ## Structure
 
 | Page | Contents |
@@ -224,7 +271,7 @@ core value instead: a redline-style dimension marker showing a real,
 | Navigation | TopNav, SideNav, TabList, Breadcrumbs, Pagination, Stepper, Outline |
 | Overlay | Tooltip, Popover, HoverCard, Dialog, AlertDialog, CommandPalette, Lightbox |
 | Table & List | Table, List, MetadataList, TreeList, OverflowList |
-| Chat & Agent | Citation, Message, ToolCallCard, InlineApproval, AgentStatus, SuggestionChips, Composer, AgentError |
+| Chat & Agent | Citation, Message, ToolCallCard, InlineApproval, AgentStatus, SuggestionChips, Composer, AgentError, AgentAvatar |
 | Brand & Marketing | Extended palette, accent (wine) ramp, Plato reference tiles, icon-language spec, Splash — wake keyframes |
 
 Variables: `primitives` (31, hidden from pickers) and `semantic` (49, aliased to
