@@ -157,6 +157,55 @@ an external dependency this automation can't reach.
   doc-notes cards' own content — a one-line pointer a reviewer would
   otherwise have to read the whole notes panel to find.
 
+### Measurements — a second marker, modelled on DesignDoc (2026-08-29)
+
+A follow-up ask: use the free Figma plugin **DesignDoc [Spectral]**
+(measures, annotations, handoff) to add measurement redlines. Same
+constraint as the Annotation Kit request above — this file is built
+entirely through the Plugin API, which has no path into installing or
+running an actual Community plugin, DesignDoc included. Reproduced its
+core value instead: a redline-style dimension marker showing a real,
+*queried* value, not a guessed one.
+
+- **`annotation/measure`** — a short tick–line–tick dimension (drawn as
+  three `VECTOR` strokes, `accent/600`) with a bold value label above it.
+  `value` is a `TEXT` component property; the line itself has no property
+  binding for length (Figma properties can't drive geometry), so its visual
+  span is decorative/schematic rather than a literal pixel-accurate ruler —
+  the *number* is what's real, not the drawn line's exact length.
+- **Every value was queried live from the file, not recalled** — for each
+  page, a script read the first variant's actual `paddingLeft`/`itemSpacing`
+  and, where bound, the real token name via `boundVariables`, before any
+  content was written. Where a component's first variant carries no
+  padding/gap worth showing (an icon-only control, a fixed-size avatar), the
+  fallback was the component's own measured width×height instead of an
+  invented number.
+- **Placement is relative to the callout, not the component** — this is
+  what today's actual bug was. The first placement rule anchored the
+  measure to the component set's top-right corner independently of the
+  callout's own width; on any component narrower than the callout itself
+  (`Citation`'s is 135px wide, the callout closer to 260px), the measure
+  landed directly on top of the callout's text. Fixed by anchoring the
+  measure to the callout's own right edge instead
+  (`callout.x + callout.width + 16`, vertically centred against it) — a
+  rule that's correct regardless of how wide or narrow the actual
+  component is, because it never references the component's geometry at
+  all.
+- **A second, more serious defect surfaced by the same audit: the callout
+  itself was already overlapping every component's top-left corner by
+  several pixels**, present since the *original* annotation pass, not
+  introduced today. That pass anchored the callout at a flat `main.y − 34`
+  assuming a callout height of ~34px; real callouts render at 40px
+  (one line) or 56px (two), so every single one dipped 6–22px into the
+  component it was meant to sit above. Invisible at a glance — a small
+  overlap at the very top-left corner tip — caught only because this
+  pass's overlap check tested it directly instead of eyeballing a
+  screenshot. Fixed the same way as the measure: compute the callout's `y`
+  from its own real, measured height (`mainTop − callout.height − 10`)
+  rather than a flat guess, for all 71 pages. Every page re-verified by
+  script afterward: callout-vs-main, measure-vs-main, and callout-vs-measure
+  overlap all checked directly, zero found.
+
 ## Structure
 
 | Page | Contents |
