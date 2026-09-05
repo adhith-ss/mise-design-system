@@ -88,3 +88,81 @@
     color: var(--mise-brand-600); -webkit-text-fill-color: var(--mise-brand-600);
   }
 }
+
+/*
+ * AgentAvatar — Plato's 8 idle emotions. Every emotion shares the exact
+ * same base geometry (eyes at x=65/135, plate mouth y=150-178); only the
+ * animation differs, per the source character brief. Reduced motion freezes
+ * each one at a hand-computed representative pose (see AgentAvatar.tsx),
+ * not the shared neutral rest-frame every emotion starts from — that frame
+ * is identical across all 8 and would make the reduced-motion variants
+ * indistinguishable from one another.
+ */
+@keyframes mise-agent-happy-eyes { from { transform: scaleY(0.42); } to { transform: scaleY(0.52); } }
+@keyframes mise-agent-happy-plate { from { transform: translateY(0); } to { transform: translateY(-4px); } }
+.mise-agent-happy-eye { animation: mise-agent-happy-eyes 1700ms ease-in-out infinite alternate; }
+.mise-agent-happy-plate { animation: mise-agent-happy-plate 1700ms ease-in-out infinite alternate; }
+
+@keyframes mise-agent-sad-eye-l { from { transform: rotate(0deg) translateY(0); } to { transform: rotate(12deg) translateY(4px); } }
+@keyframes mise-agent-sad-eye-r { from { transform: rotate(0deg) translateY(0); } to { transform: rotate(-12deg) translateY(4px); } }
+.mise-agent-sad-eye-l { animation: mise-agent-sad-eye-l 2600ms ease-in-out infinite alternate; }
+.mise-agent-sad-eye-r { animation: mise-agent-sad-eye-r 2600ms ease-in-out infinite alternate; }
+
+@keyframes mise-agent-angry-eye-l { from { transform: rotate(-14deg); } to { transform: rotate(-10deg); } }
+@keyframes mise-agent-angry-eye-r { from { transform: rotate(14deg); } to { transform: rotate(10deg); } }
+@keyframes mise-agent-angry-shake { from { transform: translateX(-1.5px); } to { transform: translateX(1.5px); } }
+.mise-agent-angry-eye-l { animation: mise-agent-angry-eye-l 380ms ease-in-out infinite alternate; }
+.mise-agent-angry-eye-r { animation: mise-agent-angry-eye-r 380ms ease-in-out infinite alternate; }
+.mise-agent-angry-icon { animation: mise-agent-angry-shake 220ms ease-in-out infinite alternate; }
+
+@keyframes mise-agent-confused-tilt { from { transform: rotate(-6deg); } to { transform: rotate(6deg); } }
+@keyframes mise-agent-confused-eye-l { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+@keyframes mise-agent-confused-eye-r { from { transform: translateY(0); } to { transform: translateY(6px); } }
+.mise-agent-confused-icon { animation: mise-agent-confused-tilt 2400ms ease-in-out infinite alternate; }
+.mise-agent-confused-eye-l { animation: mise-agent-confused-eye-l 2400ms ease-in-out infinite alternate; }
+.mise-agent-confused-eye-r { animation: mise-agent-confused-eye-r 2400ms ease-in-out infinite alternate; }
+
+@keyframes mise-agent-surprised-eyes { from { transform: scaleY(1.3); } to { transform: scaleY(1.4); } }
+@keyframes mise-agent-surprised-plate { from { transform: translateY(0); } to { transform: translateY(3px); } }
+.mise-agent-surprised-eye { animation: mise-agent-surprised-eyes 900ms ease-in-out infinite alternate; }
+.mise-agent-surprised-plate { animation: mise-agent-surprised-plate 900ms ease-in-out infinite alternate; }
+
+@keyframes mise-agent-sleepy-eyes { 0% { transform: scaleY(0.1); } 92% { transform: scaleY(0.25); } 100% { transform: scaleY(0.1); } }
+@keyframes mise-agent-sleepy-nod { from { transform: rotate(0deg); } to { transform: rotate(4deg); } }
+.mise-agent-sleepy-eye { animation: mise-agent-sleepy-eyes 3200ms ease-in-out infinite; }
+.mise-agent-sleepy-icon { animation: mise-agent-sleepy-nod 3200ms ease-in-out infinite alternate; }
+
+@keyframes mise-agent-wink-eye-l { from { transform: scaleY(1); } to { transform: scaleY(1.05); } }
+@keyframes mise-agent-wink-eye-r { 0% { transform: scaleY(1); } 80% { transform: scaleY(0.12); } 100% { transform: scaleY(1); } }
+.mise-agent-wink-eye-l { animation: mise-agent-wink-eye-l 2400ms ease-in-out infinite alternate; }
+.mise-agent-wink-eye-r { animation: mise-agent-wink-eye-r 2400ms ease-in-out infinite; }
+
+@keyframes mise-agent-excited-bounce { 0% { transform: translateY(0) scale(0.9,1.15); } 50% { transform: translateY(-10px) scale(1.1,0.85); } 100% { transform: translateY(0) scale(1,1); } }
+@keyframes mise-agent-excited-pulse { 0% { transform: scaleY(1); } 50% { transform: scaleY(1.25); } 100% { transform: scaleY(0.9); } }
+.mise-agent-excited-icon { animation: mise-agent-excited-bounce 650ms cubic-bezier(.34,1.56,.64,1) infinite; }
+.mise-agent-excited-eye { animation: mise-agent-excited-pulse 650ms ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Each emotion's shared neutral rest-frame is identical, so disabling
+     animation alone would make all 8 indistinguishable — every class below
+     also gets an explicit static transform, the same "characteristic"
+     value its own keyframes animate toward. */
+  .mise-agent-happy-eye { animation: none; transform: scaleY(0.52); }
+  .mise-agent-happy-plate { animation: none; transform: translateY(-4px); }
+  .mise-agent-sad-eye-l { animation: none; transform: rotate(12deg) translateY(4px); }
+  .mise-agent-sad-eye-r { animation: none; transform: rotate(-12deg) translateY(4px); }
+  .mise-agent-angry-eye-l { animation: none; transform: rotate(-10deg); }
+  .mise-agent-angry-eye-r { animation: none; transform: rotate(10deg); }
+  .mise-agent-angry-icon { animation: none; transform: translateX(0); }
+  .mise-agent-confused-icon { animation: none; transform: rotate(6deg); }
+  .mise-agent-confused-eye-l { animation: none; transform: translateY(-6px); }
+  .mise-agent-confused-eye-r { animation: none; transform: translateY(6px); }
+  .mise-agent-surprised-eye { animation: none; transform: scaleY(1.4); }
+  .mise-agent-surprised-plate { animation: none; transform: translateY(3px); }
+  .mise-agent-sleepy-eye { animation: none; transform: scaleY(0.1); }
+  .mise-agent-sleepy-icon { animation: none; transform: rotate(4deg); }
+  .mise-agent-wink-eye-l { animation: none; transform: scaleY(1.05); }
+  .mise-agent-wink-eye-r { animation: none; transform: scaleY(0.12); }
+  .mise-agent-excited-icon { animation: none; transform: translateY(-10px) scale(1.1,0.85); }
+  .mise-agent-excited-eye { animation: none; transform: scaleY(1.25); }
+}

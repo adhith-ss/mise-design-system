@@ -1,3 +1,4 @@
+export * from './AgentAvatar';
 export * from './Message';
 export * from './ToolCallCard';
 export * from './InlineApproval';
