@@ -253,6 +253,43 @@ on Message, an `icon` prop on ToolCallCard) that predate this change and
 weren't made as part of it. Left as-is and excluded from this commit — not
 this session's work to claim or discard.
 
+## AgentAvatar — the bordered tile, as a real `variant` (2026-09-04)
+
+The source asset's filename said it plainly — "streak + solid tile" — and
+only `solid` got built. Turns out `--mise-mascot-ink` and
+`--mise-brand-glow-start/-end` were already sitting in `tokens.css` from
+the earlier brand-palette pass, commented as "reusable anywhere that wants
+the same 'agent is active' glow" — so this isn't the marketing-only streak
+from SplashWake, it's the product-side tile treatment the tokens were
+already prepared for. Added as `variant="solid" | "bordered"` (default
+`solid`, no breaking change): white tile, mascot-ink line art, a rounded
+gradient ring (`brand-glow-start` → `brand-glow-end`) breathing at the same
+3.2s/opacity-0.88 the source SVGs used on every emotion.
+
+Figma: cloned each of the 8 `Style=Solid` variants, rebuilt as
+`Style=Bordered` (tile fill → white, all line-art vectors rebound from the
+white semantic variable to `mascot-ink`, a new `ring` rectangle —
+`cornerRadius 40`, `strokeWeight 16`, `strokeAlign CENTER`, gradient stroke
+— inserted behind the tile) and merged into the same `COMPONENT_SET` via
+`appendChild`, not `combineAsVariants` (the set already existed with real
+variants; rebuilding it from scratch risked losing the existing IDs).
+`variantGroupProperties` now reads `Emotion` (8) × `Style` (2) = 16, and
+the set's own frame needed a manual `resize` afterward — appending
+children outside a `COMPONENT_SET`'s current bounds doesn't auto-grow it
+the way a plain frame would, so the new row was invisible until sized.
+
+**Not yet accounted for: exporting the 8 (or 16) *animated* avatars out of
+Figma.** Deliberately not built, and worth being direct about why: these
+are infinite CSS loops (breathing rings, blinking eyes), not one-shot
+transitions — the wrong shape for Figma's Smart Animate, which times a
+single A→B transition, not a perpetual keyframe loop. `SplashWake` got a
+real Figma prototype/video because it *is* one-shot. For AgentAvatar, the
+real animated source is Storybook (all 8 emotions × solid/bordered, live
+CSS, already there) — Figma intentionally holds static reference frames
+only. If a literal shareable video/GIF per emotion is wanted, that's a
+Storybook screen-capture job, not a Figma-prototype one — flagged rather
+than built speculatively.
+
 ## Structure
 
 | Page | Contents |

@@ -9,11 +9,11 @@ const meta = {
     docs: {
       description: {
         component:
-          "Plato, the agent's character, standing in for the agent the way Avatar stands in for a person — 8 idle emotions, each animated on its own loop. Every emotion shares the exact same base geometry; only the animation differs. Reduced motion freezes each one at its own characteristic pose rather than the shared neutral rest-frame every emotion starts from, so the 8 stay visually distinct even with motion off.",
+          "Plato, the agent's character, standing in for the agent the way Avatar stands in for a person — 8 idle emotions, each animated on its own loop, in either of the source asset's two tile treatments: `solid` (brand/600 tile, white line art) and `bordered` (white tile, mascot-ink line art, breathing brand-glow ring — use the Controls panel to switch). Every emotion shares the exact same base geometry; only the animation differs. Reduced motion freezes each one at its own characteristic pose rather than the shared neutral rest-frame every emotion starts from, so the 8 stay visually distinct even with motion off.",
       },
     },
   },
-  args: { emotion: 'happy', size: 'lg' },
+  args: { emotion: 'happy', size: 'lg', variant: 'solid' },
 } satisfies Meta<typeof AgentAvatar>;
 
 export default meta;
@@ -40,6 +40,27 @@ export const AllEmotions: Story = {
     </div>
   ),
   parameters: { docs: { description: { story: 'All 8 side by side, at the size they read best at.' } } },
+};
+
+export const AllEmotionsBordered: Story = {
+  render: () => (
+    <div className="grid grid-cols-4 gap-6 bg-surface-sunken p-6">
+      {(['happy', 'sad', 'angry', 'confused', 'surprised', 'sleepy', 'wink', 'excited'] as const).map((e) => (
+        <div key={e} className="flex flex-col items-center gap-2">
+          <AgentAvatar emotion={e} size="lg" variant="bordered" />
+          <span className="text-[12px] capitalize text-ink-500">{e}</span>
+        </div>
+      ))}
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "The `bordered` variant — the source asset's other tile treatment, on a busier surface to show why it exists: a white tile reads against `canvas` the way `solid` reads against a coloured one.",
+      },
+    },
+  },
 };
 
 export const Sizes: Story = {

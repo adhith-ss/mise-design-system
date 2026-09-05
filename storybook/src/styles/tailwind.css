@@ -142,6 +142,11 @@
 .mise-agent-excited-icon { animation: mise-agent-excited-bounce 650ms cubic-bezier(.34,1.56,.64,1) infinite; }
 .mise-agent-excited-eye { animation: mise-agent-excited-pulse 650ms ease-in-out infinite; }
 
+/* `variant="bordered"` ring — same breathe on every emotion, source asset
+   never varies it per-emotion the way the face animations do. */
+@keyframes mise-agent-ring-breathe { 0%, 100% { opacity: 1; } 50% { opacity: 0.88; } }
+.mise-agent-ring { animation: mise-agent-ring-breathe 3200ms ease-in-out infinite; }
+
 @media (prefers-reduced-motion: reduce) {
   /* Each emotion's shared neutral rest-frame is identical, so disabling
      animation alone would make all 8 indistinguishable — every class below
@@ -165,4 +170,5 @@
   .mise-agent-wink-eye-r { animation: none; transform: scaleY(0.12); }
   .mise-agent-excited-icon { animation: none; transform: translateY(-10px) scale(1.1,0.85); }
   .mise-agent-excited-eye { animation: none; transform: scaleY(1.25); }
+  .mise-agent-ring { animation: none; opacity: 1; }
 }
