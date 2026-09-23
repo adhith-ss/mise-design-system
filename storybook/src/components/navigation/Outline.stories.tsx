@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Outline } from './Outline';
 import { Icon } from '../content/Icon';
-import { FileText, Truck, CreditCard, Tag, Phone } from 'lucide-react';
+import { FileText, Truck, CreditCard, Tag, Phone } from '@mise/icons/basil';
 
 const meta = {
   title: 'Navigation/Outline',

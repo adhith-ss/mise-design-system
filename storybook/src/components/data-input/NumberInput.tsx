@@ -1,6 +1,6 @@
 import { useField } from './Field';
 import { cx } from '../../lib/cx';
-import { Minus, Plus } from 'lucide-react';
+import { Minus, Plus } from '@mise/icons/basil';
 
 export interface NumberInputProps {
   value: number;
@@ -59,7 +59,7 @@ export function NumberInput({
         onChange={(e) => onChange(clamp(Number(e.target.value)))}
         className="font-data w-[64px] border-0 bg-transparent text-center text-[14px] text-ink-900 outline-none [appearance:textfield] disabled:text-ink-400 [&::-webkit-inner-spin-button]:appearance-none"
       />
-      {unit && <span className="font-data pr-2 text-[12.5px] text-ink-400">{unit}</span>}
+      {unit && <span className="font-data pr-2 text-[13px] text-ink-400">{unit}</span>}
       {steppers && (
         <button
           type="button"

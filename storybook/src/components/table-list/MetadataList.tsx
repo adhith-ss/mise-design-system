@@ -37,7 +37,7 @@ export function MetadataList({ entries, layout = 'rows', columns = 2 }: Metadata
             e.wide && 'col-span-full',
           )}
         >
-          <dt className="text-[11.5px] text-ink-500">{e.label}</dt>
+          <dt className="text-[13px] text-ink-500">{e.label}</dt>
           <dd className={cx('m-0 text-[13px]', e.data && 'font-data')}>{e.value}</dd>
         </div>
       ))}

@@ -44,7 +44,7 @@ export function AgentStatus({ state, steps = [], onStop, compact = false, detail
         )}
       >
         <span aria-hidden="true" className={cx('h-2 w-2 rounded-pill', pill.dot)} />
-        <span className="text-[12.5px]">{[pill.label, detail].filter(Boolean).join(' · ')}</span>
+        <span className="text-[13px]">{[pill.label, detail].filter(Boolean).join(' · ')}</span>
       </div>
     );
   }
@@ -75,11 +75,11 @@ export function AgentStatus({ state, steps = [], onStop, compact = false, detail
           >
             {s.label}
           </span>
-          {s.meta && <span className="ml-auto text-[11.5px] text-ink-400">{s.meta}</span>}
+          {s.meta && <span className="ml-auto text-[13px] text-ink-400">{s.meta}</span>}
         </div>
       ))}
       {state === 'working' && onStop && (
-        <button type="button" onClick={onStop} className="mt-1 h-8 self-start rounded-md border border-line bg-surface px-3 text-[12.5px] font-semibold text-ink-700">
+        <button type="button" onClick={onStop} className="mt-1 h-8 self-start rounded-md border border-line bg-surface px-3 text-[13px] font-semibold text-ink-700">
           Stop
         </button>
       )}

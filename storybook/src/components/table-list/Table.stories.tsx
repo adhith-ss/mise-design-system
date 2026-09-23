@@ -74,7 +74,7 @@ export const WithTotals: Story = {
   args: {
     footer: (
       <div className="flex justify-between">
-        <span className="text-[12.5px] text-ink-500">5 invoices</span>
+        <span className="text-[13px] text-ink-500">5 invoices</span>
         <span className="font-data text-[13px] font-semibold">$3,495.65</span>
       </div>
     ),

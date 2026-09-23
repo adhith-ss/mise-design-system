@@ -76,7 +76,7 @@ export function Table<Row extends { id: string }>({
                 scope="col"
                 style={{ width: c.width }}
                 className={cx(
-                  'border-b border-line px-[14px] py-[11px] text-[11px] font-semibold uppercase tracking-[0.05em] text-ink-500',
+                  'border-b border-line px-[14px] py-[11px] text-[13px] font-semibold uppercase tracking-[0.05em] text-ink-500',
                   c.align === 'right' && 'text-right',
                 )}
               >

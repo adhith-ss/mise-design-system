@@ -38,7 +38,7 @@ export function TopNav({ brand, items, actions }: TopNavProps) {
             {i.icon}
             {i.label}
             {i.count != null && (
-              <span className="font-data rounded-pill bg-tone-warning-bg px-[6px] text-[11px] text-tone-warning-fg">
+              <span className="font-data rounded-pill bg-tone-warning-bg px-[6px] text-[13px] text-tone-warning-fg">
                 {i.count}
               </span>
             )}

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TopNav } from './TopNav';
 import { StatusDot } from '../feedback/StatusDot';
 import { Icon } from '../content/Icon';
-import { Calendar, ShoppingCart, Receipt, Building2, Package } from 'lucide-react';
+import { Calendar, ShoppingCart, Receipt, Building2, Package } from '@mise/icons/basil';
 
 const meta = {
   title: 'Navigation/Top Nav',

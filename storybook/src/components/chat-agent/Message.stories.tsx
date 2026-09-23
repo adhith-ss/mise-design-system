@@ -67,7 +67,7 @@ export const ErrorTurn: Story = {
 export const WithAvatar: Story = {
   args: {
     avatar: (
-      <span className="flex h-full w-full items-center justify-center rounded-[8px] bg-brand-600 text-[11px] font-semibold text-white">
+      <span className="flex h-full w-full items-center justify-center rounded-[8px] bg-brand-600 text-[13px] font-semibold text-white">
         P
       </span>
     ),
@@ -75,10 +75,10 @@ export const WithAvatar: Story = {
     children: undefined,
     attachments: (
       <div className="rounded-xl border border-line bg-surface px-3.5 py-3 shadow-raised">
-        <p className="text-[10px] font-semibold uppercase tracking-wide text-ink-500">Reporting window</p>
+        <p className="text-[13px] font-semibold uppercase tracking-wide text-ink-500">Reporting window</p>
         <p className="mt-0.5 text-[15px] font-semibold text-ink-900">Last 30 days</p>
         <p className="mt-2 font-data text-[22px] font-light text-ink-900">81.8%</p>
-        <p className="text-[11.5px] font-semibold text-brand-700">+5.4 pts vs start</p>
+        <p className="text-[13px] font-semibold text-brand-700">+5.4 pts vs start</p>
       </div>
     ),
   },
@@ -103,7 +103,7 @@ export const AllStates: Story = {
       </Message>
       <Message
         role="agent"
-        avatar={<span className="text-[11px] font-semibold text-white">P</span>}
+        avatar={<span className="text-[13px] font-semibold text-white">P</span>}
         attachments={<div className="rounded-xl border border-line bg-surface p-3 text-[13px]">Structured insight card</div>}
       />
       <Message role="agent" streaming>Drafting the credit request now</Message>

@@ -31,7 +31,7 @@ export function OverflowList({
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className={cx('font-data rounded-pill border border-line bg-surface px-[9px] py-[3px] text-[12px] text-ink-700 hover:bg-canvas')}
+            className={cx('font-data rounded-pill border border-line bg-surface px-[9px] py-[3px] text-[13px] text-ink-700 hover:bg-canvas')}
           >
             +{hidden} more{unit ? ` ${unit}` : ''}
           </button>
@@ -42,14 +42,14 @@ export function OverflowList({
             // `.font-data` hardcodes font-weight:300 and wins the cascade over
             // `.font-bold` regardless of class order (it's declared later in
             // tailwind.css) — `!font-bold` forces the override.
-            className="font-data text-[12px] !font-bold text-brand-600 hover:text-brand-800"
+            className="font-data text-[13px] !font-bold text-brand-600 hover:text-brand-800"
           >
             +{hidden}
           </button>
         )
       )}
       {open && items.length > visibleCount && (
-        <button type="button" onClick={() => setOpen(false)} className="text-[12px] font-semibold text-brand-600">
+        <button type="button" onClick={() => setOpen(false)} className="text-[13px] font-semibold text-brand-600">
           Show less
         </button>
       )}

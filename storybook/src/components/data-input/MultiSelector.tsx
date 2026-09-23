@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { cx } from '../../lib/cx';
 import { useField } from './Field';
-import { ChevronDown, X } from 'lucide-react';
+import { ChevronDown, X } from '@mise/icons/basil';
 
 export interface MultiOption {
   value: string;
@@ -49,7 +49,7 @@ export function MultiSelector({
       >
         {chosen.length === 0 && <span className="text-[14px] text-ink-400">{placeholder}</span>}
         {shown.map((o) => (
-          <span key={o.value} className="inline-flex items-center gap-[6px] rounded-sm border border-brand-200 bg-brand-50 px-[7px] py-[2px] text-[12.5px] text-brand-600">
+          <span key={o.value} className="inline-flex items-center gap-[6px] rounded-sm border border-brand-200 bg-brand-50 px-[7px] py-[2px] text-[13px] text-brand-600">
             {o.label}
             <span
               role="button"
@@ -61,7 +61,7 @@ export function MultiSelector({
             </span>
           </span>
         ))}
-        {rest > 0 && <span className="font-data text-[12px] text-ink-500">+{rest} more</span>}
+        {rest > 0 && <span className="font-data text-[13px] text-ink-500">+{rest} more</span>}
         <ChevronDown size={16} strokeWidth={1.5} aria-hidden="true" className="ml-auto text-ink-500" />
       </button>
 

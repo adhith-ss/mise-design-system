@@ -23,7 +23,7 @@ export const Success: Story = {};
 export const WithUndo: Story = {
   args: {
     description: '$1,486.10 · delivery Tue 6:00 AM',
-    action: <button type="button" className="text-[12.5px] font-semibold text-brand-600">Undo</button>,
+    action: <button type="button" className="text-[13px] font-semibold text-brand-600">Undo</button>,
   },
 };
 export const Error: Story = {

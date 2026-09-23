@@ -36,11 +36,11 @@ export function Thumbnail({ alt, src, size = 'md', kind, pages, onClick }: Thumb
           className="flex h-full w-full items-center justify-center"
           style={{ background: 'repeating-linear-gradient(135deg,#F1EFE9 0 6px,#EAE7DE 6px 12px)' }}
         >
-          {kind && <span className="font-data text-[10px] uppercase text-ink-500">{kind}</span>}
+          {kind && <span className="font-data text-[13px] uppercase text-ink-500">{kind}</span>}
         </span>
       )}
       {pages && pages > 1 && (
-        <span className="font-data absolute bottom-[2px] right-[2px] rounded-sm bg-ink-900/80 px-[4px] text-[9px] text-white">
+        <span className="font-data absolute bottom-[2px] right-[2px] rounded-sm bg-ink-900/80 px-[4px] text-[13px] text-white">
           {pages}
         </span>
       )}

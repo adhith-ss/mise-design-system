@@ -4,3 +4,7 @@ storybook-static/
 .DS_Store
 storybook/build-storybook.log
 /scratchpad/
+audit-all.json
+audit-quick.json
+storybook-static/
+build-storybook.log

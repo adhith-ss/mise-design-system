@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { cx } from '../../lib/cx';
 import { TONE_FG, TONE_ICON, TONE_BG, type Tone } from './tone';
 import { Icon } from '../content/Icon';
-import { X } from 'lucide-react';
+import { X } from '@mise/icons/basil';
 
 export interface ToastProps {
   /** What just happened, in the past tense. */
@@ -35,7 +35,7 @@ export function Toast({ title, description, tone = 'neutral', action, onDismiss 
       <div className="flex flex-1 flex-col gap-[2px]">
         <span className={cx('text-[13.5px] font-semibold', TONE_FG[tone])}>{title}</span>
         {description && (
-          <span className={cx('text-[12.5px] leading-[1.55]', tone === 'danger' ? 'text-danger' : 'text-ink-500')}>
+          <span className={cx('text-[13px] leading-[1.55]', tone === 'danger' ? 'text-danger' : 'text-ink-500')}>
             {description}
           </span>
         )}

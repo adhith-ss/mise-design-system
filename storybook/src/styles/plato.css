@@ -1,0 +1,43 @@
+.plato-avatar{display:inline-block;position:relative;flex-shrink:0;vertical-align:middle;overflow:visible;background:#c8ded2;border-radius:10%;isolation:isolate}
+.plato-face{display:block;position:relative;width:100%;height:100%;transform-origin:50% 50%}
+.plato-avatar .plato-face img{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;object-fit:contain;user-select:none}
+.plato-eye-l{transform-origin:32.14% 44%}.plato-eye-r{transform-origin:66.66% 44%}
+.plato-plate{transform-origin:50% 74.4%}
+.plato-attentive .plato-eye-l,.plato-attentive .plato-eye-r{transform:scaleY(1.06) translateY(-1%)}
+.plato-working .plato-eye-l,.plato-working .plato-eye-r{transform:scaleY(.8) translateX(2%)}
+.plato-clarify .plato-face{transform:rotate(-3deg)}
+.plato-clarify .plato-eye-l{transform:translateY(-2%) scaleY(1.02)}
+.plato-clarify .plato-eye-r{transform:translateY(1%) scaleY(.85)}
+.plato-review .plato-eye-l,.plato-review .plato-eye-r{transform:scaleY(1.1)}
+.plato-review .plato-plate{transform:translateY(-1%)}
+.plato-success .plato-eye-l,.plato-success .plato-eye-r{transform:scaleY(.43)}
+.plato-success .plato-plate{transform:translateY(-2%)}
+.plato-blocked .plato-eye-l,.plato-blocked .plato-eye-r{transform:translateY(1%) scaleY(.8)}
+.plato-paused .plato-eye-l,.plato-paused .plato-eye-r{transform:scaleY(.2)}
+.plato-motion.plato-ready .plato-eye-l,.plato-motion.plato-ready .plato-eye-r{animation:plato-ready-blink 7s ease-in-out infinite}
+.plato-motion.plato-attentive .plato-eye-l,.plato-motion.plato-attentive .plato-eye-r{animation:plato-attentive-eyes 1.4s ease-in-out infinite alternate}
+.plato-motion.plato-working .plato-face{animation:plato-focus 1.5s ease-in-out infinite alternate}
+.plato-motion.plato-working .plato-eye-l,.plato-motion.plato-working .plato-eye-r{animation:plato-focus-eyes 1.5s ease-in-out infinite alternate}
+.plato-motion.plato-success .plato-eye-l,.plato-motion.plato-success .plato-eye-r{animation:plato-happy-eyes .65s ease-in-out 2 alternate}
+.plato-motion.plato-success .plato-plate{animation:plato-happy-plate .65s ease-in-out 2 alternate}
+.plato-motion.plato-clarify .plato-face{animation:plato-curious-tilt 1.2s ease-in-out 2 alternate}
+.plato-motion.plato-review .plato-eye-l,.plato-motion.plato-review .plato-eye-r{animation:plato-review-eyes .7s ease-in-out 2 alternate}
+.plato-motion.plato-review .plato-plate{animation:plato-review-plate .7s ease-in-out 2 alternate}
+.plato-motion.plato-blocked .plato-face{animation:plato-rest-nod 1.1s ease-in-out 2 alternate}
+.plato-motion.plato-paused .plato-eye-l,.plato-motion.plato-paused .plato-eye-r{animation:plato-rest-eyes 1.4s ease-in-out 1}
+@keyframes plato-ready-blink{0%,45%,49%,100%{transform:scaleY(1)}47%{transform:scaleY(.12)}}
+@keyframes plato-attentive-eyes{from{transform:scaleY(1.06) translateY(-1%)}to{transform:scaleY(1.12) translateY(-2%)}}
+@keyframes plato-focus{from{transform:translateX(-1%)}to{transform:translateX(1%)}}
+@keyframes plato-focus-eyes{from{transform:scaleY(.8) translateX(-1.5%)}to{transform:scaleY(.9) translateX(1.5%)}}
+@keyframes plato-happy-eyes{from{transform:scaleY(.42)}to{transform:scaleY(.52)}}
+@keyframes plato-happy-plate{from{transform:translateY(0)}to{transform:translateY(-2%)}}
+@keyframes plato-curious-tilt{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+@keyframes plato-review-eyes{from{transform:scaleY(1)}to{transform:scaleY(1.1)}}
+@keyframes plato-review-plate{from{transform:translateY(0)}to{transform:translateY(-1%)}}
+@keyframes plato-rest-eyes{0%,100%{transform:scaleY(.1)}92%{transform:scaleY(.25)}}
+@keyframes plato-rest-nod{from{transform:rotate(0)}to{transform:rotate(2deg)}}
+html[data-plato-motion="off"] .plato-avatar *{animation:none!important}
+.plato-header-thumbnail{width:48px;height:48px;flex-shrink:0;border-radius:10%;background:#c8ded2}
+.plato-header-thumbnail:empty{background:transparent}
+
+[data-motion="off"] .plato-avatar *{animation:none!important;transition:none!important}

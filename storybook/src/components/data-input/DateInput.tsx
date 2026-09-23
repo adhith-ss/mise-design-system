@@ -66,7 +66,7 @@ export function DateInput({
             className={cx(controlClass(bad), 'font-data flex-1')}
           />
         </div>
-        {callout && <span id={calloutId} className="text-[12px] leading-[1.5] text-danger">{callout}</span>}
+        {callout && <span id={calloutId} className="text-[13px] leading-[1.5] text-danger">{callout}</span>}
       </div>
     );
   }
@@ -97,7 +97,7 @@ export function DateInput({
           </span>
         )}
       </div>
-      {callout && <span id={calloutId} className="text-[12px] leading-[1.5] text-danger">{callout}</span>}
+      {callout && <span id={calloutId} className="text-[13px] leading-[1.5] text-danger">{callout}</span>}
     </div>
   );
 }

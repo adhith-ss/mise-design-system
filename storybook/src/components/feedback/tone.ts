@@ -1,4 +1,4 @@
-import { CheckCircle2, AlertTriangle, AlertOctagon, Info, Circle, type LucideIcon } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, AlertOctagon, Info, Circle, type LucideIcon } from '@mise/icons/basil';
 
 /** The five states any record in Mise can be in. */
 export type Tone = 'success' | 'warning' | 'danger' | 'info' | 'neutral';

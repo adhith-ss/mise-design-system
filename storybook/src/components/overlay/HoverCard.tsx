@@ -22,13 +22,13 @@ export function HoverCard({
   trigger, children, openDelay = 500, closeDelay = 200, width = 300, loading = false, placement = 'bottom',
 }: HoverCardProps) {
   const [open, setOpen] = useState(false);
-  const timer = useRef<ReturnType<typeof setTimeout>>();
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const show = () => { clearTimeout(timer.current); timer.current = setTimeout(() => setOpen(true), openDelay); };
   const hide = () => { clearTimeout(timer.current); timer.current = setTimeout(() => setOpen(false), closeDelay); };
 
   return (
-    <span className="relative inline-flex" onMouseEnter={show} onMouseLeave={hide}>
+    <span className="relative inline-flex" onMouseEnter={show} onMouseLeave={hide} onFocus={show} onBlur={hide} onKeyDown={event => { if(event.key === 'Escape') { clearTimeout(timer.current); setOpen(false); } }}>
       {trigger}
       {open && (
         <span

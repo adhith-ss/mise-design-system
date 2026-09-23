@@ -1,5 +1,5 @@
 import { cx } from '../../lib/cx';
-import { X } from 'lucide-react';
+import { X } from '@mise/icons/basil';
 
 export interface TokenProps {
   /** The record's identifier or short value. */
@@ -20,7 +20,7 @@ export function Token({ children, prefix, tone = 'neutral', onRemove, size = 'md
     <span
       className={cx(
         'font-data inline-flex items-center gap-[5px] rounded-sm border',
-        size === 'sm' ? 'px-[6px] py-[1px] text-[11px]' : 'px-[7px] py-[2px] text-[12.5px]',
+        size === 'sm' ? 'px-[6px] py-[1px] text-[13px]' : 'px-[7px] py-[2px] text-[13px]',
         tone === 'neutral' && 'border-line bg-surface text-ink-700',
         tone === 'brand' && 'border-brand-200 bg-brand-50 text-brand-600',
         tone === 'warning' && 'border-warn bg-tone-warning-bg text-tone-warning-fg',
@@ -30,7 +30,7 @@ export function Token({ children, prefix, tone = 'neutral', onRemove, size = 'md
       {prefix && <span className="text-ink-400">{prefix}</span>}
       {children}
       {onRemove && (
-        <button type="button" onClick={onRemove} aria-label={`Remove ${children}`} className="text-[12px] leading-none">
+        <button type="button" onClick={onRemove} aria-label={`Remove ${children}`} className="text-[13px] leading-none">
           <X size={12} strokeWidth={1.5} />
         </button>
       )}

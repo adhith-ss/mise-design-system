@@ -55,7 +55,7 @@ export function Slider({
         </span>
       </div>
       {(minLabel || maxLabel) && (
-        <div className="flex justify-between text-[11.5px] text-ink-400">
+        <div className="flex justify-between text-[13px] text-ink-400">
           <span>{minLabel}</span>
           <span>{maxLabel}</span>
         </div>

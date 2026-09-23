@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Accessibility" />
+
+# Accessibility
+
+WCAG 2.2 Level AA is required for release, across variants, states and themes. This release candidate is not a claim of completed conformance.
+
+## Measure the rendered pair
+
+Measure the text or essential graphic against the actual background beneath it. Resolve translucent fills, overlays, opacity and theme inheritance first. Record foreground, composed background, ratio, expected threshold, story and state. Do not certify a component from its token palette alone.
+
+| Element | Minimum contrast | Scope |
+| --- | --- | --- |
+| Normal text | 4.5:1 | Labels, placeholders, hints, metadata, errors |
+| Qualifying large text | 3:1 | At least 24 px regular or 18.67 px bold |
+| Essential non-text | 3:1 | Icons, boundaries needed to identify controls, state and focus indicators |
+| Inactive controls | Exception | Explanation text outside the disabled control still meets normal contrast |
+
+## Interaction requirements
+
+Visible names and programmatic labels. Keyboard operation without traps. Focus returned after modal dismissal. Announce status without stealing focus. Error messages explain recovery and are associated with their input. Targets meet 24×24 CSS px or the documented spacing exception; prefer 44×44 for touch.
+
+## Typography and layout
+
+Minimum 13 px at default root size, with rem-based scaling. Test 200% text resizing and reflow at 320 CSS px. Table content may scroll locally where a two-dimensional layout is essential; surrounding controls must reflow. Test actual viewport bounds as well as document overflow.
+
+## Motion
+
+Respect reduced motion and the motion toggle. Keep cancel and approval controls available while Plato animates. Never use animation as the sole indication that a task is running, blocked or saved.
+
+## Required evidence
+
+Automated axe scans, actual rendered pair measurements, keyboard checks, resize/reflow checks, visual inspection and manual screen-reader verification. Document any exception or failure with an owner; do not relabel a failing component as compliant.
+
+References: [WCAG 2.2](https://www.w3.org/TR/WCAG22/) and [Astryx accessibility pattern](https://astryx.atmeta.com/components/Button?tab=accessibility).

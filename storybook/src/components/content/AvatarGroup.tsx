@@ -15,7 +15,7 @@ export interface AvatarGroupProps {
 export function AvatarGroup({ people, max = 4, size = 'md', shape = 'round', label }: AvatarGroupProps) {
   const shown = people.slice(0, max);
   const rest = people.length - shown.length;
-  const dim = size === 'sm' ? 'h-6 w-6 text-[10px]' : size === 'lg' ? 'h-10 w-10 text-[12px]' : 'h-[30px] w-[30px] text-[11px]';
+  const dim = size === 'sm' ? 'h-6 w-6 text-[13px]' : size === 'lg' ? 'h-10 w-10 text-[13px]' : 'h-[30px] w-[30px] text-[13px]';
   // Overlap scales with the circle, not a fixed 8px — at sm (24px) a flat 8px
   // covers a third of the circle and clips the second initial. The ring
   // border is a fixed 2px regardless of size, so it eats proportionally more

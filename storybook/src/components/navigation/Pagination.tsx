@@ -21,12 +21,12 @@ export function Pagination({
   const from = pageSize ? (page - 1) * pageSize + 1 : undefined;
   const to = pageSize && total ? Math.min(page * pageSize, total) : undefined;
 
-  const btn = 'flex h-8 min-w-8 items-center justify-center rounded-md border border-line bg-surface px-[9px] text-[12.5px] font-semibold text-ink-700 disabled:text-ink-300';
+  const btn = 'flex h-8 min-w-8 items-center justify-center rounded-md border border-line bg-surface px-[9px] text-[13px] font-semibold text-ink-700 disabled:text-ink-300';
 
   return (
     <div className="flex flex-wrap items-center gap-3">
       {total != null && (
-        <span className="text-[12.5px] text-ink-500">
+        <span className="text-[13px] text-ink-500">
           {from && to ? (
             <>
               <span className="font-data">{from}–{to}</span> of <span className="font-data">{total}</span> {unit}
@@ -46,7 +46,7 @@ export function Pagination({
             Previous
           </button>
         )}
-        <span className="font-data px-1 text-[12.5px] text-ink-500">
+        <span className="font-data px-1 text-[13px] text-ink-500">
           Page {page} of {pageCount}
         </span>
         {pageCount > 1 && (
@@ -57,12 +57,12 @@ export function Pagination({
       </nav>
 
       {pageSize && onPageSizeChange && (
-        <label className="flex items-center gap-2 text-[12.5px] text-ink-500">
+        <label className="flex items-center gap-2 text-[13px] text-ink-500">
           Rows
           <select
             value={pageSize}
             onChange={(e) => onPageSizeChange(Number(e.target.value))}
-            className={cx('font-data h-8 rounded-md border border-line bg-surface px-2 text-[12.5px] outline-none')}
+            className={cx('font-data h-8 rounded-md border border-line bg-surface px-2 text-[13px] outline-none')}
           >
             {pageSizeOptions.map((o) => <option key={o} value={o}>{o}</option>)}
           </select>

@@ -122,7 +122,7 @@ export function DropdownMenu({
             <div key={g.group ?? gi}>
               {gi > 0 && <div role="separator" className="my-[5px] h-px bg-line-soft" />}
               {g.group && (
-                <div className="font-data px-[10px] py-[7px] text-[11px] uppercase tracking-[0.08em] text-ink-400">
+                <div className="font-data px-[10px] py-[7px] text-[13px] uppercase tracking-[0.08em] text-ink-400">
                   {g.group}
                 </div>
               )}
@@ -142,7 +142,7 @@ export function DropdownMenu({
                   {item.icon}
                   {item.label}
                   {item.shortcut && (
-                    <span className="font-data ml-auto text-[11.5px] text-ink-400">{item.shortcut}</span>
+                    <span className="font-data ml-auto text-[13px] text-ink-400">{item.shortcut}</span>
                   )}
                 </button>
               ))}

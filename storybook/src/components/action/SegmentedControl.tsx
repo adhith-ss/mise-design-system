@@ -62,14 +62,14 @@ export function SegmentedControl({
             onKeyDown={(e) => move(e, i)}
             className={cx(
               'inline-flex items-center gap-2 rounded-md font-semibold transition-colors duration-fast ease-mise',
-              size === 'sm' ? 'h-[26px] px-[10px] text-[12.5px]' : 'h-8 px-3 text-[13px]',
+              size === 'sm' ? 'h-[26px] px-[10px] text-[13px]' : 'h-8 px-3 text-[13px]',
               fullWidth && 'flex-1 justify-center',
               on ? 'bg-surface text-ink-900 shadow-raised' : 'text-ink-500 hover:text-ink-700',
             )}
           >
             {s.label}
             {s.meta && (
-              <span className={cx('font-data text-[11.5px]', on ? 'text-ink-900' : 'text-ink-400')}>
+              <span className={cx('font-data text-[13px]', on ? 'text-ink-900' : 'text-ink-400')}>
                 {s.meta}
               </span>
             )}

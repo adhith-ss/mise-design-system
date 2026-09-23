@@ -21,7 +21,7 @@ export function Breadcrumbs({ items, maxItems = 4 }: BreadcrumbsProps) {
 
   return (
     <nav aria-label="Breadcrumb">
-      <ol className="flex list-none flex-wrap items-center gap-[7px] p-0 text-[12.5px]">
+      <ol className="flex list-none flex-wrap items-center gap-[7px] p-0 text-[13px]">
         {shown.map((c, i) => {
           const last = i === shown.length - 1;
           return (

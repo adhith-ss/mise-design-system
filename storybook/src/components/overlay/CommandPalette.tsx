@@ -46,28 +46,29 @@ export function CommandPalette({
           <input
             autoFocus
             role="combobox"
+            aria-label="Search records and actions"
             aria-expanded="true"
             aria-controls="cmd-listbox"
-            aria-activedescendant={`cmd-${active}`}
+            aria-activedescendant={results[active] ? `cmd-${active}` : undefined}
             value={query}
             placeholder={placeholder}
             onChange={(e) => { setQuery(e.target.value); setActive(0); }}
             onKeyDown={(e) => {
-              if (e.key === 'ArrowDown') setActive((a) => Math.min(a + 1, results.length - 1));
-              if (e.key === 'ArrowUp') setActive((a) => Math.max(a - 1, 0));
-              if (e.key === 'Enter') { results[active]?.onSelect?.(); onOpenChange(false); }
+              if (e.key === 'ArrowDown') {e.preventDefault();setActive((a) => Math.max(0,Math.min(a + 1, results.length - 1)));}
+              if (e.key === 'ArrowUp') {e.preventDefault();setActive((a) => Math.max(a - 1, 0));}
+              if (e.key === 'Enter' && results[active]) { results[active].onSelect?.(); onOpenChange(false); }
               if (e.key === 'Escape') onOpenChange(false);
             }}
             className="flex-1 border-0 bg-transparent text-[15px] outline-none placeholder:text-ink-400"
           />
-          <span className="font-data flex h-5 items-center rounded-sm border border-line px-[6px] text-[11px] text-ink-500">esc</span>
+          <span className="font-data flex h-5 items-center rounded-sm border border-line px-[6px] text-[13px] text-ink-500">esc</span>
         </div>
 
         <div id="cmd-listbox" role="listbox" aria-label="Results" className="max-h-[320px] overflow-auto p-[6px]">
-          {results.length === 0 && <div className="px-[10px] py-4 text-[13px] text-ink-500">{emptyMessage}</div>}
+          {results.length === 0 && <div role="option" aria-disabled="true" aria-selected="false" className="px-[10px] py-4 text-[13px] text-ink-500">{emptyMessage}</div>}
           {groups.map((g) => (
             <div key={g} role="group" aria-labelledby={groupId(g)}>
-              <div id={groupId(g)} className="font-data px-[10px] py-[7px] text-[11px] uppercase tracking-[0.08em] text-ink-400">{g}</div>
+              <div id={groupId(g)} className="font-data px-[10px] py-[7px] text-[13px] uppercase tracking-[0.08em] text-ink-400">{g}</div>
               {results.filter((r) => r.group === g).map((r) => {
                 const i = results.indexOf(r);
                 return (
@@ -82,7 +83,7 @@ export function CommandPalette({
                   >
                     <span aria-hidden="true" className="h-4 w-4 rounded-sm border border-brand-200 bg-brand-50" />
                     {r.label}
-                    {r.meta && <span className="font-data ml-auto text-[12px] text-ink-400">{r.meta}</span>}
+                    {r.meta && <span className="font-data ml-auto text-[13px] text-ink-400">{r.meta}</span>}
                   </div>
                 );
               })}
@@ -91,9 +92,9 @@ export function CommandPalette({
         </div>
 
         <div className="flex items-center gap-[14px] border-t border-line-soft bg-surface-raised px-4 py-[9px]">
-          <span className="font-data text-[11.5px] text-ink-500">↑↓ navigate</span>
-          <span className="font-data text-[11.5px] text-ink-500">⏎ open</span>
-          <span className="font-data text-[11.5px] text-ink-500">{hotkey} toggle</span>
+          <span className="font-data text-[13px] text-ink-500">↑↓ navigate</span>
+          <span className="font-data text-[13px] text-ink-500">⏎ open</span>
+          <span className="font-data text-[13px] text-ink-500">{hotkey} toggle</span>
         </div>
       </div>
     </div>

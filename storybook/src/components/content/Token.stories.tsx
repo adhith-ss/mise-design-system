@@ -25,7 +25,7 @@ export const Removable: Story = { args: { onRemove: () => {}, tone: 'brand', chi
 export const InFilterRow: Story = {
   render: () => (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="text-[12.5px] text-ink-500">Filtered by</span>
+      <span className="text-[13px] text-ink-500">Filtered by</span>
       <Token tone="brand" onRemove={() => {}}>Harbor Produce</Token>
       <Token tone="brand" onRemove={() => {}}>Aug 18–24</Token>
       <Token tone="warning" onRemove={() => {}}>Variances only</Token>

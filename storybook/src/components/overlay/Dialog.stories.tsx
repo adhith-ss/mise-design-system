@@ -18,6 +18,7 @@ const meta = {
     },
   },
   args: {
+    children: null,
     open: true,
     title: 'Edit line · Romaine, 24 ct',
     description: 'PO-4471 · Harbor Produce',

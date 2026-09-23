@@ -35,8 +35,8 @@ export const Interactive: Story = { args: { onSelect: () => {} } };
 export const WithLeading: Story = {
   args: {
     items: [
-      { id: '1', title: 'Harbor Produce Co.', meta: 'Produce · Tue, Thu', leading: <span aria-hidden="true" className="flex h-[30px] w-[30px] items-center justify-center rounded-[9px] bg-surface-sunken text-[11px] font-bold text-ink-700">HP</span> },
-      { id: '2', title: 'Valley Greens', meta: 'Produce · Wed', leading: <span aria-hidden="true" className="flex h-[30px] w-[30px] items-center justify-center rounded-[9px] bg-surface-sunken text-[11px] font-bold text-ink-700">VG</span> },
+      { id: '1', title: 'Harbor Produce Co.', meta: 'Produce · Tue, Thu', leading: <span aria-hidden="true" className="flex h-[30px] w-[30px] items-center justify-center rounded-[9px] bg-surface-sunken text-[13px] font-bold text-ink-700">HP</span> },
+      { id: '2', title: 'Valley Greens', meta: 'Produce · Wed', leading: <span aria-hidden="true" className="flex h-[30px] w-[30px] items-center justify-center rounded-[9px] bg-surface-sunken text-[13px] font-bold text-ink-700">VG</span> },
     ],
   },
 };

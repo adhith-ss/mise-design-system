@@ -4,7 +4,7 @@ import { Icon } from '../content/Icon';
 import {
   Calendar, Bot, ShoppingCart, Receipt, Undo2, Building2, Package, Gauge,
   UtensilsCrossed, ChevronRight, Settings,
-} from 'lucide-react';
+} from '@mise/icons/basil';
 
 const meta = {
   title: 'Navigation/Side Nav',
@@ -38,13 +38,13 @@ const meta = {
         >
           <span
             aria-hidden="true"
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[8px] bg-surface-sunken text-[12px] font-bold text-ink-700"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[8px] bg-surface-sunken text-[13px] font-bold text-ink-700"
           >
             HP
           </span>
           <span className="flex min-w-0 flex-1 flex-col overflow-hidden">
             <span className="truncate text-[13.5px] font-bold text-ink-900">Harbor Produce Co.</span>
-            <span className="font-data text-[11px] text-ink-500">Downtown kitchen</span>
+            <span className="font-data text-[13px] text-ink-500">Downtown kitchen</span>
           </span>
           <Icon icon={ChevronRight} size="sm" className="shrink-0 text-ink-400" />
         </button>
@@ -96,8 +96,8 @@ const meta = {
         <div className="flex items-center gap-[9px] px-2">
           <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-pill bg-brand-600" />
           <span className="flex flex-col">
-            <span className="text-[12.5px] font-semibold text-ink-900">All changes saved</span>
-            <span className="font-data text-[11px] text-ink-500">Synced 2 min ago</span>
+            <span className="text-[13px] font-semibold text-ink-900">All changes saved</span>
+            <span className="font-data text-[13px] text-ink-500">Synced 2 min ago</span>
           </span>
         </div>
       </div>
@@ -163,13 +163,13 @@ export const DarkRail: Story = {
         >
           <span
             aria-hidden="true"
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[8px] bg-rail-avatar-bg text-[12px] font-bold text-rail-text"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[8px] bg-rail-avatar-bg text-[13px] font-bold text-rail-text"
           >
             HP
           </span>
           <span className="flex min-w-0 flex-1 flex-col overflow-hidden">
             <span className="truncate text-[13.5px] font-bold text-rail-text">Harbor Produce Co.</span>
-            <span className="font-data text-[11px] text-rail-text-muted">Downtown kitchen</span>
+            <span className="font-data text-[13px] text-rail-text-muted">Downtown kitchen</span>
           </span>
           <Icon icon={ChevronRight} size="sm" className="shrink-0 text-rail-text-muted" />
         </button>
@@ -218,8 +218,8 @@ export const DarkRail: Story = {
         <div className="flex items-center gap-[9px] px-2">
           <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-pill bg-brand-400" />
           <span className="flex flex-col">
-            <span className="text-[12.5px] font-semibold text-rail-text">All changes saved</span>
-            <span className="font-data text-[11px] text-rail-text-muted">Synced 2 min ago</span>
+            <span className="text-[13px] font-semibold text-rail-text">All changes saved</span>
+            <span className="font-data text-[13px] text-rail-text-muted">Synced 2 min ago</span>
           </span>
         </div>
       </div>

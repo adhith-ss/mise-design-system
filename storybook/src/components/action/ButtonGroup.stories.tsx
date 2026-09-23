@@ -13,7 +13,7 @@ const meta = {
       },
     },
   },
-  args: { label: 'Order actions' },
+  args: { label: 'Order actions', children: null },
 } satisfies Meta<typeof ButtonGroup>;
 
 export default meta;

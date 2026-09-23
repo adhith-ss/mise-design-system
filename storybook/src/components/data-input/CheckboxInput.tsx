@@ -1,6 +1,6 @@
 import { useId } from 'react';
 import { cx } from '../../lib/cx';
-import { Check } from 'lucide-react';
+import { Check } from '@mise/icons/basil';
 
 export interface CheckboxInputProps {
   checked: boolean;
@@ -52,7 +52,7 @@ export function CheckboxInput({
           {label}
           {required && <span aria-hidden="true" className="ml-1 text-danger">*</span>}
         </span>
-        {hint && <span id={hintId} className="text-[12px] leading-[1.5] text-ink-500">{hint}</span>}
+        {hint && <span id={hintId} className="text-[13px] leading-[1.5] text-ink-500">{hint}</span>}
       </label>
     </div>
   );

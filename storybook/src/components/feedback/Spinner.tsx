@@ -28,7 +28,7 @@ export function Spinner({ size = 'md', label = 'Loading', showLabel = false, ton
           tone === 'inverse' && 'border-white',
         )}
       />
-      <span className={showLabel ? 'text-[12.5px] text-ink-500' : 'sr-only'}>{label}</span>
+      <span className={showLabel ? 'text-[13px] text-ink-500' : 'sr-only'}>{label}</span>
     </span>
   );
 }

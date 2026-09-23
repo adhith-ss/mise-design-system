@@ -48,7 +48,7 @@ export function Message({
 
   if (role === 'system') {
     return (
-      <div className="py-2 text-center text-[12.5px] text-ink-500">{children}</div>
+      <div className="py-2 text-center text-[13px] text-ink-500">{children}</div>
     );
   }
 
@@ -92,7 +92,7 @@ export function Message({
           </div>
         ) : null}
         {footer && !streaming && (
-          <span className="text-[12px] text-ink-400">
+          <span className="text-[13px] text-ink-400">
             {[footer.sources, footer.duration && `${(footer.duration / 1000).toFixed(1)}s`]
               .filter(Boolean)
               .join(' · ')}
@@ -101,7 +101,7 @@ export function Message({
         {(actions || timestamp) && (
           <div className="flex items-center gap-3 opacity-0 transition-opacity duration-fast ease-mise focus-within:opacity-100 group-hover:opacity-100">
             {actions}
-            {timestamp && <span className="text-[11.5px] text-ink-400">{timestamp}</span>}
+            {timestamp && <span className="text-[13px] text-ink-400">{timestamp}</span>}
           </div>
         )}
       </div>

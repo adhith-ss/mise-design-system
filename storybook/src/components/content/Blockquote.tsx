@@ -14,7 +14,7 @@ export function Blockquote({ children, attribution, source }: BlockquoteProps) {
     <figure className="m-0 flex max-w-[64ch] flex-col gap-[10px] border-l-[3px] border-line pl-4">
       <blockquote className="m-0 text-[14px] leading-[1.7] text-ink-700">{children}</blockquote>
       {(attribution || source) && (
-        <figcaption className="text-[12px] text-ink-500">
+        <figcaption className="text-[13px] text-ink-500">
           {attribution}
           {attribution && source && ' · '}
           {source && <cite className="font-data not-italic">{source}</cite>}

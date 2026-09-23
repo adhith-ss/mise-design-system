@@ -16,7 +16,7 @@ const meta = {
       },
     },
   },
-  args: { content: 'Filter rows', delay: 0 },
+  args: { content: 'Filter rows', delay: 0, children: <span /> },
   render: (args) => (
     <div className="p-12">
       <Tooltip {...args}>

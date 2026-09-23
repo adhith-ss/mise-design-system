@@ -72,7 +72,7 @@ export function Typeahead({
               )}
             >
               <span className="text-[13.5px]">{i.label}</span>
-              {i.meta && <span className="font-data text-[11.5px] text-ink-500">{i.meta}</span>}
+              {i.meta && <span className="font-data text-[13px] text-ink-500">{i.meta}</span>}
             </button>
           ))}
         </div>

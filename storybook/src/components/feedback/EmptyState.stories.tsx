@@ -56,7 +56,6 @@ export const Error: Story = {
       <Button
         variant="neutral"
         size="sm"
-        className="!border-transparent !bg-white !text-ink-900 hover:!bg-brand-600 hover:!text-white"
       >
         Try again
       </Button>

@@ -16,7 +16,7 @@ export function Kbd({ keys, size = 'md' }: KbdProps) {
           key={k + i}
           className={cx(
             'font-data inline-flex items-center rounded-sm border border-line bg-surface text-ink-700',
-            size === 'sm' ? 'h-[18px] px-[5px] text-[10.5px]' : 'h-5 px-[6px] text-[11px]',
+            size === 'sm' ? 'h-[18px] px-[5px] text-[13px]' : 'h-5 px-[6px] text-[13px]',
           )}
         >
           {k}

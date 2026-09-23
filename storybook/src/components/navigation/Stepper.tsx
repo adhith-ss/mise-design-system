@@ -1,5 +1,5 @@
 import { cx } from '../../lib/cx';
-import { Check } from 'lucide-react';
+import { Check } from '@mise/icons/basil';
 
 export interface Step {
   label: string;
@@ -48,7 +48,7 @@ export function Stepper({ steps, orientation = 'horizontal', onStepClick }: Step
           <span
             aria-hidden="true"
             className={cx(
-              'flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-pill border text-[11px] font-bold',
+              'flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-pill border text-[13px] font-bold',
               s.status === 'done' && 'border-brand-600 bg-brand-600 text-white',
               s.status === 'current' && 'border-brand-600 bg-brand-50 text-brand-600',
               s.status === 'upcoming' && 'border-line bg-surface text-ink-400',
@@ -72,7 +72,7 @@ export function Stepper({ steps, orientation = 'horizontal', onStepClick }: Step
             >
               {s.label}
             </span>
-            {s.detail && <span className="text-[12px] leading-[1.5] text-ink-500">{s.detail}</span>}
+            {s.detail && <span className="text-[13px] leading-[1.5] text-ink-500">{s.detail}</span>}
           </span>
         );
 

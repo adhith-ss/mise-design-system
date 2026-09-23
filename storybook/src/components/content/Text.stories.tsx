@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta as StoryMeta, StoryObj } from '@storybook/react';
 import { Text } from './Text';
 
 const meta = {
@@ -14,7 +14,7 @@ const meta = {
     },
   },
   args: { children: 'Harbor invoiced 24 cases but the kitchen received 20.', measure: true },
-} satisfies Meta<typeof Text>;
+} satisfies StoryMeta<typeof Text>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

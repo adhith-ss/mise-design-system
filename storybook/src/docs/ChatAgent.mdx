@@ -9,16 +9,12 @@ import * as ErrorStories from '../components/chat-agent/AgentError.stories';
 
 # Chat & Agent
 
-The surface where Mise's agent works alongside an operator: ordering,
-reconciling invoices, chasing credits. The agent may read anything and draft
-anything, but money leaves the restaurant only after a person approves it. These
-components exist to make what the agent did, and what it is about to do,
-legible at a glance.
+Plato helps operators inspect menu margins, prepare weekly reviews and compare forecast scenarios. The operator remains the decision-maker. Show data freshness and evidence before a recommendation; show what will change before asking for approval.
 
 ## Principles
 
 **Read freely, write on approval.** The agent can query any record and draft any
-document. Sending an order, a credit request, or a payment always passes through
+document within the user's granted permissions. Sending an order, a credit request, or a payment always passes through
 `InlineApproval`.
 
 **Show the work, not the machinery.** Every claim links to its record; every
@@ -59,9 +55,11 @@ The only component that turns agent intent into an action against a vendor. The
 title names the amount and the counterparty; the facts grid is enough to decide
 from without opening anything.
 
-Approve is never the default focus. An unanswered approval is pinned rather than
-allowed to scroll away, and the composer blocks new instructions until it is
-resolved.
+Approve is never the default focus. Keep unanswered work available without blocking unrelated questions. Require a reason when the operator changes a target plate cost.
+
+## Context and continuity
+
+Suggestions follow the current page. A generated brief appears as a collapsed, timestamped item above suggestions on subsequent visits; it must not replace the conversation. Let the operator dismiss it or continue another task. Persistent cross-session history, live source freshness and write approvals are integration requirements, not capabilities to imply before a backend exists.
 
 <Controls of={ApprovalStories.Pending} />
 
