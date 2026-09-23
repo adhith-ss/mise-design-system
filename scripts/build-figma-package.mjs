@@ -5,10 +5,26 @@ const out=path.join(root,'figma-release-0.2.0-rc.1');
 fs.mkdirSync(out,{recursive:true});
 const baseline=fs.readFileSync(path.join(root,'storybook/src/styles/tokens.css'),'utf8');
 const refresh=fs.readFileSync(path.join(root,'storybook/src/styles/refresh.css'),'utf8');
-const declarations=s=>Object.fromEntries([...s.matchAll(/--mise-([\w-]+):\s*([^;]+);/g)].map(m=>[m[1],m[2].trim()]));
-const primitive=declarations(baseline.split('/* Rail')[0]);
+// Preserve CSS custom-property names exactly (--mise-*), including required
+// refresh tokens: --mise-ink-*, --mise-control-border, --mise-on-action,
+// --mise-on-danger, --mise-focus-*, --mise-scrim, --mise-selected.
+const declarations=s=>Object.fromEntries([...s.matchAll(/(--mise-[\w-]+):\s*([^;]+);/g)].map(m=>[m[1],m[2].trim()]));
+// Include full baseline (scrim lives after the Rail block). Omit rail-only
+// surface tokens from the handoff package — they are not part of the RC theme.
+const primitive=Object.fromEntries(
+  Object.entries(declarations(baseline)).filter(([name])=>!name.startsWith('--mise-rail-'))
+);
 const light={...primitive,...declarations(refresh.split('.dark,')[0])};
 const dark={...light,...declarations(refresh.split('.dark,')[1].split('color-scheme:dark')[0])};
+const required=[
+  '--mise-ink-900','--mise-ink-700','--mise-ink-500','--mise-ink-400','--mise-ink-300',
+  '--mise-control-border','--mise-on-action','--mise-on-danger',
+  '--mise-focus-border','--mise-focus-halo','--mise-scrim','--mise-selected',
+];
+const missing=required.filter(name=>!(name in light)||!(name in dark));
+if(missing.length){
+  throw new Error(`tokens.json gate failed — missing light/dark pair for: ${missing.join(', ')}`);
+}
 const tokens={version:'0.2.0-rc.1',themes:{light,dark}};
 fs.writeFileSync(path.join(out,'tokens.json'),JSON.stringify(tokens,null,2));
 const icons=JSON.parse(fs.readFileSync(path.join(root,'storybook/src/icons/paths.json'),'utf8'));
