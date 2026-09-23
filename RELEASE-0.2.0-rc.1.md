@@ -9,7 +9,7 @@ Release candidate for the September 2026 human-led workspace refresh. This is a 
 - Manrope is the product typeface. Use tabular numerals for comparable values; reserve monospace for literal code.
 - WCAG 2.2 Level AA is the release requirement across variants, states, themes and workflows, not an automatic claim made by this release candidate.
 - Measure rendered foreground/background combinations, including hover, pressed, focus, selected, validation and overlays. Include alpha compositing; token swatches alone are insufficient.
-- Basil is the product icon family. Plato uses the approved full-plate image layers. No angry shaking or winking in decision flows.
+- Basil is the product icon family, pruned to the Mise set (48 glyphs): every icon used across the app plus a small reserve for agent-first flows (Plato, sources, drafts, simulations, history, motion). Plato uses the approved full-plate image layers; a Basil glyph is never used for agent identity. No angry shaking or winking in decision flows.
 - A draft is not an approval. A simulation is not a prediction. Celebrate only after a confirmed save.
 - Do not remove factual limitations to make sample data or disconnected AI look live.
 
