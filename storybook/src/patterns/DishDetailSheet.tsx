@@ -95,6 +95,10 @@ export function DishDetailSheet({
           </div>
           <div
             className="mt-3 h-2 overflow-hidden rounded-pill bg-canvas"
+            role="progressbar"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={Math.round(margin)}
             aria-label={`${margin.toFixed(1)}% margin, ${target}% target`}
           >
             <div

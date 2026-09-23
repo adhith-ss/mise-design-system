@@ -37,9 +37,10 @@ export function MetricCard({
 
   return (
     <Card
-      className={cx('w-full max-w-[280px]', disabled && 'opacity-60')}
+      className={cx('w-full max-w-[280px]', disabled && 'pointer-events-none')}
       padding="md"
       edge={errored || atRisk ? 'warning' : 'none'}
+      aria-disabled={disabled || undefined}
     >
       <div className="flex items-start justify-between gap-2">
         <span className="text-[13px] font-semibold text-ink-700">{label}</span>

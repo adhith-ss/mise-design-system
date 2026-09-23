@@ -60,6 +60,8 @@ export function FileInput({
         accept={accept}
         multiple={multiple}
         className="sr-only"
+        aria-label={prompt}
+        disabled={disabled ?? field?.disabled}
         onChange={(e) => {
           if (e.target.files?.length) onAdd?.(e.target.files);
           e.target.value = '';
