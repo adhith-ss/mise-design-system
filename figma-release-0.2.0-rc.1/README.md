@@ -11,7 +11,7 @@ Use the canonical [Mise_DLS file](https://www.figma.com/design/OYSStcuycsv9G63w7
 - **Tokens:** Light and dark semantic colour values, plus native Figma colour-variable collections when imported.
 - **Type:** Manrope styles, 13 px minimum, responsive role bounds documented next to specimens.
 - **Controls:** Editable primary-button state specimens and reason-field specimens. These are not a full migration of every existing component.
-- **Basil:** Native vector components for the complete supplied catalogue, with attribution.
+- **Basil:** Native vector components for the pruned Mise set (48 glyphs), with attribution.
 - **Artwork:** Approved workflow images and Plato thumbnail. Animation remains in the implementation and Storybook; static Figma artwork is not an animated prototype.
 
 ## Apply safely
