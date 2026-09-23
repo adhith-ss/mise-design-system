@@ -29,10 +29,18 @@ const tokens={version:'0.2.0-rc.1',themes:{light,dark}};
 fs.writeFileSync(path.join(out,'tokens.json'),JSON.stringify(tokens,null,2));
 const icons=JSON.parse(fs.readFileSync(path.join(root,'storybook/src/icons/paths.json'),'utf8'));
 const assets=Object.fromEntries(['plato','illustrations'].flatMap(dir=>fs.readdirSync(path.join(root,'storybook/public',dir)).filter(x=>x.endsWith('.png')).map(file=>[`${dir}/${file}`,fs.readFileSync(path.join(root,'storybook/public',dir,file)).toString('base64')])));
-const payload={tokens,icons,assets};
+const patternsDir=path.join(root,'storybook/src/patterns');
+const patterns={};
+if(fs.existsSync(patternsDir)){
+  for(const file of fs.readdirSync(patternsDir).filter(f=>f.endsWith('.spec.json'))){
+    const name=file.replace(/\.spec\.json$/,'');
+    patterns[name]=JSON.parse(fs.readFileSync(path.join(patternsDir,file),'utf8'));
+  }
+}
+const payload={tokens,icons,assets,patterns};
 const runtime=fs.readFileSync(path.join(root,'scripts/figma-importer.js'),'utf8');
 fs.writeFileSync(path.join(out,'code.js'),`const DATA=${JSON.stringify(payload)};\n${runtime}`);
 fs.writeFileSync(path.join(out,'manifest.json'),JSON.stringify({name:'Mise DLS 0.2.0-rc.1 · additive import',id:'mise-dls-020-rc1-import',api:'1.0.0',main:'code.js',editorType:['figma'],documentAccess:'dynamic-page',networkAccess:{allowedDomains:['none']}},null,2));
 fs.copyFileSync(path.join(root,'storybook/public/basil-attribution.txt'),path.join(out,'basil-attribution.txt'));
 fs.copyFileSync(path.join(root,'FIGMA-RELEASE-HANDOFF.md'),path.join(out,'README.md'));
-console.log(`Built additive importer with ${Object.keys(icons).length} Basil icons and ${Object.keys(assets).length} raster assets.`);
+console.log(`Built additive importer with ${Object.keys(icons).length} Basil icons, ${Object.keys(assets).length} raster assets, ${Object.keys(patterns).length} patterns.`);
