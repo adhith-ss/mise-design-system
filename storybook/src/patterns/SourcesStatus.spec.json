@@ -1,0 +1,17 @@
+{
+  "layout": {
+    "regions": ["banner", "sourceList"],
+    "density": "aside",
+    "maxWidth": 480
+  },
+  "copy": {
+    "title": "Sources not connected",
+    "detail": "Live supplier quotes, POS history, recipes and market data are not connected.",
+    "heading": "Keep your data fresh",
+    "check": "Check sources",
+    "needsUpdate": "Needs update",
+    "notConnectedBadge": "Not connected"
+  },
+  "states": ["default", "empty", "error", "disabled", "success"],
+  "tokensUsed": ["surface", "line", "tone-warning", "tone-danger", "tone-success", "focus-brand"]
+}

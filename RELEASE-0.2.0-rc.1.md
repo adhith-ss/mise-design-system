@@ -17,6 +17,12 @@ Release candidate for the September 2026 human-led workspace refresh. This is a 
 
 Each component exposes its purpose and usage, anatomy, properties, interactive examples, states, accessibility requirements and implementation guidance. This follows the documentation structure observed in [Astryx Button](https://astryx.atmeta.com/components/Button) and its [accessibility tab](https://astryx.atmeta.com/components/Button?tab=accessibility).
 
+
+## Patterns and archive
+
+- Storybook **Patterns** compose DLS primitives into operator workflows (approval, forecast, weekly snapshot, import, sources, metrics, dish sheet, session history, Plato drawer). Each pattern includes stories and a `.spec.json` (`layout`, `copy`, `states`, `tokensUsed`) for later Figma sync.
+- The **MVP Pilot archive** (0.1.0) lives under `storybook/src/archive/mvp-pilot/` and Storybook `MVP Pilot/*`. It is reference-only and excluded from the 0.2.0-rc.1 release gate.
+
 ## Accessibility acceptance
 
 | Check | Required evidence |

@@ -1,0 +1,31 @@
+{
+  "layout": {
+    "regions": ["horizon", "builder", "presets", "results", "categoryTable", "assumptions", "sources", "saveDialog"],
+    "density": "page",
+    "maxWidth": 720
+  },
+  "copy": {
+    "badge": "What-if model · 11 dishes",
+    "builderTitle": "Build your first scenario",
+    "builderActiveTitle": "Your scenario",
+    "caption": "Adjust, then simulate. Nothing changes live.",
+    "presetStatus": "Costs +3%, orders 0%, prices 0%. Adjust, then simulate.",
+    "applyPreset": "Apply +3% costs",
+    "simulate": "Simulate",
+    "reset": "Reset to baseline",
+    "rangeError": "Enter values within the shown ranges.",
+    "resultsTitle": "Simulation results",
+    "dirtyHint": "Inputs changed. Simulate again.",
+    "save": "Save scenario",
+    "saved": "Saved",
+    "saveDialogTitle": "Why save this scenario?",
+    "saveDialogDescription": "Keep the reason with your assumptions and results.",
+    "predictionNote": "Constant weekly assumptions. Not a prediction or confidence interval.",
+    "assumptionsSummary": "Model assumptions",
+    "sourcesTitle": "Live sources not connected",
+    "sourcesDetail": "Update POS and invoices before planning.",
+    "empty": "Your simulations will appear here with their time and reason."
+  },
+  "states": ["default", "empty", "error", "disabled", "success"],
+  "tokensUsed": ["surface", "line", "ink-500", "brand-600", "tone-warning", "tone-success", "tone-info", "danger", "font-data", "tabular-nums", "focus-brand"]
+}

@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Patterns/Overview" />
+
+# Patterns
+
+Composed operator workflows built from DLS primitives. Each pattern ships a component, Storybook stories (light/dark via toolbar, 320 and 1440 viewports), and a `.spec.json` for later Figma plugin sync.
+
+Patterns do **not** import from the app. Copy, guards and states are reproduced from the Mise refresh pilot so Storybook stays the source of truth for composed UX.
+
+## Inventory
+
+| Pattern | Purpose |
+| --- | --- |
+| [DecisionApproval](?path=/docs/patterns-decisionapproval--docs) | Proposal vs current; reason when a plate-cost target changes; acknowledgement required; approve disabled until both pass |
+| [ForecastScenario](?path=/docs/patterns-forecastscenario--docs) | Presets, simulate, reset to baseline; save needs a reason; model assumptions; simulation, not a prediction |
+| [WeeklySnapshot](?path=/docs/patterns-weeklysnapshot--docs) | Review checklist; save snapshot; live-region confirmation; celebration after confirmed save only |
+| [ImportWizard](?path=/docs/patterns-importwizard--docs) | Choose file → map columns → check rows; staged vs applied; not applied to live data |
+| [SourcesStatus](?path=/docs/patterns-sourcesstatus--docs) | **Sources not connected** — live supplier quotes, POS history, recipes and market data are not connected |
+| [MetricCard](?path=/docs/patterns-metriccard--docs) | Value, delta, freshness timestamp, tabular numerals |
+| [DishDetailSheet](?path=/docs/patterns-dishdetailsheet--docs) | Dish metrics and sources notice |
+| [SessionHistory](?path=/docs/patterns-sessionhistory--docs) | Entries list, empty state, **This session** only — no persistence claim |
+| [PlatoDrawer](?path=/docs/patterns-platodrawer--docs) | Welcome once per session then thumbnail; page-context chip; task chips; motion pause; reduced motion |
+
+## Guardrails
+
+- Basil glyphs only from the pruned 48-icon set. Plato uses `PlatoAvatar` — never a Basil glyph for agent identity.
+- 13 px minimum text. Contiguous brand focus.
+- A draft is not an approval. A simulation is not a prediction. Celebrate only after a confirmed save.
+- Preserve exact disconnected-source wording where specified.
+
+## Spec files
+
+Each `*.spec.json` holds `{ layout, copy, states, tokensUsed }` for Figma plugin consumption later.
+
+## Related
+
+- Live primitives live under Action, Content, Data Input, Feedback, Navigation, Overlay, Table & List, and Chat & Agent.
+- The **MVP Pilot** section archives the 0.1.0 baseline for comparison (reference only; not gated).

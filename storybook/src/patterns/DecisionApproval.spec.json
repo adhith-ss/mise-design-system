@@ -1,0 +1,38 @@
+{
+  "layout": {
+    "regions": ["title", "proposalField", "reasonField", "comparison", "impact", "evidence", "sourcesBanner", "acknowledgement", "actions"],
+    "density": "sheet",
+    "maxWidth": 440
+  },
+  "copy": {
+    "titles": {
+      "pricing": "Test a price",
+      "supplier": "Set a supplier target"
+    },
+    "badge": "Needs review",
+    "acknowledgement": "Record a plan only. No live changes.",
+    "approve": "Approve plan",
+    "defer": "Not now",
+    "note": "Approval records your plan in session History. Refresh sources before acting.",
+    "successTitle": "Plan approved",
+    "successBody": "Recorded for this session. Refresh sources before acting.",
+    "reasonLabel": "Reason for change",
+    "reasonPlaceholder": "Why adjust this target?",
+    "amountError": "Enter an amount from $0.01 to $9,999.",
+    "sourcesTitle": "Sources need updating",
+    "sourcesDetail": "POS · Aug 20   Invoices · Aug 14"
+  },
+  "states": ["default", "reasonRequired", "disabled", "error", "success"],
+  "tokensUsed": [
+    "surface",
+    "line",
+    "ink-500",
+    "ink-700",
+    "brand-600",
+    "tone-warning",
+    "tone-success",
+    "font-data",
+    "tabular-nums",
+    "focus-brand"
+  ]
+}

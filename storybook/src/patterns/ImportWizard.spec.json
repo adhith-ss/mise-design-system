@@ -1,0 +1,21 @@
+{
+  "layout": {
+    "regions": ["steps", "upload", "map", "review", "done", "sources"],
+    "density": "page",
+    "maxWidth": 640
+  },
+  "copy": {
+    "badge": "Session imports",
+    "notConnected": "Not connected",
+    "steps": ["Choose file", "Map columns", "Check rows"],
+    "sessionNote": "Files stay in this session. Live data is unchanged.",
+    "doneBody": "Mapping saved for this session. Live data is unchanged.",
+    "notAppliedTitle": "Not applied to live data",
+    "notAppliedBody": "Validated format only. Not applied to the operational baseline.",
+    "sourcesTitle": "Sources not connected",
+    "sourcesDetail": "Live supplier quotes, POS history, recipes and market data are not connected.",
+    "stagingNote": "Staging does not refresh KPIs or Forecast."
+  },
+  "states": ["default", "empty", "error", "disabled", "success"],
+  "tokensUsed": ["surface", "line", "ink-500", "brand-600", "tone-warning", "tone-success", "tone-info", "danger", "focus-brand"]
+}
