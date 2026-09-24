@@ -5,16 +5,16 @@ import { IconButton } from '../action/IconButton';
 const Glyph = () => <span aria-hidden="true" className="h-[14px] w-[14px] rounded-sm bg-current" />;
 
 const meta = {
-  title: 'MVP Pilot/Overlay/Tooltip',
+  title: 'MVP/Overlay/Tooltip',
   tags: ['archived','mvp-pilot'],
   component: Tooltip,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'centered',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. 300ms open delay, no close delay, one tooltip at a time. Appears on hover and on keyboard focus. Maximum two lines; if it needs more, the interface needs a hint under the field. Never holds a control.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. 300ms open delay, no close delay, one tooltip at a time. Appears on hover and on keyboard focus. Maximum two lines; if it needs more, the interface needs a hint under the field. Never holds a control.',
       },
     },
   },

@@ -3,16 +3,16 @@ import { Banner } from './Banner';
 import { Button } from '../action/Button';
 
 const meta = {
-  title: 'MVP Pilot/Feedback & Status/Banner',
+  title: 'MVP/Feedback & Status/Banner',
   tags: ['archived','mvp-pilot'],
   component: Banner,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A condition affecting the whole page or record, staying until it is resolved. Anything transient is a Toast. One action only — two actions means the decision deserves a Dialog.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A condition affecting the whole page or record, staying until it is resolved. Anything transient is a Toast. One action only — two actions means the decision deserves a Dialog.',
       },
     },
   },

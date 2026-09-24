@@ -4,15 +4,15 @@ import { Icon } from '../content/Icon';
 import { Truck } from 'lucide-react';
 
 const meta = {
-  title: 'MVP Pilot/Feedback & Status/Badge',
+  title: 'MVP/Feedback & Status/Badge',
   tags: ['archived','mvp-pilot'],
   component: Badge,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A record\'s state, where the state changes how the operator acts on it. If the value is metadata — received Aug 22, 14 lines — it is Text, not a Badge. A live connection state is a Status Dot.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A record\'s state, where the state changes how the operator acts on it. If the value is metadata — received Aug 22, 14 lines — it is Text, not a Badge. A live connection state is a Status Dot.',
       },
     },
   },

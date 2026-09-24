@@ -7,7 +7,7 @@ import { MoreMenu } from './MoreMenu';
 const Glyph = () => <span aria-hidden="true" className="h-[14px] w-[14px] rounded-sm bg-current" />;
 
 const meta = {
-  title: 'Action/Toolbar',
+  title: 'Post-MVP/Action/Toolbar',
   component: Toolbar,
   parameters: {
     layout: 'padded',

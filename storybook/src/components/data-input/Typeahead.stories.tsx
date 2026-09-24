@@ -11,7 +11,7 @@ const items = [
 ];
 
 const meta = {
-  title: 'Data Input/Typeahead',
+  title: 'Post-MVP/Data Input/Typeahead',
   component: Typeahead,
   parameters: {
     layout: 'padded',

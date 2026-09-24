@@ -9,7 +9,7 @@ const items = [
 ];
 
 const meta = {
-  title: 'Overlay/Lightbox',
+  title: 'Post-MVP/Overlay/Lightbox',
   component: Lightbox,
   parameters: {
     layout: 'padded',

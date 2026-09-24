@@ -11,7 +11,7 @@ const vendors = [
 ];
 
 const meta = {
-  title: 'Data Input/Selector',
+  title: 'Post-MVP/Data Input/Selector',
   component: Selector,
   parameters: {
     layout: 'padded',

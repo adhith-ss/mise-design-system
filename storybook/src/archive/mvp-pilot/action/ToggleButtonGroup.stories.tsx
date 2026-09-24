@@ -9,15 +9,15 @@ const options = [
 ];
 
 const meta = {
-  title: 'MVP Pilot/Action/Toggle Button Group',
+  title: 'MVP/Action/Toggle Button Group',
   tags: ['archived','mvp-pilot'],
   component: ToggleButtonGroup,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A set of toggles sharing one container. Single-select behaves like a filter switch; multi-select behaves like a set of flags. Both announce their state through aria-pressed on each button.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A set of toggles sharing one container. Single-select behaves like a filter switch; multi-select behaves like a set of flags. Both announce their state through aria-pressed on each button.',
       },
     },
   },

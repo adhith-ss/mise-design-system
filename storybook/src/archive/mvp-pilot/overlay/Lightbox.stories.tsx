@@ -9,16 +9,16 @@ const items = [
 ];
 
 const meta = {
-  title: 'MVP Pilot/Overlay/Lightbox',
+  title: 'MVP/Overlay/Lightbox',
   tags: ['archived','mvp-pilot'],
   component: Lightbox,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Full-size view of an invoice scan or delivery photo, with zoom and paging through the set attached to one record. Arrows page, Escape closes and returns focus to the thumbnail that opened it. Every image carries alt text from the upload record.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Full-size view of an invoice scan or delivery photo, with zoom and paging through the set attached to one record. Arrows page, Escape closes and returns focus to the thumbnail that opened it. Every image carries alt text from the upload record.',
       },
     },
   },

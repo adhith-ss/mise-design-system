@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Text } from './Text';
 
 const meta = {
-  title: 'MVP Pilot/Content/Text',
+  title: 'MVP/Content/Text',
   tags: ['archived','mvp-pilot'],
   component: Text,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Body copy at three sizes and five tones. The data flag switches to Roboto Mono Light for values rather than prose — the single most-used option in the system.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Body copy at three sizes and five tones. The data flag switches to Roboto Mono Light for values rather than prose — the single most-used option in the system.',
       },
     },
   },

@@ -3,7 +3,7 @@ import { SourcesStatus } from './SourcesStatus';
 import { patternViewports } from './_shared';
 
 const meta = {
-  title: 'Patterns/SourcesStatus',
+  title: 'Post-MVP/Patterns/SourcesStatus',
   component: SourcesStatus,
   parameters: {
     layout: 'padded',

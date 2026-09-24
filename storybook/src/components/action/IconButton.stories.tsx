@@ -4,7 +4,7 @@ import { IconButton } from './IconButton';
 const Glyph = () => <span aria-hidden="true" className="h-[14px] w-[14px] rounded-sm bg-current" />;
 
 const meta = {
-  title: 'Action/Icon Button',
+  title: 'Post-MVP/Action/Icon Button',
   component: IconButton,
   parameters: {
     docs: {

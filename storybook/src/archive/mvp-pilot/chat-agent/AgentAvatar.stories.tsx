@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AgentAvatar } from './AgentAvatar';
 
 const meta = {
-  title: 'MVP Pilot/Chat & Agent/Agent Avatar',
+  title: 'MVP/Chat & Agent/Agent Avatar',
   tags: ['archived','mvp-pilot'],
   component: AgentAvatar,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'centered',
     docs: {
       description: {
         component:
-          "Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Plato, the agent's character, standing in for the agent the way Avatar stands in for a person — 8 idle emotions, each animated on its own loop, in either of the source asset's two tile treatments: `solid` (brand/600 tile, white line art) and `bordered` (white tile, mascot-ink line art, breathing brand-glow ring — use the Controls panel to switch). Every emotion shares the exact same base geometry; only the animation differs. Reduced motion freezes each one at its own characteristic pose rather than the shared neutral rest-frame every emotion starts from, so the 8 stay visually distinct even with motion off.",
+          "Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Plato, the agent's character, standing in for the agent the way Avatar stands in for a person — 8 idle emotions, each animated on its own loop, in either of the source asset's two tile treatments: `solid` (brand/600 tile, white line art) and `bordered` (white tile, mascot-ink line art, breathing brand-glow ring — use the Controls panel to switch). Every emotion shares the exact same base geometry; only the animation differs. Reduced motion freezes each one at its own characteristic pose rather than the shared neutral rest-frame every emotion starts from, so the 8 stay visually distinct even with motion off.",
       },
     },
   },

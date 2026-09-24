@@ -5,16 +5,16 @@ import { Icon } from '../content/Icon';
 import { Calendar, ShoppingCart, Receipt, Building2, Package } from 'lucide-react';
 
 const meta = {
-  title: 'MVP Pilot/Navigation/Top Nav',
+  title: 'MVP/Navigation/Top Nav',
   tags: ['archived','mvp-pilot'],
   component: TopNav,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'fullscreen',
     docs: {
       description: {
         component:
-          "Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. The app's top-level places. One row, never more than seven items, because an eighth means the information architecture needs a level rather than another tab. Counts appear only for things that need the operator's attention.",
+          "Archived · MVP (0.1.0). Reference only. Use Post-MVP components. The app's top-level places. One row, never more than seven items, because an eighth means the information architecture needs a level rather than another tab. Counts appear only for things that need the operator's attention.",
       },
     },
   },

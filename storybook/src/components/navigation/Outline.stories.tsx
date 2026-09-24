@@ -5,7 +5,7 @@ import { Icon } from '../content/Icon';
 import { FileText, Truck, CreditCard, Tag, Phone } from '@mise/icons/basil';
 
 const meta = {
-  title: 'Navigation/Outline',
+  title: 'Post-MVP/Navigation/Outline',
   component: Outline,
   parameters: {
     layout: 'padded',

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Citation } from './Citation';
 
 const meta = {
-  title: 'Chat & Agent/Citation',
+  title: 'Post-MVP/Chat & Agent/Citation',
   component: Citation,
   parameters: {
     docs: {

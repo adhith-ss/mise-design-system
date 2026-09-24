@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Markdown } from './Markdown';
 
 const meta = {
-  title: 'MVP Pilot/Content/Markdown',
+  title: 'MVP/Content/Markdown',
   tags: ['archived','mvp-pilot'],
   component: Markdown,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. The typographic frame for rendered markdown — agent answers, vendor notes, policy text. It owns the vertical rhythm and the element styles, so a parsed document matches the rest of the system without the parser knowing anything about the design.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. The typographic frame for rendered markdown — agent answers, vendor notes, policy text. It owns the vertical rhythm and the element styles, so a parsed document matches the rest of the system without the parser knowing anything about the design.',
       },
     },
   },

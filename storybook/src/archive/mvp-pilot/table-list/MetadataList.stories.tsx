@@ -3,16 +3,16 @@ import { MetadataList } from './MetadataList';
 import { Badge } from '../feedback/Badge';
 
 const meta = {
-  title: 'MVP Pilot/Table & List/Metadata List',
+  title: 'MVP/Table & List/Metadata List',
   tags: ['archived','mvp-pilot'],
   component: MetadataList,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          "Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A record's attributes, read but not compared. A definition list, so the label–value relationship survives being read aloud. Use it in a record header or a detail panel; never as a substitute for a Table.",
+          "Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A record's attributes, read but not compared. A definition list, so the label–value relationship survives being read aloud. Use it in a record header or a detail panel; never as a substitute for a Table.",
       },
     },
   },

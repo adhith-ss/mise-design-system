@@ -42,7 +42,7 @@ export function NumberInput({
           onClick={() => onChange(clamp(value - step))}
           className="inline-flex h-full w-8 items-center justify-center border-r border-line bg-canvas text-[15px] text-ink-700 disabled:text-ink-300"
         >
-          <Minus size={14} strokeWidth={1.5} />
+          <Minus size={16} strokeWidth={1.5} />
         </button>
       )}
       <input
@@ -57,7 +57,7 @@ export function NumberInput({
         aria-describedby={field?.describedBy}
         aria-invalid={bad ? true : undefined}
         onChange={(e) => onChange(clamp(Number(e.target.value)))}
-        className="font-data w-[64px] border-0 bg-transparent text-center text-[14px] text-ink-900 outline-none [appearance:textfield] disabled:text-ink-400 [&::-webkit-inner-spin-button]:appearance-none"
+        className="font-data w-[64px] border-0 bg-transparent text-center text-[14px] text-ink-900 outline-none [appearance:textfield] disabled:text-ink-400 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
       />
       {unit && <span className="font-data pr-2 text-[13px] text-ink-400">{unit}</span>}
       {steppers && (
@@ -68,7 +68,7 @@ export function NumberInput({
           onClick={() => onChange(clamp(value + step))}
           className="inline-flex h-full w-8 items-center justify-center border-l border-line bg-canvas text-[15px] text-ink-700 disabled:text-ink-300"
         >
-          <Plus size={14} strokeWidth={1.5} />
+          <Plus size={16} strokeWidth={1.5} />
         </button>
       )}
     </div>

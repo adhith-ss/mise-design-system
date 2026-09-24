@@ -3,16 +3,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Pagination } from './Pagination';
 
 const meta = {
-  title: 'MVP Pilot/Navigation/Pagination',
+  title: 'MVP/Navigation/Pagination',
   tags: ['archived','mvp-pilot'],
   component: Pagination,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Moves through a list too long for one screen. The record count is the useful part — an operator checking a period wants to know there are 34 invoices, not that there are two pages. Numbered page buttons are deliberately absent: nobody navigates invoices by page number.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Moves through a list too long for one screen. The record count is the useful part — an operator checking a period wants to know there are 34 invoices, not that there are two pages. Numbered page buttons are deliberately absent: nobody navigates invoices by page number.',
       },
     },
   },

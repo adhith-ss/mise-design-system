@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AgentStatus } from './AgentStatus';
 
 const meta = {
-  title: 'Chat & Agent/Agent Status',
+  title: 'Post-MVP/Chat & Agent/Agent Status',
   component: AgentStatus,
   parameters: {
     layout: 'padded',

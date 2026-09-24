@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Markdown } from './Markdown';
 
 const meta = {
-  title: 'Content/Markdown',
+  title: 'Post-MVP/Content/Markdown',
   component: Markdown,
   parameters: {
     layout: 'padded',

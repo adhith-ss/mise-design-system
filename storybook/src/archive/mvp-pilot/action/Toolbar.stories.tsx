@@ -7,16 +7,16 @@ import { MoreMenu } from './MoreMenu';
 const Glyph = () => <span aria-hidden="true" className="h-[14px] w-[14px] rounded-sm bg-current" />;
 
 const meta = {
-  title: 'MVP Pilot/Action/Toolbar',
+  title: 'MVP/Action/Toolbar',
   tags: ['archived','mvp-pilot'],
   component: Toolbar,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A horizontal band of controls acting on the content below it. Groups are separated by dividers; overflow collapses into a More Menu. Dividers are decorative and hidden from the accessibility tree.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A horizontal band of controls acting on the content below it. Groups are separated by dividers; overflow collapses into a More Menu. Dividers are decorative and hidden from the accessibility tree.',
       },
     },
   },

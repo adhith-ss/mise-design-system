@@ -5,7 +5,7 @@ import { MoreMenu } from '../action/MoreMenu';
 import { Button } from '../action/Button';
 
 const meta = {
-  title: 'Content/Card',
+  title: 'Post-MVP/Content/Card',
   component: Card,
   parameters: {
     layout: 'padded',

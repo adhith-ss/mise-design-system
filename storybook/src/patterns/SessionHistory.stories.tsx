@@ -3,7 +3,7 @@ import { SessionHistory } from './SessionHistory';
 import { patternViewports } from './_shared';
 
 const meta = {
-  title: 'Patterns/SessionHistory',
+  title: 'Post-MVP/Patterns/SessionHistory',
   component: SessionHistory,
   parameters: {
     layout: 'padded',

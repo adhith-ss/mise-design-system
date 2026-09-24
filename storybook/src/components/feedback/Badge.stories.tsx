@@ -4,7 +4,7 @@ import { Icon } from '../content/Icon';
 import { Truck } from '@mise/icons/basil';
 
 const meta = {
-  title: 'Feedback & Status/Badge',
+  title: 'Post-MVP/Feedback & Status/Badge',
   component: Badge,
   parameters: {
     docs: {

@@ -1,7 +1,7 @@
 import type {Meta,StoryObj} from '@storybook/react';
 import {AgentAvatar} from './AgentAvatar';
 import {platoStates,type PlatoState} from './PlatoAvatar';
-const meta={title:'Chat & Agent/Agent Avatar',component:AgentAvatar,args:{state:'ready',size:'lg',animate:true},parameters:{docs:{description:{component:'The approved image-based Plato thumbnail. Eight task-linked states, a complete plate, and quiet motion. Always pair operational status with text; the mascot alone is not a status announcement.'}}}} satisfies Meta<typeof AgentAvatar>;
+const meta={title: 'Post-MVP/Chat & Agent/Agent Avatar',component:AgentAvatar,args:{state:'ready',size:'lg',animate:true},parameters:{docs:{description:{component:'The approved image-based Plato thumbnail. Eight task-linked states, a complete plate, and quiet motion. Always pair operational status with text; the mascot alone is not a status announcement.'}}}} satisfies Meta<typeof AgentAvatar>;
 export default meta;
 type Story=StoryObj<typeof meta>;
 export const Ready:Story={};

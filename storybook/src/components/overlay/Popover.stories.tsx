@@ -4,7 +4,7 @@ import { Button } from '../action/Button';
 import { CheckboxInput } from '../data-input/CheckboxInput';
 
 const meta = {
-  title: 'Overlay/Popover',
+  title: 'Post-MVP/Overlay/Popover',
   component: Popover,
   parameters: {
     layout: 'padded',

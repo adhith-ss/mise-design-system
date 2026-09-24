@@ -4,16 +4,16 @@ import { DateInput } from './DateInput';
 import { Field } from './Field';
 
 const meta = {
-  title: 'MVP Pilot/Data Input/Date Input',
+  title: 'MVP/Data Input/Date Input',
   tags: ['archived','mvp-pilot'],
   component: DateInput,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A delivery date, an invoice date, a period. Native picker, so the platform\'s locale and keyboard behaviour apply rather than a bespoke calendar the operator has to learn. Range mode binds the two inputs so the end can never precede the start.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A delivery date, an invoice date, a period. Native picker, so the platform\'s locale and keyboard behaviour apply rather than a bespoke calendar the operator has to learn. Range mode binds the two inputs so the end can never precede the start.',
       },
     },
   },

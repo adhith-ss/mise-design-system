@@ -4,7 +4,7 @@ import { NumberInput } from './NumberInput';
 import { Field } from './Field';
 
 const meta = {
-  title: 'Data Input/Number Input',
+  title: 'Post-MVP/Data Input/Number Input',
   component: NumberInput,
   parameters: {
     layout: 'padded',

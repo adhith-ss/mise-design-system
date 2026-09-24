@@ -3,7 +3,7 @@ import { WeeklySnapshot } from './WeeklySnapshot';
 import { patternViewports } from './_shared';
 
 const meta = {
-  title: 'Patterns/WeeklySnapshot',
+  title: 'Post-MVP/Patterns/WeeklySnapshot',
   component: WeeklySnapshot,
   parameters: {
     layout: 'padded',

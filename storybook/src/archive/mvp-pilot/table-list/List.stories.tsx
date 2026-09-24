@@ -3,16 +3,16 @@ import { List } from './List';
 import { Badge } from '../feedback/Badge';
 
 const meta = {
-  title: 'MVP Pilot/Table & List/List',
+  title: 'MVP/Table & List/List',
   tags: ['archived','mvp-pilot'],
   component: List,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Records with one thing worth comparing. More than one attribute and it should be a Table — a list with four columns crammed into a meta line is a table in disguise.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Records with one thing worth comparing. More than one attribute and it should be a Table — a list with four columns crammed into a meta line is a table in disguise.',
       },
     },
   },

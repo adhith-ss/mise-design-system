@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CheckboxInput } from './CheckboxInput';
 
 const meta = {
-  title: 'Data Input/Checkbox Input',
+  title: 'Post-MVP/Data Input/Checkbox Input',
   component: CheckboxInput,
   parameters: {
     layout: 'padded',

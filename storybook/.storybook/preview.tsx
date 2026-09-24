@@ -36,7 +36,7 @@ const preview: Preview = {
               textAlign: 'left',
             }}
           >
-            Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.
+            Archived · MVP (0.1.0). Reference only. Use Post-MVP components.
           </p>
         ) : null}
         <Story/>
@@ -49,20 +49,24 @@ const preview: Preview = {
     controls: { expanded: true, sort: 'requiredFirst' },
     backgrounds: { disable: true },
     a11y: { config: { rules: [{ id: 'color-contrast', enabled: true }] }, options:{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}} },
-    // Foundations first, then categories A–Z, with Chat & Agent last because
-    // it composes the rest. MVP Pilot archive is always last. Storybook
-    // serialises this config, so the array has to be a literal here —
-    // referencing a const throws at load.
+    // Post-MVP (refresh) first, MVP archive last. Storybook serialises this
+    // config, so the array has to be a literal here — referencing a const
+    // throws at load.
     options: {
       storySort: {
         order: [
-          'Foundations',
-          ['Overview', 'Colour', 'Type', 'Spacing & radius', 'Elevation', 'Motion'],
-          'Patterns',
-          'Action', 'Content', 'Data Input', 'Feedback & Status',
-          'Navigation', 'Overlay', 'Table & List', 'Chat & Agent',
-          'Future Scope',
-          'MVP Pilot',
+          'Post-MVP',
+          [
+            'Overview',
+            'Foundations',
+            ['Overview', 'Colour', 'Type', 'Spacing & radius', 'Elevation', 'Motion', 'Accessibility'],
+            'Patterns',
+            'Action', 'Content', 'Data Input', 'Feedback & Status',
+            'Navigation', 'Overlay', 'Table & List', 'Chat & Agent',
+            'Future Scope',
+          ],
+          'MVP',
+          ['Overview'],
         ],
       },
     },

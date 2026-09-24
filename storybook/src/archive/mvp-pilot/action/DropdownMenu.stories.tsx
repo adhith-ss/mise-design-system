@@ -3,16 +3,16 @@ import { DropdownMenu } from './DropdownMenu';
 import { Button } from './Button';
 
 const meta = {
-  title: 'MVP Pilot/Action/Dropdown Menu',
+  title: 'MVP/Action/Dropdown Menu',
   tags: ['archived','mvp-pilot'],
   component: DropdownMenu,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A button that opens a list of actions. Items act immediately; destructive items sit last, below a divider. The trigger carries aria-expanded, and Escape or an outside click closes it.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A button that opens a list of actions. Items act immediately; destructive items sit last, below a divider. The trigger carries aria-expanded, and Escape or an outside click closes it.',
       },
     },
   },

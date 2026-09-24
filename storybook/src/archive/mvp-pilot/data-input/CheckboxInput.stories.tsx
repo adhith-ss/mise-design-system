@@ -3,16 +3,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CheckboxInput } from './CheckboxInput';
 
 const meta = {
-  title: 'MVP Pilot/Data Input/Checkbox Input',
+  title: 'MVP/Data Input/Checkbox Input',
   tags: ['archived','mvp-pilot'],
   component: CheckboxInput,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. An independent on/off choice. The label is clickable, and the indeterminate state carries aria-checked="mixed" so a partially-selected parent row reads correctly rather than sounding unchecked.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. An independent on/off choice. The label is clickable, and the indeterminate state carries aria-checked="mixed" so a partially-selected parent row reads correctly rather than sounding unchecked.',
       },
     },
   },

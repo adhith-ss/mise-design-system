@@ -3,7 +3,7 @@ import { FileInput } from './FileInput';
 import { Field } from './Field';
 
 const meta = {
-  title: 'Data Input/File Input',
+  title: 'Post-MVP/Data Input/File Input',
   component: FileInput,
   parameters: {
     layout: 'padded',

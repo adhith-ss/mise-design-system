@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Button } from '../components/action/Button';
 import { Field } from '../components/data-input/Field';
-import { TextInput } from '../components/data-input/TextInput';
+import { NumberInput } from '../components/data-input/NumberInput';
 import { TextArea } from '../components/data-input/TextArea';
 import { CheckboxInput } from '../components/data-input/CheckboxInput';
 import { Card } from '../components/content/Card';
 import { Banner } from '../components/feedback/Banner';
 import { Badge } from '../components/feedback/Badge';
-import { Check } from '../icons/basil';
+import { Check, Refresh } from '../icons/basil';
 import { money, signedMoney } from './_shared';
 
 export type DecisionKind = 'Pricing' | 'Supplier';
@@ -64,14 +64,13 @@ export function DecisionApproval({
       ? Math.ceil((currentCost / (1 - target / 100)) * 100) / 100
       : Math.floor(currentPrice * (1 - Math.max(target, currentMargin) / 100) * 100) / 100);
 
-  const [proposal, setProposal] = useState(proposed.toFixed(2));
+  const [proposal, setProposal] = useState(proposed);
   const [acknowledged, setAcknowledged] = useState(acknowledgedProp ?? false);
   const [reason, setReason] = useState(reasonProp ?? '');
   const [approved, setApproved] = useState(state === 'success');
 
-  const value = Number(proposal);
-  const valid =
-    proposal !== '' && Number.isFinite(value) && value > 0 && value <= 9999;
+  const value = proposal;
+  const valid = Number.isFinite(value) && value > 0 && value <= 9999;
   const reasonRequired = !pricing && value !== proposed;
   const reasonValid = !reasonRequired || reason.trim().length > 0;
   const newPrice = pricing ? value : currentPrice;
@@ -139,11 +138,26 @@ export function DecisionApproval({
         </div>
       }
     >
-      <p className="mb-4 mt-0 text-[13px] leading-[1.6] text-ink-700">
-        {pricing
-          ? 'Model the price before changing your menu.'
-          : 'Compare quotes against a target plate cost.'}
-      </p>
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <p className="m-0 text-[13px] leading-[1.6] text-ink-700">
+          {pricing
+            ? 'Model the price before changing your menu.'
+            : 'Compare quotes against a target plate cost.'}
+        </p>
+        <Button
+          size="sm"
+          variant="ghost"
+          disabled={isDisabled}
+          icon={<Refresh size={14} strokeWidth={1.5} />}
+          onClick={() => {
+            setProposal(proposed);
+            setReason('');
+            setAcknowledged(false);
+          }}
+        >
+          Reset
+        </Button>
+      </div>
 
       <Field
         label={pricing ? 'Proposed price' : 'Target plate cost'}
@@ -156,15 +170,14 @@ export function DecisionApproval({
             : undefined
         }
       >
-        <TextInput
-          type="number"
+        <NumberInput
           min={0.01}
           max={9999}
           step={0.01}
-          data
           value={proposal}
           disabled={isDisabled}
-          onChange={(e) => setProposal(e.target.value)}
+          invalid={state === 'error' || !valid}
+          onChange={setProposal}
         />
       </Field>
 

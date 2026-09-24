@@ -3,16 +3,16 @@ import { FileInput } from './FileInput';
 import { Field } from './Field';
 
 const meta = {
-  title: 'MVP Pilot/Data Input/File Input',
+  title: 'MVP/Data Input/File Input',
   tags: ['archived','mvp-pilot'],
   component: FileInput,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. An invoice scan or a delivery photo, dropped or picked. Every uploaded file stays listed with its state, so a failed upload is visible rather than silently missing when the operator moves on.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. An invoice scan or a delivery photo, dropped or picked. Every uploaded file stays listed with its state, so a failed upload is visible rather than silently missing when the operator moves on.',
       },
     },
   },

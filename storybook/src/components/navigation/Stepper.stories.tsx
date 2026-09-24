@@ -9,7 +9,7 @@ const steps = [
 ];
 
 const meta = {
-  title: 'Navigation/Stepper',
+  title: 'Post-MVP/Navigation/Stepper',
   component: Stepper,
   parameters: {
     layout: 'padded',

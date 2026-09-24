@@ -3,7 +3,7 @@ import { ButtonGroup } from './ButtonGroup';
 import { Button } from './Button';
 
 const meta = {
-  title: 'Action/Button Group',
+  title: 'Post-MVP/Action/Button Group',
   component: ButtonGroup,
   parameters: {
     docs: {

@@ -10,7 +10,7 @@ const items = [
 ];
 
 const meta = {
-  title: 'Overlay/Command Palette',
+  title: 'Post-MVP/Overlay/Command Palette',
   component: CommandPalette,
   parameters: {
     layout: 'fullscreen',

@@ -9,16 +9,16 @@ const options = [
 ];
 
 const meta = {
-  title: 'MVP Pilot/Data Input/Radio List',
+  title: 'MVP/Data Input/Radio List',
   tags: ['archived','mvp-pilot'],
   component: RadioList,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. One choice from two to five options, all visible with their consequences on screen. Every option carries a hint, because a radio list is used where the difference between choices matters. Past five options, use a Selector.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. One choice from two to five options, all visible with their consequences on screen. Every option carries a hint, because a radio list is used where the difference between choices matters. Past five options, use a Selector.',
       },
     },
   },

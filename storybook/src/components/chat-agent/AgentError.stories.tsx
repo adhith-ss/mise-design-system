@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AgentError } from './AgentError';
 
 const meta = {
-  title: 'Chat & Agent/Agent Error',
+  title: 'Post-MVP/Chat & Agent/Agent Error',
   component: AgentError,
   parameters: {
     layout: 'padded',

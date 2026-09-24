@@ -9,7 +9,7 @@ const snippet = `<InlineApproval
 />`;
 
 const meta = {
-  title: 'Content/Code Block',
+  title: 'Post-MVP/Content/Code Block',
   component: CodeBlock,
   parameters: {
     layout: 'padded',

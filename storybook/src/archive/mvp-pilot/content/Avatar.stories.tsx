@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Avatar } from './Avatar';
 
 const meta = {
-  title: 'MVP Pilot/Content/Avatar',
+  title: 'MVP/Content/Avatar',
   tags: ['archived','mvp-pilot'],
   component: Avatar,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A person or an organisation. Round for people, square for vendors — the shape is the type, so a vendor logo is never mistaken for a colleague. Initials fall back from the name, and the name is always the accessible label.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A person or an organisation. Round for people, square for vendors — the shape is the type, so a vendor logo is never mistaken for a colleague. Initials fall back from the name, and the name is always the accessible label.',
       },
     },
   },

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Kbd } from './Kbd';
 
 const meta = {
-  title: 'Content/Kbd',
+  title: 'Post-MVP/Content/Kbd',
   component: Kbd,
   parameters: {
     docs: {

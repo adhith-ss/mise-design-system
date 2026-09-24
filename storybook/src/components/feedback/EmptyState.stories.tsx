@@ -3,7 +3,7 @@ import { EmptyState } from './EmptyState';
 import { Button } from '../action/Button';
 
 const meta = {
-  title: 'Feedback & Status/Empty State',
+  title: 'Post-MVP/Feedback & Status/Empty State',
   component: EmptyState,
   parameters: {
     layout: 'padded',

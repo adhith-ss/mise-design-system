@@ -5,7 +5,7 @@ import { Icon } from '../content/Icon';
 import { Calendar, ShoppingCart, Receipt, Building2, Package } from '@mise/icons/basil';
 
 const meta = {
-  title: 'Navigation/Top Nav',
+  title: 'Post-MVP/Navigation/Top Nav',
   component: TopNav,
   parameters: {
     layout: 'fullscreen',

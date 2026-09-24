@@ -3,16 +3,16 @@ import { Field } from './Field';
 import { TextInput } from './TextInput';
 
 const meta = {
-  title: 'MVP Pilot/Data Input/Field',
+  title: 'MVP/Data Input/Field',
   tags: ['archived','mvp-pilot'],
   component: Field,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. The wrapper every control sits in: label, hint, error, and the required marker. It owns the ids, so a control inside it needs no aria wiring of its own. A placeholder is never a label.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. The wrapper every control sits in: label, hint, error, and the required marker. It owns the ids, so a control inside it needs no aria wiring of its own. A placeholder is never a label.',
       },
     },
   },

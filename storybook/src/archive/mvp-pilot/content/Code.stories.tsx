@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Code } from './Code';
 
 const meta = {
-  title: 'MVP Pilot/Content/Code',
+  title: 'MVP/Content/Code',
   tags: ['archived','mvp-pilot'],
   component: Code,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. An inline literal — a field name, an API value, an id. In an operator-facing screen this is rare; it belongs in developer settings, integration screens, and this documentation.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. An inline literal — a field name, an API value, an id. In an operator-facing screen this is rare; it belongs in developer settings, integration screens, and this documentation.',
       },
     },
   },

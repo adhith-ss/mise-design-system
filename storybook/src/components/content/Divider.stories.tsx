@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Divider } from './Divider';
 
 const meta = {
-  title: 'Content/Divider',
+  title: 'Post-MVP/Content/Divider',
   component: Divider,
   parameters: {
     layout: 'padded',

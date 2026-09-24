@@ -332,16 +332,15 @@ export function ForecastScenario({
           </Button>
         }
       >
-        <Field label="Reason" required>
-          <TextArea
+        <TextArea
             rows={3}
             maxLength={400}
             showCount
+            aria-label="Reason for change"
             placeholder="e.g. Prepare for the next supplier renewal"
             value={reason}
             onChange={(e) => setReason(e.target.value)}
           />
-        </Field>
       </Dialog>
     </div>
   );

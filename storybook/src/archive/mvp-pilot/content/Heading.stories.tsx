@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Heading } from './Heading';
 
 const meta = {
-  title: 'MVP Pilot/Content/Heading',
+  title: 'MVP/Content/Heading',
   tags: ['archived','mvp-pilot'],
   component: Heading,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Four levels, 40 / 30 / 24 / 17px. The semantic level is never skipped — if a heading needs to look smaller than its place in the outline, set size separately rather than demoting the tag.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Four levels, 40 / 30 / 24 / 17px. The semantic level is never skipped — if a heading needs to look smaller than its place in the outline, set size separately rather than demoting the tag.',
       },
     },
   },

@@ -4,7 +4,7 @@ import { DateInput } from './DateInput';
 import { Field } from './Field';
 
 const meta = {
-  title: 'Data Input/Date Input',
+  title: 'Post-MVP/Data Input/Date Input',
   component: DateInput,
   parameters: {
     layout: 'padded',

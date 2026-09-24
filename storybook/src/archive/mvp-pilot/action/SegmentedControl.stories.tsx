@@ -3,15 +3,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SegmentedControl } from './SegmentedControl';
 
 const meta = {
-  title: 'MVP Pilot/Action/Segmented Control',
+  title: 'MVP/Action/Segmented Control',
   tags: ['archived','mvp-pilot'],
   component: SegmentedControl,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Switches the view of the content beneath it. Two to four short options that are always visible. It changes what you are looking at, not what the data is — for that, use a filter.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Switches the view of the content beneath it. Two to four short options that are always visible. It changes what you are looking at, not what the data is — for that, use a filter.',
       },
     },
   },

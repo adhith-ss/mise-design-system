@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { HoverCard } from './HoverCard';
 
 const meta = {
-  title: 'MVP Pilot/Overlay/Hover Card',
+  title: 'MVP/Overlay/Hover Card',
   tags: ['archived','mvp-pilot'],
   component: HoverCard,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. 500ms open delay, 200ms close grace so the pointer can travel into the card. Read-only: no forms, no destructive actions, at most one link. Keyboard users reach the same content by activating the reference, so the card is never the only path to it.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. 500ms open delay, 200ms close grace so the pointer can travel into the card. Read-only: no forms, no destructive actions, at most one link. Keyboard users reach the same content by activating the reference, so the card is never the only path to it.',
       },
     },
   },

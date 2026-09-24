@@ -4,16 +4,16 @@ import { Icon } from '../content/Icon';
 import { CheckCircle2, AlertTriangle } from 'lucide-react';
 
 const meta = {
-  title: 'MVP Pilot/Feedback & Status/Progress Bar',
+  title: 'MVP/Feedback & Status/Progress Bar',
   tags: ['archived','mvp-pilot'],
   component: ProgressBar,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Determinate work with a known end: reading 8 invoices, uploading 3 files. The count in the detail slot is what the operator actually reads — the bar only confirms it is moving.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Determinate work with a known end: reading 8 invoices, uploading 3 files. The count in the detail slot is what the operator actually reads — the bar only confirms it is moving.',
       },
     },
   },

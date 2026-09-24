@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '../components/action/Button';
 import { Field } from '../components/data-input/Field';
-import { TextInput } from '../components/data-input/TextInput';
+import { NumberInput } from '../components/data-input/NumberInput';
 import { Card } from '../components/content/Card';
 import { Banner } from '../components/feedback/Banner';
 import { Badge } from '../components/feedback/Badge';
@@ -40,15 +40,13 @@ export function DishDetailSheet({
   onReview,
 }: DishDetailSheetProps) {
   const [tab, setTab] = useState<'summary' | 'scenario'>('summary');
-  const [scenarioPrice, setScenarioPrice] = useState(price.toFixed(2));
-  const [scenarioCost, setScenarioCost] = useState(cost.toFixed(2));
+  const [scenarioPrice, setScenarioPrice] = useState(price);
+  const [scenarioCost, setScenarioCost] = useState(cost);
   const isDisabled = disabled || state === 'disabled';
   const atRisk = margin < target;
-  const sp = Number(scenarioPrice);
-  const sc = Number(scenarioCost);
+  const sp = scenarioPrice;
+  const sc = scenarioCost;
   const valid =
-    scenarioPrice !== '' &&
-    scenarioCost !== '' &&
     Number.isFinite(sp) &&
     Number.isFinite(sc) &&
     sp > 0 &&
@@ -94,15 +92,22 @@ export function DishDetailSheet({
             </Badge>
           </div>
           <div
-            className="mt-3 h-2 overflow-hidden rounded-pill bg-canvas"
+            className="relative mt-3 h-2 overflow-hidden rounded-pill bg-canvas"
             role="progressbar"
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={Math.round(margin)}
             aria-label={`${margin.toFixed(1)}% margin, ${target}% target`}
           >
+            {atRisk ? (
+              <div
+                className="absolute inset-y-0 left-0 bg-[var(--mise-alert,#c4a35a)]/35"
+                style={{ width: `${Math.max(0, Math.min(target, 100))}%` }}
+                aria-hidden="true"
+              />
+            ) : null}
             <div
-              className={`h-full rounded-pill ${atRisk ? 'bg-alert' : 'bg-brand-600'}`}
+              className={`relative h-full rounded-pill ${atRisk ? 'bg-alert' : 'bg-[var(--mise-action)]'}`}
               style={{ width: `${Math.max(0, Math.min(margin, 100))}%` }}
             />
           </div>
@@ -178,8 +183,8 @@ export function DishDetailSheet({
                 disabled={isDisabled}
                 icon={<Refresh size={14} strokeWidth={1.5} />}
                 onClick={() => {
-                  setScenarioPrice(price.toFixed(2));
-                  setScenarioCost(cost.toFixed(2));
+                  setScenarioPrice(price);
+                  setScenarioCost(cost);
                 }}
               >
                 Reset
@@ -187,27 +192,24 @@ export function DishDetailSheet({
             </div>
             <div className="grid grid-cols-2 gap-3">
               <Field label="Menu price" suffix="USD" disabled={isDisabled} error={state === 'error' && !valid ? 'Enter a price above $0 and a non-negative cost, up to $9,999.' : undefined}>
-                <TextInput
-                  type="number"
-                  data
+                <NumberInput
                   min={0.01}
                   max={9999}
                   step={0.01}
                   value={scenarioPrice}
                   disabled={isDisabled}
-                  onChange={(e) => setScenarioPrice(e.target.value)}
+                  invalid={state === 'error' && !valid}
+                  onChange={setScenarioPrice}
                 />
               </Field>
               <Field label="Plate cost" suffix="USD" disabled={isDisabled}>
-                <TextInput
-                  type="number"
-                  data
+                <NumberInput
                   min={0}
                   max={9999}
                   step={0.01}
                   value={scenarioCost}
                   disabled={isDisabled}
-                  onChange={(e) => setScenarioCost(e.target.value)}
+                  onChange={setScenarioCost}
                 />
               </Field>
             </div>

@@ -4,16 +4,16 @@ import { Button } from '../action/Button';
 import { CheckboxInput } from '../data-input/CheckboxInput';
 
 const meta = {
-  title: 'MVP Pilot/Overlay/Popover',
+  title: 'MVP/Overlay/Popover',
   tags: ['archived','mvp-pilot'],
   component: Popover,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A small piece of interactive content anchored to its trigger — a filter panel, a column picker, a quick edit. Opens on click, never on hover, and does not block the page. A Popover never contains another Popover; nested choices become a Dialog.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A small piece of interactive content anchored to its trigger — a filter panel, a column picker, a quick edit. Opens on click, never on hover, and does not block the page. A Popover never contains another Popover; nested choices become a Dialog.',
       },
     },
   },

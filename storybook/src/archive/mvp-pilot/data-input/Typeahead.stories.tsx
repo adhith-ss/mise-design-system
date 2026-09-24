@@ -11,16 +11,16 @@ const items = [
 ];
 
 const meta = {
-  title: 'MVP Pilot/Data Input/Typeahead',
+  title: 'MVP/Data Input/Typeahead',
   tags: ['archived','mvp-pilot'],
   component: Typeahead,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Search across a list too long to show at once. Each result carries the detail that tells two similar records apart — vendor and unit price, not just the item name. A combobox: aria-expanded on the input, results in a listbox, matches announced with their count.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Search across a list too long to show at once. Each result carries the detail that tells two similar records apart — vendor and unit price, not just the item name. A combobox: aria-expanded on the input, results in a listbox, matches announced with their count.',
       },
     },
   },

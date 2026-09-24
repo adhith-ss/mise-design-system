@@ -19,7 +19,7 @@ const tabsWithIcons = [
 ];
 
 const meta = {
-  title: 'Navigation/Tab List',
+  title: 'Post-MVP/Navigation/Tab List',
   component: TabList,
   parameters: {
     layout: 'padded',

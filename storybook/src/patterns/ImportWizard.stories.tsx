@@ -3,7 +3,7 @@ import { ImportWizard } from './ImportWizard';
 import { patternViewports } from './_shared';
 
 const meta = {
-  title: 'Patterns/ImportWizard',
+  title: 'Post-MVP/Patterns/ImportWizard',
   component: ImportWizard,
   parameters: {
     layout: 'padded',

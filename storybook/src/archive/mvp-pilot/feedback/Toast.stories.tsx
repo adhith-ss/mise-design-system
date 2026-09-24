@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Toast } from './Toast';
 
 const meta = {
-  title: 'MVP Pilot/Feedback & Status/Toast',
+  title: 'MVP/Feedback & Status/Toast',
   tags: ['archived','mvp-pilot'],
   component: Toast,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Confirmation that something happened, for work the operator already knows about. Past tense, one action, almost always Undo. The timer pauses on hover and focus; an error toast never auto-dismisses.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Confirmation that something happened, for work the operator already knows about. Past tense, one action, almost always Undo. The timer pauses on hover and focus; an error toast never auto-dismisses.',
       },
     },
   },

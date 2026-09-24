@@ -3,7 +3,7 @@ import { MetadataList } from './MetadataList';
 import { Badge } from '../feedback/Badge';
 
 const meta = {
-  title: 'Table & List/Metadata List',
+  title: 'Post-MVP/Table & List/Metadata List',
   component: MetadataList,
   parameters: {
     layout: 'padded',

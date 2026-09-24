@@ -2,17 +2,17 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { InlineApproval } from './InlineApproval';
 
 const meta = {
-  title: 'MVP Pilot/Chat & Agent/Inline Approval',
+  title: 'MVP/Chat & Agent/Inline Approval',
   tags: ['archived','mvp-pilot'],
   component: InlineApproval,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     backgrounds: { default: 'sunken' },
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. The gate between a draft and a commitment. It states exactly what will happen, to whom, and for how much, and it is the only component in the system that turns agent intent into an action against a vendor. Approve is never the default focus, and an unanswered approval is pinned rather than allowed to scroll away.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. The gate between a draft and a commitment. It states exactly what will happen, to whom, and for how much, and it is the only component in the system that turns agent intent into an action against a vendor. Approve is never the default focus, and an unanswered approval is pinned rather than allowed to scroll away.',
       },
     },
   },

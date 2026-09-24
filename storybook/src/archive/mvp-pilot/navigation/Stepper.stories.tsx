@@ -9,16 +9,16 @@ const steps = [
 ];
 
 const meta = {
-  title: 'MVP Pilot/Navigation/Stepper',
+  title: 'MVP/Navigation/Stepper',
   tags: ['archived','mvp-pilot'],
   component: Stepper,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A task with a fixed order — onboarding a vendor, closing a period. Completed steps stay clickable so the operator can go back and check; upcoming ones do not, because the order is the point.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A task with a fixed order — onboarding a vendor, closing a period. Completed steps stay clickable so the operator can go back and check; upcoming ones do not, because the order is the point.',
       },
     },
   },

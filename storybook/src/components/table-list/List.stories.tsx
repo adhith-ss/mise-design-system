@@ -3,7 +3,7 @@ import { List } from './List';
 import { Badge } from '../feedback/Badge';
 
 const meta = {
-  title: 'Table & List/List',
+  title: 'Post-MVP/Table & List/List',
   component: List,
   parameters: {
     layout: 'padded',

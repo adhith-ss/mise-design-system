@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { BasilIcon, basilNames } from '../icons/basil';
 
-const meta = {title:'Foundations/Asset library', parameters:{layout:'padded'}, tags:['autodocs']} satisfies Meta;
+const meta = {title: 'Post-MVP/Foundations/Asset library', parameters:{layout:'padded'}, tags:['autodocs']} satisfies Meta;
 export default meta;
 type Story = StoryObj<typeof meta>;
 

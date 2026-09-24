@@ -136,7 +136,7 @@ export function PlatoDrawer({
         <div className="min-w-0 flex-1">
           <h2 className="m-0 text-[17px] font-bold">Plato</h2>
           <p className="mb-1 mt-0.5 text-[13px] text-ink-500">
-            {pageLabel} · Preparation partner
+            Your virtual partner
           </p>
           <div className="text-[13px] font-semibold text-ink-700" role="status">
             {activeState === 'blocked'

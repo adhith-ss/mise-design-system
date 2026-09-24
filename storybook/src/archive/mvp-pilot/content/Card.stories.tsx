@@ -5,16 +5,16 @@ import { MoreMenu } from '../action/MoreMenu';
 import { Button } from '../action/Button';
 
 const meta = {
-  title: 'MVP Pilot/Content/Card',
+  title: 'MVP/Content/Card',
   tags: ['archived','mvp-pilot'],
   component: Card,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. The default container for related content about one subject. 14px radius, 1px line, no shadow at rest — shadow means elevation, and a card on the page is not elevated. The left edge turns amber or red only when the card needs attention.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. The default container for related content about one subject. 14px radius, 1px line, no shadow at rest — shadow means elevation, and a card on the page is not elevated. The left edge turns amber or red only when the card needs attention.',
       },
     },
   },

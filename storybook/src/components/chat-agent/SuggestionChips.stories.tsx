@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SuggestionChips } from './SuggestionChips';
 
 const meta = {
-  title: 'Chat & Agent/Suggestion Chip',
+  title: 'Post-MVP/Chat & Agent/Suggestion Chip',
   component: SuggestionChips,
   parameters: {
     layout: 'padded',

@@ -9,16 +9,16 @@ const snippet = `<InlineApproval
 />`;
 
 const meta = {
-  title: 'MVP Pilot/Content/Code Block',
+  title: 'MVP/Content/Code Block',
   tags: ['archived','mvp-pilot'],
   component: CodeBlock,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A multi-line snippet: an integration payload, a component example. Dark for documentation, light when it sits inside a form or settings panel. Always scrolls rather than wrapping — a wrapped payload is unreadable.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A multi-line snippet: an integration payload, a component example. Dark for documentation, light when it sits inside a form or settings panel. Always scrolls rather than wrapping — a wrapped payload is unreadable.',
       },
     },
   },

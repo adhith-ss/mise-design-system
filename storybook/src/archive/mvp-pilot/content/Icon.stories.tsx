@@ -3,15 +3,15 @@ import { Check, TriangleAlert, ChevronDown, Search, Settings, Sparkles } from 'l
 import { Icon } from './Icon';
 
 const meta = {
-  title: 'MVP Pilot/Content/Icon',
+  title: 'MVP/Content/Icon',
   tags: ['archived','mvp-pilot'],
   component: Icon,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A wrapper that fixes size, stroke and accessibility for any Lucide icon: 14 / 16 / 20px at stroke-width 1.5. Lucide ships at 2 — this is the only place that override lives. Decorative icons are aria-hidden; meaningful ones take a label that names the meaning, not the picture. An icon is never the only carrier of meaning.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A wrapper that fixes size, stroke and accessibility for any Lucide icon: 14 / 16 / 20px at stroke-width 1.5. Lucide ships at 2 — this is the only place that override lives. Decorative icons are aria-hidden; meaningful ones take a label that names the meaning, not the picture. An icon is never the only carrier of meaning.',
       },
     },
   },

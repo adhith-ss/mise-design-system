@@ -4,7 +4,7 @@ import { Slider } from './Slider';
 import { Field } from './Field';
 
 const meta = {
-  title: 'Data Input/Slider',
+  title: 'Post-MVP/Data Input/Slider',
   component: Slider,
   parameters: {
     layout: 'padded',

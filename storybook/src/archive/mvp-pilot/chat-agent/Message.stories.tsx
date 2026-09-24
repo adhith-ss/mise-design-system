@@ -3,16 +3,16 @@ import { Message } from './Message';
 import { Citation } from './Citation';
 
 const meta = {
-  title: 'MVP Pilot/Chat & Agent/Message',
+  title: 'MVP/Chat & Agent/Message',
   tags: ['archived','mvp-pilot'],
   component: Message,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. One turn in the conversation. Operator turns are tinted and right-aligned; agent turns sit flush left on the page surface with no bubble, so long answers read as documents rather than chat.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. One turn in the conversation. Operator turns are tinted and right-aligned; agent turns sit flush left on the page surface with no bubble, so long answers read as documents rather than chat.',
       },
     },
   },

@@ -3,7 +3,7 @@ import { DecisionApproval } from './DecisionApproval';
 import { patternViewports } from './_shared';
 
 const meta = {
-  title: 'Patterns/DecisionApproval',
+  title: 'Post-MVP/Patterns/DecisionApproval',
   component: DecisionApproval,
   parameters: {
     layout: 'padded',

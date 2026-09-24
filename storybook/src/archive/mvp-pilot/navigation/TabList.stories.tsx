@@ -19,16 +19,16 @@ const tabsWithIcons = [
 ];
 
 const meta = {
-  title: 'MVP Pilot/Navigation/Tab List',
+  title: 'MVP/Navigation/Tab List',
   tags: ['archived','mvp-pilot'],
   component: TabList,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Views of one record. Tabs never navigate between records — that is Side Nav — and never lose the operator\'s place when they come back. Arrow keys move between tabs, Tab moves into the panel.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Views of one record. Tabs never navigate between records — that is Side Nav — and never lose the operator\'s place when they come back. Arrow keys move between tabs, Tab moves into the panel.',
       },
     },
   },

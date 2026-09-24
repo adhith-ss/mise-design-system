@@ -3,16 +3,16 @@ import { TextInput } from './TextInput';
 import { Field } from './Field';
 
 const meta = {
-  title: 'MVP Pilot/Data Input/Text Input',
+  title: 'MVP/Data Input/Text Input',
   tags: ['archived','mvp-pilot'],
   component: TextInput,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A single line of text. 40px tall, 12px radius. The data variant switches to Roboto Mono Light for anything the operator reads as a value rather than prose — invoice numbers, PO codes, SKUs.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A single line of text. 40px tall, 12px radius. The data variant switches to Roboto Mono Light for anything the operator reads as a value rather than prose — invoice numbers, PO codes, SKUs.',
       },
     },
   },

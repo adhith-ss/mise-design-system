@@ -3,15 +3,15 @@ import { ButtonGroup } from './ButtonGroup';
 import { Button } from './Button';
 
 const meta = {
-  title: 'MVP Pilot/Action/Button Group',
+  title: 'MVP/Action/Button Group',
   tags: ['archived','mvp-pilot'],
   component: ButtonGroup,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Two or more related buttons laid out as one unit. Use it to keep an action and its qualifier together — send now, or schedule. Never to line up unrelated actions.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Two or more related buttons laid out as one unit. Use it to keep an action and its qualifier together — send now, or schedule. Never to line up unrelated actions.',
       },
     },
   },

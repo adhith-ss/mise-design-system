@@ -7,15 +7,15 @@ const people = [
 ];
 
 const meta = {
-  title: 'MVP Pilot/Content/Avatar Group',
+  title: 'MVP/Content/Avatar Group',
   tags: ['archived','mvp-pilot'],
   component: AvatarGroup,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Several people on one record — who approved, who is on shift. The whole group carries one accessible name listing everyone, so a screen-reader user is not read six separate images.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Several people on one record — who approved, who is on shift. The whole group carries one accessible name listing everyone, so a screen-reader user is not read six separate images.',
       },
     },
   },

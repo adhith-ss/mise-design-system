@@ -10,16 +10,16 @@ const items = [
 ];
 
 const meta = {
-  title: 'MVP Pilot/Overlay/Command Palette',
+  title: 'MVP/Overlay/Command Palette',
   tags: ['archived','mvp-pilot'],
   component: CommandPalette,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'fullscreen',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Keyboard-first search across records and actions. For an experienced operator this is the fastest route to any invoice, vendor, or task. A combobox inside a modal dialog: aria-activedescendant tracks the highlighted row, and every action in it also exists in the interface.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Keyboard-first search across records and actions. For an experienced operator this is the fastest route to any invoice, vendor, or task. A combobox inside a modal dialog: aria-activedescendant tracks the highlighted row, and every action in it also exists in the interface.',
       },
     },
   },

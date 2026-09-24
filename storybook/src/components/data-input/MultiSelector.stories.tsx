@@ -13,7 +13,7 @@ const categories = [
 ];
 
 const meta = {
-  title: 'Data Input/Multi Selector',
+  title: 'Post-MVP/Data Input/Multi Selector',
   component: MultiSelector,
   parameters: {
     layout: 'padded',
