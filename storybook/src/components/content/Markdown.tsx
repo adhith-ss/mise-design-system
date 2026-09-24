@@ -28,9 +28,9 @@ export function Markdown({ children, measure = true, size = 'body' }: MarkdownPr
         '[&_li::marker]:text-ink-400',
         '[&_a]:font-semibold [&_a]:text-brand-600 [&_a]:underline [&_a]:decoration-brand-200 [&_a]:underline-offset-2',
         '[&_strong]:font-semibold',
-        '[&_code]:font-data [&_code]:rounded-sm [&_code]:border [&_code]:border-line [&_code]:bg-canvas [&_code]:px-[5px] [&_code]:py-px [&_code]:text-[12.5px]',
+        '[&_code]:font-data [&_code]:rounded-sm [&_code]:border [&_code]:border-line [&_code]:bg-canvas [&_code]:px-[5px] [&_code]:py-px [&_code]:text-[13px]',
         '[&_table]:w-full [&_table]:border-collapse [&_table]:text-[13px]',
-        '[&_th]:border-b [&_th]:border-line [&_th]:pb-2 [&_th]:text-left [&_th]:text-[11px] [&_th]:uppercase [&_th]:tracking-[0.05em] [&_th]:text-ink-500',
+        '[&_th]:border-b [&_th]:border-line [&_th]:pb-2 [&_th]:text-left [&_th]:text-[13px] [&_th]:uppercase [&_th]:tracking-[0.05em] [&_th]:text-ink-500',
         '[&_td]:border-b [&_td]:border-line-soft [&_td]:py-2',
         '[&_hr]:h-px [&_hr]:border-0 [&_hr]:bg-line',
       )}

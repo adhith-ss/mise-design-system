@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { cx } from '../../lib/cx';
 
 export interface AlertDialogProps {
@@ -24,14 +24,26 @@ export function AlertDialog({
   cancelLabel = 'Cancel', tone = 'default', onConfirm, loading = false, requireTypedConfirmation,
 }: AlertDialogProps) {
   const cancel = useRef<HTMLButtonElement>(null);
+  const [confirmation,setConfirmation] = useState('');
+  const allowed = !requireTypedConfirmation || confirmation === requireTypedConfirmation;
 
   useEffect(() => {
     if (!open) return;
-    if (tone === 'danger') cancel.current?.focus();
-    const esc = (e: KeyboardEvent) => { if (e.key === 'Escape') onOpenChange(false); };
+    const previous=document.activeElement as HTMLElement | null;
+    setConfirmation('');
+    cancel.current?.focus();
+    const esc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && !loading) onOpenChange(false);
+      if(e.key==='Tab') {
+        const nodes=[...(cancel.current?.closest('[role=alertdialog]')?.querySelectorAll<HTMLElement>('button:not(:disabled),input:not(:disabled)')||[])];
+        const first=nodes[0],last=nodes[nodes.length-1];
+        if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}
+        if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}
+      }
+    };
     document.addEventListener('keydown', esc);
-    return () => document.removeEventListener('keydown', esc);
-  }, [open, tone, onOpenChange]);
+    return () => {document.removeEventListener('keydown', esc);previous?.focus();};
+  }, [open, loading]);
 
   if (!open) return null;
 
@@ -43,10 +55,10 @@ export function AlertDialog({
         <p className="m-0 text-[13.5px] leading-[1.6] text-ink-700">{description}</p>
         {requireTypedConfirmation && (
           <label className="flex flex-col gap-[6px] pt-1">
-            <span className="text-[12.5px] text-ink-700">
+            <span className="text-[13px] text-ink-700">
               Type <b className="font-data">{requireTypedConfirmation}</b> to confirm
             </span>
-            <input className="font-data h-md rounded-control border border-line px-3 text-[13px] outline-none focus:border-brand-600" />
+            <input value={confirmation} onChange={e=>setConfirmation(e.target.value)} className="font-data h-md rounded-control border border-line px-3 text-[13px] outline-none focus:border-brand-600" />
           </label>
         )}
         <div className="flex justify-end gap-[10px] pt-1">
@@ -54,9 +66,9 @@ export function AlertDialog({
             className="h-9 rounded-md border border-line bg-surface px-[14px] text-[13px] font-semibold text-ink-700">
             {cancelLabel}
           </button>
-          <button type="button" onClick={onConfirm} disabled={loading} aria-busy={loading || undefined}
-            className={cx('h-9 rounded-md px-[14px] text-[13px] font-semibold text-white',
-              tone === 'danger' ? 'bg-danger' : 'bg-brand-600')}>
+          <button type="button" onClick={()=>{if(allowed&&!loading)onConfirm();}} disabled={loading || !allowed} aria-busy={loading || undefined}
+            className={cx('h-9 rounded-md px-[14px] text-[13px] font-semibold disabled:opacity-50',
+              tone === 'danger' ? 'bg-danger text-[var(--mise-on-danger)]' : 'bg-[var(--mise-action)] text-[var(--mise-on-action)]')}>
             {confirmLabel}
           </button>
         </div>

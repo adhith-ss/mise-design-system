@@ -9,7 +9,7 @@ const rows = [
 const ResultTable = () => (
   <div className="overflow-hidden rounded-md border border-line-soft">
     {rows.map((r) => (
-      <div key={r.id} className="grid grid-cols-[1.4fr_1fr_1fr] gap-3 border-b border-line-soft px-3 py-[9px] text-[12.5px] last:border-b-0">
+      <div key={r.id} className="grid grid-cols-[1.4fr_1fr_1fr] gap-3 border-b border-line-soft px-3 py-[9px] text-[13px] last:border-b-0">
         <span>{r.id}</span>
         <span className="font-data text-ink-700">{r.amount}</span>
         <span className="text-alert">{r.flag}</span>

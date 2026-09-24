@@ -19,7 +19,7 @@ const meta = {
       },
     },
   },
-  args: { options, label: 'Invoice filters', value: 'variance' },
+  args: { options, label: 'Invoice filters', value: 'variance', onChange: () => {} },
   render: (args) => {
     const [value, setValue] = useState(args.value);
     return <ToggleButtonGroup {...args} value={value} onChange={setValue} />;

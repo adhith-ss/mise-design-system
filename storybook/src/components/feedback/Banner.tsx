@@ -2,7 +2,7 @@ import type { ReactNode, CSSProperties } from 'react';
 import { cx } from '../../lib/cx';
 import { TONE_FG, TONE_ICON, TONE_BG, TONE_STREAK, type Tone } from './tone';
 import { Icon } from '../content/Icon';
-import { X } from 'lucide-react';
+import { X } from '@mise/icons/basil';
 
 export interface BannerProps {
   /** One sentence stating the condition. */
@@ -37,7 +37,7 @@ export function Banner({ title, children, tone = 'info', action, onDismiss, clas
       {tone !== 'neutral' && <Icon icon={Glyph} size="md" className={cx('mt-[1px]', TONE_FG[tone])} />}
       <div className="flex flex-1 flex-col gap-[3px]">
         <span className={cx('text-[13.5px] font-bold', TONE_FG[tone])}>{title}</span>
-        {children && <span className="text-[12.5px] leading-[1.6] text-ink-700">{children}</span>}
+        {children && <span className="text-[13px] leading-[1.6] text-ink-700">{children}</span>}
       </div>
       {action}
       {onDismiss && (

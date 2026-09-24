@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { cx } from '../../lib/cx';
 import { useField } from './Field';
-import { X } from 'lucide-react';
+import { X } from '@mise/icons/basil';
 
 export interface UploadedFile {
   name: string;
@@ -51,7 +51,7 @@ export function FileInput({
         <span className={cx('text-[13.5px] font-semibold', (disabled ?? field?.disabled) ? 'text-ink-400' : 'text-brand-600')}>
           {prompt}
         </span>
-        {constraint && <span className="text-[12px] text-ink-500">{constraint}</span>}
+        {constraint && <span className="text-[13px] text-ink-500">{constraint}</span>}
       </button>
       <input
         ref={input}
@@ -60,6 +60,8 @@ export function FileInput({
         accept={accept}
         multiple={multiple}
         className="sr-only"
+        aria-label={prompt}
+        disabled={disabled ?? field?.disabled}
         onChange={(e) => {
           if (e.target.files?.length) onAdd?.(e.target.files);
           e.target.value = '';
@@ -80,9 +82,9 @@ export function FileInput({
               <span className="flex flex-col gap-[1px]">
                 <span className="text-[13px]">{file.name}</span>
                 {file.error ? (
-                  <span className="text-[11.5px] text-danger">{file.error}</span>
+                  <span className="text-[13px] text-danger">{file.error}</span>
                 ) : (
-                  <span className="font-data text-[11.5px] text-ink-400">
+                  <span className="font-data text-[13px] text-ink-400">
                     {file.status === 'uploading' ? 'Uploading…' : file.size}
                   </span>
                 )}

@@ -16,6 +16,7 @@ const meta = {
     },
   },
   args: {
+    children: null,
     defaultOpen: true,
     width: 250,
     trigger: <Button variant="secondary" size="sm">Filter</Button>,

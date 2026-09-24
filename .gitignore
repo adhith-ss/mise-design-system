@@ -4,3 +4,15 @@ storybook-static/
 .DS_Store
 storybook/build-storybook.log
 /scratchpad/
+audit-all.json
+audit-quick.json
+storybook-static/
+build-storybook.log
+
+# Local audit / AT scratch
+audit-run*.log
+audit-rendered-out.json
+pattern-screenshots/
+scripts/audit-rendered.hardened.mjs
+/package.json
+/package-lock.json

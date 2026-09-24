@@ -1,5 +1,5 @@
 import type { ReactNode, CSSProperties } from 'react';
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle } from '@mise/icons/basil';
 import { cx } from '../../lib/cx';
 import { Icon } from './Icon';
 import { TONE_STREAK } from '../feedback/tone';
@@ -57,7 +57,7 @@ export function Card({
             )}
             <div className="flex flex-col gap-[2px]">
               {title && <span className="text-[15px] font-bold">{title}</span>}
-              {subtitle && <span className="text-[12.5px] text-ink-500">{subtitle}</span>}
+              {subtitle && <span className="text-[13px] text-ink-500">{subtitle}</span>}
             </div>
           </div>
           {action}

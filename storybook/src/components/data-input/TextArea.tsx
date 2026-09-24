@@ -37,7 +37,7 @@ export function TextArea({
         {...rest}
       />
       {showCount && maxLength && (
-        <span className="font-data self-end text-[11.5px] text-ink-400">
+        <span className="font-data self-end text-[13px] text-ink-400">
           {length ?? 0} / {maxLength}
         </span>
       )}

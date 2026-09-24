@@ -1,0 +1,20 @@
+{
+  "layout": {
+    "regions": ["toolbar", "filters", "timeline", "empty"],
+    "density": "page",
+    "maxWidth": 640
+  },
+  "copy": {
+    "searchPlaceholder": "Search activity",
+    "caption": "{n} events · Current session",
+    "badge": "Current session",
+    "emptyTitle": "Your decisions, with context",
+    "emptyBody": "Plans, scenarios, imports and snapshots appear here.",
+    "noMatch": "No matching activity",
+    "defaultDetail": "Recorded for this session. No live changes.",
+    "sessionNote": "Session-only record · Clears on reload",
+    "notApplied": "Validated format only. Not applied to the operational baseline."
+  },
+  "states": ["default", "empty", "error", "disabled", "success"],
+  "tokensUsed": ["surface", "line", "ink-500", "tone-error", "focus-brand"]
+}

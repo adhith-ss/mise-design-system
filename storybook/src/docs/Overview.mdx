@@ -4,44 +4,30 @@ import { Meta } from '@storybook/blocks';
 
 # Mise DLS
 
-A design system for restaurant back-office work: ordering, receiving, invoice
-reconciliation, vendor management — and an agent that does the first draft of all
-of it. 72 components across eight categories.
+## 0.2.0-rc.1 · Human-led workspace refresh
 
-## What this Storybook is for
+A versioned update to the existing restaurant operations library. Operators inspect, compare and approve; Plato prepares and explains. The 0.1.0 baseline remains in repository history and its existing Chromatic build.
 
-The HTML documentation site is the specification: anatomy, do/don't, tokens,
-accessibility notes. This Storybook is the implementation of that specification —
-every prop in the spec exists here, every state in the spec is a story.
+## What changed
 
-If the two disagree, the spec is right and the code is behind.
+- **Patterns** — composed workflows (DecisionApproval, ForecastScenario, WeeklySnapshot, ImportWizard, SourcesStatus, MetricCard, DishDetailSheet, SessionHistory, PlatoDrawer) under `storybook/src/patterns/`, each with stories and `.spec.json`.
+- **MVP Pilot archive** — frozen 0.1.0 stories under `storybook/src/archive/mvp-pilot/` (Storybook title prefix `MVP Pilot/`; reference only, not release-gated). See [MVP Pilot](?path=/docs/mvp-pilot-overview--docs).
 
-## Conventions
+- A 13 px minimum across metadata, fields, tables, charts and feedback.
+- Light and dark semantic tokens matched to the refreshed app.
+- Basil product icons, pruned to the Mise set: glyphs used in the app plus a small reserve for agent-first flows. Plato uses the approved green, full-plate image; a Basil glyph is never used for agent identity.
+- Brand focus border with a contiguous lighter ring.
+- Overview, anatomy, properties, accessibility and interactive examples in component docs.
+- WCAG 2.2 AA as a release gate, with recorded evidence rather than a blanket compliance badge.
 
-**Tokens, not values.** Components read CSS custom properties defined in
-`src/styles/tokens.css`. Tailwind's theme maps to those same variables, so
-`bg-brand-600` and Figma's `brand/600` are the same value. Never hard-code a hex.
+## Guardrails
 
-**Data type vs. UI type.** Manrope for interface text, Roboto Mono Light for
-anything the operator reads as data — amounts, counts, invoice numbers, tool
-names. The `.font-data` utility carries it.
+Concise copy. One primary action per decision area. Page-aware Plato tasks. Source freshness and explicit approval are part of the experience, not optional footnotes. No winking or angry shaking during decisions; celebration follows confirmed saves only.
 
-**States are stories.** Hover, focus, disabled, loading, and error each get a
-named export. An `AllStates` story is the visual-regression baseline where a
-component has more than four.
+Use the theme and motion controls in the toolbar to inspect the same component. Evaluate rendered foreground/background pairs in every applicable state. The light focus halo is supplemental: the darker border carries contrast.
 
-**The agent writes nothing unapproved.** Any component that can commit money
-routes through `InlineApproval`. This is a system rule, not a component option.
+## Canonical ownership
 
-## Category map
+[Mise_DLS in Figma](https://www.figma.com/design/OYSStcuycsv9G63w7TC1uc/Mise_DLS) remains the canonical design library. This release is prepared against that file; its new Figma version must be applied and verified before release synchronization can be marked complete.
 
-| Category | Count | Purpose |
-| --- | --- | --- |
-| Action | 10 | Buttons, menus, and everything that starts work |
-| Content | 15 | Cards, text, media, and record display |
-| Data Input | 8 | Fields, pickers, and forms |
-| Feedback & Status | 9 | Toasts, badges, progress, empty states |
-| Navigation | 9 | Shell, tabs, breadcrumbs, pagination |
-| Overlay | 7 | Dialogs, popovers, tooltips, palette |
-| Table & List | 7 | Dense records — where ops work happens |
-| Chat & Agent | 8 | The agent surface |
+[Astryx](https://astryx.atmeta.com/components) informs documentation structure. [WCAG 2.2](https://www.w3.org/TR/WCAG22/) supplies the accessibility requirements.

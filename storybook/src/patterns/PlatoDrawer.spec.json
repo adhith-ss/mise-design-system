@@ -1,0 +1,23 @@
+{
+  "layout": {
+    "regions": ["header", "welcome", "pageContext", "tasks", "chips", "composer", "motionToggle"],
+    "density": "drawer",
+    "maxWidth": 400
+  },
+  "copy": {
+    "title": "Plato",
+    "subtitle": "{page} · Preparation partner",
+    "askLabel": "What would you like to check?",
+    "welcomeStrong": "Hi, I’m Plato.",
+    "welcomePrompt": "What would you like to check?",
+    "onThisPage": "On this page",
+    "historyNote": "History lasts for this session",
+    "pauseMotion": "Pause motion",
+    "enableMotion": "Enable motion",
+    "reducedMotionNote": "Reduced motion is on. Pause motion and reduced motion keep distinct, static poses.",
+    "saved": "Saved to History.",
+    "welcomeOnce": "Your mascot image animates once per app session, then docks beside Plato. Later visits open directly to the thumbnail. Refreshing starts a new session."
+  },
+  "states": ["default", "empty", "error", "disabled", "success", "motionPaused", "reducedMotion"],
+  "tokensUsed": ["surface", "line", "ink-500", "brand-600", "tone-success", "canvas", "focus-brand"]
+}

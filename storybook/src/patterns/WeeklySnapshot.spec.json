@@ -1,0 +1,20 @@
+{
+  "layout": {
+    "regions": ["badge", "metrics", "confirmation", "checklist", "save", "sources"],
+    "density": "aside",
+    "maxWidth": 480
+  },
+  "copy": {
+    "badge": "Weekly snapshot",
+    "save": "Save snapshot",
+    "savedTitle": "Snapshot saved",
+    "savedBody": "Open plans stay open.",
+    "note": "Optional. Open plans stay open.",
+    "refreshTitle": "Refresh before acting",
+    "refreshDetail": "POS and invoices need an update.",
+    "sourcesLink": "2 sources need an update",
+    "noDecisionsRequired": "No decisions are required to save a snapshot."
+  },
+  "states": ["default", "empty", "disabled", "success"],
+  "tokensUsed": ["surface", "line", "ink-500", "tone-success", "tone-warning", "font-data", "tabular-nums", "focus-brand"]
+}

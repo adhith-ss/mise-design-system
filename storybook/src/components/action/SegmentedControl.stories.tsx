@@ -14,6 +14,7 @@ const meta = {
     },
   },
   args: {
+    onChange: () => {},
     label: 'Invoice view',
     value: 'all',
     segments: [

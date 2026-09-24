@@ -12,7 +12,7 @@ export interface AvatarProps {
   status?: 'online' | 'away' | 'offline';
 }
 
-const DIM = { sm: 'h-6 w-6 text-[10px]', md: 'h-[30px] w-[30px] text-[11px]', lg: 'h-10 w-10 text-[13px]' } as const;
+const DIM = { sm: 'h-6 w-6 text-[13px]', md: 'h-[30px] w-[30px] text-[13px]', lg: 'h-10 w-10 text-[13px]' } as const;
 
 function initials(name: string) {
   return name.split(/\s+/).slice(0, 2).map((w) => w[0]?.toUpperCase() ?? '').join('');

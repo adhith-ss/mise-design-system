@@ -1,6 +1,6 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { cx } from '../../lib/cx';
-import { X } from 'lucide-react';
+import { X } from '@mise/icons/basil';
 
 export interface DialogProps {
   open: boolean;
@@ -35,10 +35,19 @@ export function Dialog({
 
   useEffect(() => {
     if (!open) return;
-    const esc = (e: KeyboardEvent) => { if (e.key === 'Escape' && dismissible) onOpenChange(false); };
+    const previous=document.activeElement as HTMLElement | null;
+    const esc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && dismissible) onOpenChange(false);
+      if(e.key==='Tab'){
+        const controls=[...(surface.current?.querySelectorAll<HTMLElement>('button:not(:disabled),input:not(:disabled),textarea:not(:disabled),select:not(:disabled),a[href],[tabindex="0"]')||[])];
+        const first=controls[0],last=controls[controls.length-1];
+        if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}
+        if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}
+      }
+    };
     document.addEventListener('keydown', esc);
     surface.current?.querySelector<HTMLElement>('button, input, select, textarea, a[href]')?.focus();
-    return () => document.removeEventListener('keydown', esc);
+    return () => {document.removeEventListener('keydown', esc);previous?.focus();};
   }, [open, dismissible, onOpenChange]);
 
   if (!open) return null;
@@ -61,7 +70,7 @@ export function Dialog({
         <div className="flex items-start justify-between gap-4 px-5 pb-[14px] pt-[18px]">
           <div className="flex flex-col gap-[3px]">
             <h2 className="m-0 text-[17px] font-bold">{title}</h2>
-            {description && <span className="text-[12.5px] text-ink-500">{description}</span>}
+            {description && <span className="text-[13px] text-ink-500">{description}</span>}
           </div>
           {dismissible && (
             <button

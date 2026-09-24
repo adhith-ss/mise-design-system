@@ -38,7 +38,7 @@ export function Timestamp({ value, format = 'absolute', withTime = false, size =
     <time
       dateTime={value}
       title={absolute(value, true)}
-      className={size === 'dense' ? 'font-data text-[13px] text-ink-700' : 'font-data text-[12px] text-ink-500'}
+      className={size === 'dense' ? 'font-data text-[13px] text-ink-700' : 'font-data text-[13px] text-ink-500'}
     >
       {text}
     </time>

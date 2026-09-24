@@ -57,7 +57,7 @@ export function RadioList({ options, value, onChange, label, appearance = 'plain
             </span>
             <span className="flex flex-col gap-[2px]">
               <span className="text-[13.5px] font-medium">{o.label}</span>
-              {o.hint && <span className="text-[12px] leading-[1.5] text-ink-500">{o.hint}</span>}
+              {o.hint && <span className="text-[13px] leading-[1.5] text-ink-500">{o.hint}</span>}
             </span>
           </label>
         );

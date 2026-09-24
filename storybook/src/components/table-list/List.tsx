@@ -46,7 +46,7 @@ export function List({ items, label, density = 'default', bare = false, onSelect
             {i.leading}
             <div className="flex min-w-0 flex-col gap-[1px]">
               <span className="truncate text-[13.5px] font-medium">{i.title}</span>
-              {i.meta && <span className="truncate text-[12px] text-ink-500">{i.meta}</span>}
+              {i.meta && <span className="truncate text-[13px] text-ink-500">{i.meta}</span>}
             </div>
             {i.trailing && <span className="ml-auto shrink-0">{i.trailing}</span>}
           </div>

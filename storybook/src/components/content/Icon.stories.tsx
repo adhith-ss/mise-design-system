@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Check, TriangleAlert, ChevronDown, Search, Settings, Sparkles } from 'lucide-react';
+import { Check, TriangleAlert, ChevronDown, Search, Settings, Sparkles } from '@mise/icons/basil';
 import { Icon } from './Icon';
 
 const meta = {
@@ -9,7 +9,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'A wrapper that fixes size, stroke and accessibility for any Lucide icon: 14 / 16 / 20px at stroke-width 1.5. Lucide ships at 2 — this is the only place that override lives. Decorative icons are aria-hidden; meaningful ones take a label that names the meaning, not the picture. An icon is never the only carrier of meaning.',
+          'Basil icons use the original 24-unit geometry at 14 / 16 / 20px. Preserve the supplied paths rather than changing stroke weight. Decorative icons are aria-hidden; meaningful icons need an accessible label. Use the approved Plato thumbnail for the assistant, not a generic sparkle.',
       },
     },
   },

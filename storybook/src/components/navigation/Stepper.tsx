@@ -1,5 +1,5 @@
 import { cx } from '../../lib/cx';
-import { Check } from 'lucide-react';
+import { Check } from '@mise/icons/basil';
 
 export interface Step {
   label: string;
@@ -48,14 +48,14 @@ export function Stepper({ steps, orientation = 'horizontal', onStepClick }: Step
           <span
             aria-hidden="true"
             className={cx(
-              'flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-pill border text-[11px] font-bold',
+              'flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-pill border text-[13px] font-bold',
               s.status === 'done' && 'border-brand-600 bg-brand-600 text-white',
               s.status === 'current' && 'border-brand-600 bg-brand-50 text-brand-600',
               s.status === 'upcoming' && 'border-line bg-surface text-ink-400',
               s.status === 'error' && 'border-danger bg-danger text-white',
             )}
           >
-            {s.status === 'done' ? <Check size={12} strokeWidth={2.5} /> : s.status === 'error' ? '!' : i + 1}
+            {s.status === 'error' ? '!' : i + 1}
           </span>
         );
         const text = (
@@ -63,16 +63,25 @@ export function Stepper({ steps, orientation = 'horizontal', onStepClick }: Step
             <span
               onClick={clickable ? () => onStepClick?.(i) : undefined}
               className={cx(
-                'text-[13.5px]',
+                'inline-flex items-center gap-1.5 text-[13.5px]',
                 s.status === 'current' ? 'font-bold text-ink-900' : 'font-medium',
                 s.status === 'upcoming' && 'text-ink-400',
+                s.status === 'done' && 'text-ink-900',
                 s.status === 'error' && 'text-danger',
                 clickable && 'cursor-pointer hover:text-brand-600',
               )}
             >
               {s.label}
+              {s.status === 'done' ? (
+                <Check
+                  size={14}
+                  strokeWidth={2.5}
+                  className="shrink-0 text-brand-600"
+                  aria-hidden="true"
+                />
+              ) : null}
             </span>
-            {s.detail && <span className="text-[12px] leading-[1.5] text-ink-500">{s.detail}</span>}
+            {s.detail && <span className="text-[13px] leading-[1.5] text-ink-500">{s.detail}</span>}
           </span>
         );
 

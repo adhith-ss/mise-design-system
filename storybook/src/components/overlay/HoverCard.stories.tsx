@@ -23,19 +23,19 @@ const meta = {
     children: (
       <span className="flex flex-col gap-[10px]">
         <span className="flex items-center gap-[10px]">
-          <span aria-hidden="true" className="flex h-[30px] w-[30px] items-center justify-center rounded-[9px] bg-surface-sunken text-[11px] font-bold text-ink-700">HP</span>
+          <span aria-hidden="true" className="flex h-[30px] w-[30px] items-center justify-center rounded-[9px] bg-surface-sunken text-[13px] font-bold text-ink-700">HP</span>
           <span className="flex flex-col">
             <span className="text-[13.5px] font-bold">Harbor Produce Co.</span>
-            <span className="text-[12px] text-ink-500">Produce · Tue, Thu delivery</span>
+            <span className="text-[13px] text-ink-500">Produce · Tue, Thu delivery</span>
           </span>
         </span>
         <span className="grid grid-cols-2 gap-[10px]">
           <span className="flex flex-col">
-            <span className="text-[11.5px] text-ink-500">Period spend</span>
+            <span className="text-[13px] text-ink-500">Period spend</span>
             <span className="font-data text-[13px]">$3,806.44</span>
           </span>
           <span className="flex flex-col">
-            <span className="text-[11.5px] text-ink-500">Open variances</span>
+            <span className="text-[13px] text-ink-500">Open variances</span>
             <span className="font-data text-[13px] text-alert">2</span>
           </span>
         </span>

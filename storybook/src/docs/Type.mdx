@@ -4,28 +4,20 @@ import { Meta, Typeset } from '@storybook/blocks';
 
 # Type
 
-Manrope for the interface. Roboto Mono Light for data — amounts, counts, IDs,
-tool names, code. The split is what makes a dense table readable: numbers stop
-competing with labels.
+Manrope for the interface and numeric values. Use tabular numerals for amounts and comparisons; monospace is reserved for literal code.
 
-<Typeset
-  fontFamily="Manrope, system-ui, sans-serif"
-  fontSizes={[11, 12, 12.5, 13, 13.5, 14, 15, 16, 17, 24, 30, 40]}
-  fontWeight={600}
-  sampleText="Harbor Produce · PO-4471"
-/>
+<Typeset fontFamily="Manrope, sans-serif" fontSizes={[13,14,16,18,24,32,36]} fontWeight={500} sampleText="Menu margin · 76.2%" />
 
-## Scale in use
+## Role scale
 
-| Role | Size / line | Weight |
-| --- | --- | --- |
-| Page title | 40 / 1.08 | 800 |
-| Section title | 30 / 1.1 | 700 |
-| Subsection | 24 | 700 |
-| Card title | 15–17 | 700 |
-| Body | 14 / 1.68 | 400 |
-| Dense body | 12.5–13.5 / 1.6 | 400 |
-| Meta and footers | 11.5–12 | 400 |
+| Role | Minimum | Responsive maximum | Weight |
+| --- | --- | --- | --- |
+| Metadata, hint, badge, chart label | 13 px | 13 px | 400–600 |
+| Body, control, table | 14 px | 16 px where needed | 400–600 |
+| Section heading | 16 px | 18 px | 600–700 |
+| Page heading | 24 px | 32 px | 600–700 |
+| Headline metric | 28 px | 36 px | 500–600 |
 
-Titles carry negative tracking (−0.02em to −0.03em); body text does not.
-Nothing below 11.5px ships.
+Use rem-based bounds. The user can enlarge text; maximum role sizes are design defaults, not a limit on browser zoom or user preferences. Never shrink text to fit a container. Wrap, widen or simplify instead.
+
+The 13 px minimum applies across both themes and every state, including helper text, errors, footnotes and labels. It is a Mise product requirement, not a WCAG minimum-font-size criterion. Validate resize and reflow under [WCAG 2.2](https://www.w3.org/TR/WCAG22/).

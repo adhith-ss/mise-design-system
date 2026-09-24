@@ -1,4 +1,4 @@
-import type { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from '@mise/icons/basil';
 import { cx } from '../../lib/cx';
 
 export interface IconProps {

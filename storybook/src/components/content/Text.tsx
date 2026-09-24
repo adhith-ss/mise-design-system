@@ -17,7 +17,7 @@ export interface TextProps {
 const SIZE = {
   body: 'text-[14px] leading-[1.68]',
   dense: 'text-[13px] leading-[1.6]',
-  meta: 'text-[12px] leading-[1.5]',
+  meta: 'text-[13px] leading-[1.5]',
 } as const;
 
 const TONE = {

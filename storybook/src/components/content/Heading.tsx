@@ -16,10 +16,10 @@ export interface HeadingProps {
 }
 
 const SIZE: Record<HeadingLevel, string> = {
-  1: 'text-[40px] leading-[1.08] font-extrabold tracking-[-0.03em]',
-  2: 'text-[30px] leading-[1.1] font-bold tracking-[-0.025em]',
-  3: 'text-[24px] font-bold tracking-[-0.02em]',
-  4: 'text-[17px] font-bold',
+  1: 'text-[length:var(--mise-text-title)] leading-[1.2] font-extrabold tracking-[-0.03em]',
+  2: 'text-[length:var(--mise-text-section)] leading-[1.3] font-bold tracking-[-0.025em]',
+  3: 'text-[16px] font-bold tracking-[-0.02em]',
+  4: 'text-[14px] font-bold',
 };
 
 export function Heading({ level, children, size, eyebrow, sub }: HeadingProps) {
@@ -27,7 +27,7 @@ export function Heading({ level, children, size, eyebrow, sub }: HeadingProps) {
   return (
     <div className="flex flex-col gap-[6px]">
       {eyebrow && (
-        <span className="font-data text-[11px] uppercase tracking-[0.12em] text-ink-400">{eyebrow}</span>
+        <span className="font-data text-[13px] uppercase tracking-[0.12em] text-ink-400">{eyebrow}</span>
       )}
       <Tag className={cx('m-0', SIZE[size ?? level])}>{children}</Tag>
       {sub && <span className="text-[13.5px] leading-[1.6] text-ink-500">{sub}</span>}

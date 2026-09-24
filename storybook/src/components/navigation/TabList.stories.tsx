@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { TabList } from './TabList';
 import { Icon } from '../content/Icon';
-import { List, AlertTriangle, FileText, Clock } from 'lucide-react';
+import { List, AlertTriangle, FileText, Clock } from '@mise/icons/basil';
 
 const tabs = [
   { value: 'lines', label: 'Lines', count: 14 },

@@ -30,7 +30,7 @@ export function Switch({
     <div className="flex items-start justify-between gap-4">
       <label htmlFor={id} className={cx('flex flex-col gap-[2px]', disabled && 'text-ink-400')}>
         <span className="text-[13.5px] font-medium">{label}</span>
-        {hint && <span id={hintId} className="text-[12px] leading-[1.5] text-ink-500">{hint}</span>}
+        {hint && <span id={hintId} className="text-[13px] leading-[1.5] text-ink-500">{hint}</span>}
       </label>
       <button
         type="button"

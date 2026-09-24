@@ -22,7 +22,7 @@ export interface OutlineProps {
 export function Outline({ items, activeId, onSelect, label = 'On this page' }: OutlineProps) {
   return (
     <nav aria-label={label} className="flex flex-col gap-1">
-      <span className="font-data px-2 pb-[6px] text-[11px] uppercase tracking-[0.12em] text-ink-400">{label}</span>
+      <span className="font-data px-2 pb-[6px] text-[13px] uppercase tracking-[0.12em] text-ink-400">{label}</span>
       {items.map((i) => (
         <a
           key={i.id}

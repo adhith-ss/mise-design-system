@@ -36,7 +36,7 @@ export function Badge({
     <span
       className={cx(
         'inline-flex items-center gap-[6px] rounded-pill font-semibold',
-        size === 'sm' ? 'px-[7px] py-[2px] text-[11px]' : 'px-[10px] py-1 text-[12px]',
+        size === 'sm' ? 'px-[7px] py-[2px] text-[13px]' : 'px-[10px] py-1 text-[13px]',
         appearance === 'subtle' && TONE_SUBTLE[tone],
         appearance === 'solid' && SOLID[tone],
         appearance === 'outline' && 'border border-line bg-surface text-ink-700',
@@ -46,7 +46,7 @@ export function Badge({
       {dot && <span aria-hidden="true" className={cx('h-[6px] w-[6px] rounded-pill', appearance === 'solid' ? 'bg-current' : TONE_DOT[tone])} />}
       {children}
       {count != null && (
-        <span className={cx('rounded-pill px-[5px] text-[11px]', appearance === 'solid' ? 'bg-white/25' : cx(TONE_DOT[tone], 'text-white'))}>
+        <span className={cx('rounded-pill px-[5px] text-[13px]', appearance === 'solid' ? 'bg-white/25' : cx(TONE_DOT[tone], 'text-white'))}>
           {count}
         </span>
       )}

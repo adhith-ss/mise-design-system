@@ -1,5 +1,5 @@
 import { cx } from '../../lib/cx';
-import { X } from 'lucide-react';
+import { X } from '@mise/icons/basil';
 
 export interface LightboxItem {
   /** Image or PDF preview source. */
@@ -31,17 +31,17 @@ export function Lightbox({
 
   return (
     <div role="dialog" aria-modal="true" aria-label={name}
-      className="flex flex-col gap-[14px] rounded-lg bg-ink-900 p-5">
+      className="dls-inverse flex flex-col gap-[14px] rounded-lg bg-ink-900 p-5">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-[2px]">
           <span className="text-[13.5px] font-semibold text-white">{name}</span>
-          <span className="font-data text-[11.5px] text-ink-300">
+          <span className="font-data text-[13px] text-ink-300">
             Page {index + 1} of {items.length}{record ? ` · ${record}` : ''}
           </span>
         </div>
         <div className="flex gap-2">
           {download && (
-            <button type="button" className="h-[30px] rounded-[9px] border border-ink-700/60 px-[11px] text-[12.5px] font-semibold text-ink-300">
+            <button type="button" className="h-[30px] rounded-[9px] border border-ink-700/60 px-[11px] text-[13px] font-semibold text-ink-300">
               Download
             </button>
           )}
@@ -57,7 +57,7 @@ export function Lightbox({
         {item.src ? (
           <img src={item.src} alt={item.alt} className="max-h-full max-w-full object-contain" />
         ) : (
-          <span className="font-data rounded-md border border-ink-700/60 bg-ink-900 px-[11px] py-[7px] text-[12px] text-ink-400">
+          <span className="font-data rounded-md border border-ink-700/60 bg-ink-900 px-[11px] py-[7px] text-[13px] text-ink-400">
             {item.alt}
           </span>
         )}

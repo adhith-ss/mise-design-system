@@ -42,7 +42,7 @@ export function Field({
     <Ctx.Provider
       value={{
         id,
-        describedBy: [errorId, hintId].filter(Boolean).join(' ') || undefined,
+        describedBy: errorId || hintId,
         invalid: Boolean(error),
         required,
         disabled,
@@ -54,13 +54,13 @@ export function Field({
             {label}
             {required && <span aria-hidden="true" className="ml-1 text-danger">*</span>}
           </label>
-          {suffix && <span className="font-data ml-auto text-[12px] text-ink-400">{suffix}</span>}
+          {suffix && <span className="font-data ml-auto text-[13px] text-ink-400">{suffix}</span>}
         </div>
         {children}
         {error ? (
-          <span id={errorId} className="text-[12px] leading-[1.5] text-danger">{error}</span>
+          <span id={errorId} className="text-[13px] leading-[1.5] text-danger">{error}</span>
         ) : (
-          hint && <span id={hintId} className="text-[12px] leading-[1.5] text-ink-500">{hint}</span>
+          hint && <span id={hintId} className="text-[13px] leading-[1.5] text-ink-500">{hint}</span>
         )}
       </div>
     </Ctx.Provider>

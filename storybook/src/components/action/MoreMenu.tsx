@@ -1,6 +1,6 @@
 import { DropdownMenu, type MenuItem, type MenuPlacement } from './DropdownMenu';
 import { IconButton } from './IconButton';
-import { Ellipsis } from 'lucide-react';
+import { Ellipsis } from '@mise/icons/basil';
 
 export interface MoreMenuProps {
   items: MenuItem[];

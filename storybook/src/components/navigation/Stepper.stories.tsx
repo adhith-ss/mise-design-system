@@ -16,7 +16,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'A task with a fixed order — onboarding a vendor, closing a period. Completed steps stay clickable so the operator can go back and check; upcoming ones do not, because the order is the point.',
+          'A task with a fixed order — onboarding a vendor, closing a period. Completed steps show a check after the title and stay clickable so the operator can go back; upcoming ones stay empty after the title and are not clickable, because the order is the point.',
       },
     },
   },

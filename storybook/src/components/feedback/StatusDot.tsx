@@ -32,7 +32,7 @@ export function StatusDot({ tone, label, labelHidden = false, live = false, size
           live && 'motion-safe:animate-pulse',
         )}
       />
-      <span className={cx(labelHidden ? 'sr-only' : 'text-[12.5px] text-ink-700')}>{label}</span>
+      <span className={cx(labelHidden ? 'sr-only' : 'text-[13px] text-ink-700')}>{label}</span>
     </span>
   );
 }

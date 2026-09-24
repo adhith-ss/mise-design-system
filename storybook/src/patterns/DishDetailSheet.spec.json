@@ -1,0 +1,17 @@
+{
+  "layout": {
+    "regions": ["header", "margin", "tabs", "metrics", "scenario", "sources"],
+    "density": "sheet",
+    "maxWidth": 420
+  },
+  "copy": {
+    "tabs": ["Performance", "Test a change"],
+    "scenarioTitle": "Try a scenario",
+    "scenarioNote": "At {orders} orders. Demand unchanged. Nothing is saved.",
+    "sourcesTitle": "Sources need updating",
+    "sourcesDetail": "POS · Aug 20   Invoices · Aug 14",
+    "scenarioError": "Enter a price above $0 and a non-negative cost, up to $9,999."
+  },
+  "states": ["default", "empty", "error", "disabled", "success"],
+  "tokensUsed": ["surface", "line", "ink-500", "brand-600", "danger", "tone-warning", "tone-success", "font-data", "tabular-nums", "focus-brand"]
+}

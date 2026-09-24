@@ -7,6 +7,8 @@ export interface ProgressBarProps {
   max?: number;
   /** Names the work, e.g. "Reading invoices". */
   label?: string;
+  /** Required when the visible label is omitted. Names the work. */
+  ariaLabel?: string;
   /** Live count beside the label, e.g. "3 of 8". */
   detail?: string;
   size?: 'sm' | 'md';
@@ -17,7 +19,7 @@ export interface ProgressBarProps {
 
 /** Determinate work with a known end: reading 8 invoices, uploading 3 files. */
 export function ProgressBar({
-  value, max = 100, label, detail, size = 'md', tone = 'brand', icon,
+  value, max = 100, label, ariaLabel, detail, size = 'md', tone = 'brand', icon,
 }: ProgressBarProps) {
   const indeterminate = value == null;
   const pct = indeterminate ? 30 : Math.min(100, Math.max(0, (value / max) * 100));
@@ -27,12 +29,12 @@ export function ProgressBar({
       {(label || detail) && (
         <div className="flex items-baseline justify-between">
           {label && (
-            <span className="inline-flex items-center gap-[6px] text-[12.5px] font-medium">
+            <span className="inline-flex items-center gap-[6px] text-[13px] font-medium">
               {icon}
               {label}
             </span>
           )}
-          {detail && <span className="font-data text-[11.5px] text-ink-500">{detail}</span>}
+          {detail && <span className="font-data text-[13px] text-ink-500">{detail}</span>}
         </div>
       )}
       <div
@@ -40,7 +42,7 @@ export function ProgressBar({
         aria-valuenow={indeterminate ? undefined : value}
         aria-valuemin={0}
         aria-valuemax={max}
-        aria-label={label}
+        aria-label={ariaLabel || label || 'Progress'}
         className={cx('w-full overflow-hidden rounded-pill bg-neutral-200', size === 'sm' ? 'h-[4px]' : 'h-[6px]')}
       >
         <div

@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { cx } from '../../lib/cx';
-import { ChevronDown, ChevronUp, Wrench } from 'lucide-react';
+import { ChevronDown, ChevronUp, Wrench } from '@mise/icons/basil';
 
 export type ToolCallStatus = 'running' | 'done' | 'error' | 'denied';
 
@@ -55,12 +55,12 @@ export function ToolCallCard({
           {icon ?? <Wrench size={11} strokeWidth={2} />}
         </span>
         <span className="font-data text-[13px]">{tool}</span>
-        <span className="text-[12.5px] text-ink-500">{summary}</span>
+        <span className="text-[13px] text-ink-500">{summary}</span>
         <span className="ml-auto flex items-center gap-[10px]">
           {duration != null && (
-            <span className="text-[11.5px] text-ink-400">{(duration / 1000).toFixed(1)}s</span>
+            <span className="text-[13px] text-ink-400">{(duration / 1000).toFixed(1)}s</span>
           )}
-          <span className={cx('rounded-pill px-2 py-[3px] text-[11px] font-semibold', s.className)}>
+          <span className={cx('rounded-pill px-2 py-[3px] text-[13px] font-semibold', s.className)}>
             {s.label}
           </span>
           {open
@@ -72,7 +72,7 @@ export function ToolCallCard({
       {open && (
         <div className="flex flex-col gap-[10px] border-t border-line-soft px-[14px] py-[13px]">
           {args && (
-            <span className="font-data text-[12.5px] text-ink-700">
+            <span className="font-data text-[13px] text-ink-700">
               {JSON.stringify(args).replace(/","/g, '", "')}
             </span>
           )}
@@ -81,7 +81,7 @@ export function ToolCallCard({
             <button
               type="button"
               onClick={onRetry}
-              className="self-start rounded-md border border-line bg-surface px-[13px] py-[7px] text-[12.5px] font-semibold text-ink-700"
+              className="self-start rounded-md border border-line bg-surface px-[13px] py-[7px] text-[13px] font-semibold text-ink-700"
             >
               Try again
             </button>

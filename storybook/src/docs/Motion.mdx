@@ -4,21 +4,24 @@ import { Meta } from '@storybook/blocks';
 
 # Motion
 
-Motion confirms a change; it never introduces one. Two durations and one easing
-curve cover the whole system.
+Motion explains a transition or confirms an outcome. It never substitutes for a visible status or explicit approval.
 
-| Token | Value | Use |
+| Pattern | Timing | Rule |
 | --- | --- | --- |
-| duration-fast | 120ms | Hover, focus, colour changes |
-| duration-base | 180ms | Enter and exit, expand and collapse |
-| ease | `cubic-bezier(.2,0,.2,1)` | Everything |
+| Control response | 120 ms | Colour and border only |
+| Panel transition | 180 ms | Preserve focus and reading order |
+| First-session Plato welcome | 2.1 s | Play once, then dock beside the chat header; never block input |
+| Preparing | Quiet loop | Only while a requested task runs; keep Cancel available |
+| Confirmed save | One short celebration | Start only after the save succeeds, not after a draft is generated |
 
-## Rules
+## Plato states
 
-- Nothing animates position on load. Streaming text arrives in its final layout.
-- The streaming caret is the only looping animation in the system, and it is
-  hidden under `prefers-reduced-motion`.
-- Under `prefers-reduced-motion` both durations collapse to 1ms in
-  `tokens.css` — components need no extra handling.
-- No spinners for anything nameable. If it takes over two seconds, it gets an
-  `AgentStatus` step with a label the operator would use.
+Ready, composing, preparing, needs input, ready to review, saved, not connected and stopped are the supported states. No angry shaking or winking during decisions. Reopening chat uses the thumbnail without replaying the welcome.
+
+## Reduced motion
+
+Respect `prefers-reduced-motion`. The Storybook motion toolbar also allows a static review of each pose. Keep status text, focus and the resulting state available without animation.
+
+## Workflow illustrations
+
+Place an illustration in meaningful empty states and confirmed outcomes: first import, first forecast, no decisions, and snapshot saved. Once there is working data, prioritise the table or result. Never replay celebration on revisiting a saved record.

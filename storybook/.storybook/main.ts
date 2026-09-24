@@ -1,6 +1,9 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import { fileURLToPath } from 'node:url';
 
 const config: StorybookConfig = {
+  staticDirs:['../public'],
+  viteFinal: async(config)=>({...config,resolve:{...config.resolve,alias:{...config.resolve?.alias,'@mise':fileURLToPath(new URL('../src',import.meta.url))}}}),
   stories: [
     '../src/docs/**/*.mdx',
     '../src/**/*.mdx',

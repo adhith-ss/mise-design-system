@@ -90,7 +90,7 @@ export function SideNav({
           i.highlightCount ? (
             <span
               className={cx(
-                'font-data ml-auto rounded-pill px-[7px] py-[1px] text-[11px] font-bold',
+                'font-data ml-auto rounded-pill px-[7px] py-[1px] text-[13px] font-bold',
                 dark ? 'bg-rail-mark text-rail-mark-ink' : 'bg-brand-600 text-white',
               )}
             >
@@ -99,7 +99,7 @@ export function SideNav({
           ) : (
             <span
               className={cx(
-                'font-data ml-auto text-[11.5px]',
+                'font-data ml-auto text-[13px]',
                 dark
                   ? i.current ? 'font-semibold text-brand-400' : 'text-rail-text-muted'
                   : i.current ? 'font-semibold text-brand-600' : 'text-ink-400',
@@ -158,7 +158,7 @@ export function SideNav({
             {g.label && !collapsed && (
               <div
                 className={cx(
-                  'font-data px-2 pb-[6px] pt-[10px] text-[11px] uppercase tracking-[0.12em]',
+                  'font-data px-2 pb-[6px] pt-[10px] text-[13px] uppercase tracking-[0.12em]',
                   dark ? 'text-rail-text-muted' : 'text-ink-400',
                 )}
               >

@@ -14,7 +14,7 @@ const meta = {
       },
     },
   },
-  args: { label: 'Cases ordered' },
+  args: { label: 'Cases ordered', children: null },
   render: (args) => (
     <div className="w-[320px]">
       <Field {...args}>

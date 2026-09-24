@@ -22,7 +22,7 @@ export function Divider({ orientation = 'horizontal', label, weight = 'default',
     return (
       <div className={cx('flex items-center gap-3', SPACE[spacing])}>
         <span aria-hidden="true" className={cx('h-px flex-1', weight === 'soft' ? 'bg-line-soft' : 'bg-line')} />
-        <span className="font-data text-[11px] uppercase tracking-[0.1em] text-ink-400">{label}</span>
+        <span className="font-data text-[13px] uppercase tracking-[0.1em] text-ink-400">{label}</span>
         <span aria-hidden="true" className={cx('h-px flex-1', weight === 'soft' ? 'bg-line-soft' : 'bg-line')} />
       </div>
     );

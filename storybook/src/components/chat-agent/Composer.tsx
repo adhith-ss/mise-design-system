@@ -45,7 +45,7 @@ export function Composer({
           <span className="flex-1 text-[13px] text-ink-700">
             One approval is waiting — answer it before sending a new instruction.
           </span>
-          <button type="button" onClick={onReviewApproval} className="text-[12.5px] font-semibold text-brand-600">
+          <button type="button" onClick={onReviewApproval} className="text-[13px] font-semibold text-brand-600">
             Review
           </button>
         </div>
@@ -77,7 +77,7 @@ export function Composer({
               type="button"
               id="mise-composer-scope"
               onClick={onScopeClick}
-              className="flex items-center gap-[6px] rounded-pill border border-line px-[10px] py-1 text-[12px] text-ink-700"
+              className="flex items-center gap-[6px] rounded-pill border border-line px-[10px] py-1 text-[13px] text-ink-700"
             >
               {scope}
             </button>

@@ -1,0 +1,37 @@
+import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { CheckboxInput } from './CheckboxInput';
+
+const meta = {
+  title: 'MVP Pilot/Data Input/Checkbox Input',
+  tags: ['archived','mvp-pilot'],
+  component: CheckboxInput,
+  parameters: {
+    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    layout: 'padded',
+    docs: {
+      description: {
+        component:
+          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. An independent on/off choice. The label is clickable, and the indeterminate state carries aria-checked="mixed" so a partially-selected parent row reads correctly rather than sounding unchecked.',
+      },
+    },
+  },
+  args: { checked: false, label: 'Variances only', onChange: () => {} },
+  render: (args) => {
+    const [checked, setChecked] = useState(args.checked);
+    return <CheckboxInput {...args} checked={checked} onChange={setChecked} />;
+  },
+} satisfies Meta<typeof CheckboxInput>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Unchecked: Story = {};
+export const Checked: Story = { args: { checked: true } };
+export const WithHint: Story = {
+  args: { checked: true, label: 'Auto-approve credits under $50', hint: 'Applies to vendors with no open disputes.' },
+};
+export const Indeterminate: Story = { args: { indeterminate: true, label: 'All invoices' } };
+export const Required: Story = { args: { required: true, label: 'I confirm the received counts' } };
+export const Invalid: Story = { args: { invalid: true, label: 'I confirm the received counts' } };
+export const Disabled: Story = { args: { disabled: true, checked: true } };

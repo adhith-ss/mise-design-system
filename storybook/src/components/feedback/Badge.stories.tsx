@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Badge } from './Badge';
 import { Icon } from '../content/Icon';
-import { Truck } from 'lucide-react';
+import { Truck } from '@mise/icons/basil';
 
 const meta = {
   title: 'Feedback & Status/Badge',

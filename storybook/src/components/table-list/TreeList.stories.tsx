@@ -6,22 +6,22 @@ const nodes = [
   {
     id: 'produce',
     label: 'Produce',
-    trailing: <span className="font-data text-[12px] text-ink-500">$3,806.44</span>,
+    trailing: <span className="font-data text-[13px] text-ink-500">$3,806.44</span>,
     children: [
-      { id: 'harbor', label: 'Harbor Produce Co.', trailing: <span className="font-data text-[12px] text-ink-500">$2,914.10</span> },
-      { id: 'valley', label: 'Valley Greens', trailing: <span className="font-data text-[12px] text-ink-500">$892.34</span> },
+      { id: 'harbor', label: 'Harbor Produce Co.', trailing: <span className="font-data text-[13px] text-ink-500">$2,914.10</span> },
+      { id: 'valley', label: 'Valley Greens', trailing: <span className="font-data text-[13px] text-ink-500">$892.34</span> },
     ],
   },
   {
     id: 'protein',
     label: 'Protein',
-    trailing: <span className="font-data text-[12px] text-ink-500">$4,120.60</span>,
+    trailing: <span className="font-data text-[13px] text-ink-500">$4,120.60</span>,
     children: [
       { id: 'northside', label: 'Northside Meats' },
       { id: 'coastal', label: 'Coastal Fish' },
     ],
   },
-  { id: 'dry', label: 'Dry goods', trailing: <span className="font-data text-[12px] text-ink-500">$1,204.00</span> },
+  { id: 'dry', label: 'Dry goods', trailing: <span className="font-data text-[13px] text-ink-500">$1,204.00</span> },
 ];
 
 const meta = {

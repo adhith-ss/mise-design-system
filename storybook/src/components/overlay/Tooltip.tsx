@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { useState, useRef, useId, useEffect, isValidElement, cloneElement, type ReactNode } from 'react';
 import { cx } from '../../lib/cx';
 
 export interface TooltipProps {
@@ -20,27 +20,32 @@ export function Tooltip({
   content, children, placement = 'top', delay = 300, disabled = false, maxWidth = 240,
 }: TooltipProps) {
   const [open, setOpen] = useState(false);
-  let timer: ReturnType<typeof setTimeout>;
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const id=useId();
+  useEffect(()=>()=>clearTimeout(timer.current),[]);
 
-  const show = () => { timer = setTimeout(() => setOpen(true), delay); };
-  const hide = () => { clearTimeout(timer); setOpen(false); };
+  const show = () => { clearTimeout(timer.current);timer.current = setTimeout(() => setOpen(true), delay); };
+  const hide = () => { clearTimeout(timer.current); setOpen(false); };
+  const leave = () => { clearTimeout(timer.current);timer.current=setTimeout(()=>setOpen(false),150); };
 
   return (
     <span
       className="relative inline-flex"
       onMouseEnter={show}
-      onMouseLeave={hide}
+      onMouseLeave={leave}
       onFocus={show}
       onBlur={hide}
       onKeyDown={(e) => { if (e.key === 'Escape') hide(); }}
     >
-      {children}
+      {isValidElement<{ 'aria-describedby'?: string }>(children) ? cloneElement(children,{'aria-describedby':open&&!disabled ? [children.props['aria-describedby'],id].filter(Boolean).join(' ') : children.props['aria-describedby']}) : children}
       {open && !disabled && (
         <span
           role="tooltip"
+          id={id}
+          onMouseEnter={()=>{clearTimeout(timer.current);setOpen(true);}}
           style={{ maxWidth }}
           className={cx(
-            'pointer-events-none absolute z-40 w-max rounded-[9px] bg-ink-900 px-[10px] py-[6px] text-[12.5px] leading-[1.45] text-white',
+            'dls-inverse absolute z-40 w-max rounded-[9px] bg-ink-900 px-[10px] py-[6px] text-[13px] font-bold leading-[1.45] text-white',
             placement === 'top' && 'bottom-[calc(100%+7px)] left-1/2 -translate-x-1/2',
             placement === 'bottom' && 'left-1/2 top-[calc(100%+7px)] -translate-x-1/2',
             placement === 'left' && 'right-[calc(100%+7px)] top-1/2 -translate-y-1/2',

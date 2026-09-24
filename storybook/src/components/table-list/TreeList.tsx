@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { cx } from '../../lib/cx';
-import { ChevronDown, ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronRight } from '@mise/icons/basil';
 
 export interface TreeNode {
   id: string;

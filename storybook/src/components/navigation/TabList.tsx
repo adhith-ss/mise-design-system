@@ -49,7 +49,7 @@ export function TabList({ tabs, value, onChange, label, appearance = 'underline'
             onClick={() => onChange(t.value)}
             className={cx(
               'inline-flex items-center gap-[7px] font-semibold transition-colors duration-fast ease-mise',
-              size === 'sm' ? 'h-8 px-[10px] text-[12.5px]' : 'h-[38px] px-3 text-[13.5px]',
+              size === 'sm' ? 'h-8 px-[10px] text-[13px]' : 'h-[38px] px-3 text-[13.5px]',
               appearance === 'underline' && 'border-b-2 -mb-px',
               appearance === 'underline' && (on ? 'border-brand-600 text-brand-600' : 'border-transparent text-ink-500 hover:text-ink-700'),
               appearance === 'enclosed' && 'rounded-t-md border border-b-0',
@@ -60,7 +60,7 @@ export function TabList({ tabs, value, onChange, label, appearance = 'underline'
             {t.icon}
             {t.label}
             {t.count != null && (
-              <span className={cx('font-data rounded-pill px-[6px] text-[11px]', on ? cx('bg-brand-50 font-semibold', activeTextClass) : 'bg-canvas text-ink-500')}>
+              <span className={cx('font-data rounded-pill px-[6px] text-[13px]', on ? cx('bg-brand-50 font-semibold', activeTextClass) : 'bg-canvas text-ink-500')}>
                 {t.count}
               </span>
             )}

@@ -18,7 +18,7 @@ const meta = {
       },
     },
   },
-  args: { label: 'Invoice actions' },
+  args: { label: 'Invoice actions', children: null },
 } satisfies Meta<typeof Toolbar>;
 
 export default meta;

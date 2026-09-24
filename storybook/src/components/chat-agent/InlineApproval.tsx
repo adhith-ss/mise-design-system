@@ -36,7 +36,7 @@ export function InlineApproval({
     return (
       <div className="flex items-center gap-[9px] rounded-[11px] border border-line bg-surface px-[13px] py-[10px]">
         <span aria-hidden="true" className={cx('h-[14px] w-[14px] rounded-pill', approved ? 'bg-brand-600' : 'bg-danger')} />
-        <span className="text-[12.5px]">
+        <span className="text-[13px]">
           {approved
             ? `Approved${resolution.by ? ` by ${resolution.by}` : ''}${resolution.at ? ` · ${resolution.at}` : ''}${resolution.undoFor ? ` · undo for ${resolution.undoFor}` : ''}`
             : 'Declined · agent will not retry without being asked'}
@@ -53,11 +53,11 @@ export function InlineApproval({
     >
       <div className="flex flex-col gap-3 px-[17px] py-[15px]">
         <div className="flex items-center gap-[9px]">
-          <span className="rounded-pill bg-warn-bg px-[9px] py-[3px] text-[11px] font-bold tracking-[0.03em] text-warn-ink">
+          <span className="rounded-pill bg-warn-bg px-[9px] py-[3px] text-[13px] font-bold tracking-[0.03em] text-warn-ink">
             Needs your approval
           </span>
-          {expiresIn && <span className="text-[11.5px] text-ink-500">{expiresIn}</span>}
-          {requiresRole && <span className="text-[11.5px] text-ink-500">{requiresRole} only</span>}
+          {expiresIn && <span className="text-[13px] text-ink-500">{expiresIn}</span>}
+          {requiresRole && <span className="text-[13px] text-ink-500">{requiresRole} only</span>}
         </div>
 
         <h3 className="text-[15px] font-bold leading-[1.4]">{title}</h3>
@@ -65,15 +65,15 @@ export function InlineApproval({
         <dl className="grid grid-cols-2 gap-x-5 gap-y-[10px]">
           {facts.map((f) => (
             <div key={f.label} className="flex flex-col gap-[2px]">
-              <dt className="text-[11.5px] text-ink-500">{f.label}</dt>
+              <dt className="text-[13px] text-ink-500">{f.label}</dt>
               <dd className="font-data m-0 text-[13px]">{f.value}</dd>
             </div>
           ))}
         </dl>
 
-        {rationale && <p className="m-0 text-[12.5px] leading-[1.6] text-ink-700">{rationale}</p>}
+        {rationale && <p className="m-0 text-[13px] leading-[1.6] text-ink-700">{rationale}</p>}
         {impact === 'permanent' && (
-          <p className="m-0 text-[12.5px] font-semibold text-danger">This cannot be undone.</p>
+          <p className="m-0 text-[13px] font-semibold text-danger">This cannot be undone.</p>
         )}
       </div>
 

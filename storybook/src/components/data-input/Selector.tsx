@@ -1,6 +1,6 @@
 import { useField, controlClass } from './Field';
 import { cx } from '../../lib/cx';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown } from '@mise/icons/basil';
 
 export interface SelectOption {
   value: string;

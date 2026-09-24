@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ProgressBar } from './ProgressBar';
 import { Icon } from '../content/Icon';
-import { CheckCircle2, AlertTriangle } from 'lucide-react';
+import { CheckCircle2, AlertTriangle } from '@mise/icons/basil';
 
 const meta = {
   title: 'Feedback & Status/Progress Bar',
@@ -15,7 +15,7 @@ const meta = {
       },
     },
   },
-  args: { value: 3, max: 8, label: 'Reading invoices', detail: '3 of 8' },
+  args: { value: 3, max: 8, label: 'Reading invoices', ariaLabel: 'Reading invoices', detail: '3 of 8' },
   render: (args) => <div className="w-[360px]"><ProgressBar {...args} /></div>,
 } satisfies Meta<typeof ProgressBar>;
 
