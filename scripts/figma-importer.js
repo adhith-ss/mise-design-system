@@ -5,15 +5,17 @@ figma.showUI(`<html><body style="font:14px system-ui;padding:20px;color:#272e2a;
 <button id="import" style="display:block;width:100%;padding:12px;margin:0 0 8px;background:#304b3d;color:white;border:0;border-radius:6px;font-size:13px;font-weight:600">Add release candidate pages</button>
 <button id="archive" style="display:block;width:100%;padding:12px;margin:0 0 8px;background:#43524b;color:white;border:0;border-radius:6px;font-size:13px;font-weight:600">Archive current set as MVP Pilot</button>
 <button id="patterns" style="display:block;width:100%;padding:12px;margin:0 0 8px;background:#1e6b4b;color:white;border:0;border-radius:6px;font-size:13px;font-weight:600">Add patterns page</button>
+<button id="patterns-update" style="display:block;width:100%;padding:12px;margin:0 0 8px;background:#607940;color:white;border:0;border-radius:6px;font-size:13px;font-weight:600">Update patterns page</button>
 <p id="status" role="status" style="font-size:13px;min-height:2.5em"></p>
 <script>
 const post=type=>{document.querySelectorAll('button').forEach(b=>b.disabled=true);parent.postMessage({pluginMessage:{type}},'*')};
 document.getElementById('import').onclick=()=>post('import');
 document.getElementById('archive').onclick=()=>post('archive');
 document.getElementById('patterns').onclick=()=>post('patterns');
+document.getElementById('patterns-update').onclick=()=>post('patterns-update');
 onmessage=e=>{document.getElementById('status').textContent=e.data.pluginMessage||'';document.querySelectorAll('button').forEach(b=>b.disabled=false)};
 </script>
-</body></html>`,{width:440,height:360});
+</body></html>`,{width:440,height:420});
 
 function parseColor(value){
   const v=String(value).trim();
@@ -90,10 +92,21 @@ async function archiveAsMvpPilot(){
   return {pagesRenamed,descriptionsPrefixed};
 }
 
-async function addPatternsPage(){
+async function updatePatternsPage(){
   await figma.loadAllPagesAsync();
-  if(figma.root.children.some(p=>p.name==='0.2.0-rc.1 / Patterns')){
-    throw new Error('Patterns page already exists. Review it instead of adding twice.');
+  const existing=figma.root.children.find(p=>p.name==='0.2.0-rc.1 / Patterns');
+  if(!existing){
+    throw new Error('No "0.2.0-rc.1 / Patterns" page found. Use Add patterns page first.');
+  }
+  const stamp=new Date().toISOString().slice(0,10);
+  existing.name=`0.2.0-rc.1 / Patterns (superseded ${stamp})`;
+  return addPatternsPage({allowExisting:true,superseded:existing.name});
+}
+
+async function addPatternsPage(opts={}){
+  await figma.loadAllPagesAsync();
+  if(!opts.allowExisting && figma.root.children.some(p=>p.name==='0.2.0-rc.1 / Patterns')){
+    throw new Error('Patterns page already exists. Use Update patterns page to replace it.');
   }
   await Promise.all(['Regular','Medium','SemiBold','Bold'].map(style=>figma.loadFontAsync({family:'Manrope',style})));
   const patterns=DATA.patterns||{};
@@ -125,9 +138,10 @@ async function addPatternsPage(){
       c.x=index*380;c.y=y;
       const title=await text(c,`${name} · ${state}`,0,0,14,'SemiBold',light['--mise-ink-900'],320);
       title.layoutAlign='STRETCH';
-      const copyLines=[].concat(spec.copy||[]).slice(0,6);
+      const rawCopy=spec.copy;
+      const copyLines=(Array.isArray(rawCopy)?rawCopy:Object.values(rawCopy||{})).map(String).slice(0,8);
       for(const line of copyLines){
-        const t=await text(c,String(line),0,0,13,'Regular',light['--mise-ink-700'],320);
+        const t=await text(c,line,0,0,13,'Regular',light['--mise-ink-700'],320);
         t.layoutAlign='STRETCH';
       }
       if(Array.isArray(spec.anatomy)){
@@ -265,6 +279,11 @@ figma.ui.onmessage=async msg=>{
     if(msg.type==='patterns'){
       const result=await addPatternsPage();
       figma.ui.postMessage(`Patterns page added with ${result.patterns} pattern components. No library published.`);
+      return;
+    }
+    if(msg.type==='patterns-update'){
+      const result=await updatePatternsPage();
+      figma.ui.postMessage(`Patterns page updated (${result.patterns} patterns). Previous page renamed; no other pages touched; no library published.`);
       return;
     }
   }catch(error){
