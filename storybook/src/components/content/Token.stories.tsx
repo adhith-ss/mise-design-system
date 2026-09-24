@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Token } from './Token';
 
 const meta = {
-  title: 'Content/Token',
+  title: 'Post-MVP/Content/Token',
   component: Token,
   parameters: {
     docs: {

@@ -3,7 +3,7 @@ import { DishDetailSheet } from './DishDetailSheet';
 import { patternViewports } from './_shared';
 
 const meta = {
-  title: 'Patterns/DishDetailSheet',
+  title: 'Post-MVP/Patterns/DishDetailSheet',
   component: DishDetailSheet,
   parameters: {
     layout: 'padded',

@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Link } from './Link';
 
 const meta = {
-  title: 'MVP Pilot/Action/Link',
+  title: 'MVP/Action/Link',
   tags: ['archived','mvp-pilot'],
   component: Link,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Navigation to another place. If the click changes data, it is a Button, whatever it looks like. External links carry both a visible marker and a spoken hint.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Navigation to another place. If the click changes data, it is a Button, whatever it looks like. External links carry both a visible marker and a spoken hint.',
       },
     },
   },

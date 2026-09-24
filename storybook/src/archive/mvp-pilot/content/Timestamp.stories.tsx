@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Timestamp } from './Timestamp';
 
 const meta = {
-  title: 'MVP Pilot/Content/Timestamp',
+  title: 'MVP/Content/Timestamp',
   tags: ['archived','mvp-pilot'],
   component: Timestamp,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A point in time. Relative for recent activity, absolute for records — an invoice date is never "3 days ago" on a document someone will file. Always a <time> element with the ISO value, and the full date-time in the title attribute.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A point in time. Relative for recent activity, absolute for records — an invoice date is never "3 days ago" on a document someone will file. Always a <time> element with the ISO value, and the full date-time in the title attribute.',
       },
     },
   },

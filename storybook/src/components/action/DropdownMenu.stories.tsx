@@ -3,7 +3,7 @@ import { DropdownMenu } from './DropdownMenu';
 import { Button } from './Button';
 
 const meta = {
-  title: 'Action/Dropdown Menu',
+  title: 'Post-MVP/Action/Dropdown Menu',
   component: DropdownMenu,
   parameters: {
     layout: 'padded',

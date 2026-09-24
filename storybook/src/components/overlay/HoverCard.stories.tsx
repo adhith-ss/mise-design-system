@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { HoverCard } from './HoverCard';
 
 const meta = {
-  title: 'Overlay/Hover Card',
+  title: 'Post-MVP/Overlay/Hover Card',
   component: HoverCard,
   parameters: {
     layout: 'padded',

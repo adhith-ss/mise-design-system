@@ -4,16 +4,16 @@ import { TextArea } from './TextArea';
 import { Field } from './Field';
 
 const meta = {
-  title: 'MVP Pilot/Data Input/Text Area',
+  title: 'MVP/Data Input/Text Area',
   tags: ['archived','mvp-pilot'],
   component: TextArea,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Several lines of prose — a note to a vendor, a reason for a credit. Resizes vertically. A character count appears only where a downstream system actually truncates.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Several lines of prose — a note to a vendor, a reason for a credit. Resizes vertically. A character count appears only where a downstream system actually truncates.',
       },
     },
   },

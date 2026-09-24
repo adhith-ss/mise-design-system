@@ -25,7 +25,7 @@ const nodes = [
 ];
 
 const meta = {
-  title: 'Table & List/Tree List',
+  title: 'Post-MVP/Table & List/Tree List',
   component: TreeList,
   parameters: {
     layout: 'padded',

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Composer } from './Composer';
 
 const meta = {
-  title: 'Chat & Agent/Composer',
+  title: 'Post-MVP/Chat & Agent/Composer',
   component: Composer,
   parameters: {
     layout: 'padded',

@@ -3,7 +3,7 @@ import { ForecastScenario } from './ForecastScenario';
 import { patternViewports } from './_shared';
 
 const meta = {
-  title: 'Patterns/ForecastScenario',
+  title: 'Post-MVP/Patterns/ForecastScenario',
   component: ForecastScenario,
   parameters: {
     layout: 'padded',

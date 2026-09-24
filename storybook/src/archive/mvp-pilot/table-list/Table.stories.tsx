@@ -46,16 +46,16 @@ const columns: Array<Column<InvoiceRow>> = [
 ];
 
 const meta = {
-  title: 'MVP Pilot/Table & List/Table',
+  title: 'MVP/Table & List/Table',
   tags: ['archived','mvp-pilot'],
   component: Table,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Dense records with more than one attribute worth comparing. Numbers are right-aligned and set in Roboto Mono Light so they compare down the column. This is where operators spend most of their day, so density and scanability beat decoration.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Dense records with more than one attribute worth comparing. Numbers are right-aligned and set in Roboto Mono Light so they compare down the column. This is where operators spend most of their day, so density and scanability beat decoration.',
       },
     },
   },

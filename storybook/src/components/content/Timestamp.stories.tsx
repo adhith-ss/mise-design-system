@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Timestamp } from './Timestamp';
 
 const meta = {
-  title: 'Content/Timestamp',
+  title: 'Post-MVP/Content/Timestamp',
   component: Timestamp,
   parameters: {
     docs: {

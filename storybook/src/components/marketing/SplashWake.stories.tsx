@@ -4,7 +4,7 @@ import { SplashWake } from './SplashWake';
 import { Button } from '../action/Button';
 
 const meta = {
-  title: 'Future Scope/Splash — Wake (Mobile)',
+  title: 'Post-MVP/Future Scope/Splash — Wake (Mobile)',
   component: SplashWake,
   parameters: {
     layout: 'centered',

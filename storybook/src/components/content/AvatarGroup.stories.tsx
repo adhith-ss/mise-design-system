@@ -7,7 +7,7 @@ const people = [
 ];
 
 const meta = {
-  title: 'Content/Avatar Group',
+  title: 'Post-MVP/Content/Avatar Group',
   component: AvatarGroup,
   parameters: {
     docs: {

@@ -4,15 +4,15 @@ import { IconButton } from './IconButton';
 const Glyph = () => <span aria-hidden="true" className="h-[14px] w-[14px] rounded-sm bg-current" />;
 
 const meta = {
-  title: 'MVP Pilot/Action/Icon Button',
+  title: 'MVP/Action/Icon Button',
   tags: ['archived','mvp-pilot'],
   component: IconButton,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A square button carrying only an icon. Every instance needs an accessible label and a tooltip — an unlabelled icon is a guess. Ghost inside toolbars and rows; outline when it stands alone.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A square button carrying only an icon. Every instance needs an accessible label and a tooltip — an unlabelled icon is a guess. Ghost inside toolbars and rows; outline when it stands alone.',
       },
     },
   },

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Code } from './Code';
 
 const meta = {
-  title: 'Content/Code',
+  title: 'Post-MVP/Content/Code',
   component: Code,
   parameters: {
     layout: 'padded',

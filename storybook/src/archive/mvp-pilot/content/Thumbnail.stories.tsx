@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Thumbnail } from './Thumbnail';
 
 const meta = {
-  title: 'MVP Pilot/Content/Thumbnail',
+  title: 'MVP/Content/Thumbnail',
   tags: ['archived','mvp-pilot'],
   component: Thumbnail,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A preview of an attached document or photo, opening into a Lightbox. Alt text comes from the upload record, never generated — "harbor-aug22.pdf" tells the operator which scan this is.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A preview of an attached document or photo, opening into a Lightbox. Alt text comes from the upload record, never generated — "harbor-aug22.pdf" tells the operator which scan this is.',
       },
     },
   },

@@ -46,7 +46,7 @@ const columns: Array<Column<InvoiceRow>> = [
 ];
 
 const meta = {
-  title: 'Table & List/Table',
+  title: 'Post-MVP/Table & List/Table',
   component: Table,
   parameters: {
     layout: 'padded',

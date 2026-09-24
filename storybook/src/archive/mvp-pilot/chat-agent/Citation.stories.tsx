@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Citation } from './Citation';
 
 const meta = {
-  title: 'MVP Pilot/Chat & Agent/Citation',
+  title: 'MVP/Chat & Agent/Citation',
   tags: ['archived','mvp-pilot'],
   component: Citation,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A pointer from a claim to the record it came from — an invoice line, a PO, a vendor agreement. Every number the agent states about money carries one. The preview is never the only path to the record.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A pointer from a claim to the record it came from — an invoice line, a PO, a vendor agreement. Every number the agent states about money carries one. The preview is never the only path to the record.',
       },
     },
   },

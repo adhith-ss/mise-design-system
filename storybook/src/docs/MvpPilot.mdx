@@ -1,26 +1,26 @@
 import { Meta } from '@storybook/blocks';
 
-<Meta title="MVP Pilot/Overview" />
+<Meta title="MVP/Overview" />
 
-# MVP Pilot archive (0.1.0)
+# MVP · Pilot archive (0.1.0)
 
-The **MVP Pilot** section is a frozen copy of the Mise DLS **0.1.0** component set, taken from the `mvp-pilot-0.1.0` git tag. It exists so designers and engineers can compare the pilot baseline against the 0.2.0-rc.1 refresh without checking out an older branch.
+The **MVP** section is a frozen copy of the Mise DLS **0.1.0** component set (tag `mvp-pilot-0.1.0`). Use it to compare the pilot baseline against **Post-MVP** — not for new work.
 
 ## What was archived
 
 - Every component and story under `storybook/src/components` at tag `mvp-pilot-0.1.0`
 - Copied to `storybook/src/archive/mvp-pilot/`, keeping category folders
-- Story titles are prefixed with `MVP Pilot/`
+- Story titles are prefixed with `MVP/`
 - Stories carry tags `archived` and `mvp-pilot`
 
 ## Release gating
 
-Archived stories are **not** part of the 0.2.0-rc.1 release gate. `scripts/audit-rendered.mjs` skips any story tagged `archived` and reports them separately as `archived (not gated)`.
+Archived stories are **not** part of the 0.2.0-rc.1 release gate. `scripts/audit-rendered.mjs` skips any story tagged `archived`.
 
-Use the live **Action**, **Content**, **Data Input**, and other top-level categories for current work. Use **MVP Pilot** for reference only.
+Use **Post-MVP** for current work. Use **MVP** for reference only.
 
 ## Banner
 
-Every archived story documents:
+Every archived story shows:
 
-> Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.
+> Archived · MVP (0.1.0). Reference only. Use Post-MVP components.

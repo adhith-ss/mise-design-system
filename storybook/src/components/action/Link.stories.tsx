@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Link } from './Link';
 
 const meta = {
-  title: 'Action/Link',
+  title: 'Post-MVP/Action/Link',
   component: Link,
   parameters: {
     docs: {

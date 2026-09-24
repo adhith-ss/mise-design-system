@@ -5,16 +5,16 @@ import { Badge } from '../feedback/Badge';
 const vendors = ['Harbor Produce', 'Valley Greens', 'Northside Meats', 'Coastal Fish', 'Baker & Co.', 'Union Dairy'];
 
 const meta = {
-  title: 'MVP Pilot/Table & List/Overflow List',
+  title: 'MVP/Table & List/Overflow List',
   tags: ['archived','mvp-pilot'],
   component: OverflowList,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A row of items that will not always fit — vendors on an order, tags on an item. The overflow is counted rather than silently clipped, because "and 3 others" changes how the operator reads the row.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A row of items that will not always fit — vendors on an order, tags on an item. The overflow is counted rather than silently clipped, because "and 3 others" changes how the operator reads the row.',
       },
     },
   },

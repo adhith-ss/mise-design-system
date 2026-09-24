@@ -11,16 +11,16 @@ const vendors = [
 ];
 
 const meta = {
-  title: 'MVP Pilot/Data Input/Selector',
+  title: 'MVP/Data Input/Selector',
   tags: ['archived','mvp-pilot'],
   component: Selector,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. One choice from a known, short list. A native select, so it inherits the platform picker on touch devices. Past about fifteen options, use Typeahead instead.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. One choice from a known, short list. A native select, so it inherits the platform picker on touch devices. Past about fifteen options, use Typeahead instead.',
       },
     },
   },

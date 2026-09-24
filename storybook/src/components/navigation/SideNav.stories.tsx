@@ -7,7 +7,7 @@ import {
 } from '@mise/icons/basil';
 
 const meta = {
-  title: 'Navigation/Side Nav',
+  title: 'Post-MVP/Navigation/Side Nav',
   component: SideNav,
   parameters: {
     layout: 'fullscreen',

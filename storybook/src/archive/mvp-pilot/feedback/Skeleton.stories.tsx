@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Skeleton } from './Skeleton';
 
 const meta = {
-  title: 'MVP Pilot/Feedback & Status/Skeleton',
+  title: 'MVP/Feedback & Status/Skeleton',
   tags: ['archived','mvp-pilot'],
   component: Skeleton,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. The shape of content that is about to arrive. It must match the real layout, or the page jumps when data lands — which is worse than a blank space. Hidden from assistive tech; the container carries aria-busy instead.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. The shape of content that is about to arrive. It must match the real layout, or the page jumps when data lands — which is worse than a blank space. Hidden from assistive tech; the container carries aria-busy instead.',
       },
     },
   },

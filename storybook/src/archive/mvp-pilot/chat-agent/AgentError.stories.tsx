@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AgentError } from './AgentError';
 
 const meta = {
-  title: 'MVP Pilot/Chat & Agent/Agent Error',
+  title: 'MVP/Chat & Agent/Agent Error',
   tags: ['archived','mvp-pilot'],
   component: AgentError,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. When the agent cannot finish. It says what stopped, what it did complete, and what the operator can do — including doing it by hand. No provider names, status codes, or stack traces, and never an auto-retry on a write.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. When the agent cannot finish. It says what stopped, what it did complete, and what the operator can do — including doing it by hand. No provider names, status codes, or stack traces, and never an auto-retry on a write.',
       },
     },
   },

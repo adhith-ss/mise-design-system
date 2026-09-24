@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AgentStatus } from './AgentStatus';
 
 const meta = {
-  title: 'MVP Pilot/Chat & Agent/Agent Status',
+  title: 'MVP/Chat & Agent/Agent Status',
   tags: ['archived','mvp-pilot'],
   component: AgentStatus,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. What the agent is doing right now, in the operator\'s words. Named steps replace indeterminate spinners for any task over two seconds, and every step can be interrupted. Step changes are announced politely, at most once every two seconds.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. What the agent is doing right now, in the operator\'s words. Named steps replace indeterminate spinners for any task over two seconds, and every step can be interrupted. Step changes are announced politely, at most once every two seconds.',
       },
     },
   },

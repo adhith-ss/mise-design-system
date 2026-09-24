@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Divider } from './Divider';
 
 const meta = {
-  title: 'MVP Pilot/Content/Divider',
+  title: 'MVP/Content/Divider',
   tags: ['archived','mvp-pilot'],
   component: Divider,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A rule between groups of content. Decorative and hidden from assistive tech unless it carries a label, in which case the label does the dividing and the lines are the decoration. Soft weight inside a card, default between sections.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A rule between groups of content. Decorative and hidden from assistive tech unless it carries a label, in which case the label does the dividing and the lines are the decoration. Soft weight inside a card, default between sections.',
       },
     },
   },

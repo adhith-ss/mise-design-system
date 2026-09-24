@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Blockquote } from './Blockquote';
 
 const meta = {
-  title: 'MVP Pilot/Content/Blockquote',
+  title: 'MVP/Content/Blockquote',
   tags: ['archived','mvp-pilot'],
   component: Blockquote,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Quoted material from outside the product — a vendor\'s reply, a clause from an agreement. A real <figure>/<blockquote>/<cite>, so the quotation and its source stay associated when read aloud. Never used for emphasis.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Quoted material from outside the product — a vendor\'s reply, a clause from an agreement. A real <figure>/<blockquote>/<cite>, so the quotation and its source stay associated when read aloud. Never used for emphasis.',
       },
     },
   },

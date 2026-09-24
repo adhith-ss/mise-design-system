@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Spinner } from './Spinner';
 
 const meta = {
-  title: 'Feedback & Status/Spinner',
+  title: 'Post-MVP/Feedback & Status/Spinner',
   component: Spinner,
   parameters: {
     docs: {

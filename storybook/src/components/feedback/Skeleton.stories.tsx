@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Skeleton } from './Skeleton';
 
 const meta = {
-  title: 'Feedback & Status/Skeleton',
+  title: 'Post-MVP/Feedback & Status/Skeleton',
   component: Skeleton,
   parameters: {
     layout: 'padded',

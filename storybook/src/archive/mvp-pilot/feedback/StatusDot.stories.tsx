@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { StatusDot } from './StatusDot';
 
 const meta = {
-  title: 'MVP Pilot/Feedback & Status/Status Dot',
+  title: 'MVP/Feedback & Status/Status Dot',
   tags: ['archived','mvp-pilot'],
   component: StatusDot,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A live condition: a connection, a shift, an agent run. Distinct from a Badge, which describes a record\'s stored state. The label is required — a bare coloured dot is meaningless to anyone who cannot see it or cannot tell the colours apart.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A live condition: a connection, a shift, an agent run. Distinct from a Badge, which describes a record\'s stored state. The label is required — a bare coloured dot is meaningless to anyone who cannot see it or cannot tell the colours apart.',
       },
     },
   },

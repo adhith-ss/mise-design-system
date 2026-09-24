@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SegmentedControl } from './SegmentedControl';
 
 const meta = {
-  title: 'Action/Segmented Control',
+  title: 'Post-MVP/Action/Segmented Control',
   component: SegmentedControl,
   parameters: {
     docs: {

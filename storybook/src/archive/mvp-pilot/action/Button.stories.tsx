@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 
 const meta = {
-  title: 'MVP Pilot/Action/Button',
+  title: 'MVP/Action/Button',
   tags: ['archived','mvp-pilot'],
   component: Button,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          "Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A labelled control that performs an action. The label names the action in the operator's words — \"Send order\", not \"Submit\". One primary per view.",
+          "Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A labelled control that performs an action. The label names the action in the operator's words — \"Send order\", not \"Submit\". One primary per view.",
       },
     },
   },

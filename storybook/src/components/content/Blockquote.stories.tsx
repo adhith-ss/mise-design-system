@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Blockquote } from './Blockquote';
 
 const meta = {
-  title: 'Content/Blockquote',
+  title: 'Post-MVP/Content/Blockquote',
   component: Blockquote,
   parameters: {
     layout: 'padded',

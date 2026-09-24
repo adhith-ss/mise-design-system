@@ -3,7 +3,7 @@ import { MetricCard } from './MetricCard';
 import { patternViewports } from './_shared';
 
 const meta = {
-  title: 'Patterns/MetricCard',
+  title: 'Post-MVP/Patterns/MetricCard',
   component: MetricCard,
   parameters: {
     layout: 'padded',

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { StatusDot } from './StatusDot';
 
 const meta = {
-  title: 'Feedback & Status/Status Dot',
+  title: 'Post-MVP/Feedback & Status/Status Dot',
   component: StatusDot,
   parameters: {
     docs: {

@@ -19,16 +19,16 @@ const ResultTable = () => (
 );
 
 const meta = {
-  title: 'MVP Pilot/Chat & Agent/Tool-call Card',
+  title: 'MVP/Chat & Agent/Tool-call Card',
   tags: ['archived','mvp-pilot'],
   component: ToolCallCard,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A record of one thing the agent did to the system: a query, a lookup, a draft. Collapsed it states the action and its result in one line; expanded it shows the arguments and the returned rows. Never hide a write behind a collapsed card.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A record of one thing the agent did to the system: a query, a lookup, a draft. Collapsed it states the action and its result in one line; expanded it shows the arguments and the returned rows. Never hide a write behind a collapsed card.',
       },
     },
   },

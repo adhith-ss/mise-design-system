@@ -3,16 +3,16 @@ import { EmptyState } from './EmptyState';
 import { Button } from '../action/Button';
 
 const meta = {
-  title: 'MVP Pilot/Feedback & Status/Empty State',
+  title: 'MVP/Feedback & Status/Empty State',
   tags: ['archived','mvp-pilot'],
   component: EmptyState,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A view with nothing in it. Every empty state says which of four reasons it is: never used, nothing matched, nothing left to do, or something broke. "No data" is never enough — the operator needs to know whether that is good news.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A view with nothing in it. Every empty state says which of four reasons it is: never used, nothing matched, nothing left to do, or something broke. "No data" is never enough — the operator needs to know whether that is good news.',
       },
     },
   },

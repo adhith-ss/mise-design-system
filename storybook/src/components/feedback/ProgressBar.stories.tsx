@@ -4,7 +4,7 @@ import { Icon } from '../content/Icon';
 import { CheckCircle2, AlertTriangle } from '@mise/icons/basil';
 
 const meta = {
-  title: 'Feedback & Status/Progress Bar',
+  title: 'Post-MVP/Feedback & Status/Progress Bar',
   component: ProgressBar,
   parameters: {
     layout: 'padded',

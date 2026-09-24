@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Token } from './Token';
 
 const meta = {
-  title: 'MVP Pilot/Content/Token',
+  title: 'MVP/Content/Token',
   tags: ['archived','mvp-pilot'],
   component: Token,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. An inline reference to a record — a PO number, an SKU, a filter value. Distinct from Badge, which describes a state rather than naming a thing. Always Roboto Mono Light, because a token is a value.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. An inline reference to a record — a PO number, an SKU, a filter value. Distinct from Badge, which describes a state rather than naming a thing. Always Roboto Mono Light, because a token is a value.',
       },
     },
   },

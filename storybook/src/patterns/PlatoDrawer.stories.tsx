@@ -3,7 +3,7 @@ import { PlatoDrawer } from './PlatoDrawer';
 import { patternViewports } from './_shared';
 
 const meta = {
-  title: 'Patterns/PlatoDrawer',
+  title: 'Post-MVP/Patterns/PlatoDrawer',
   component: PlatoDrawer,
   parameters: {
     layout: 'padded',

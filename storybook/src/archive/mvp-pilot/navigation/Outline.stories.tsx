@@ -5,16 +5,16 @@ import { Icon } from '../content/Icon';
 import { FileText, Truck, CreditCard, Tag, Phone } from 'lucide-react';
 
 const meta = {
-  title: 'MVP Pilot/Navigation/Outline',
+  title: 'MVP/Navigation/Outline',
   tags: ['archived','mvp-pilot'],
   component: Outline,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. In-page navigation for a long document — a vendor agreement, a policy, this documentation. Two levels only: a third level of nesting means the document needs splitting, not a deeper outline.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. In-page navigation for a long document — a vendor agreement, a policy, this documentation. Two levels only: a third level of nesting means the document needs splitting, not a deeper outline.',
       },
     },
   },

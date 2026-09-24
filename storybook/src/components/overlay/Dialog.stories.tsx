@@ -6,7 +6,7 @@ import { Field } from '../data-input/Field';
 import { NumberInput } from '../data-input/NumberInput';
 
 const meta = {
-  title: 'Overlay/Dialog',
+  title: 'Post-MVP/Overlay/Dialog',
   component: Dialog,
   parameters: {
     layout: 'fullscreen',

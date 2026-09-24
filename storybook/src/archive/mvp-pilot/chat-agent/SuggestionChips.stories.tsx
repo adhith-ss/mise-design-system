@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SuggestionChips } from './SuggestionChips';
 
 const meta = {
-  title: 'MVP Pilot/Chat & Agent/Suggestion Chip',
+  title: 'MVP/Chat & Agent/Suggestion Chip',
   tags: ['archived','mvp-pilot'],
   component: SuggestionChips,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Two to four next moves offered after a turn, phrased as the operator would say them. A chip may draft but never commits — anything that spends money routes to Inline Approval. Chips are announced as a group after the answer, and disappear once the operator types.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Two to four next moves offered after a turn, phrased as the operator would say them. A chip may draft but never commits — anything that spends money routes to Inline Approval. Chips are announced as a group after the answer, and disappear once the operator types.',
       },
     },
   },

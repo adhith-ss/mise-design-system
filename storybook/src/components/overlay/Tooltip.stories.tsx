@@ -5,7 +5,7 @@ import { IconButton } from '../action/IconButton';
 const Glyph = () => <span aria-hidden="true" className="h-[14px] w-[14px] rounded-sm bg-current" />;
 
 const meta = {
-  title: 'Overlay/Tooltip',
+  title: 'Post-MVP/Overlay/Tooltip',
   component: Tooltip,
   parameters: {
     layout: 'centered',

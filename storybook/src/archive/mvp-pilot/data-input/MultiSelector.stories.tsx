@@ -13,16 +13,16 @@ const categories = [
 ];
 
 const meta = {
-  title: 'MVP Pilot/Data Input/Multi Selector',
+  title: 'MVP/Data Input/Multi Selector',
   tags: ['archived','mvp-pilot'],
   component: MultiSelector,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Several choices from one list, shown back as removable chips so the operator can see the whole selection without opening the menu. Past four chips it collapses to "+n more" rather than growing the control.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Several choices from one list, shown back as removable chips so the operator can see the whole selection without opening the menu. Past four chips it collapses to "+n more" rather than growing the control.',
       },
     },
   },

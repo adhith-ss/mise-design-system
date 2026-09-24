@@ -3,7 +3,7 @@ import { Banner } from './Banner';
 import { Button } from '../action/Button';
 
 const meta = {
-  title: 'Feedback & Status/Banner',
+  title: 'Post-MVP/Feedback & Status/Banner',
   component: Banner,
   parameters: {
     layout: 'padded',

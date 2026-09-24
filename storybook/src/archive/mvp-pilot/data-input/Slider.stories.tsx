@@ -4,16 +4,16 @@ import { Slider } from './Slider';
 import { Field } from './Field';
 
 const meta = {
-  title: 'MVP Pilot/Data Input/Slider',
+  title: 'MVP/Data Input/Slider',
   tags: ['archived','mvp-pilot'],
   component: Slider,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. An approximate value where the direction matters more than the digit — a par-level threshold, a variance tolerance. The live value sits beside the track in Roboto Mono Light. Anything the operator must type exactly is a Number Input.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. An approximate value where the direction matters more than the digit — a par-level threshold, a variance tolerance. The live value sits beside the track in Roboto Mono Light. Anything the operator must type exactly is a Number Input.',
       },
     },
   },

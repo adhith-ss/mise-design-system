@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MoreMenu } from './MoreMenu';
 
 const meta = {
-  title: 'Action/More Menu',
+  title: 'Post-MVP/Action/More Menu',
   component: MoreMenu,
   parameters: {
     layout: 'padded',

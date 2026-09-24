@@ -19,7 +19,7 @@ const ResultTable = () => (
 );
 
 const meta = {
-  title: 'Chat & Agent/Tool-call Card',
+  title: 'Post-MVP/Chat & Agent/Tool-call Card',
   component: ToolCallCard,
   parameters: {
     layout: 'padded',

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 
 const meta = {
-  title: 'Action/Button',
+  title: 'Post-MVP/Action/Button',
   component: Button,
   parameters: {
     docs: {

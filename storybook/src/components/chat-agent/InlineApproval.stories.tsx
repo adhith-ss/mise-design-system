@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { InlineApproval } from './InlineApproval';
 
 const meta = {
-  title: 'Chat & Agent/Inline Approval',
+  title: 'Post-MVP/Chat & Agent/Inline Approval',
   component: InlineApproval,
   parameters: {
     layout: 'padded',

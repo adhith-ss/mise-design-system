@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Thumbnail } from './Thumbnail';
 
 const meta = {
-  title: 'Content/Thumbnail',
+  title: 'Post-MVP/Content/Thumbnail',
   component: Thumbnail,
   parameters: {
     docs: {

@@ -3,17 +3,17 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Composer } from './Composer';
 
 const meta = {
-  title: 'MVP Pilot/Chat & Agent/Composer',
+  title: 'MVP/Chat & Agent/Composer',
   tags: ['archived','mvp-pilot'],
   component: Composer,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     backgrounds: { default: 'sunken' },
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. Where the operator writes. It grows to six lines, accepts invoice photos, and shows the scope the agent is working in so an instruction is never applied to the wrong location. Enter sends, Shift+Enter breaks the line, Escape returns focus to the transcript.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. Where the operator writes. It grows to six lines, accepts invoice photos, and shows the scope the agent is working in so an instruction is never applied to the wrong location. Enter sends, Shift+Enter breaks the line, Escape returns focus to the transcript.',
       },
     },
   },

@@ -3,7 +3,7 @@ import { Check, TriangleAlert, ChevronDown, Search, Settings, Sparkles } from '@
 import { Icon } from './Icon';
 
 const meta = {
-  title: 'Content/Icon',
+  title: 'Post-MVP/Content/Icon',
   component: Icon,
   parameters: {
     docs: {

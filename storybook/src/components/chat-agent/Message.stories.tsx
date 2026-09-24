@@ -3,7 +3,7 @@ import { Message } from './Message';
 import { Citation } from './Citation';
 
 const meta = {
-  title: 'Chat & Agent/Message',
+  title: 'Post-MVP/Chat & Agent/Message',
   component: Message,
   parameters: {
     layout: 'padded',

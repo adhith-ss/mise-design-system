@@ -7,16 +7,16 @@ import {
 } from 'lucide-react';
 
 const meta = {
-  title: 'MVP Pilot/Navigation/Side Nav',
+  title: 'MVP/Navigation/Side Nav',
   tags: ['archived','mvp-pilot'],
   component: SideNav,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'fullscreen',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. The persistent left rail: where the operator is, and everything one click away. Groups are labelled only when the rail holds more than about seven items. Counts are right-aligned and quiet — they inform, they do not nag.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. The persistent left rail: where the operator is, and everything one click away. Groups are labelled only when the rail holds more than about seven items. Counts are right-aligned and quiet — they inform, they do not nag.',
       },
     },
   },

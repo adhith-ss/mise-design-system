@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AlertDialog } from './AlertDialog';
 
 const meta = {
-  title: 'Overlay/Alert Dialog',
+  title: 'Post-MVP/Overlay/Alert Dialog',
   component: AlertDialog,
   parameters: {
     layout: 'fullscreen',

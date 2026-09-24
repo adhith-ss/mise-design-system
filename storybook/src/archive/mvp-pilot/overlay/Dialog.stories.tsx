@@ -6,16 +6,16 @@ import { Field } from '../data-input/Field';
 import { NumberInput } from '../data-input/NumberInput';
 
 const meta = {
-  title: 'MVP Pilot/Overlay/Dialog',
+  title: 'MVP/Overlay/Dialog',
   tags: ['archived','mvp-pilot'],
   component: Dialog,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'fullscreen',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A focused task that must finish or be abandoned — editing an order line, drafting a credit request. Anything longer than a screenful belongs on a page. Focus moves to the first control on open and returns to the trigger on close.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A focused task that must finish or be abandoned — editing an order line, drafting a credit request. Anything longer than a screenful belongs on a page. Focus moves to the first control on open and returns to the trigger on close.',
       },
     },
   },

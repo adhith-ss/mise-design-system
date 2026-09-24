@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MoreMenu } from './MoreMenu';
 
 const meta = {
-  title: 'MVP Pilot/Action/More Menu',
+  title: 'MVP/Action/More Menu',
   tags: ['archived','mvp-pilot'],
   component: MoreMenu,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A Dropdown Menu behind an icon trigger, for secondary actions on a row or card. Never the only place an action exists — the accessible label always names the row it belongs to, so a screen-reader user knows which record they are acting on.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A Dropdown Menu behind an icon trigger, for secondary actions on a row or card. Never the only place an action exists — the accessible label always names the row it belongs to, so a screen-reader user knows which record they are acting on.',
       },
     },
   },

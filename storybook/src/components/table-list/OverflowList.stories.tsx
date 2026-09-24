@@ -5,7 +5,7 @@ import { Badge } from '../feedback/Badge';
 const vendors = ['Harbor Produce', 'Valley Greens', 'Northside Meats', 'Coastal Fish', 'Baker & Co.', 'Union Dairy'];
 
 const meta = {
-  title: 'Table & List/Overflow List',
+  title: 'Post-MVP/Table & List/Overflow List',
   component: OverflowList,
   parameters: {
     layout: 'padded',

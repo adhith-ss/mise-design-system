@@ -25,16 +25,16 @@ const nodes = [
 ];
 
 const meta = {
-  title: 'MVP Pilot/Table & List/Tree List',
+  title: 'MVP/Table & List/Tree List',
   tags: ['archived','mvp-pilot'],
   component: TreeList,
   parameters: {
-    docsBanner: 'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components.',
+    docsBanner: 'Archived · MVP (0.1.0). Reference only. Use Post-MVP components.',
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Archived · MVP Pilot (0.1.0). Reference only. Use 0.2.0 components. A hierarchy two or three levels deep — categories to vendors, locations to kitchens. Deeper than three levels and the operator loses the thread; that structure wants a Table with a group column instead.',
+          'Archived · MVP (0.1.0). Reference only. Use Post-MVP components. A hierarchy two or three levels deep — categories to vendors, locations to kitchens. Deeper than three levels and the operator loses the thread; that structure wants a Table with a group column instead.',
       },
     },
   },

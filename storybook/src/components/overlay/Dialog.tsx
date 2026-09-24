@@ -77,9 +77,9 @@ export function Dialog({
               type="button"
               aria-label="Close"
               onClick={() => onOpenChange(false)}
-              className="shrink-0 text-ink-500 transition-colors duration-fast ease-mise hover:text-ink-900"
+              className="inline-flex h-7 w-7 shrink-0 items-center justify-center text-ink-500 transition-colors duration-fast ease-mise hover:text-ink-900"
             >
-              <X size={18} strokeWidth={1.5} />
+              <X size={22} strokeWidth={1.5} />
             </button>
           )}
         </div>

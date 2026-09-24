@@ -9,7 +9,7 @@ const options = [
 ];
 
 const meta = {
-  title: 'Action/Toggle Button Group',
+  title: 'Post-MVP/Action/Toggle Button Group',
   component: ToggleButtonGroup,
   parameters: {
     docs: {
