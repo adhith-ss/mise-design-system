@@ -31,7 +31,7 @@ export function SourcesStatus({
 
   if (state === 'empty') {
     return (
-      <Card className="max-w-[480px]" title="Data sources" subtitle="This session">
+      <Card className="max-w-[480px]" title="Data sources" subtitle="Current session">
         <p className="m-0 text-[13px] text-ink-700">
           No source checks yet. Open Data to review connections.
         </p>

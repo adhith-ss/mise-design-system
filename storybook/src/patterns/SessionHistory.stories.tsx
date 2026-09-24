@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Session activity list for decisions, scenarios, imports and weekly snapshots. Always labelled “This session” — no persistence claim.',
+          'Session activity list for decisions, scenarios, imports and weekly snapshots. Always labelled “Current session” — no persistence claim.',
       },
     },
   },

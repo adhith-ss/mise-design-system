@@ -55,7 +55,7 @@ export function Stepper({ steps, orientation = 'horizontal', onStepClick }: Step
               s.status === 'error' && 'border-danger bg-danger text-white',
             )}
           >
-            {s.status === 'done' ? <Check size={12} strokeWidth={2.5} /> : s.status === 'error' ? '!' : i + 1}
+            {s.status === 'error' ? '!' : i + 1}
           </span>
         );
         const text = (
@@ -63,14 +63,23 @@ export function Stepper({ steps, orientation = 'horizontal', onStepClick }: Step
             <span
               onClick={clickable ? () => onStepClick?.(i) : undefined}
               className={cx(
-                'text-[13.5px]',
+                'inline-flex items-center gap-1.5 text-[13.5px]',
                 s.status === 'current' ? 'font-bold text-ink-900' : 'font-medium',
                 s.status === 'upcoming' && 'text-ink-400',
+                s.status === 'done' && 'text-ink-900',
                 s.status === 'error' && 'text-danger',
                 clickable && 'cursor-pointer hover:text-brand-600',
               )}
             >
               {s.label}
+              {s.status === 'done' ? (
+                <Check
+                  size={14}
+                  strokeWidth={2.5}
+                  className="shrink-0 text-brand-600"
+                  aria-hidden="true"
+                />
+              ) : null}
             </span>
             {s.detail && <span className="text-[13px] leading-[1.5] text-ink-500">{s.detail}</span>}
           </span>

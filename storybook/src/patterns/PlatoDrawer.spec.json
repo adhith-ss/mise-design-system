@@ -7,7 +7,7 @@
   "copy": {
     "title": "Plato",
     "subtitle": "{page} · Preparation partner",
-    "liveChat": "Live chat not connected",
+    "askLabel": "What would you like to check?",
     "welcomeStrong": "Hi, I’m Plato.",
     "welcomePrompt": "What would you like to check?",
     "onThisPage": "On this page",

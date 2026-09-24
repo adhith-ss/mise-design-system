@@ -314,7 +314,7 @@ export function ForecastScenario({
       <Dialog
         open={saving}
         onOpenChange={setSaving}
-        title="Why save this scenario?"
+        title="Provide reason for change"
         description="Keep the reason with your assumptions and results."
         size="sm"
         footer={

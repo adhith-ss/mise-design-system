@@ -57,7 +57,7 @@ const demoEntries: HistoryEntry[] = [
 ];
 
 /**
- * Session activity list. Badge always says “This session” — no persistence claim.
+ * Session activity list. Badge always says “Current session” — no persistence claim.
  */
 export function SessionHistory({
   entries = demoEntries,
@@ -81,9 +81,9 @@ export function SessionHistory({
   );
 
   const iconFor = (k: HistoryEntry['kind']) => {
-    if (k === 'Import') return <Upload size={17} strokeWidth={1.5} />;
-    if (k === 'Scenario') return <Wrench size={17} strokeWidth={1.5} />;
-    return <Check size={17} strokeWidth={1.5} />;
+    if (k === 'Import') return <Upload size={18} strokeWidth={1.5} />;
+    if (k === 'Scenario') return <Wrench size={18} strokeWidth={1.5} />;
+    return <Check size={18} strokeWidth={1.5} />;
   };
 
   return (
@@ -113,7 +113,7 @@ export function SessionHistory({
           </Field>
         </div>
         <span className="pb-2 text-[13px] text-ink-500">
-          {filtered.length} {filtered.length === 1 ? 'event' : 'events'} · This session
+          {filtered.length} {filtered.length === 1 ? 'event' : 'events'} · Current session
         </span>
       </div>
 
@@ -168,7 +168,7 @@ export function SessionHistory({
                   </span>
                   <h3 className="m-0 mt-1 text-[14px] font-bold">{a.title}</h3>
                 </div>
-                <Badge size="sm">This session</Badge>
+                <Badge size="sm">Current session</Badge>
               </summary>
               <div className="border-t border-line-soft px-4 py-3 text-[13px] leading-[1.55] text-ink-700">
                 <p className="m-0">{a.detail || 'Recorded for this session. No live changes.'}</p>

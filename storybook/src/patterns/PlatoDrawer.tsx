@@ -149,7 +149,9 @@ export function PlatoDrawer({
       </header>
 
       <div className="flex flex-1 flex-col gap-4 px-4 py-4">
-        <Badge>Live chat not connected</Badge>
+        {!welcome && (
+          <p className="m-0 text-[16px] font-semibold text-ink-900">What would you like to check?</p>
+        )}
 
         {welcome && (
           <div

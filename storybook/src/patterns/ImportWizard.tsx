@@ -85,7 +85,7 @@ export function ImportWizard({
     <div className="flex w-full max-w-[640px] flex-col gap-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <Badge>Session imports</Badge>
-        <Badge tone="neutral">Not connected</Badge>
+        <Badge tone="neutral">Not connected - POS</Badge>
       </div>
 
       <Card
@@ -102,7 +102,7 @@ export function ImportWizard({
               {error ? 'Check your file' : fileName ? 'Add another file.' : 'Add your first data.'}
             </h3>
             <p className="m-0 text-[13px] text-ink-700">
-              Start with a CSV. Map the columns next.
+              A CSV file can help in mapping columns and check rows
             </p>
             <FileInput
               accept=".csv,text/csv"
@@ -141,7 +141,7 @@ export function ImportWizard({
                 setStep('map');
               }}
             >
-              Use example CSV
+              Use CSV template
             </Button>
             <small className="text-[13px] text-ink-500">
               Files stay in this session. Live data is unchanged.

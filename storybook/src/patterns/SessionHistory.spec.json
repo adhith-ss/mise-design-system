@@ -6,8 +6,8 @@
   },
   "copy": {
     "searchPlaceholder": "Search activity",
-    "caption": "{n} events · This session",
-    "badge": "This session",
+    "caption": "{n} events · Current session",
+    "badge": "Current session",
     "emptyTitle": "Your decisions, with context",
     "emptyBody": "Plans, scenarios, imports and snapshots appear here.",
     "noMatch": "No matching activity",

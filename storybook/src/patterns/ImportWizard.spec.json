@@ -6,8 +6,11 @@
   },
   "copy": {
     "badge": "Session imports",
-    "notConnected": "Not connected",
+    "notConnected": "Not connected - POS",
     "steps": ["Choose file", "Map columns", "Check rows"],
+    "uploadHelp": "A CSV file can help in mapping columns and check rows",
+    "templateCta": "Use CSV template",
+    "stepComplete": "Check after title when step succeeds",
     "sessionNote": "Files stay in this session. Live data is unchanged.",
     "doneBody": "Mapping saved for this session. Live data is unchanged.",
     "notAppliedTitle": "Not applied to live data",
